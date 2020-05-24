@@ -1,6 +1,6 @@
-=== GD Quantum Theme Pro for bbPress ===
+=== GD Forum Manager for bbPress ===
 Contributors: GDragoN
-Version: 2.1.2
+Version: 1.0
 Requires at least: 4.9
 Tested up to: 5.3
 Requires PHP: 5.6
@@ -8,10 +8,10 @@ Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Responsive and modern theme to fully replace default bbPress theme templates and styles, with multiple colour schemes and Customizer integration for more control.
+Expand how the moderators can manage forum content, including quick edit options and bulk editing.
 
 == Description ==
-Responsive and modern theme to fully replace default bbPress theme templates and styles, with multiple colour schemes and Customizer integration for more control.
+Expand how the moderators can manage forum content, including quick edit options and bulk editing.
 
 == Installation ==
 = General Requirements =

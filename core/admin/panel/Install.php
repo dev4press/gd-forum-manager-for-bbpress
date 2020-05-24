@@ -1,8 +1,8 @@
 <?php
 
-namespace Dev4Press\Plugin\GDPOL\Admin\Panel;
+namespace Dev4Press\Plugin\GDFAR\Admin\Panel;
 
-use Dev4Press\Plugin\GDPOL\Admin\Panel;
+use Dev4Press\Plugin\GDFAR\Admin\Panel;
 
 if (!defined('ABSPATH')) {
     exit;

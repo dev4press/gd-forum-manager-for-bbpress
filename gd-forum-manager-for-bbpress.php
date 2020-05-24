@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: GD Forum Manager Pro for bbPress
+Plugin Name: GD Forum Manager for bbPress
 Plugin URI: https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
 Description: Expand how the moderators can manage forum content, including quick edit options and bulk editing.
 Version: 1.0
@@ -28,7 +28,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>
 */
 
 $gdfar_dirname_basic = dirname(__FILE__).'/';
-$gdfar_urlname_basic = plugins_url('/gd-forum-notices-for-bbpress/');
+$gdfar_urlname_basic = plugins_url('/gd-forum-manager-for-bbpress/');
 
 define('GDFAR_PATH', $gdfar_dirname_basic);
 define('GDFAR_URL', $gdfar_urlname_basic);

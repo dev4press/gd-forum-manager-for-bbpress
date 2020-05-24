@@ -9,5 +9,4 @@ if (!defined('ABSPATH')) {
 }
 
 class GetBack extends BaseGetBack {
-
 }

@@ -19,7 +19,7 @@ class Plugin extends Core {
     private $_bbpress = null;
 
     public function __construct() {
-        $this->url = GDFON_URL;
+        $this->url = GDFAR_URL;
 
         $this->_datetime = new DateTime();
 

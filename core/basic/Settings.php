@@ -14,7 +14,7 @@ class Settings extends BaseSettings {
     public $settings = array(
         'core' => array(
             'activated' => 0,
-            'notice_gdfon_hide' => true,
+            'notice_gdfon_hide' => false,
             'notice_gdpol_hide' => false,
             'notice_gdtox_hide' => false,
             'notice_gdbbx_hide' => false,
@@ -22,7 +22,9 @@ class Settings extends BaseSettings {
             'notice_gdqnt_hide' => false,
             'notice_gdmed_hide' => false
         ),
-        'settings' => array()
+        'settings' => array(
+            'moderators' => true
+        )
     );
 
     protected function constructor() {

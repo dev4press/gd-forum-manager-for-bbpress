@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 
 class Plugin extends BasePlugin {
     public $plugin = 'gd-forum-manager-for-bbpress';
-    public $plugin_prefix = 'gdfon';
+    public $plugin_prefix = 'gdfar';
     public $plugin_menu = 'GD Forum Manager';
     public $plugin_title = 'GD Forum Manager for bbPress';
 
@@ -72,6 +72,6 @@ class Plugin extends BasePlugin {
     }
 
     public function settings_definitions() {
-        // TODO: Implement settings_definitions() method.
+        return null;
     }
 }
