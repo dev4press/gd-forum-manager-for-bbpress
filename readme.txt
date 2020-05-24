@@ -8,10 +8,10 @@ Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Expand how the moderators can manage forum content, including quick edit options and bulk editing.
+Expand how the moderators can manage forum content from the frontend, including quick edit for each topic and bulk topic editing from any page showing list of topics.
 
 == Description ==
-Expand how the moderators can manage forum content, including quick edit options and bulk editing.
+Expand how the moderators can manage forum content from the frontend, including quick edit for each topic and bulk topic editing from any page showing list of topics.
 
 == Installation ==
 = General Requirements =

@@ -40,10 +40,6 @@ class Plugin extends BasePlugin {
                 'title' => __("Getting Started", "gd-forum-manager-for-bbpress"),
                 'icon' => 'ui-home',
                 'class' => '\\Dev4Press\\Plugin\\GDFAR\\Admin\\Panel\\Dashboard'),
-            'settings' => array(
-                'title' => __("Settings", "gd-forum-manager-for-bbpress"),
-                'icon' => 'ui-gears',
-                'class' => '\\Dev4Press\\Plugin\\GDFAR\\Admin\\Panel\\Settings'),
             'about' => array(
                 'title' => __("About", "gd-forum-manager-for-bbpress"),
                 'icon' => 'ui-info',
