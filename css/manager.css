@@ -1,1 +1,18 @@
-
+.bbp-topic-title .gdfar-ctrl-wrapper {
+  float: right;
+  text-align: center;
+}
+.bbp-topic-title .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox {
+  visibility: hidden;
+}
+.bbp-topic-title .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox.gdfar-is-on {
+  visibility: visible;
+}
+.bbp-topic-title .gdfar-ctrl-wrapper .gdfar-ctrl-edit {
+  visibility: hidden;
+  display: block;
+}
+.bbp-topic-title:hover .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox,
+.bbp-topic-title:hover .gdfar-ctrl-wrapper .gdfar-ctrl-edit {
+  visibility: visible;
+}

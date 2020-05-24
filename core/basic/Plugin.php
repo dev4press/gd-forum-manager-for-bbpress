@@ -4,6 +4,7 @@ namespace Dev4Press\Plugin\GDFAR\Basic;
 
 use Dev4Press\Core\DateTime;
 use Dev4Press\Core\Plugins\Core;
+use Dev4Press\Core\Shared\Enqueue;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 
 if (!defined('ABSPATH')) {
@@ -17,6 +18,8 @@ class Plugin extends Core {
 
     private $_datetime;
     private $_bbpress = null;
+
+    public $theme_package = 'default';
 
     public function __construct() {
         $this->url = GDFAR_URL;
@@ -40,18 +43,77 @@ class Plugin extends Core {
             $this->_bbpress = new Integration();
         }
 
-        add_action('init', array($this, 'register_objects'), 2);
+        if (get_option('_bbp_theme_package_id') == 'quantum') {
+            $this->theme_package = 'quantum';
+        }
+
         add_action('init', array($this, 'plugin_init'), 20);
+
+        if (!is_admin()) {
+            Enqueue::init(GDFAR_URL.'d4plib/');
+
+            add_action('d4plib_shared_enqueue_prepare', array($this, 'register_css_and_js'));
+        }
+    }
+
+    public function register_css_and_js() {
+        Enqueue::i()->add_css('gdfar-micromodal', array(
+            'lib' => false,
+            'url' => GDFAR_URL.'css/',
+            'file' => 'micromodal',
+            'ver' => gdfar_settings()->file_version(),
+            'ext' => 'css',
+            'min' => true,
+            'int' => array()
+        ));
+
+        Enqueue::i()->add_css('gdfar-manager', array(
+            'lib' => false,
+            'url' => GDFAR_URL.'css/',
+            'file' => 'manager',
+            'ver' => gdfar_settings()->file_version(),
+            'ext' => 'css',
+            'min' => true,
+            'int' => array('gdfar-micromodal')
+        ));
+
+        Enqueue::i()->add_css('gdfar-manager-rtl', array(
+            'lib' => false,
+            'url' => GDFAR_URL.'css/',
+            'file' => 'manager-rtl',
+            'ver' => gdfar_settings()->file_version(),
+            'ext' => 'css',
+            'min' => true,
+            'int' => array('gdfar-manager')
+        ));
+
+        Enqueue::i()->add_js('gdfar-micromodal', array(
+            'lib' => false,
+            'url' => GDFAR_URL.'js/',
+            'file' => 'micromodal',
+            'ver' => gdfar_settings()->file_version(),
+            'ext' => 'js',
+            'min' => true,
+            'footer' => true,
+            'localize' => true,
+            'int' => array()
+        ));
+
+        Enqueue::i()->add_js('gdfar-manager', array(
+            'lib' => false,
+            'url' => GDFAR_URL.'js/',
+            'file' => 'manager',
+            'ver' => gdfar_settings()->file_version(),
+            'ext' => 'js',
+            'min' => true,
+            'footer' => true,
+            'localize' => true,
+            'int' => array('gdfar-micromodal')
+        ));
     }
 
     public function after_setup_theme() {
         do_action('gdfar_after_setup_theme');
-    }
-
-    public function register_objects() {
-        wp_register_style('gdfar-manager', $this->file('css', 'manager', true), array(), $this->s()->file_version());
-        wp_register_script('gdfar-micromodal', $this->file('js', 'micromodal', true), array(), $this->s()->file_version(), true);
-        wp_register_script('gdfar-manager', $this->file('js', 'manager', true), array('jquery', 'gdfar-micromodal'), $this->s()->file_version(), true);
     }
 
     public function plugin_init() {
@@ -61,5 +123,10 @@ class Plugin extends Core {
     /** @return \Dev4Press\Core\DateTime */
     public function datetime() {
         return $this->_datetime;
+    }
+
+    /** @return \Dev4Press\Plugin\GDFAR\bbPress\Integration */
+    public function bbpress() {
+        return $this->_bbpress;
     }
 }

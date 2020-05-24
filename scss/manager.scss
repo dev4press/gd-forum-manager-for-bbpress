@@ -1,0 +1,28 @@
+.bbp-topic-title {
+    .gdfar-ctrl-wrapper {
+        float: right;
+        text-align: center;
+
+        .gdfar-ctrl-checkbox {
+            visibility: hidden;
+
+            &.gdfar-is-on {
+                visibility: visible;
+            }
+        }
+
+        .gdfar-ctrl-edit {
+            visibility: hidden;
+            display: block;
+        }
+    }
+
+    &:hover {
+        .gdfar-ctrl-wrapper {
+            .gdfar-ctrl-checkbox,
+            .gdfar-ctrl-edit {
+                visibility: visible;
+            }
+        }
+    }
+}
