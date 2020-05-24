@@ -82,15 +82,25 @@
 
     .gdfar-modal__container {
         background-color: #fff;
-        padding: 30px;
-        max-width: 500px;
-        max-height: 100vh;
+        padding: 0;
+        width: 100%;
+        max-width: 640px;
+        max-height: 480px;
         border-radius: 4px;
         overflow-y: auto;
         box-sizing: border-box;
 
+        .gdfar-modal__footer {
+            padding: 15px;
+            background-color: #eee;
+            border-top: 1px solid #ddd;
+        }
+
         .gdfar-modal__header {
             display: flex;
+            padding: 15px;
+            background-color: #eee;
+            border-bottom: 1px solid #ddd;
             justify-content: space-between;
             align-items: center;
 
@@ -98,15 +108,16 @@
                 margin-top: 0;
                 margin-bottom: 0;
                 font-weight: 600;
-                font-size: 1.25rem;
-                line-height: 1.25;
-                color: #00449e;
+                font-size: 16px;
+                line-height: 1;
+                color: #111;
                 box-sizing: border-box;
             }
 
             .gdfar-modal__close {
                 background: transparent;
                 border: 0;
+                padding: 0;
 
                 &:before {
                     content: "\2715";
@@ -115,21 +126,17 @@
         }
 
         .gdfar-modal__content {
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+            padding: 15px;
             line-height: 1.5;
             color: rgba(0,0,0,.8);
         }
 
         .gdfar-modal__footer {
             .gdfar-modal__btn {
-                font-size: .875rem;
-                padding-left: 1rem;
-                padding-right: 1rem;
-                padding-top: .5rem;
-                padding-bottom: .5rem;
-                background-color: #e6e6e6;
-                color: rgba(0,0,0,.8);
+                font-size: 13px;
+                padding: 8px 24px;
+                background-color: #C4C4C4;
+                color: #000;
                 border-radius: .25rem;
                 border-style: none;
                 border-width: 0;
@@ -149,15 +156,13 @@
                 transition: transform .25s ease-out;
                 transition: transform .25s ease-out,-webkit-transform .25s ease-out;
 
-                &:focus,
-                &:hover {
-                    -webkit-transform: scale(1.05);
-                    transform: scale(1.05);
-                }
-
                 &.gdfar-modal__btn-primary {
                     background-color: #00449e;
                     color: #fff;
+                }
+
+                &:hover {
+
                 }
             }
         }

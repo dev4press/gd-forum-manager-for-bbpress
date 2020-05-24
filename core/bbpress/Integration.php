@@ -43,7 +43,7 @@ class Integration {
 
         echo '<div class="gdfar-ctrl-wrapper" data-topic="'.$topic_id.'">';
             echo '<input type="checkbox" class="gdfar-ctrl-checkbox" />';
-            echo '<a href="#" class="gdfar-ctrl-edit">'.__("edit").'</a>';
+            echo '<a href="#" class="gdfar-ctrl-edit">'.__("edit", "gd-forum-manager-for-bbpress").'</a>';
         echo '</div>';
 
         if (!$this->_queued) {

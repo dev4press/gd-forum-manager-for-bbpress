@@ -19,6 +19,16 @@
                     $(".gdfar-ctrl-checkbox").addClass("gdfar-is-on");
                 }
             });
+
+            $(document).on("click", ".gdfar-ctrl-wrapper .gdfar-ctrl-edit", function(e){
+                e.preventDefault();
+
+                MicroModal.show("gdfar-modal-edit", {
+                    onShow: function() {
+                        console.info("shown");
+                    }
+                });
+            });
         }
     };
 
