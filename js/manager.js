@@ -23,6 +23,8 @@
             $(document).on("click", ".gdfar-ctrl-wrapper .gdfar-ctrl-edit", function(e){
                 e.preventDefault();
 
+                $("#gdfar-modal-edit-content").html(gdfar_manager_data.message.please_wait);
+
                 MicroModal.show("gdfar-modal-edit", {
                     onShow: function() {
                         console.info("shown");

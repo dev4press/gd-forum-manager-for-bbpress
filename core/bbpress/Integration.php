@@ -32,7 +32,9 @@ class Integration {
         wp_enqueue_script('gdfar-manager');
 
         wp_localize_script('gdfar-manager', 'gdfar_manager_data', array(
-
+            'message' => array(
+                'please_wait' => __("Please Wait...")
+            )
         ));
 
         do_action('gdfar_plugin_enqueue_scripts');
