@@ -45,3 +45,7 @@ gdfar();
 if (D4P_ADMIN) {
     gdfar_admin();
 }
+
+if (D4P_AJAX) {
+    gdfar_ajax();
+}

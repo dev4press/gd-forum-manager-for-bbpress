@@ -46,7 +46,7 @@ class Plugin extends BasePlugin {
                 'class' => '\\Dev4Press\\Plugin\\GDFAR\\Admin\\Panel\\About')
         );
     }
-    
+
     public function svg_icon() {
         return gdfon()->svg_icon;
     }

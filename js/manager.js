@@ -6,29 +6,63 @@
     window.wp.gdfar = window.wp.gdfar || {};
 
     window.wp.gdfar.manager = {
-        storage: {
-            checked: 0
-        },
         init: function () {
-            $(document).on("change", ".gdfar-ctrl-wrapper .gdfar-ctrl-checkbox", function(e){
-                var checked = $(".gdfar-ctrl-checkbox:checked").length;
+            $(document).on("change", ".gdfar-ctrl-topic .gdfar-ctrl-checkbox", function(e){
+                var checked = $(".gdfar-ctrl-topic .gdfar-ctrl-checkbox:checked").length;
 
                 if (checked === 0) {
-                    $(".gdfar-ctrl-checkbox").removeClass("gdfar-is-on");
+                    $(".gdfar-ctrl-topic .gdfar-ctrl-checkbox").removeClass("gdfar-is-on");
                 } else {
-                    $(".gdfar-ctrl-checkbox").addClass("gdfar-is-on");
+                    $(".gdfar-ctrl-topic .gdfar-ctrl-checkbox").addClass("gdfar-is-on");
+                }
+            });
+
+            $(document).on("change", ".gdfar-ctrl-forum .gdfar-ctrl-checkbox", function(e){
+                var checked = $(".gdfar-ctrl-forum .gdfar-ctrl-checkbox:checked").length;
+
+                if (checked === 0) {
+                    $(".gdfar-ctrl-forum .gdfar-ctrl-checkbox").removeClass("gdfar-is-on");
+                } else {
+                    $(".gdfar-ctrl-forum .gdfar-ctrl-checkbox").addClass("gdfar-is-on");
+                }
+            });
+
+            $(document).on("click", "#gdfar-modal-edit-submit", function(e){
+                if ($("#gdfar-modal-edit").hasClass("is-open")) {
+                    $("#gdfar-manager-form-edit").ajaxSubmit({
+                        success: function(json) {
+                            // location.reload(false);
+                        },
+                        type: "post", dataType: "json",
+                        url: ajaxurl + "?action=gdfar_process_edit"
+                    });
                 }
             });
 
             $(document).on("click", ".gdfar-ctrl-wrapper .gdfar-ctrl-edit", function(e){
                 e.preventDefault();
 
-                $("#gdfar-modal-edit-content").html(gdfar_manager_data.message.please_wait);
+                var wrapper = $(this).closest(".gdfar-ctrl-wrapper"),
+                    type = wrapper.data("type"), id = wrapper.data("id");
+
+                $("#gdfar-modal-edit-content").html('<div class="gdfar-dialog-message">' + gdfar_manager_data.message.please_wait + '</div>');
+                $("#gdfar-modal-edit-title").html(gdfar_manager_data.titles.edit[type]);
 
                 MicroModal.show("gdfar-modal-edit", {
-                    onShow: function() {
-                        console.info("shown");
-                    }
+                    onShow: function() {}
+                });
+
+                $.ajax({
+                    success: function(html) {
+                        $("#gdfar-modal-edit-content").html(html);
+                    },
+                    type: "post", dataType: "html", data: {
+                        is: gdfar_manager_data.bbpress.is,
+                        forum: gdfar_manager_data.bbpress.forum_id,
+                        type: type,
+                        id: id
+                    },
+                    url: gdfar_manager_data.ajaxurl + "?action=gdfar_request_edit&_ajax_nonce=" + gdfar_manager_data.nonce
                 });
             });
         }

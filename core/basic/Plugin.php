@@ -6,6 +6,7 @@ use Dev4Press\Core\DateTime;
 use Dev4Press\Core\Plugins\Core;
 use Dev4Press\Core\Shared\Enqueue;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
+use Dev4Press\Plugin\GDFAR\Manager\Actions;
 
 if (!defined('ABSPATH')) {
     exit;
@@ -18,6 +19,7 @@ class Plugin extends Core {
 
     private $_datetime;
     private $_bbpress = null;
+    private $_actions = null;
 
     public $theme_package = 'default';
 
@@ -41,6 +43,7 @@ class Plugin extends Core {
 
         if (is_user_logged_in()) {
             $this->_bbpress = new Integration();
+            $this->_actions = new Actions();
         }
 
         if (get_option('_bbp_theme_package_id') == 'quantum') {
@@ -108,6 +111,7 @@ class Plugin extends Core {
             'min' => true,
             'footer' => true,
             'localize' => true,
+            'req' => array('jquery', 'jquery-form'),
             'int' => array('gdfar-micromodal')
         ));
     }
@@ -128,5 +132,10 @@ class Plugin extends Core {
     /** @return \Dev4Press\Plugin\GDFAR\bbPress\Integration */
     public function bbpress() {
         return $this->_bbpress;
+    }
+
+    /** @return \Dev4Press\Plugin\GDFAR\Manager\Actions */
+    public function actions() {
+        return $this->_actions;
     }
 }

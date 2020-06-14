@@ -1,18 +1,104 @@
+.bbp-forum-info .gdfar-ctrl-wrapper,
 .bbp-topic-title .gdfar-ctrl-wrapper {
   float: right;
+  z-index: 1000;
   text-align: center;
+  position: relative;
 }
+.bbp-forum-info .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox,
 .bbp-topic-title .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox {
   visibility: hidden;
 }
+.bbp-forum-info .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox.gdfar-is-on,
 .bbp-topic-title .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox.gdfar-is-on {
   visibility: visible;
 }
+.bbp-forum-info .gdfar-ctrl-wrapper .gdfar-ctrl-edit,
 .bbp-topic-title .gdfar-ctrl-wrapper .gdfar-ctrl-edit {
   visibility: hidden;
   display: block;
 }
+.bbp-forum-info:hover .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox,
+.bbp-forum-info:hover .gdfar-ctrl-wrapper .gdfar-ctrl-edit,
 .bbp-topic-title:hover .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox,
 .bbp-topic-title:hover .gdfar-ctrl-wrapper .gdfar-ctrl-edit {
   visibility: visible;
+}
+
+.gdfar-modal__content {
+  box-sizing: border-box;
+}
+.gdfar-modal__content * {
+  box-sizing: border-box;
+}
+.gdfar-modal__content .gdfar-dialog-error,
+.gdfar-modal__content .gdfar-dialog-message {
+  padding: 15px;
+}
+.gdfar-modal__content dl {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  line-height: 32px;
+}
+.gdfar-modal__content dl > dt,
+.gdfar-modal__content dl > dd {
+  display: table-cell;
+  vertical-align: top;
+  padding: 15px;
+  margin: 0;
+}
+.gdfar-modal__content dl > dt {
+  background: #f5f5f5;
+  border-right: 1px solid #ddd;
+  text-align: right;
+  width: 30%;
+}
+.gdfar-modal__content dl > dd {
+  width: 70%;
+}
+.gdfar-modal__content form select,
+.gdfar-modal__content form input[type=number],
+.gdfar-modal__content form input[type=text] {
+  width: 100%;
+  font-size: 14px;
+  line-height: 2;
+  min-height: 30px;
+  color: #32373c;
+  border-color: #7e8993;
+}
+.gdfar-modal__content form select {
+  padding: 0 24px 0 4px;
+  max-width: 200px;
+}
+.gdfar-modal__content form input[type=number],
+.gdfar-modal__content form input[type=text] {
+  padding: 0 8px;
+}
+
+@media (max-width: 600px) {
+  .gdfar-modal__content dl {
+    display: block;
+    padding: 15px 15px 0;
+  }
+  .gdfar-modal__content dl:last-child {
+    padding-bottom: 15px;
+  }
+  .gdfar-modal__content dl > dt,
+.gdfar-modal__content dl > dd {
+    display: block;
+    width: 100%;
+  }
+  .gdfar-modal__content dl > dt {
+    padding: 0;
+    background: none;
+    border: none;
+    text-align: left;
+  }
+  .gdfar-modal__content dl > dd {
+    padding: 0;
+  }
 }

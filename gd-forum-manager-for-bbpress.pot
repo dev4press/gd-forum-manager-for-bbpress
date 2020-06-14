@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: GD Members Directory for bbPress\n"
-"POT-Creation-Date: 05/25/2020 12:23:52 AM\n"
+"POT-Creation-Date: 06/14/2020 11:54:06 PM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,27 +34,94 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: core/bbpress/Integration.php:45
-msgid "edit"
+#: core/basic/AJAX.php:29
+#: core/basic/AJAX.php:47
+#: core/basic/AJAX.php:79
+#: core/basic/AJAX.php:124
+msgid "Invalid Request."
 msgstr ""
 
-#: forms/manager/modal-edit.php:5
+#: core/bbpress/Integration.php:59
+msgctxt "Edit Modal Dialog, Title"
+msgid "Edit Forum"
+msgstr ""
+
+#: core/bbpress/Integration.php:60
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit Topic"
 msgstr ""
 
-#: forms/manager/modal-edit.php:7
-#: forms/manager/modal-edit.php:14
+#: core/bbpress/Integration.php:63
+msgctxt "Edit Modal Dialog, Title"
+msgid "Edit selected Forums"
+msgstr ""
+
+#: core/bbpress/Integration.php:64
+msgctxt "Edit Modal Dialog, Title"
+msgid "Edit selected Topics"
+msgstr ""
+
+#: core/bbpress/Integration.php:55
+msgid "Please Wait..."
+msgstr ""
+
+#: core/bbpress/Integration.php:77
+#: core/bbpress/Integration.php:92
+msgid "edit"
+msgstr ""
+
+#: core/manager/Actions.php:66
+#: core/manager/Actions.php:72
+msgid "Title"
+msgstr ""
+
+#: core/manager/Actions.php:78
+#: core/manager/Actions.php:84
+msgid "Status"
+msgstr ""
+
+#: core/manager/Actions.php:90
+#: core/manager/Actions.php:96
+#: core/manager/Defaults.php:51
+msgid "Sticky"
+msgstr ""
+
+#: core/manager/Defaults.php:50
+msgid "No"
+msgstr ""
+
+#: core/manager/Defaults.php:52
+msgid "Super Sticky"
+msgstr ""
+
+#: core/manager/Process.php:17
+#: core/manager/Process.php:24
+#: core/manager/Render.php:25
+#: core/manager/Render.php:34
+msgid "No actions found."
+msgstr ""
+
+#: core/manager/Process.php:30
+#: core/manager/Render.php:48
+msgid "Request object not found."
+msgstr ""
+
+#: forms/manager/dialog-bulk.php:5
+#: forms/manager/dialog-bulk.php:10
+#: forms/manager/dialog-edit.php:5
+#: forms/manager/dialog-edit.php:10
 msgctxt "Edit Modal Dialog, Close Button Label"
 msgid "Close this dialog"
 msgstr ""
 
-#: forms/manager/modal-edit.php:13
+#: forms/manager/dialog-bulk.php:9
+#: forms/manager/dialog-edit.php:9
 msgctxt "Edit Modal Dialog, Save Button"
 msgid "Save"
 msgstr ""
 
-#: forms/manager/modal-edit.php:14
+#: forms/manager/dialog-bulk.php:10
+#: forms/manager/dialog-edit.php:10
 msgctxt "Edit Modal Dialog, Close Button"
 msgid "Close"
 msgstr ""

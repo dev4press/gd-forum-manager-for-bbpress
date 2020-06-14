@@ -8,4 +8,5 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class Install extends Panel { }
+class Install extends Panel {
+}

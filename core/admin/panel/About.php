@@ -8,4 +8,5 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class About extends PanelAbout { }
+class About extends PanelAbout {
+}

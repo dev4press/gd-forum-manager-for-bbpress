@@ -8,4 +8,5 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class Update extends Panel { }
+class Update extends Panel {
+}
