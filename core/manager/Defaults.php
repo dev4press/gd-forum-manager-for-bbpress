@@ -2,6 +2,8 @@
 
 namespace Dev4Press\Plugin\GDFAR\Manager;
 
+use WP_Error;
+
 class Defaults {
     private $_defaults = array(
         'forum' => array(
@@ -22,10 +24,23 @@ class Defaults {
 
                     add_filter('gdfar-action-visible-'.$key, '__return_true');
                     add_filter('gdfar-action-display-'.$key, array($this, 'display_'.$method), 10, 2);
-                    add_filter('gdfar-action-process-'.$key, array($this, 'process_'.$method));
+                    add_filter('gdfar-action-process-'.$key, array($this, 'process_'.$method), 10, 2);
                 }
             }
         }
+    }
+
+    private function _get_list_for_stickies() {
+        return array(
+            'no' => __("No", "gd-forum-manager-for-bbpress"),
+            'sticky' => __("Sticky", "gd-forum-manager-for-bbpress"),
+            'super' => __("Super Sticky", "gd-forum-manager-for-bbpress")
+        );
+    }
+
+    private function _get_topic_sticky_status($topic_id) {
+        return bbp_is_topic_super_sticky($topic_id) ? 'super' : (
+               bbp_is_topic_sticky($topic_id) ? 'sticky' : 'no');
     }
 
     public function display_forum_edit_rename($render, $args = array()) {
@@ -33,6 +48,27 @@ class Defaults {
     }
 
     public function process_forum_edit_rename($result, $args = array()) {
+        $forum_id = $args['id'];
+        $new_title = isset($args['value']['title']) ? sanitize_text_field($args['value']['title']) : '';
+        $old_title = bbp_get_forum_title($forum_id);
+
+        if (!empty($new_title) && $old_title != $new_title) {
+            $forum_title = apply_filters('bbp_edit_forum_pre_title', $new_title, $forum_id);
+
+            if (bbp_is_title_too_long($forum_title)) {
+                return new WP_Error("title_too_long", __("The title is too long.", "gd-forum-manager-for-bbpress"));
+            }
+
+            $update = wp_update_post(array(
+                'ID' => $forum_id,
+                'post_title' => $forum_title
+            ), true);
+
+            if (is_wp_error($update)) {
+                return $update;
+            }
+        }
+
         return $result;
     }
 
@@ -42,32 +78,90 @@ class Defaults {
 
     public function display_topic_edit_status($render, $args = array()) {
         $list = bbp_get_topic_statuses($args['id']);
-d4p_print_r($args);
+
         return gdfar_render()->select($list, array('selected' => bbp_get_topic_status($args['id']), 'name' => $args['base'].'[status]', 'id' => $args['element']));
     }
 
     public function display_topic_edit_sticky($render, $args = array()) {
-        $list = array(
-            'no' => __("No", "gd-forum-manager-for-bbpress"),
-            'sticky' => __("Sticky", "gd-forum-manager-for-bbpress"),
-            'super' => __("Super Sticky", "gd-forum-manager-for-bbpress")
-        );
+        $list = $this->_get_list_for_stickies();
 
-        $selected = bbp_is_topic_super_sticky($args['id']) ? 'super' : (
-                    bbp_is_topic_sticky($args['id']) ? 'sticky' : 'no');
-
-        return gdfar_render()->select($list, array('selected' => $selected, 'name' => $args['base'].'[sticky]', 'id' => $args['element']));
+        return gdfar_render()->select($list, array('selected' => $this->_get_topic_sticky_status($args['id']), 'name' => $args['base'].'[sticky]', 'id' => $args['element']));
     }
 
     public function process_topic_edit_rename($result, $args = array()) {
+        $topic_id = $args['id'];
+        $new_title = isset($args['value']['title']) ? sanitize_text_field($args['value']['title']) : '';
+        $old_title = bbp_get_topic_title($topic_id);
+
+        if (!empty($new_title) && $old_title != $new_title) {
+            $topic_title = apply_filters('bbp_edit_topic_pre_title', $new_title, $topic_id);
+
+            if (bbp_is_title_too_long($topic_title)) {
+                return new WP_Error("title_too_long", __("The title is too long.", "gd-forum-manager-for-bbpress"));
+            }
+
+            $update = wp_update_post(array(
+                'ID' => $topic_id,
+                'post_title' => $topic_title
+            ), true);
+
+            if (is_wp_error($update)) {
+                return $update;
+            }
+        }
+
         return $result;
     }
 
     public function process_topic_edit_status($result, $args = array()) {
+        $list = bbp_get_topic_statuses($args['id']);
+
+        $topic_id = $args['id'];
+        $new_status = isset($args['value']['status']) ? sanitize_text_field($args['value']['status']) : '';
+        $old_status = bbp_get_topic_status($topic_id);
+
+        if (empty($new_status) || !isset($list[$new_status])) {
+            return new WP_Error("invalid_status", __("Invalid status value.", "gd-forum-manager-for-bbpress"));
+        }
+
+        if ($old_status != $new_status) {
+            $update = wp_update_post(array(
+                'ID' => $topic_id,
+                'post_status' => $new_status
+            ), true);
+
+            if (is_wp_error($update)) {
+                return $update;
+            }
+        }
+
         return $result;
     }
 
     public function process_topic_edit_sticky($result, $args = array()) {
+        $list = $this->_get_list_for_stickies();
+
+        $topic_id = $args['id'];
+        $new_status = isset($args['value']['sticky']) ? sanitize_text_field($args['value']['sticky']) : '';
+        $old_status = $this->_get_topic_sticky_status($args['id']);
+
+        if (empty($new_status) || !isset($list[$new_status])) {
+            return new WP_Error("invalid_status", __("Invalid status value.", "gd-forum-manager-for-bbpress"));
+        }
+
+        if ($old_status != $new_status) {
+            bbp_unstick_topic($topic_id);
+
+            switch ($new_status) {
+                case 'sticky':
+                    bbp_stick_topic($topic_id);
+                    break;
+                case 'super':
+                    bbp_stick_topic($topic_id, true);
+                    break;
+            }
+        }
+
         return $result;
     }
 

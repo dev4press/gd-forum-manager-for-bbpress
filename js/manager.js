@@ -7,7 +7,7 @@
 
     window.wp.gdfar.manager = {
         init: function () {
-            $(document).on("change", ".gdfar-ctrl-topic .gdfar-ctrl-checkbox", function(e){
+            $(document).on("change", ".gdfar-ctrl-topic .gdfar-ctrl-checkbox", function(){
                 var checked = $(".gdfar-ctrl-topic .gdfar-ctrl-checkbox:checked").length;
 
                 if (checked === 0) {
@@ -17,7 +17,7 @@
                 }
             });
 
-            $(document).on("change", ".gdfar-ctrl-forum .gdfar-ctrl-checkbox", function(e){
+            $(document).on("change", ".gdfar-ctrl-forum .gdfar-ctrl-checkbox", function(){
                 var checked = $(".gdfar-ctrl-forum .gdfar-ctrl-checkbox:checked").length;
 
                 if (checked === 0) {
@@ -27,11 +27,32 @@
                 }
             });
 
-            $(document).on("click", "#gdfar-modal-edit-submit", function(e){
+            $(document).on("click", "#gdfar-modal-edit-submit", function(){
+                $(".gdfar-modal__footer button").attr("disabled", true);
+
                 if ($("#gdfar-modal-edit").hasClass("is-open")) {
                     $("#gdfar-manager-form-edit").ajaxSubmit({
                         success: function(json) {
-                            // location.reload(false);
+                            $(".gdfar-action").removeClass("gdfar-is-error");
+                            $(".gdfar-error-message").remove();
+
+                            if (json.status === "ok") {
+                                if (json.errors > 0) {
+                                    $.each(json.elements, function(name, message) {
+                                        var el = $(".gdfar-action.gdfar-action-" + name);
+
+                                        el.addClass("gdfar-is-error");
+
+                                        $(".gdfar-conent-wrapper", el).append("<p class='gdfar-error-message'>" + message + '</p>');
+                                    });
+
+                                    $(".gdfar-modal__footer button").attr("disabled", true);
+                                } else {
+                                    location.reload(false);
+                                }
+                            } else if (json.status === "error") {
+                                alert(json.error);
+                            }
                         },
                         type: "post", dataType: "json",
                         url: ajaxurl + "?action=gdfar_process_edit"

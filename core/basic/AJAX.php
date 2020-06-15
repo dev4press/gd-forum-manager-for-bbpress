@@ -113,7 +113,9 @@ class AJAX {
                         ));
                     } else {
                         $this->json_respond(array(
-                            'status' => 'ok'
+                            'status' => 'ok',
+                            'errors' => count($result),
+                            'elements' => $result
                         ));
                     }
                 }

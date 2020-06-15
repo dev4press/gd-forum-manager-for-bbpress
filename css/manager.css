@@ -1,3 +1,7 @@
+.gdfar-bulk-control {
+  display: none;
+}
+
 .bbp-forum-info .gdfar-ctrl-wrapper,
 .bbp-topic-title .gdfar-ctrl-wrapper {
   float: right;
@@ -53,12 +57,26 @@
 }
 .gdfar-modal__content dl > dt {
   background: #f5f5f5;
+  color: #555;
   border-right: 1px solid #ddd;
   text-align: right;
   width: 30%;
 }
 .gdfar-modal__content dl > dd {
   width: 70%;
+}
+.gdfar-modal__content dl.gdfar-is-error > dt {
+  background: #fff5f5;
+  color: #500;
+  border-right-color: #d6b3b3;
+}
+.gdfar-modal__content dl .gdfar-error-message {
+  background: #ffdfdf;
+  padding: 0 10px;
+  margin: 5px 0 0;
+  color: #900;
+  border-radius: 4px;
+  font-weight: bold;
 }
 .gdfar-modal__content form select,
 .gdfar-modal__content form input[type=number],

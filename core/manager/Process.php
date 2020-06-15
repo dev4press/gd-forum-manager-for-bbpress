@@ -24,7 +24,15 @@ class Process {
             if (empty($elements)) {
                 return new WP_Error('no_actions_found', __("No actions found.", "gd-forum-manager-for-bbpress"));
             } else {
-                return $elements;
+                $report = array();
+
+                foreach ($elements as $name => $value) {
+                    if (is_wp_error($value)) {
+                        $report[$name] = $value->get_error_message();
+                    }
+                }
+
+                return $report;
             }
         }
 

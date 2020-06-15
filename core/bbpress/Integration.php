@@ -28,6 +28,8 @@ class Integration {
         if ($this->can_moderate()) {
             add_action('bbp_theme_before_forum_title', array($this, 'forum_controls'), 1);
             add_action('bbp_theme_before_topic_title', array($this, 'topic_controls'), 1);
+            add_action('bbp_template_after_forums_loop', array($this, 'bulk'));
+            add_action('bbp_template_after_topics_loop', array($this, 'bulk'));
         }
     }
 
@@ -103,5 +105,9 @@ class Integration {
     public function modals() {
         require_once(GDFAR_PATH.'forms/manager/dialog-edit.php');
         require_once(GDFAR_PATH.'forms/manager/dialog-bulk.php');
+    }
+
+    public function bulk() {
+        include(GDFAR_PATH.'forms/manager/control-bulk.php');
     }
 }

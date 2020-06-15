@@ -2,8 +2,8 @@
 Contributors: GDragoN
 Version: 1.0
 Requires at least: 4.9
-Tested up to: 5.3
-Requires PHP: 5.6
+Tested up to: 5.5
+Requires PHP: 7.0
 Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -15,16 +15,15 @@ Expand how the moderators can manage forum content from the frontend, including 
 
 == Installation ==
 = General Requirements =
-* PHP: 5.6 or newer
-* bbPress 2.5.12 or newer
-* mySQL: 5.1 or newer
+* PHP: 7.0 or newer
+* bbPress 2.6 or newer
 * WordPress: 4.9 or newer
 
 = PHP Notice =
-* The plugin doesn't work with PHP 5.5 or older versions.
+* The plugin doesn't work with PHP 5.6 or older versions.
 
 = WordPress Notice =
-* The plugin should work with WordPress 4.0 to 4.6, but these versions are no longer used for testing, and they are no longer supported.
+* The plugin should work with WordPress 4.0 to 4.8, but these versions are no longer used for testing, and they are no longer supported.
 * The plugin doesn't work with WordPress 3.9 or older versions.
 
 = Basic Installation =

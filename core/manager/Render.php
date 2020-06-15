@@ -63,7 +63,7 @@ class Render {
 
                 $render = apply_filters($action['filter_display'], '', array(
                     'id' => $id,
-                    'base' => 'gdfar[field]',
+                    'base' => 'gdfar[field]['.$action['name'].']',
                     'element' => $element,
                     'context' => $context
                 ));
