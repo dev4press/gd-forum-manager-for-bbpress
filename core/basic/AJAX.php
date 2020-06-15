@@ -11,6 +11,7 @@ class AJAX {
         add_action('wp_ajax_gdfar_request_edit', array($this, 'edit_request'));
         add_action('wp_ajax_gdfar_process_edit', array($this, 'edit_process'));
         add_action('wp_ajax_gdfar_request_bulk', array($this, 'bulk_request'));
+        add_action('wp_ajax_gdfar_process_bulk', array($this, 'bulk_process'));
     }
 
     public static function instance() {
@@ -148,5 +149,19 @@ class AJAX {
         }
 
         die($edit);
+    }
+
+    public function bulk_process() {
+        $this->check_moderation();
+
+        if (isset($_REQUEST['gdfar'])) {
+            $data = (array)$_REQUEST['gdfar'];
+
+        }
+
+        $this->json_respond(array(
+            'status' => 'error',
+            'error' => __("Invalid Request.", "gd-forum-manager-for-bbpress")
+        ));
     }
 }

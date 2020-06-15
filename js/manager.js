@@ -15,11 +15,9 @@
 
                 $("#gdfar-modal-edit-content").html('<div class="gdfar-dialog-message">' + gdfar_manager_data.message.please_wait + '</div>');
                 $("#gdfar-modal-edit-title").html(gdfar_manager_data.titles.edit[type]);
+                $(".gdfar-modal__footer button").attr("disabled", false);
 
-                MicroModal.show("gdfar-modal-edit", {
-                    onShow: function () {
-                    }
-                });
+                MicroModal.show("gdfar-modal-edit", {});
 
                 $.ajax({
                     success: function (html) {
@@ -71,20 +69,27 @@
             dialog: function(e) {
                 e.preventDefault();
 
-                var wrapper = $(this).closest(".gdfar-bulk-control"),
-                    type = wrapper.data("type");
+                var wrapper = $(this).closest(".gdfar-bulk-control"), ids = [], i,
+                    type = wrapper.data("type"), key = wrapper.data("key"),
+                    sel = ".gdfar-ctrl-wrapper[data-key=" + key + "] input[type=checkbox]:checked";
+
+                $(sel).each(function(){
+                    ids.push($(this).parent().data("id"));
+                });
 
                 $("#gdfar-modal-bulk-content").html('<div class="gdfar-dialog-message">' + gdfar_manager_data.message.please_wait + '</div>');
                 $("#gdfar-modal-bulk-title").html(gdfar_manager_data.titles.bulk[type]);
+                $(".gdfar-modal__footer button").attr("disabled", false);
 
-                MicroModal.show("gdfar-modal-bulk", {
-                    onShow: function () {
-                    }
-                });
+                MicroModal.show("gdfar-modal-bulk", {});
 
                 $.ajax({
                     success: function (html) {
                         $("#gdfar-modal-bulk-content").html(html);
+
+                        for (i = 0; i < ids.length; i++) {
+                            $("#gdfar-modal-bulk-content form").prepend("<input type='hidden' name='gdfar[id][]' value='" + ids[i] + "' />");
+                        }
                     },
                     type: "post", dataType: "html", data: {
                         is: gdfar_manager_data.bbpress.is,
@@ -93,6 +98,19 @@
                     },
                     url: gdfar_manager_data.ajaxurl + "?action=gdfar_request_bulk&_ajax_nonce=" + gdfar_manager_data.nonce
                 });
+            },
+            submit: function() {
+                $(".gdfar-modal__footer button").attr("disabled", true);
+
+                if ($("#gdfar-modal-bulk").hasClass("is-open")) {
+                    $("#gdfar-manager-form-bulk").ajaxSubmit({
+                        success: function (json) {
+
+                        },
+                        type: "post", dataType: "json",
+                        url: ajaxurl + "?action=gdfar_process_bulk"
+                    });
+                }
             },
             update: function(bulk, selected, total) {
                 $(".__selected", bulk).html(selected);
@@ -148,6 +166,7 @@
             $(document).on("change", ".gdfar-ctrl-forum .gdfar-ctrl-checkbox", wp.gdfar.manager.bulk.forum);
 
             $(document).on("click", "#gdfar-modal-edit-submit", wp.gdfar.manager.edit.submit);
+            $(document).on("click", "#gdfar-modal-bulk-submit", wp.gdfar.manager.bulk.submit);
             $(document).on("click", ".gdfar-ctrl-wrapper .gdfar-ctrl-edit", wp.gdfar.manager.edit.dialog);
             $(document).on("click", ".gdfar-bulk-control .gdfar-ctrl-bulk", wp.gdfar.manager.bulk.dialog);
 

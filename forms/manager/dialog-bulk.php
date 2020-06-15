@@ -7,7 +7,7 @@
             </header>
             <main class="gdfar-modal__content" id="gdfar-modal-bulk-content"></main>
             <footer class="gdfar-modal__footer">
-                <button class="gdfar-modal__btn gdfar-modal__btn-primary"><?php _ex("Save", "Edit Modal Dialog, Save Button", "gd-forum-manager-for-bbpress") ?></button>
+                <button id="gdfar-modal-bulk-submit" class="gdfar-modal__btn gdfar-modal__btn-primary"><?php _ex("Save", "Edit Modal Dialog, Save Button", "gd-forum-manager-for-bbpress") ?></button>
                 <button class="gdfar-modal__btn" data-micromodal-close aria-label="<?php _ex("Close this dialog", "Edit Modal Dialog, Close Button Label", "gd-forum-manager-for-bbpress") ?>"><?php _ex("Close", "Edit Modal Dialog, Close Button", "gd-forum-manager-for-bbpress") ?></button>
             </footer>
         </div>

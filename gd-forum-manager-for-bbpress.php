@@ -38,6 +38,7 @@ require_once(GDFAR_D4PLIB.'core.php');
 
 require_once(GDFAR_PATH.'core/autoload.php');
 require_once(GDFAR_PATH.'core/bridge.php');
+require_once(GDFAR_PATH.'core/functions.php');
 
 gdfar_settings();
 gdfar();
