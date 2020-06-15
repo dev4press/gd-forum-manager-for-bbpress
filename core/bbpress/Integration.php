@@ -11,6 +11,7 @@ if (!defined('ABSPATH')) {
 class Integration {
     public $_actions = false;
     public $_queued = false;
+    public $_key = 1;
 
     public function __construct() {
         $this->_actions = new Defaults();
@@ -28,8 +29,8 @@ class Integration {
         if ($this->can_moderate()) {
             add_action('bbp_theme_before_forum_title', array($this, 'forum_controls'), 1);
             add_action('bbp_theme_before_topic_title', array($this, 'topic_controls'), 1);
-            add_action('bbp_template_after_forums_loop', array($this, 'bulk'));
-            add_action('bbp_template_after_topics_loop', array($this, 'bulk'));
+            add_action('bbp_template_after_forums_loop', array($this, 'forum_bulk'));
+            add_action('bbp_template_after_topics_loop', array($this, 'topic_bulk'));
         }
     }
 
@@ -75,7 +76,7 @@ class Integration {
     public function forum_controls() {
         $forum_id = absint(bbp_get_forum_id());
 
-        echo '<div class="gdfar-ctrl-wrapper gdfar-ctrl-forum" data-type="forum" data-id="'.$forum_id.'">';
+        echo '<div class="gdfar-ctrl-wrapper gdfar-ctrl-forum" data-key="'.$this->_key.'" data-type="forum" data-id="'.$forum_id.'">';
         echo '<input type="checkbox" class="gdfar-ctrl-checkbox" />';
         echo '<a href="#" class="gdfar-ctrl-edit">'.__("edit", "gd-forum-manager-for-bbpress").'</a>';
         echo '</div>';
@@ -90,7 +91,7 @@ class Integration {
     public function topic_controls() {
         $topic_id = absint(bbp_get_topic_id());
 
-        echo '<div class="gdfar-ctrl-wrapper gdfar-ctrl-topic" data-type="topic" data-id="'.$topic_id.'">';
+        echo '<div class="gdfar-ctrl-wrapper gdfar-ctrl-topic" data-key="'.$this->_key.'" data-type="topic" data-id="'.$topic_id.'">';
         echo '<input type="checkbox" class="gdfar-ctrl-checkbox" />';
         echo '<a href="#" class="gdfar-ctrl-edit">'.__("edit", "gd-forum-manager-for-bbpress").'</a>';
         echo '</div>';
@@ -107,7 +108,23 @@ class Integration {
         require_once(GDFAR_PATH.'forms/manager/dialog-bulk.php');
     }
 
-    public function bulk() {
-        include(GDFAR_PATH.'forms/manager/control-bulk.php');
+    public function forum_bulk() {
+        echo '<div class="gdfar-bulk-control gdfar-bulk-forum-'.$this->_key.'" aria-hidden="true" data-type="forum" data-key="'.$this->_key.'">';
+            echo '<div class="__status">'.__("Selected Forums", "gd-forum-manager-for-bbpress").': <span class="__selected">0</span>/<span class="__total">0</span></div>';
+            echo '<div class="__select"><a class="__all" href="#all">'.__("select all", "gd-forum-manager-for-bbpress").'</a> &middot; <a class="__none" href="#none">'.__("select none", "gd-forum-manager-for-bbpress").'</a></div>';
+            echo '<div class="__editor"><button class="gdfar-ctrl-bulk">'.__("Edit Selected Forums", "gd-forum-manager-for-bbpress").'</button></div>';
+        echo '</div>';
+
+        $this->_key++;
+    }
+
+    public function topic_bulk() {
+        echo '<div class="gdfar-bulk-control gdfar-bulk-topic-'.$this->_key.'" aria-hidden="true" data-type="topic" data-key="'.$this->_key.'">';
+            echo '<div class="__status">'.__("Selected Topics", "gd-forum-manager-for-bbpress").': <span class="__selected">0</span>/<span class="__total">0</span></div>';
+            echo '<div class="__select"><a class="__all" href="#all">'.__("select all", "gd-forum-manager-for-bbpress").'</a> &middot; <a class="__none" href="#none">'.__("select none", "gd-forum-manager-for-bbpress").'</a></div>';
+            echo '<div class="__editor"><button class="gdfar-ctrl-bulk">'.__("Edit Selected Topics", "gd-forum-manager-for-bbpress").'</button></div>';
+        echo '</div>';
+
+        $this->_key++;
     }
 }

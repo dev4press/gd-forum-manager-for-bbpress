@@ -1,44 +1,51 @@
 /*jslint regexp: true, nomen: true, undef: true, sloppy: true, eqeq: true, vars: true, white: true, plusplus: true, maxerr: 50, indent: 4 */
 /*global gdfar_manager_data, ajaxurl*/
 
-;(function($, window, document, undefined) {
+;(function ($, window, document, undefined) {
     window.wp = window.wp || {};
     window.wp.gdfar = window.wp.gdfar || {};
 
     window.wp.gdfar.manager = {
-        init: function () {
-            $(document).on("change", ".gdfar-ctrl-topic .gdfar-ctrl-checkbox", function(){
-                var checked = $(".gdfar-ctrl-topic .gdfar-ctrl-checkbox:checked").length;
+        edit: {
+            dialog: function(e) {
+                e.preventDefault();
 
-                if (checked === 0) {
-                    $(".gdfar-ctrl-topic .gdfar-ctrl-checkbox").removeClass("gdfar-is-on");
-                } else {
-                    $(".gdfar-ctrl-topic .gdfar-ctrl-checkbox").addClass("gdfar-is-on");
-                }
-            });
+                var wrapper = $(this).closest(".gdfar-ctrl-wrapper"),
+                    type = wrapper.data("type"), id = wrapper.data("id");
 
-            $(document).on("change", ".gdfar-ctrl-forum .gdfar-ctrl-checkbox", function(){
-                var checked = $(".gdfar-ctrl-forum .gdfar-ctrl-checkbox:checked").length;
+                $("#gdfar-modal-edit-content").html('<div class="gdfar-dialog-message">' + gdfar_manager_data.message.please_wait + '</div>');
+                $("#gdfar-modal-edit-title").html(gdfar_manager_data.titles.edit[type]);
 
-                if (checked === 0) {
-                    $(".gdfar-ctrl-forum .gdfar-ctrl-checkbox").removeClass("gdfar-is-on");
-                } else {
-                    $(".gdfar-ctrl-forum .gdfar-ctrl-checkbox").addClass("gdfar-is-on");
-                }
-            });
+                MicroModal.show("gdfar-modal-edit", {
+                    onShow: function () {
+                    }
+                });
 
-            $(document).on("click", "#gdfar-modal-edit-submit", function(){
+                $.ajax({
+                    success: function (html) {
+                        $("#gdfar-modal-edit-content").html(html);
+                    },
+                    type: "post", dataType: "html", data: {
+                        is: gdfar_manager_data.bbpress.is,
+                        forum: gdfar_manager_data.bbpress.forum_id,
+                        type: type,
+                        id: id
+                    },
+                    url: gdfar_manager_data.ajaxurl + "?action=gdfar_request_edit&_ajax_nonce=" + gdfar_manager_data.nonce
+                });
+            },
+            submit: function() {
                 $(".gdfar-modal__footer button").attr("disabled", true);
 
                 if ($("#gdfar-modal-edit").hasClass("is-open")) {
                     $("#gdfar-manager-form-edit").ajaxSubmit({
-                        success: function(json) {
+                        success: function (json) {
                             $(".gdfar-action").removeClass("gdfar-is-error");
                             $(".gdfar-error-message").remove();
 
                             if (json.status === "ok") {
                                 if (json.errors > 0) {
-                                    $.each(json.elements, function(name, message) {
+                                    $.each(json.elements, function (name, message) {
                                         var el = $(".gdfar-action.gdfar-action-" + name);
 
                                         el.addClass("gdfar-is-error");
@@ -58,34 +65,93 @@
                         url: ajaxurl + "?action=gdfar_process_edit"
                     });
                 }
-            });
-
-            $(document).on("click", ".gdfar-ctrl-wrapper .gdfar-ctrl-edit", function(e){
+            }
+        },
+        bulk: {
+            dialog: function(e) {
                 e.preventDefault();
 
-                var wrapper = $(this).closest(".gdfar-ctrl-wrapper"),
-                    type = wrapper.data("type"), id = wrapper.data("id");
+                var wrapper = $(this).closest(".gdfar-bulk-control"),
+                    type = wrapper.data("type");
 
-                $("#gdfar-modal-edit-content").html('<div class="gdfar-dialog-message">' + gdfar_manager_data.message.please_wait + '</div>');
-                $("#gdfar-modal-edit-title").html(gdfar_manager_data.titles.edit[type]);
+                $("#gdfar-modal-bulk-content").html('<div class="gdfar-dialog-message">' + gdfar_manager_data.message.please_wait + '</div>');
+                $("#gdfar-modal-bulk-title").html(gdfar_manager_data.titles.bulk[type]);
 
-                MicroModal.show("gdfar-modal-edit", {
-                    onShow: function() {}
+                MicroModal.show("gdfar-modal-bulk", {
+                    onShow: function () {
+                    }
                 });
 
                 $.ajax({
-                    success: function(html) {
-                        $("#gdfar-modal-edit-content").html(html);
+                    success: function (html) {
+                        $("#gdfar-modal-bulk-content").html(html);
                     },
                     type: "post", dataType: "html", data: {
                         is: gdfar_manager_data.bbpress.is,
                         forum: gdfar_manager_data.bbpress.forum_id,
-                        type: type,
-                        id: id
+                        type: type
                     },
-                    url: gdfar_manager_data.ajaxurl + "?action=gdfar_request_edit&_ajax_nonce=" + gdfar_manager_data.nonce
+                    url: gdfar_manager_data.ajaxurl + "?action=gdfar_request_bulk&_ajax_nonce=" + gdfar_manager_data.nonce
                 });
-            });
+            },
+            update: function(bulk, selected, total) {
+                $(".__selected", bulk).html(selected);
+                $(".__total", bulk).html(total);
+            },
+            select: function(e) {
+                e.preventDefault();
+
+                var all = $(this).hasClass("__all"),
+                    key = $(this).closest(".gdfar-bulk-control").data("key"),
+                    sel = ".gdfar-ctrl-wrapper[data-key=" + key + "] input[type=checkbox]";
+
+                $(sel).prop("checked", all).trigger("change");
+            },
+            forum: function() {
+                var selector = ".gdfar-ctrl-forum .gdfar-ctrl-checkbox",
+                    wrapper = $(this).parent(),
+                    table = $(this).closest(".bbp-forums"),
+                    bulk = $(".gdfar-bulk-forum-" + wrapper.data("key")),
+                    checked = $(selector + ":checked", table).length,
+                    total = $(selector, table).length;
+
+                if (checked === 0) {
+                    $(selector, table).removeClass("gdfar-is-on");
+                    bulk.hide();
+                } else {
+                    $(selector, table).addClass("gdfar-is-on");
+                    bulk.show();
+
+                    wp.gdfar.manager.bulk.update(bulk, checked, total);
+                }
+            },
+            topic: function() {
+                var selector = ".gdfar-ctrl-topic .gdfar-ctrl-checkbox",
+                    wrapper = $(this).parent(),
+                    table = $(this).closest(".bbp-topics"),
+                    bulk = $(".gdfar-bulk-topic-" + wrapper.data("key")),
+                    checked = $(selector + ":checked", table).length,
+                    total = $(selector, table).length;
+
+                if (checked === 0) {
+                    $(selector, table).removeClass("gdfar-is-on");
+                    bulk.hide();
+                } else {
+                    $(selector, table).addClass("gdfar-is-on");
+                    bulk.show();
+                    wp.gdfar.manager.bulk.update(bulk, checked, total);
+                }
+            }
+        },
+        init: function () {
+            $(document).on("change", ".gdfar-ctrl-topic .gdfar-ctrl-checkbox", wp.gdfar.manager.bulk.topic);
+            $(document).on("change", ".gdfar-ctrl-forum .gdfar-ctrl-checkbox", wp.gdfar.manager.bulk.forum);
+
+            $(document).on("click", "#gdfar-modal-edit-submit", wp.gdfar.manager.edit.submit);
+            $(document).on("click", ".gdfar-ctrl-wrapper .gdfar-ctrl-edit", wp.gdfar.manager.edit.dialog);
+            $(document).on("click", ".gdfar-bulk-control .gdfar-ctrl-bulk", wp.gdfar.manager.bulk.dialog);
+
+            $(document).on("click", ".gdfar-bulk-control a.__all, .gdfar-bulk-control a.__none", wp.gdfar.manager.bulk.select);
         }
     };
 

@@ -97,6 +97,55 @@
   padding: 0 8px;
 }
 
+.gdfar-bulk-control {
+  background: #eee;
+  padding: 10px;
+  margin: 0 0 20px;
+  line-height: 25px;
+  overflow: auto;
+}
+.gdfar-bulk-control > div {
+  display: inline-block;
+}
+.gdfar-bulk-control > div.__status {
+  padding: 0 10px 0 0;
+  margin: 0 10px 0 0;
+  border-right: 1px solid #999;
+}
+.gdfar-bulk-control > div.__status span {
+  font-weight: bold;
+}
+.gdfar-bulk-control > div.__editor {
+  float: right;
+}
+.gdfar-bulk-control > div.__editor button {
+  font-size: 13px;
+  padding: 6px 12px;
+  background-color: #C4C4C4;
+  color: #000;
+  border-radius: 0.25rem;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  -webkit-appearance: button;
+  text-transform: none;
+  overflow: visible;
+  line-height: 1;
+  margin: 0;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+}
+.gdfar-bulk-control > div.__editor button:active, .gdfar-bulk-control > div.__editor button:hover {
+  background-image: none;
+  background-color: #dddddd;
+}
+
 @media (max-width: 600px) {
   .gdfar-modal__content dl {
     display: block;

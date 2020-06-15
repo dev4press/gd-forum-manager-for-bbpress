@@ -67,6 +67,30 @@ class Actions {
             'label' => __("Title", "gd-forum-manager-for-bbpress")
         ));
 
+        $this->register('status', array(
+            'scope' => 'forum',
+            'action' => 'edit',
+            'label' => __("Status", "gd-forum-manager-for-bbpress")
+        ));
+
+        $this->register('visibility', array(
+            'scope' => 'forum',
+            'action' => 'edit',
+            'label' => __("Visibility", "gd-forum-manager-for-bbpress")
+        ));
+
+        $this->register('status', array(
+            'scope' => 'forum',
+            'action' => 'bulk',
+            'label' => __("Status", "gd-forum-manager-for-bbpress")
+        ));
+
+        $this->register('visibility', array(
+            'scope' => 'forum',
+            'action' => 'bulk',
+            'label' => __("Visibility", "gd-forum-manager-for-bbpress")
+        ));
+
         $this->register('rename', array(
             'scope' => 'topic',
             'action' => 'edit',

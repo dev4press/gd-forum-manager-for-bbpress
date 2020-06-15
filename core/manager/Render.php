@@ -19,6 +19,72 @@ class Render {
         return $instance;
     }
 
+    public function bulk($type, $context = array()) {
+        $actions = gdfar()->actions()->get_actions($type, 'bulk');
+
+        if (empty($actions)) {
+            return new WP_Error('no_actions_found', __("No actions found.", "gd-forum-manager-for-bbpress"));
+        }
+
+        $elements = $this->_bulk($actions, $type, $context);
+
+        if (empty($elements)) {
+            return new WP_Error('no_actions_found', __("No actions found.", "gd-forum-manager-for-bbpress"));
+        } else {
+            $render = '<form method="post" id="gdfar-manager-form-bulk">';
+            $render .= '<input type="hidden" name="gdfar[action]" value="bulk" />';
+            $render .= '<input type="hidden" name="gdfar[nonce]" value="'.wp_create_nonce('gdfar-manager-bulk-'.$type).'" />';
+            $render .= '<input type="hidden" name="gdfar[type]" value="'.esc_attr($type).'" />';
+            $render .= join('', $elements);
+            $render .= '</form>';
+
+            return $render;
+        }
+    }
+
+    private function _bulk($actions, $type, $context) {
+        $elements = array();
+
+        foreach ($actions as $action) {
+            $visible = apply_filters($action['filter_visible'], true, array(
+                'action' => 'bulk',
+                'context' => $context
+            ));
+
+            if ($visible) {
+                $element = 'action-'.$action['name'].'-'.rand(1000, 9999);
+
+                $render = apply_filters($action['filter_display'], '', array(
+                    'base' => 'gdfar[field]['.$action['name'].']',
+                    'type' => $type,
+                    'element' => $element,
+                    'context' => $context
+                ));
+
+                $label = $action['label'];
+
+                if (!empty($render) && !empty($label)) {
+                    $classes = array(
+                        'gdfar-action',
+                        'gdfar-action-'.$action['name']
+                    );
+
+                    if (!empty($action['class'])) {
+                        $classes[] = $action['class'];
+                    }
+
+                    $elements[] = '<dl class="'.join(' ', $classes).'"><dt>'.
+                        '<div class="gdfar-label-wrapper"><label for="'.$element.'">'.$label.'</label></div>'.
+                        '</dt><dd>'.
+                        '<div class="gdfar-conent-wrapper">'.$render.'</div>'.
+                        '</dd></dl>';
+                }
+            }
+        }
+
+        return $elements;
+    }
+
     public function edit($type, $id, $context = array()) {
         $actions = gdfar()->actions()->get_actions($type, 'edit');
 
@@ -54,6 +120,7 @@ class Render {
 
         foreach ($actions as $action) {
             $visible = apply_filters($action['filter_visible'], true, array(
+                'action' => 'edit',
                 'id' => $id,
                 'context' => $context
             ));
@@ -64,6 +131,7 @@ class Render {
                 $render = apply_filters($action['filter_display'], '', array(
                     'id' => $id,
                     'base' => 'gdfar[field]['.$action['name'].']',
+                    'type' => $type,
                     'element' => $element,
                     'context' => $context
                 ));

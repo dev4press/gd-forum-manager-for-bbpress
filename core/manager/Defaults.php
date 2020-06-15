@@ -7,7 +7,8 @@ use WP_Error;
 class Defaults {
     private $_defaults = array(
         'forum' => array(
-            'edit' => array('rename')
+            'edit' => array('rename', 'status', 'visibility'),
+            'bulk' => array('status', 'visibility')
         ),
         'topic' => array(
             'edit' => array('rename', 'status', 'sticky'),
@@ -47,6 +48,18 @@ class Defaults {
         return '<input id="'.$args['element'].'" type="text" name="'.$args['base'].'[title]" value="'.esc_attr(bbp_get_forum_title($args['id'])).'" />';
     }
 
+    public function display_forum_edit_status($render, $args = array()) {
+        $list = bbp_get_forum_statuses($args['id']);
+
+        return gdfar_render()->select($list, array('selected' => bbp_get_forum_status($args['id']), 'name' => $args['base'].'[status]', 'id' => $args['element']));
+    }
+
+    public function display_forum_edit_visibility($render, $args = array()) {
+        $list = bbp_get_forum_visibilities($args['id']);
+
+        return gdfar_render()->select($list, array('selected' => bbp_get_forum_visibility($args['id']), 'name' => $args['base'].'[visibility]', 'id' => $args['element']));
+    }
+
     public function process_forum_edit_rename($result, $args = array()) {
         $forum_id = $args['id'];
         $new_title = isset($args['value']['title']) ? sanitize_text_field($args['value']['title']) : '';
@@ -70,6 +83,65 @@ class Defaults {
         }
 
         return $result;
+    }
+
+    public function process_forum_edit_status($result, $args = array()) {
+        $list = bbp_get_forum_statuses($args['id']);
+
+        $forum_id = $args['id'];
+        $new_status = isset($args['value']['status']) ? sanitize_text_field($args['value']['status']) : '';
+        $old_status = bbp_get_forum_status($forum_id);
+
+        if (empty($new_status) || !isset($list[$new_status])) {
+            return new WP_Error("invalid_status", __("Invalid status value.", "gd-forum-manager-for-bbpress"));
+        }
+
+        if ($old_status != $new_status) {
+            if ($new_status == 'close') {
+                bbp_close_forum($forum_id);
+            } else {
+                bbp_open_forum($forum_id);
+            }
+        }
+
+        return $result;
+    }
+
+    public function process_forum_edit_visibility($result, $args = array()) {
+        $list = bbp_get_forum_visibilities($args['id']);
+
+        $forum_id = $args['id'];
+        $new_status = isset($args['value']['status']) ? sanitize_text_field($args['value']['status']) : '';
+        $old_status = bbp_get_forum_visibility($forum_id);
+
+        if (empty($new_status) || !isset($list[$new_status])) {
+            return new WP_Error("invalid_status", __("Invalid visibility value.", "gd-forum-manager-for-bbpress"));
+        }
+
+        if ($old_status != $new_status) {
+            $update = wp_update_post(array(
+                'ID' => $forum_id,
+                'post_status' => $new_status
+            ), true);
+
+            if (is_wp_error($update)) {
+                return $update;
+            }
+        }
+
+        return $result;
+    }
+
+    public function display_forum_bulk_status($render, $args = array()) {
+        $list = array_merge(array('' => __("Don't change", "gd-forum-manager-for-bbpress")), bbp_get_forum_statuses());
+
+        return gdfar_render()->select($list, array('selected' => '', 'name' => $args['base'].'[status]', 'id' => $args['element']));
+    }
+
+    public function display_forum_bulk_visibility($render, $args = array()) {
+        $list = array_merge(array('' => __("Don't change", "gd-forum-manager-for-bbpress")), bbp_get_forum_visibilities());
+
+        return gdfar_render()->select($list, array('selected' => '', 'name' => $args['base'].'[visibility]', 'id' => $args['element']));
     }
 
     public function display_topic_edit_rename($render, $args = array()) {
@@ -166,11 +238,15 @@ class Defaults {
     }
 
     public function display_topic_bulk_status($render, $args = array()) {
-        return $render;
+        $list = array_merge(array('' => __("Don't change", "gd-forum-manager-for-bbpress")), bbp_get_topic_statuses());
+
+        return gdfar_render()->select($list, array('selected' => '', 'name' => $args['base'].'[status]', 'id' => $args['element']));
     }
 
     public function display_topic_bulk_sticky($render, $args = array()) {
-        return $render;
+        $list = array_merge(array('' => __("Don't change", "gd-forum-manager-for-bbpress")), $this->_get_list_for_stickies());
+
+        return gdfar_render()->select($list, array('selected' => '', 'name' => $args['base'].'[sticky]', 'id' => $args['element']));
     }
 
     public function process_topic_bulk_status($result, $args = array()) {

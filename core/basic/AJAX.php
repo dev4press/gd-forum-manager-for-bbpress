@@ -129,7 +129,24 @@ class AJAX {
     }
 
     public function bulk_request() {
-        $this->check_nonce();
         $this->check_moderation();
+
+        $is = isset($_REQUEST['is']) ? d4p_sanitize_slug($_REQUEST['is']) : '';
+        $forum = isset($_REQUEST['forum']) ? absint($_REQUEST['forum']) : 0;
+        $type = isset($_REQUEST['type']) ? d4p_sanitize_slug($_REQUEST['type']) : '';
+
+        $this->check_nonce($is, $forum);
+
+        if (!in_array($type, array('forum', 'topic'))) {
+            $this->error(__("Invalid Request.", "gd-forum-manager-for-bbpress"));
+        }
+
+        $edit = gdfar_render()->bulk($type, array('is' => $is, 'forum' => $forum));
+
+        if (is_wp_error($edit)) {
+            $this->error($edit->get_error_message());
+        }
+
+        die($edit);
     }
 }

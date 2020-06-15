@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: GD Members Directory for bbPress\n"
-"POT-Creation-Date: 06/15/2020 12:08:38 PM\n"
+"POT-Creation-Date: 06/15/2020 09:40:30 PM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,81 +38,129 @@ msgstr ""
 #: core/basic/AJAX.php:47
 #: core/basic/AJAX.php:79
 #: core/basic/AJAX.php:126
+#: core/basic/AJAX.php:140
 msgid "Invalid Request."
-msgstr ""
-
-#: core/bbpress/Integration.php:61
-msgctxt "Edit Modal Dialog, Title"
-msgid "Edit Forum"
 msgstr ""
 
 #: core/bbpress/Integration.php:62
 msgctxt "Edit Modal Dialog, Title"
-msgid "Edit Topic"
+msgid "Edit Forum"
 msgstr ""
 
-#: core/bbpress/Integration.php:65
+#: core/bbpress/Integration.php:63
 msgctxt "Edit Modal Dialog, Title"
-msgid "Edit selected Forums"
+msgid "Edit Topic"
 msgstr ""
 
 #: core/bbpress/Integration.php:66
 msgctxt "Edit Modal Dialog, Title"
+msgid "Edit selected Forums"
+msgstr ""
+
+#: core/bbpress/Integration.php:67
+msgctxt "Edit Modal Dialog, Title"
 msgid "Edit selected Topics"
 msgstr ""
 
-#: core/bbpress/Integration.php:57
+#: core/bbpress/Integration.php:58
 msgid "Please Wait..."
 msgstr ""
 
-#: core/bbpress/Integration.php:79
-#: core/bbpress/Integration.php:94
+#: core/bbpress/Integration.php:80
+#: core/bbpress/Integration.php:95
 msgid "edit"
 msgstr ""
 
+#: core/bbpress/Integration.php:112
+msgid "Selected Forums"
+msgstr ""
+
+#: core/bbpress/Integration.php:113
+#: core/bbpress/Integration.php:123
+msgid "select all"
+msgstr ""
+
+#: core/bbpress/Integration.php:113
+#: core/bbpress/Integration.php:123
+msgid "select none"
+msgstr ""
+
+#: core/bbpress/Integration.php:114
+msgid "Edit Selected Forums"
+msgstr ""
+
+#: core/bbpress/Integration.php:122
+msgid "Selected Topics"
+msgstr ""
+
+#: core/bbpress/Integration.php:124
+msgid "Edit Selected Topics"
+msgstr ""
+
 #: core/manager/Actions.php:66
-#: core/manager/Actions.php:72
+#: core/manager/Actions.php:96
 msgid "Title"
 msgstr ""
 
-#: core/manager/Actions.php:78
+#: core/manager/Actions.php:72
 #: core/manager/Actions.php:84
+#: core/manager/Actions.php:102
+#: core/manager/Actions.php:108
 msgid "Status"
 msgstr ""
 
+#: core/manager/Actions.php:78
 #: core/manager/Actions.php:90
-#: core/manager/Actions.php:96
-#: core/manager/Defaults.php:35
+msgid "Visibility"
+msgstr ""
+
+#: core/manager/Actions.php:114
+#: core/manager/Actions.php:120
+#: core/manager/Defaults.php:36
 msgid "Sticky"
 msgstr ""
 
-#: core/manager/Defaults.php:34
+#: core/manager/Defaults.php:35
 msgid "No"
 msgstr ""
 
-#: core/manager/Defaults.php:36
+#: core/manager/Defaults.php:37
 msgid "Super Sticky"
 msgstr ""
 
-#: core/manager/Defaults.php:58
-#: core/manager/Defaults.php:99
+#: core/manager/Defaults.php:71
+#: core/manager/Defaults.php:171
 msgid "The title is too long."
 msgstr ""
 
-#: core/manager/Defaults.php:123
-#: core/manager/Defaults.php:148
+#: core/manager/Defaults.php:95
+#: core/manager/Defaults.php:195
+#: core/manager/Defaults.php:220
 msgid "Invalid status value."
+msgstr ""
+
+#: core/manager/Defaults.php:117
+msgid "Invalid visibility value."
+msgstr ""
+
+#: core/manager/Defaults.php:135
+#: core/manager/Defaults.php:141
+#: core/manager/Defaults.php:240
+#: core/manager/Defaults.php:246
+msgid "Don't change"
 msgstr ""
 
 #: core/manager/Process.php:17
 #: core/manager/Process.php:24
 #: core/manager/Render.php:25
-#: core/manager/Render.php:34
+#: core/manager/Render.php:31
+#: core/manager/Render.php:91
+#: core/manager/Render.php:100
 msgid "No actions found."
 msgstr ""
 
 #: core/manager/Process.php:38
-#: core/manager/Render.php:48
+#: core/manager/Render.php:114
 msgid "Request object not found."
 msgstr ""
 
