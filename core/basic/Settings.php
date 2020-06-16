@@ -13,14 +13,7 @@ class Settings extends BaseSettings {
 
     public $settings = array(
         'core' => array(
-            'activated' => 0,
-            'notice_gdfon_hide' => false,
-            'notice_gdpol_hide' => false,
-            'notice_gdtox_hide' => false,
-            'notice_gdbbx_hide' => false,
-            'notice_gdpos_hide' => false,
-            'notice_gdqnt_hide' => false,
-            'notice_gdmed_hide' => false
+            'activated' => 0
         ),
         'settings' => array(
             'moderators' => true,

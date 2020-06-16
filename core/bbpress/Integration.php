@@ -2,35 +2,31 @@
 
 namespace Dev4Press\Plugin\GDFAR\bbPress;
 
-use Dev4Press\Plugin\GDFAR\Manager\Defaults;
-
 if (!defined('ABSPATH')) {
     exit;
 }
 
 class Integration {
-    public $_actions = false;
     public $_queued = false;
     public $_key = 1;
 
     public function __construct() {
-        $this->_actions = new Defaults();
-
         if (is_user_logged_in()) {
             add_action('bbp_init', array($this, 'init'));
         }
     }
 
-    public function can_moderate() {
-        return current_user_can('moderate');
-    }
-
     public function init() {
-        if ($this->can_moderate()) {
-            add_action('bbp_theme_before_forum_title', array($this, 'forum_controls'), 1);
-            add_action('bbp_theme_before_topic_title', array($this, 'topic_controls'), 1);
-            add_action('bbp_template_after_forums_loop', array($this, 'forum_bulk'));
-            add_action('bbp_template_after_topics_loop', array($this, 'topic_bulk'));
+        if (gdfar()->allowed()) {
+            if (gdfar_settings()->get('forum')) {
+                add_action('bbp_theme_before_forum_title', array($this, 'forum_controls'), 1);
+                add_action('bbp_template_after_forums_loop', array($this, 'forum_bulk'));
+            }
+
+            if (gdfar_settings()->get('topic')) {
+                add_action('bbp_theme_before_topic_title', array($this, 'topic_controls'), 1);
+                add_action('bbp_template_after_topics_loop', array($this, 'topic_bulk'));
+            }
         }
     }
 

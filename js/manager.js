@@ -1,5 +1,5 @@
 /*jslint regexp: true, nomen: true, undef: true, sloppy: true, eqeq: true, vars: true, white: true, plusplus: true, maxerr: 50, indent: 4 */
-/*global gdfar_manager_data, ajaxurl*/
+/*global gdfar_manager_data*/
 
 ;(function ($, window, document, undefined) {
     window.wp = window.wp || {};
@@ -63,7 +63,7 @@
                     $("#gdfar-manager-form-edit").ajaxSubmit({
                         success: wp.gdfar.manager.shared.process,
                         type: "post", dataType: "json",
-                        url: ajaxurl + "?action=gdfar_process_edit"
+                        url: gdfar_manager_data.ajaxurl + "?action=gdfar_process_edit"
                     });
                 }
             }
@@ -109,7 +109,7 @@
                     $("#gdfar-manager-form-bulk").ajaxSubmit({
                         success: wp.gdfar.manager.shared.process,
                         type: "post", dataType: "json",
-                        url: ajaxurl + "?action=gdfar_process_bulk"
+                        url: gdfar_manager_data.ajaxurl + "?action=gdfar_process_bulk"
                     });
                 }
             },

@@ -27,7 +27,7 @@ class AJAX {
     }
 
     private function check_moderation() {
-        $mod = gdfar()->bbpress()->can_moderate();
+        $mod = gdfar()->allowed();
 
         if ($mod === false) {
             _ajax_wp_die_handler(__("Invalid Request.", "gd-forum-manager-for-bbpress"));

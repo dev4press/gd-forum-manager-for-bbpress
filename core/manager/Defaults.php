@@ -11,8 +11,8 @@ class Defaults {
             'bulk' => array('status', 'visibility')
         ),
         'topic' => array(
-            'edit' => array('rename', 'status', 'sticky'),
-            'bulk' => array('status', 'sticky')
+            'edit' => array('rename', 'forum', 'status', 'sticky'),
+            'bulk' => array('status', 'forum', 'sticky')
         )
     );
 
@@ -266,6 +266,10 @@ class Defaults {
         return '<input id="'.$args['element'].'" type="text" name="'.$args['base'].'[title]" value="'.esc_attr(bbp_get_topic_title($args['id'])).'" />';
     }
 
+    public function display_topic_edit_forum($render, $args = array()) {
+        return bbp_get_dropdown(array('selected' => bbp_get_topic_forum_id($args['id']), 'show_none' => false, 'select_id' => $args['base'].'[forum]'));
+    }
+
     public function display_topic_edit_status($render, $args = array()) {
         $list = bbp_get_topic_statuses($args['id']);
 
@@ -297,6 +301,24 @@ class Defaults {
 
             if (is_wp_error($update)) {
                 return $update;
+            }
+        }
+
+        return $result;
+    }
+
+    public function process_topic_edit_forum($result, $args = array()) {
+        $topic_id = $args['id'];
+        $new_forum = isset($args['value']['forum']) ? absint($args['value']['forum']) : 0;
+        $old_forum = bbp_get_topic_forum_id($topic_id);
+
+        if ($new_forum > 0) {
+            if (!bbp_is_forum($new_forum)) {
+                return new WP_Error("invalid_forum", __("Invalid forum ID.", "gd-forum-manager-for-bbpress"));
+            }
+
+            if ($old_forum != $new_forum) {
+                bbp_move_topic_handler($topic_id, $old_forum, $new_forum);
             }
         }
 
@@ -359,6 +381,10 @@ class Defaults {
         return $result;
     }
 
+    public function display_topic_bulk_forum($render, $args = array()) {
+        return bbp_get_dropdown(array('selected' => 0, 'show_none' => __("Don't change", "gd-forum-manager-for-bbpress"), 'select_id' => $args['base'].'[forum]'));
+    }
+
     public function display_topic_bulk_status($render, $args = array()) {
         $list = array_merge(array('' => __("Don't change", "gd-forum-manager-for-bbpress")), bbp_get_topic_statuses());
 
@@ -369,6 +395,26 @@ class Defaults {
         $list = array_merge(array('' => __("Don't change", "gd-forum-manager-for-bbpress")), $this->_get_list_for_stickies());
 
         return gdfar_render()->select($list, array('selected' => '', 'name' => $args['base'].'[sticky]', 'id' => $args['element']));
+    }
+
+    public function process_topic_bulk_forum($result, $args = array()) {
+        $new_forum = isset($args['value']['forum']) ? absint($args['value']['forum']) : 0;
+
+        if ($new_forum > 0) {
+            if (!bbp_is_forum($new_forum)) {
+                return new WP_Error("invalid_forum", __("Invalid forum ID.", "gd-forum-manager-for-bbpress"));
+            }
+
+            foreach ($args['id'] as $topic_id) {
+                $old_forum = bbp_get_topic_forum_id($topic_id);
+
+                if ($old_forum != $new_forum) {
+                    bbp_move_topic_handler($topic_id, $old_forum, $new_forum);
+                }
+            }
+        }
+
+        return $result;
     }
 
     public function process_topic_bulk_status($result, $args = array()) {

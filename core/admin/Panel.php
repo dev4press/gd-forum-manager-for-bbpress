@@ -9,4 +9,7 @@ if (!defined('ABSPATH')) {
 }
 
 class Panel extends BasePanel {
+    public function include_notices() {
+
+    }
 }

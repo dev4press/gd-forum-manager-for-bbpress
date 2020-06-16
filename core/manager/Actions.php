@@ -23,6 +23,7 @@ class Actions {
             'class' => '',
             'source' => 'bbPress',
             'prefix' => 'gdfar',
+            'notice' => '',
             'description' => '',
             'filter_visible' => '',
             'filter_display' => '',
@@ -108,6 +109,20 @@ class Actions {
             'action' => 'edit',
             'label' => __("Title", "gd-forum-manager-for-bbpress"),
             'description' => __("Change topic title.", "gd-forum-manager-for-bbpress")
+        ));
+
+        $this->register('forum', array(
+            'scope' => 'topic',
+            'action' => 'edit',
+            'label' => __("Forum", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change the forum for the topic.", "gd-forum-manager-for-bbpress")
+        ));
+
+        $this->register('forum', array(
+            'scope' => 'topic',
+            'action' => 'bulk',
+            'label' => __("Forum", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change the forum for the topic.", "gd-forum-manager-for-bbpress")
         ));
 
         $this->register('status', array(

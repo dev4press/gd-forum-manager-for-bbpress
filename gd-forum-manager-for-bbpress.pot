@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: GD Members Directory for bbPress\n"
-"POT-Creation-Date: 06/16/2020 08:21:28 PM\n"
+"POT-Creation-Date: 06/16/2020 10:49:37 PM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,109 +47,119 @@ msgstr ""
 msgid "Invalid Request"
 msgstr ""
 
-#: core/bbpress/Integration.php:62
+#: core/bbpress/Integration.php:58
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit Forum"
 msgstr ""
 
-#: core/bbpress/Integration.php:63
+#: core/bbpress/Integration.php:59
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit Topic"
 msgstr ""
 
-#: core/bbpress/Integration.php:66
+#: core/bbpress/Integration.php:62
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:67
+#: core/bbpress/Integration.php:63
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit selected Topics"
 msgstr ""
 
-#: core/bbpress/Integration.php:58
+#: core/bbpress/Integration.php:54
 msgid "Please Wait..."
 msgstr ""
 
-#: core/bbpress/Integration.php:80
-#: core/bbpress/Integration.php:95
+#: core/bbpress/Integration.php:76
+#: core/bbpress/Integration.php:91
 msgid "edit"
 msgstr ""
 
-#: core/bbpress/Integration.php:112
+#: core/bbpress/Integration.php:108
 msgid "Selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:113
-#: core/bbpress/Integration.php:123
+#: core/bbpress/Integration.php:109
+#: core/bbpress/Integration.php:119
 msgid "select all"
 msgstr ""
 
-#: core/bbpress/Integration.php:113
-#: core/bbpress/Integration.php:123
+#: core/bbpress/Integration.php:109
+#: core/bbpress/Integration.php:119
 msgid "select none"
 msgstr ""
 
-#: core/bbpress/Integration.php:114
+#: core/bbpress/Integration.php:110
 msgid "Edit Selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:122
+#: core/bbpress/Integration.php:118
 msgid "Selected Topics"
 msgstr ""
 
-#: core/bbpress/Integration.php:124
+#: core/bbpress/Integration.php:120
 msgid "Edit Selected Topics"
 msgstr ""
 
-#: core/manager/Actions.php:73
-#: core/manager/Actions.php:108
+#: core/manager/Actions.php:74
+#: core/manager/Actions.php:109
 msgid "Title"
 msgstr ""
 
-#: core/manager/Actions.php:74
+#: core/manager/Actions.php:75
 msgid "Change forum title."
-msgstr ""
-
-#: core/manager/Actions.php:80
-#: core/manager/Actions.php:94
-#: core/manager/Actions.php:115
-#: core/manager/Actions.php:122
-msgid "Status"
 msgstr ""
 
 #: core/manager/Actions.php:81
 #: core/manager/Actions.php:95
-msgid "Change forum status."
+#: core/manager/Actions.php:130
+#: core/manager/Actions.php:137
+msgid "Status"
 msgstr ""
 
-#: core/manager/Actions.php:87
-#: core/manager/Actions.php:101
-msgid "Visibility"
+#: core/manager/Actions.php:82
+#: core/manager/Actions.php:96
+msgid "Change forum status."
 msgstr ""
 
 #: core/manager/Actions.php:88
 #: core/manager/Actions.php:102
+msgid "Visibility"
+msgstr ""
+
+#: core/manager/Actions.php:89
+#: core/manager/Actions.php:103
 msgid "Change forum visibility."
 msgstr ""
 
-#: core/manager/Actions.php:109
+#: core/manager/Actions.php:110
 msgid "Change topic title."
 msgstr ""
 
 #: core/manager/Actions.php:116
 #: core/manager/Actions.php:123
+msgid "Forum"
+msgstr ""
+
+#: core/manager/Actions.php:117
+#: core/manager/Actions.php:124
+msgid "Change the forum for the topic."
+msgstr ""
+
+#: core/manager/Actions.php:131
+#: core/manager/Actions.php:138
 msgid "Change topic status."
 msgstr ""
 
-#: core/manager/Actions.php:129
-#: core/manager/Actions.php:136
+#: core/manager/Actions.php:144
+#: core/manager/Actions.php:151
 #: core/manager/Defaults.php:36
 msgid "Sticky"
 msgstr ""
 
-#: core/manager/Actions.php:130
-#: core/manager/Actions.php:137
+#: core/manager/Actions.php:145
+#: core/manager/Actions.php:152
 msgid "Change topic sticky status."
 msgstr ""
 
@@ -162,14 +172,14 @@ msgid "Super Sticky"
 msgstr ""
 
 #: core/manager/Defaults.php:130
-#: core/manager/Defaults.php:289
+#: core/manager/Defaults.php:293
 msgid "The title is too long."
 msgstr ""
 
 #: core/manager/Defaults.php:154
 #: core/manager/Defaults.php:214
-#: core/manager/Defaults.php:313
-#: core/manager/Defaults.php:380
+#: core/manager/Defaults.php:335
+#: core/manager/Defaults.php:426
 msgid "Invalid status value."
 msgstr ""
 
@@ -180,13 +190,19 @@ msgstr ""
 
 #: core/manager/Defaults.php:196
 #: core/manager/Defaults.php:202
-#: core/manager/Defaults.php:362
-#: core/manager/Defaults.php:368
+#: core/manager/Defaults.php:384
+#: core/manager/Defaults.php:388
+#: core/manager/Defaults.php:394
 msgid "Don't change"
 msgstr ""
 
-#: core/manager/Defaults.php:342
-#: core/manager/Defaults.php:413
+#: core/manager/Defaults.php:316
+#: core/manager/Defaults.php:404
+msgid "Invalid forum ID."
+msgstr ""
+
+#: core/manager/Defaults.php:364
+#: core/manager/Defaults.php:459
 msgid "Invalid sticky value."
 msgstr ""
 
