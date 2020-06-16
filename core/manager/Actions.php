@@ -21,6 +21,9 @@ class Actions {
             'action' => '',
             'label' => '',
             'class' => '',
+            'source' => 'bbPress',
+            'prefix' => 'gdfar',
+            'description' => '',
             'filter_visible' => '',
             'filter_display' => '',
             'filter_process' => ''
@@ -40,15 +43,15 @@ class Actions {
         $key = $args['scope'].'-'.$args['action'].'-'.$args['name'];
 
         if (empty($args['filter_visible'])) {
-            $args['filter_visible'] = 'gdfar-action-visible-'.$key;
+            $args['filter_visible'] = $args['prefix'].'-action-visible-'.$key;
         }
 
         if (empty($args['filter_display'])) {
-            $args['filter_display'] = 'gdfar-action-display-'.$key;
+            $args['filter_display'] = $args['prefix'].'-action-display-'.$key;
         }
 
         if (empty($args['filter_process'])) {
-            $args['filter_process'] = 'gdfar-action-process-'.$key;
+            $args['filter_process'] = $args['prefix'].'-action-process-'.$key;
         }
 
         $this->_actions[$args['scope']][$args['action']][$name] = $args;
@@ -60,65 +63,79 @@ class Actions {
         return isset($this->_actions[$scope][$action]) ? $this->_actions[$scope][$action] : array();
     }
 
+    public function count_actions($scope, $action) {
+        return isset($this->_actions[$scope][$action]) ? count($this->_actions[$scope][$action]) : 0;
+    }
+
     private function _default_actions() {
         $this->register('rename', array(
             'scope' => 'forum',
             'action' => 'edit',
-            'label' => __("Title", "gd-forum-manager-for-bbpress")
+            'label' => __("Title", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change forum title.", "gd-forum-manager-for-bbpress")
         ));
 
         $this->register('status', array(
             'scope' => 'forum',
             'action' => 'edit',
-            'label' => __("Status", "gd-forum-manager-for-bbpress")
+            'label' => __("Status", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change forum status.", "gd-forum-manager-for-bbpress")
         ));
 
         $this->register('visibility', array(
             'scope' => 'forum',
             'action' => 'edit',
-            'label' => __("Visibility", "gd-forum-manager-for-bbpress")
+            'label' => __("Visibility", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change forum visibility.", "gd-forum-manager-for-bbpress")
         ));
 
         $this->register('status', array(
             'scope' => 'forum',
             'action' => 'bulk',
-            'label' => __("Status", "gd-forum-manager-for-bbpress")
+            'label' => __("Status", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change forum status.", "gd-forum-manager-for-bbpress")
         ));
 
         $this->register('visibility', array(
             'scope' => 'forum',
             'action' => 'bulk',
-            'label' => __("Visibility", "gd-forum-manager-for-bbpress")
+            'label' => __("Visibility", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change forum visibility.", "gd-forum-manager-for-bbpress")
         ));
 
         $this->register('rename', array(
             'scope' => 'topic',
             'action' => 'edit',
-            'label' => __("Title", "gd-forum-manager-for-bbpress")
+            'label' => __("Title", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change topic title.", "gd-forum-manager-for-bbpress")
         ));
 
         $this->register('status', array(
             'scope' => 'topic',
             'action' => 'edit',
-            'label' => __("Status", "gd-forum-manager-for-bbpress")
+            'label' => __("Status", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change topic status.", "gd-forum-manager-for-bbpress")
         ));
 
         $this->register('status', array(
             'scope' => 'topic',
             'action' => 'bulk',
-            'label' => __("Status", "gd-forum-manager-for-bbpress")
+            'label' => __("Status", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change topic status.", "gd-forum-manager-for-bbpress")
         ));
 
         $this->register('sticky', array(
             'scope' => 'topic',
             'action' => 'edit',
-            'label' => __("Sticky", "gd-forum-manager-for-bbpress")
+            'label' => __("Sticky", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change topic sticky status.", "gd-forum-manager-for-bbpress")
         ));
 
         $this->register('sticky', array(
             'scope' => 'topic',
             'action' => 'bulk',
-            'label' => __("Sticky", "gd-forum-manager-for-bbpress")
+            'label' => __("Sticky", "gd-forum-manager-for-bbpress"),
+            'description' => __("Change topic sticky status.", "gd-forum-manager-for-bbpress")
         ));
     }
 }

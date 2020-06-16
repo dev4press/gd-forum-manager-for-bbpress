@@ -44,6 +44,65 @@ class Defaults {
                bbp_is_topic_sticky($topic_id) ? 'sticky' : 'no');
     }
 
+    private function _update_forum_status($status, $forum_id) {
+        switch ($status) {
+            case 'open':
+                do_action('bbp_opened_forum', $forum_id);
+                break;
+            case 'closed':
+                do_action('bbp_closed_closed', $forum_id);
+                break;
+        }
+    }
+
+    private function _before_update_topic_status($status, $old_status, $topic_id) {
+        switch ($status) {
+            case 'publish':
+                if ($old_status == 'pending') {
+                    do_action('bbp_approve_topic', $topic_id);
+                } else {
+                    do_action('bbp_open_topic', $topic_id);
+                }
+                break;
+            case 'closed':
+                do_action('bbp_close_topic', $topic_id);
+                break;
+            case 'spam':
+                do_action('bbp_spam_topic', $topic_id);
+                break;
+            case 'trash':
+                do_action('bbp_trash_topic', $topic_id);
+                break;
+            case 'pending':
+                do_action('bbp_unapprove_topic', $topic_id);
+                break;
+        }
+    }
+
+    private function _after_update_topic_status($status, $old_status, $topic_id) {
+        switch ($status) {
+            case 'publish':
+                if ($old_status == 'pending') {
+                    do_action('bbp_approved_topic', $topic_id);
+                } else {
+                    do_action('bbp_opened_topic', $topic_id);
+                }
+                break;
+            case 'closed':
+                do_action('bbp_closed_topic', $topic_id);
+                break;
+            case 'spam':
+                do_action('bbp_spammed_topic', $topic_id);
+                break;
+            case 'trash':
+                do_action('bbp_trashed_topic', $topic_id);
+                break;
+            case 'pending':
+                do_action('bbp_unapproved_topic', $topic_id);
+                break;
+        }
+    }
+
     public function display_forum_edit_rename($render, $args = array()) {
         return '<input id="'.$args['element'].'" type="text" name="'.$args['base'].'[title]" value="'.esc_attr(bbp_get_forum_title($args['id'])).'" />';
     }
@@ -97,11 +156,13 @@ class Defaults {
         }
 
         if ($old_status != $new_status) {
-            if ($new_status == 'close') {
+            if ($new_status == 'closed') {
                 bbp_close_forum($forum_id);
             } else {
                 bbp_open_forum($forum_id);
             }
+
+            $this->_update_forum_status($new_status, $forum_id);
         }
 
         return $result;
@@ -111,7 +172,7 @@ class Defaults {
         $list = bbp_get_forum_visibilities($args['id']);
 
         $forum_id = $args['id'];
-        $new_status = isset($args['value']['status']) ? sanitize_text_field($args['value']['status']) : '';
+        $new_status = isset($args['value']['visibility']) ? sanitize_text_field($args['value']['visibility']) : '';
         $old_status = bbp_get_forum_visibility($forum_id);
 
         if (empty($new_status) || !isset($list[$new_status])) {
@@ -142,6 +203,63 @@ class Defaults {
         $list = array_merge(array('' => __("Don't change", "gd-forum-manager-for-bbpress")), bbp_get_forum_visibilities());
 
         return gdfar_render()->select($list, array('selected' => '', 'name' => $args['base'].'[visibility]', 'id' => $args['element']));
+    }
+
+    public function process_forum_bulk_status($result, $args = array()) {
+        $list = bbp_get_forum_statuses();
+
+        $new_status = isset($args['value']['status']) ? sanitize_text_field($args['value']['status']) : '';
+
+        if (!empty($new_status)) {
+            if (!isset($list[$new_status])) {
+                return new WP_Error("invalid_status", __("Invalid status value.", "gd-forum-manager-for-bbpress"));
+            }
+
+            foreach ($args['id'] as $forum_id) {
+                $old_status = bbp_get_forum_status($forum_id);
+
+                if ($old_status != $new_status) {
+                    if ($new_status == 'closed') {
+                        bbp_close_forum($forum_id);
+                    } else {
+                        bbp_open_forum($forum_id);
+                    }
+
+                    $this->_update_forum_status($new_status, $forum_id);
+                }
+            }
+        }
+
+        return $result;
+    }
+
+    public function process_forum_bulk_visibility($result, $args = array()) {
+        $list = bbp_get_forum_visibilities();
+
+        $new_status = isset($args['value']['visibility']) ? sanitize_text_field($args['value']['visibility']) : '';
+
+        if (!empty($new_status)) {
+            if (!isset($list[$new_status])) {
+                return new WP_Error("invalid_status", __("Invalid visibility value.", "gd-forum-manager-for-bbpress"));
+            }
+
+            foreach ($args['id'] as $forum_id) {
+                $old_status = bbp_get_forum_visibility($forum_id);
+
+                if ($old_status != $new_status) {
+                    $update = wp_update_post(array(
+                        'ID' => $forum_id,
+                        'post_status' => $new_status
+                    ), true);
+
+                    if (is_wp_error($update)) {
+                        return $update;
+                    }
+                }
+            }
+        }
+
+        return $result;
     }
 
     public function display_topic_edit_rename($render, $args = array()) {
@@ -197,10 +315,14 @@ class Defaults {
         }
 
         if ($old_status != $new_status) {
+            $this->_before_update_topic_status($new_status, $old_status, $topic_id);
+
             $update = wp_update_post(array(
                 'ID' => $topic_id,
                 'post_status' => $new_status
             ), true);
+
+            $this->_after_update_topic_status($new_status, $old_status, $topic_id);
 
             if (is_wp_error($update)) {
                 return $update;
@@ -215,10 +337,10 @@ class Defaults {
 
         $topic_id = $args['id'];
         $new_status = isset($args['value']['sticky']) ? sanitize_text_field($args['value']['sticky']) : '';
-        $old_status = $this->_get_topic_sticky_status($args['id']);
+        $old_status = $this->_get_topic_sticky_status($topic_id);
 
         if (empty($new_status) || !isset($list[$new_status])) {
-            return new WP_Error("invalid_status", __("Invalid status value.", "gd-forum-manager-for-bbpress"));
+            return new WP_Error("invalid_sticky", __("Invalid sticky value.", "gd-forum-manager-for-bbpress"));
         }
 
         if ($old_status != $new_status) {
@@ -250,10 +372,66 @@ class Defaults {
     }
 
     public function process_topic_bulk_status($result, $args = array()) {
+        $list = bbp_get_topic_statuses();
+
+        $new_status = isset($args['value']['status']) ? sanitize_text_field($args['value']['status']) : '';
+
+        if (!empty($new_status)) {
+            if (!isset($list[$new_status])) {
+                return new WP_Error("invalid_status", __("Invalid status value.", "gd-forum-manager-for-bbpress"));
+            }
+
+            foreach ($args['id'] as $topic_id) {
+                $old_status = bbp_get_topic_status($topic_id);
+
+                if ($old_status != $new_status) {
+                    $this->_before_update_topic_status($new_status, $old_status, $topic_id);
+
+                    $update = wp_update_post(array(
+                        'ID' => $topic_id,
+                        'post_status' => $new_status
+                    ), true);
+
+                    $this->_after_update_topic_status($new_status, $old_status, $topic_id);
+
+                    if (is_wp_error($update)) {
+                        return $update;
+                    }
+                }
+            }
+        }
+
         return $result;
     }
 
     public function process_topic_bulk_sticky($result, $args = array()) {
+        $list = $this->_get_list_for_stickies();
+
+        $new_status = isset($args['value']['sticky']) ? sanitize_text_field($args['value']['sticky']) : '';
+
+        if (!empty($new_status)) {
+            if (!isset($list[$new_status])) {
+                return new WP_Error("invalid_sticky", __("Invalid sticky value.", "gd-forum-manager-for-bbpress"));
+            }
+
+            foreach ($args['id'] as $topic_id) {
+                $old_status = $this->_get_topic_sticky_status($topic_id);
+
+                if ($old_status != $new_status) {
+                    bbp_unstick_topic($topic_id);
+
+                    switch ($new_status) {
+                        case 'sticky':
+                            bbp_stick_topic($topic_id);
+                            break;
+                        case 'super':
+                            bbp_stick_topic($topic_id, true);
+                            break;
+                    }
+                }
+            }
+        }
+
         return $result;
     }
 }

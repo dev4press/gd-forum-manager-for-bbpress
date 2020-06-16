@@ -9,7 +9,7 @@ function gdfar_register_action($name, $args = array()) {
         return gdfar()->actions()->register($name, $args);
     }
 
-    _doing_it_wrong('gdfar_register_action', __("This function has to be called inside 'gdfar_register_actions' action."), '1.0');
+    _doing_it_wrong('gdfar_register_action', __("This function has to be called inside 'gdfar_register_actions' action.", "gd-forum-manager-for-bbpress"), '1.0');
 
     return false;
 }

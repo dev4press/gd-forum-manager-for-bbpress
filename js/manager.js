@@ -6,6 +6,30 @@
     window.wp.gdfar = window.wp.gdfar || {};
 
     window.wp.gdfar.manager = {
+        shared: {
+            process: function(json) {
+                $(".gdfar-action").removeClass("gdfar-is-error");
+                $(".gdfar-error-message").remove();
+
+                $(".gdfar-modal__footer button").attr("disabled", false);
+
+                if (json.status === "ok") {
+                    if (json.errors > 0) {
+                        $.each(json.elements, function (name, message) {
+                            var el = $(".gdfar-action.gdfar-action-" + name);
+
+                            el.addClass("gdfar-is-error");
+
+                            $(".gdfar-conent-wrapper", el).append("<p class='gdfar-error-message'>" + message + '</p>');
+                        });
+                    } else {
+                        location.reload(false);
+                    }
+                } else if (json.status === "error") {
+                    alert(json.error);
+                }
+            }
+        },
         edit: {
             dialog: function(e) {
                 e.preventDefault();
@@ -37,28 +61,7 @@
 
                 if ($("#gdfar-modal-edit").hasClass("is-open")) {
                     $("#gdfar-manager-form-edit").ajaxSubmit({
-                        success: function (json) {
-                            $(".gdfar-action").removeClass("gdfar-is-error");
-                            $(".gdfar-error-message").remove();
-
-                            if (json.status === "ok") {
-                                if (json.errors > 0) {
-                                    $.each(json.elements, function (name, message) {
-                                        var el = $(".gdfar-action.gdfar-action-" + name);
-
-                                        el.addClass("gdfar-is-error");
-
-                                        $(".gdfar-conent-wrapper", el).append("<p class='gdfar-error-message'>" + message + '</p>');
-                                    });
-
-                                    $(".gdfar-modal__footer button").attr("disabled", true);
-                                } else {
-                                    location.reload(false);
-                                }
-                            } else if (json.status === "error") {
-                                alert(json.error);
-                            }
-                        },
+                        success: wp.gdfar.manager.shared.process,
                         type: "post", dataType: "json",
                         url: ajaxurl + "?action=gdfar_process_edit"
                     });
@@ -104,9 +107,7 @@
 
                 if ($("#gdfar-modal-bulk").hasClass("is-open")) {
                     $("#gdfar-manager-form-bulk").ajaxSubmit({
-                        success: function (json) {
-
-                        },
+                        success: wp.gdfar.manager.shared.process,
                         type: "post", dataType: "json",
                         url: ajaxurl + "?action=gdfar_process_bulk"
                     });

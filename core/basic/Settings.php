@@ -23,7 +23,9 @@ class Settings extends BaseSettings {
             'notice_gdmed_hide' => false
         ),
         'settings' => array(
-            'moderators' => true
+            'moderators' => true,
+            'forum' => true,
+            'topic' => true
         )
     );
 

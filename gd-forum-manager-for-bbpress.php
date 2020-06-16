@@ -44,6 +44,8 @@ gdfar_settings();
 gdfar();
 
 if (D4P_ADMIN) {
+    require_once(GDFAR_PATH.'core/admin.php');
+
     gdfar_admin();
 }
 

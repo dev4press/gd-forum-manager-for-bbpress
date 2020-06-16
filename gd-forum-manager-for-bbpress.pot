@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: GD Members Directory for bbPress\n"
-"POT-Creation-Date: 06/15/2020 09:40:30 PM\n"
+"POT-Creation-Date: 06/16/2020 08:21:28 PM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,12 +34,17 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: core/basic/AJAX.php:29
-#: core/basic/AJAX.php:47
-#: core/basic/AJAX.php:79
-#: core/basic/AJAX.php:126
-#: core/basic/AJAX.php:140
+#: core/basic/AJAX.php:32
+#: core/basic/AJAX.php:58
+#: core/basic/AJAX.php:105
+#: core/basic/AJAX.php:152
+#: core/basic/AJAX.php:166
+#: core/basic/AJAX.php:217
 msgid "Invalid Request."
+msgstr ""
+
+#: core/basic/AJAX.php:74
+msgid "Invalid Request"
 msgstr ""
 
 #: core/bbpress/Integration.php:62
@@ -97,27 +102,55 @@ msgstr ""
 msgid "Edit Selected Topics"
 msgstr ""
 
-#: core/manager/Actions.php:66
-#: core/manager/Actions.php:96
+#: core/manager/Actions.php:73
+#: core/manager/Actions.php:108
 msgid "Title"
 msgstr ""
 
-#: core/manager/Actions.php:72
-#: core/manager/Actions.php:84
-#: core/manager/Actions.php:102
-#: core/manager/Actions.php:108
+#: core/manager/Actions.php:74
+msgid "Change forum title."
+msgstr ""
+
+#: core/manager/Actions.php:80
+#: core/manager/Actions.php:94
+#: core/manager/Actions.php:115
+#: core/manager/Actions.php:122
 msgid "Status"
 msgstr ""
 
-#: core/manager/Actions.php:78
-#: core/manager/Actions.php:90
+#: core/manager/Actions.php:81
+#: core/manager/Actions.php:95
+msgid "Change forum status."
+msgstr ""
+
+#: core/manager/Actions.php:87
+#: core/manager/Actions.php:101
 msgid "Visibility"
 msgstr ""
 
-#: core/manager/Actions.php:114
-#: core/manager/Actions.php:120
+#: core/manager/Actions.php:88
+#: core/manager/Actions.php:102
+msgid "Change forum visibility."
+msgstr ""
+
+#: core/manager/Actions.php:109
+msgid "Change topic title."
+msgstr ""
+
+#: core/manager/Actions.php:116
+#: core/manager/Actions.php:123
+msgid "Change topic status."
+msgstr ""
+
+#: core/manager/Actions.php:129
+#: core/manager/Actions.php:136
 #: core/manager/Defaults.php:36
 msgid "Sticky"
+msgstr ""
+
+#: core/manager/Actions.php:130
+#: core/manager/Actions.php:137
+msgid "Change topic sticky status."
 msgstr ""
 
 #: core/manager/Defaults.php:35
@@ -128,30 +161,39 @@ msgstr ""
 msgid "Super Sticky"
 msgstr ""
 
-#: core/manager/Defaults.php:71
-#: core/manager/Defaults.php:171
+#: core/manager/Defaults.php:130
+#: core/manager/Defaults.php:289
 msgid "The title is too long."
 msgstr ""
 
-#: core/manager/Defaults.php:95
-#: core/manager/Defaults.php:195
-#: core/manager/Defaults.php:220
+#: core/manager/Defaults.php:154
+#: core/manager/Defaults.php:214
+#: core/manager/Defaults.php:313
+#: core/manager/Defaults.php:380
 msgid "Invalid status value."
 msgstr ""
 
-#: core/manager/Defaults.php:117
+#: core/manager/Defaults.php:178
+#: core/manager/Defaults.php:242
 msgid "Invalid visibility value."
 msgstr ""
 
-#: core/manager/Defaults.php:135
-#: core/manager/Defaults.php:141
-#: core/manager/Defaults.php:240
-#: core/manager/Defaults.php:246
+#: core/manager/Defaults.php:196
+#: core/manager/Defaults.php:202
+#: core/manager/Defaults.php:362
+#: core/manager/Defaults.php:368
 msgid "Don't change"
 msgstr ""
 
+#: core/manager/Defaults.php:342
+#: core/manager/Defaults.php:413
+msgid "Invalid sticky value."
+msgstr ""
+
 #: core/manager/Process.php:17
-#: core/manager/Process.php:24
+#: core/manager/Process.php:29
+#: core/manager/Process.php:47
+#: core/manager/Process.php:54
 #: core/manager/Render.php:25
 #: core/manager/Render.php:31
 #: core/manager/Render.php:91
@@ -159,9 +201,97 @@ msgstr ""
 msgid "No actions found."
 msgstr ""
 
-#: core/manager/Process.php:38
+#: core/manager/Process.php:23
+msgid "Selected objects are not valid."
+msgstr ""
+
+#: core/manager/Process.php:68
 #: core/manager/Render.php:114
 msgid "Request object not found."
+msgstr ""
+
+#: core/admin.php:8
+msgid "Toggle option for moderators access"
+msgstr ""
+
+#: core/admin.php:9
+msgid "Moderators can use the plugin"
+msgstr ""
+
+#: core/admin.php:12
+msgid "Toggle option for forums editing"
+msgstr ""
+
+#: core/admin.php:13
+msgid "Edit Forums"
+msgstr ""
+
+#: core/admin.php:16
+#: forms/dashboard/settings.php:14
+msgid "Toggle option for topics editing"
+msgstr ""
+
+#: core/admin.php:17
+#: forms/dashboard/settings.php:14
+msgid "Edit Topics"
+msgstr ""
+
+#: core/functions.php:11
+msgid "This function has to be called inside 'gdfar_register_actions' action."
+msgstr ""
+
+#: forms/dashboard/actions.php:1
+msgid "Registered Actions"
+msgstr ""
+
+#: forms/dashboard/actions.php:6
+msgid "For Forums"
+msgstr ""
+
+#: forms/dashboard/actions.php:12
+msgid "For Topics"
+msgstr ""
+
+#: forms/dashboard/actions.php:19
+msgid "Forums, Edit"
+msgstr ""
+
+#: forms/dashboard/actions.php:21
+msgid "Forums, Bulk Edit"
+msgstr ""
+
+#: forms/dashboard/actions.php:23
+msgid "Topics, Edit"
+msgstr ""
+
+#: forms/dashboard/actions.php:25
+msgid "Topics, Bulk Edit"
+msgstr ""
+
+#: forms/dashboard/actions.php:7
+#: forms/dashboard/actions.php:13
+msgid "%s for Bulk Edit"
+msgstr ""
+
+#: forms/dashboard/actions.php:8
+#: forms/dashboard/actions.php:14
+msgid "%s for Edit"
+msgstr ""
+
+#: forms/dashboard/settings.php:1
+msgid "Plugin Settings"
+msgstr ""
+
+#: forms/dashboard/settings.php:5
+msgid "From here you can control plugin settings. Plugin only has few settings you can change."
+msgstr ""
+
+#: forms/dashboard/settings.php:10
+msgid "Moderation"
+msgstr ""
+
+#: forms/dashboard/settings.php:12
+msgid "Content Editing"
 msgstr ""
 
 #: forms/manager/dialog-bulk.php:5

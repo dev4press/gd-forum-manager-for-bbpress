@@ -26,6 +26,10 @@ Expand how the moderators can manage forum content from the frontend, including 
 * The plugin should work with WordPress 4.0 to 4.8, but these versions are no longer used for testing, and they are no longer supported.
 * The plugin doesn't work with WordPress 3.9 or older versions.
 
+= bbPress Notice =
+* The plugin should work with bbPress 2.5, but this version is no longer used for testing.
+* The plugin doesn't work with bbPress 2.4 or older versions.
+
 = Basic Installation =
 * Plugin folder in the WordPress plugins folder must be `gd-quantum-theme-for-bbpress`.
 * Upload `gd-quantum-theme-for-bbpress` folder to the `/wp-content/plugins/` directory.
