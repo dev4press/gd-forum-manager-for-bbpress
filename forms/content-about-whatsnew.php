@@ -1,15 +1,15 @@
-<?php include(GDFAW_PATH.'forms/content-about-minor.php'); ?>
+<?php // include(GDFAR_PATH.'forms/content-about-minor.php'); ?>
 
 <div class="d4p-about-whatsnew">
     <div class="d4p-whatsnew-section d4p-whatsnew-heading">
         <div class="d4p-layout-grid">
             <div class="d4p-layout-unit whole align-center">
-                <h2 style="font-size: 52px;">Maximum Control</h2>
+                <h2 style="font-size: 52px;">Quick Updates</h2>
                 <p class="lead-description">
-                    New colour themes and extensive customizer control
+                    For bbPress forums and topics
                 </p>
                 <p>
-                    Version 2.0 is a massive update for the Quantum Theme for bbPress adding extensive Customizer controls for typogrpahy and colors with 3 distinctive theme styles and full plugin reorganization.
+                    New and free plugin adds popups for editing topics and forums from the listing pages, for individual editing and bulk editing. Plugin includes 4 topics and 3 forum default actions.
                 </p>
             </div>
         </div>
@@ -18,7 +18,7 @@
     <div class="d4p-whatsnew-section">
         <div class="d4p-layout-grid">
             <div class="d4p-layout-unit half align-left">
-                <h3>Default, Classic and Light styles</h3>
+                <h3>Edit individual topics and forums</h3>
                 <p>
                     The theme has two more distinctive styles. Classic style uses regular tables based look, while the Light style is simplfied using modern line based grid. Default style has not changes much from previous versions.
                 </p>
@@ -27,7 +27,7 @@
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
-                <img src="https://dev4press.s3.amazonaws.com/plugins/gd-quantum-theme-for-bbpress/2.0/about/classic.jpg"/>
+                <img src="https://dev4press.s3.amazonaws.com/plugins/gd-forum-manager-for-bbpress/1.0/about/edit.jpg"/>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
     <div class="d4p-whatsnew-section">
         <div class="d4p-layout-grid">
             <div class="d4p-layout-unit half align-left">
-                <h3>Improved Customization</h3>
+                <h3>Bulk editing for topics and forums</h3>
                 <p>
                     Customizer support has been significantly updated, and now you can not only select one of predefined color/style schemes, you can build one by selecting one of the 3 themes available, modifying one of the base colors, typography or additional colors.
                 </p>
@@ -44,7 +44,7 @@
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
-                <img src="https://dev4press.s3.amazonaws.com/plugins/gd-quantum-theme-for-bbpress/2.0/about/customizer.jpg"/>
+                <img src="https://dev4press.s3.amazonaws.com/plugins/gd-forum-manager-for-bbpress/1.0/about/bulk.jpg"/>
             </div>
         </div>
     </div>

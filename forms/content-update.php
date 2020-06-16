@@ -20,5 +20,4 @@
             <a class="button-primary" href="<?php echo d4p_panel()->a()->panel_url('about') ?>&update"><?php _e("Click here to continue", "gd-forum-manager-for-bbpress"); ?></a>
         </div>
     </div>
-    <?php echo gdfar()->recommend('update'); ?>
 </div>
