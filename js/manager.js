@@ -28,15 +28,8 @@
                 } else if (json.status === "error") {
                     alert(json.error);
                 }
-            }
-        },
-        edit: {
-            dialog: function(e) {
-                e.preventDefault();
-
-                var wrapper = $(this).closest(".gdfar-ctrl-wrapper"),
-                    type = wrapper.data("type"), id = wrapper.data("id");
-
+            },
+            dialog: function(type, id) {
                 $("#gdfar-modal-edit-content").html('<div class="gdfar-dialog-message">' + gdfar_manager_data.message.please_wait + '</div>');
                 $("#gdfar-modal-edit-title").html(gdfar_manager_data.titles.edit[type]);
                 $(".gdfar-modal__footer button").attr("disabled", false);
@@ -55,6 +48,23 @@
                     },
                     url: gdfar_manager_data.ajaxurl + "?action=gdfar_request_edit&_ajax_nonce=" + gdfar_manager_data.nonce
                 });
+            }
+        },
+        quick: {
+            dialog: function(e) {
+                e.preventDefault();
+
+                wp.gdfar.manager.shared.dialog('topic', $(this).data("id"));
+            }
+        },
+        edit: {
+            dialog: function(e) {
+                e.preventDefault();
+
+                var wrapper = $(this).closest(".gdfar-ctrl-wrapper"),
+                    type = wrapper.data("type"), id = wrapper.data("id");
+
+                wp.gdfar.manager.shared.dialog(type, id);
             },
             submit: function() {
                 $(".gdfar-modal__footer button").attr("disabled", true);
@@ -170,6 +180,7 @@
             $(document).on("click", "#gdfar-modal-bulk-submit", wp.gdfar.manager.bulk.submit);
             $(document).on("click", ".gdfar-ctrl-wrapper .gdfar-ctrl-edit", wp.gdfar.manager.edit.dialog);
             $(document).on("click", ".gdfar-bulk-control .gdfar-ctrl-bulk", wp.gdfar.manager.bulk.dialog);
+            $(document).on("click", ".bbp-topic-quick-edit-link", wp.gdfar.manager.quick.dialog);
 
             $(document).on("click", ".gdfar-bulk-control a.__all, .gdfar-bulk-control a.__none", wp.gdfar.manager.bulk.select);
         }

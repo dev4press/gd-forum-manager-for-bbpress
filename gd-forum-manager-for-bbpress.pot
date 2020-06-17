@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: GD Members Directory for bbPress\n"
-"POT-Creation-Date: 06/16/2020 10:49:37 PM\n"
+"POT-Creation-Date: 06/17/2020 09:03:35 AM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,58 +47,62 @@ msgstr ""
 msgid "Invalid Request"
 msgstr ""
 
-#: core/bbpress/Integration.php:58
+#: core/bbpress/Integration.php:61
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit Forum"
 msgstr ""
 
-#: core/bbpress/Integration.php:59
+#: core/bbpress/Integration.php:62
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit Topic"
 msgstr ""
 
-#: core/bbpress/Integration.php:62
+#: core/bbpress/Integration.php:65
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:63
+#: core/bbpress/Integration.php:66
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit selected Topics"
 msgstr ""
 
-#: core/bbpress/Integration.php:54
+#: core/bbpress/Integration.php:57
 msgid "Please Wait..."
 msgstr ""
 
-#: core/bbpress/Integration.php:76
-#: core/bbpress/Integration.php:91
+#: core/bbpress/Integration.php:79
+#: core/bbpress/Integration.php:94
 msgid "edit"
 msgstr ""
 
-#: core/bbpress/Integration.php:108
+#: core/bbpress/Integration.php:106
+msgid "Quick Edit"
+msgstr ""
+
+#: core/bbpress/Integration.php:129
 msgid "Selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:109
-#: core/bbpress/Integration.php:119
+#: core/bbpress/Integration.php:130
+#: core/bbpress/Integration.php:140
 msgid "select all"
 msgstr ""
 
-#: core/bbpress/Integration.php:109
-#: core/bbpress/Integration.php:119
+#: core/bbpress/Integration.php:130
+#: core/bbpress/Integration.php:140
 msgid "select none"
 msgstr ""
 
-#: core/bbpress/Integration.php:110
+#: core/bbpress/Integration.php:131
 msgid "Edit Selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:118
+#: core/bbpress/Integration.php:139
 msgid "Selected Topics"
 msgstr ""
 
-#: core/bbpress/Integration.php:120
+#: core/bbpress/Integration.php:141
 msgid "Edit Selected Topics"
 msgstr ""
 
@@ -332,8 +336,6 @@ msgstr ""
 
 #: forms/content-about-changelog.php:1
 #: forms/content-about-minor.php:3
-#: forms/content-about-minor.php:7
-#: forms/content-about-minor.php:11
 msgid "Version"
 msgstr ""
 
@@ -341,7 +343,7 @@ msgstr ""
 msgid "Maintenance and Security Releases"
 msgstr ""
 
-#: forms/content-about-minor.php:15
+#: forms/content-about-minor.php:7
 msgid "For more information, see <a href='%s'>the changelog</a>."
 msgstr ""
 

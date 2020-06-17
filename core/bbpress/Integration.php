@@ -26,6 +26,7 @@ class Integration {
             if (gdfar_settings()->get('topic')) {
                 add_action('bbp_theme_before_topic_title', array($this, 'topic_controls'), 1);
                 add_action('bbp_template_after_topics_loop', array($this, 'topic_bulk'));
+                add_filter('bbp_topic_admin_links', array($this, 'topic_admin_links'), 10, 2);
             }
         }
     }
@@ -36,7 +37,9 @@ class Integration {
         wp_enqueue_style('gdfar-manager');
         wp_enqueue_script('gdfar-manager');
 
-        $id = bbp_is_single_forum() ? bbp_get_forum_id() : 0;
+        $id = bbp_is_single_forum() ? bbp_get_forum_id() : (
+              bbp_is_single_topic() ? bbp_get_topic_forum_id() : 0
+        );
         $is = bbp_is_single_forum() ? 'forum' : (
               bbp_is_single_topic() ? 'topic' : (
               bbp_is_single_view() ? 'view' : (
@@ -99,9 +102,27 @@ class Integration {
         }
     }
 
+    public function topic_admin_links($links, $topic_id) {
+        $links = array(
+            'quick-edit' => '<a class="bbp-topic-quick-edit-link" href="#" data-id="'.$topic_id.'">'.__("Quick Edit", "gd-forum-manager-for-bbpress").'</a>'
+        ) + $links;
+
+        if (!$this->_queued) {
+            $this->enqueue();
+
+            add_action('wp_footer', array($this, 'modal_quick'));
+        }
+
+        return $links;
+    }
+
     public function modals() {
         require_once(GDFAR_PATH.'forms/manager/dialog-edit.php');
         require_once(GDFAR_PATH.'forms/manager/dialog-bulk.php');
+    }
+
+    public function modal_quick() {
+        require_once(GDFAR_PATH.'forms/manager/dialog-edit.php');
     }
 
     public function forum_bulk() {
