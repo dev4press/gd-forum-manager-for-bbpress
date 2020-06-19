@@ -208,7 +208,7 @@ class Render {
             $real_value = $associative ? $display : $value;
 
             $sel = in_array($real_value, $selected) ? ' selected="selected"' : '';
-            $render .= '<option value="'.esc_attr($value).'"'.$sel.'>'.$display.'</option>';
+            $render .= '<option value="'.esc_attr($value).'"'.$sel.'>'.esc_html($display).'</option>';
         }
         $render .= '</select>';
 

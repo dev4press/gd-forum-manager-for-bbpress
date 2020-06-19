@@ -13,3 +13,15 @@ function gdfar_register_action($name, $args = array()) {
 
     return false;
 }
+
+function gdfar_array_sanitize_text_field($array) {
+    foreach ($array as $key => &$value) {
+        if (is_array($value)) {
+            $value = gdfar_array_sanitize_text_field($value);
+        } else {
+            $value = sanitize_text_field($value);
+        }
+    }
+
+    return $array;
+}

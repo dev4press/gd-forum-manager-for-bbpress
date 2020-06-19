@@ -125,7 +125,7 @@ class AJAX {
             $data['type'] = isset($data['type']) ? d4p_sanitize_slug($data['type']) : '';
             $data['nonce'] = isset($data['nonce']) ? d4p_sanitize_basic($data['nonce']) : '';
             $data['id'] = isset($data['id']) ? absint($data['id']) : 0;
-            $data['field'] = isset($data['field']) ? (array)$data['field'] : array();
+            $data['field'] = isset($data['field']) ? gdfar_array_sanitize_text_field((array)$data['field']) : array();
 
             if (in_array($data['type'], array('forum', 'topic')) && $data['id'] > 0 || $data['action'] == 'edit' || !empty($nonce)) {
                 if (wp_verify_nonce($data['nonce'], 'gdfar-manager-edit-'.$data['type'].'-'.$data['id'])) {

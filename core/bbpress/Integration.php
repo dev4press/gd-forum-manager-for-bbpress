@@ -60,16 +60,16 @@ class Integration {
                 'forum_id' => $id
             ),
             'message' => array(
-                'please_wait' => __("Please Wait...", "gd-forum-manager-for-bbpress")
+                'please_wait' => esc_html__("Please Wait...", "gd-forum-manager-for-bbpress")
             ),
             'titles' => array(
                 'edit' => array(
-                    'forum' => _x("Edit Forum", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress"),
-                    'topic' => _x("Edit Topic", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress")
+                    'forum' => esc_html_x("Edit Forum", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress"),
+                    'topic' => esc_html_x("Edit Topic", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress")
                 ),
                 'bulk' => array(
-                    'forum' => _x("Edit selected Forums", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress"),
-                    'topic' => _x("Edit selected Topics", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress")
+                    'forum' => esc_html_x("Edit selected Forums", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress"),
+                    'topic' => esc_html_x("Edit selected Topics", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress")
                 )
             )
         ));
@@ -82,7 +82,7 @@ class Integration {
 
         echo '<div class="gdfar-ctrl-wrapper gdfar-ctrl-forum" data-key="'.$this->_key.'" data-type="forum" data-id="'.$forum_id.'">';
         echo '<input type="checkbox" class="gdfar-ctrl-checkbox" />';
-        echo '<a href="#" class="gdfar-ctrl-edit">'.__("edit", "gd-forum-manager-for-bbpress").'</a>';
+        echo '<a href="#" class="gdfar-ctrl-edit">'.esc_html__("edit", "gd-forum-manager-for-bbpress").'</a>';
         echo '</div>';
 
         if (!$this->_queued) {
@@ -97,7 +97,7 @@ class Integration {
 
         echo '<div class="gdfar-ctrl-wrapper gdfar-ctrl-topic" data-key="'.$this->_key.'" data-type="topic" data-id="'.$topic_id.'">';
         echo '<input type="checkbox" class="gdfar-ctrl-checkbox" />';
-        echo '<a href="#" class="gdfar-ctrl-edit">'.__("edit", "gd-forum-manager-for-bbpress").'</a>';
+        echo '<a href="#" class="gdfar-ctrl-edit">'.esc_html__("edit", "gd-forum-manager-for-bbpress").'</a>';
         echo '</div>';
 
         if (!$this->_queued) {
@@ -109,7 +109,7 @@ class Integration {
 
     public function topic_admin_links($links, $topic_id) {
         $links = array(
-            'quick-edit' => '<a class="bbp-topic-quick-edit-link" href="#" data-id="'.$topic_id.'">'.__("Quick Edit", "gd-forum-manager-for-bbpress").'</a>'
+            'quick-edit' => '<a class="bbp-topic-quick-edit-link" href="#" data-id="'.$topic_id.'">'.esc_html__("Quick Edit", "gd-forum-manager-for-bbpress").'</a>'
         ) + $links;
 
         if (!$this->_queued) {
@@ -132,9 +132,9 @@ class Integration {
 
     public function forum_bulk() {
         echo '<div class="gdfar-bulk-control gdfar-bulk-forum-'.$this->_key.'" aria-hidden="true" data-type="forum" data-key="'.$this->_key.'">';
-            echo '<div class="__status">'.__("Selected Forums", "gd-forum-manager-for-bbpress").': <span class="__selected">0</span>/<span class="__total">0</span></div>';
-            echo '<div class="__select"><a class="__all" href="#all">'.__("select all", "gd-forum-manager-for-bbpress").'</a> &middot; <a class="__none" href="#none">'.__("select none", "gd-forum-manager-for-bbpress").'</a></div>';
-            echo '<div class="__editor"><button class="gdfar-ctrl-bulk">'.__("Edit Selected Forums", "gd-forum-manager-for-bbpress").'</button></div>';
+            echo '<div class="__status">'.esc_html__("Selected Forums", "gd-forum-manager-for-bbpress").': <span class="__selected">0</span>/<span class="__total">0</span></div>';
+            echo '<div class="__select"><a class="__all" href="#all">'.esc_html__("select all", "gd-forum-manager-for-bbpress").'</a> &middot; <a class="__none" href="#none">'.esc_html__("select none", "gd-forum-manager-for-bbpress").'</a></div>';
+            echo '<div class="__editor"><button class="gdfar-ctrl-bulk">'.esc_html__("Edit Selected Forums", "gd-forum-manager-for-bbpress").'</button></div>';
         echo '</div>';
 
         $this->_key++;
@@ -142,9 +142,9 @@ class Integration {
 
     public function topic_bulk() {
         echo '<div class="gdfar-bulk-control gdfar-bulk-topic-'.$this->_key.'" aria-hidden="true" data-type="topic" data-key="'.$this->_key.'">';
-            echo '<div class="__status">'.__("Selected Topics", "gd-forum-manager-for-bbpress").': <span class="__selected">0</span>/<span class="__total">0</span></div>';
-            echo '<div class="__select"><a class="__all" href="#all">'.__("select all", "gd-forum-manager-for-bbpress").'</a> &middot; <a class="__none" href="#none">'.__("select none", "gd-forum-manager-for-bbpress").'</a></div>';
-            echo '<div class="__editor"><button class="gdfar-ctrl-bulk">'.__("Edit Selected Topics", "gd-forum-manager-for-bbpress").'</button></div>';
+            echo '<div class="__status">'.esc_html__("Selected Topics", "gd-forum-manager-for-bbpress").': <span class="__selected">0</span>/<span class="__total">0</span></div>';
+            echo '<div class="__select"><a class="__all" href="#all">'.esc_html__("select all", "gd-forum-manager-for-bbpress").'</a> &middot; <a class="__none" href="#none">'.esc_html__("select none", "gd-forum-manager-for-bbpress").'</a></div>';
+            echo '<div class="__editor"><button class="gdfar-ctrl-bulk">'.esc_html__("Edit Selected Topics", "gd-forum-manager-for-bbpress").'</button></div>';
         echo '</div>';
 
         $this->_key++;

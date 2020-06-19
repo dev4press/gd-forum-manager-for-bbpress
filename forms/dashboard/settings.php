@@ -8,10 +8,10 @@
         </ul><div class="d4p-clearfix"></div>
     </div>
     <div class="d4p-group-inner">
-        <h4><?php _e("Moderation", "gd-forum-manager-for-bbpress"); ?></h4>
+        <h4><?php esc_html_e("Moderation", "gd-forum-manager-for-bbpress"); ?></h4>
         <?php echo _gdfar_display_option('moderators'); ?>
-        <h4 style="margin-top: 20px;"><?php _e("Content Editing", "gd-forum-manager-for-bbpress"); ?></h4>
+        <h4 style="margin-top: 20px;"><?php esc_html_e("Content Editing", "gd-forum-manager-for-bbpress"); ?></h4>
         <?php echo _gdfar_display_option('forum'); ?>
-        <?php echo _gdfar_display_option('topic', __("Toggle option for topics editing", "gd-forum-manager-for-bbpress"), __("Edit Topics", "gd-forum-manager-for-bbpress")); ?>
+        <?php echo _gdfar_display_option('topic'); ?>
     </div>
 </div>

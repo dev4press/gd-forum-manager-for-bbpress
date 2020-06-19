@@ -30,7 +30,7 @@
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
-                <img src="https://dev4press.s3.amazonaws.com/plugins/gd-forum-manager-for-bbpress/1.0/about/edit.jpg"/>
+                <img src="<?php echo GDFAR_URL; ?>images/edit.jpg" />
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
-                <img src="https://dev4press.s3.amazonaws.com/plugins/gd-forum-manager-for-bbpress/1.0/about/bulk.jpg"/>
+                <img src="<?php echo GDFAR_URL; ?>images/bulk.jpg" />
             </div>
         </div>
     </div>

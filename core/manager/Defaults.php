@@ -104,7 +104,7 @@ class Defaults {
     }
 
     public function display_forum_edit_rename($render, $args = array()) {
-        return '<input id="'.$args['element'].'" type="text" name="'.$args['base'].'[title]" value="'.esc_attr(bbp_get_forum_title($args['id'])).'" />';
+        return '<input id="'.esc_args($args['element']).'" type="text" name="'.esc_args($args['base']).'[title]" value="'.esc_attr(bbp_get_forum_title($args['id'])).'" />';
     }
 
     public function display_forum_edit_status($render, $args = array()) {
@@ -263,7 +263,7 @@ class Defaults {
     }
 
     public function display_topic_edit_rename($render, $args = array()) {
-        return '<input id="'.$args['element'].'" type="text" name="'.$args['base'].'[title]" value="'.esc_attr(bbp_get_topic_title($args['id'])).'" />';
+        return '<input id="'.esc_args($args['element']).'" type="text" name="'.esc_args($args['base']).'[title]" value="'.esc_attr(bbp_get_topic_title($args['id'])).'" />';
     }
 
     public function display_topic_edit_forum($render, $args = array()) {
