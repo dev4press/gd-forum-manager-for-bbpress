@@ -20,10 +20,13 @@
             <div class="d4p-layout-unit half align-left">
                 <h3>Edit individual topics and forums</h3>
                 <p>
-                    The theme has two more distinctive styles. Classic style uses regular tables based look, while the Light style is simplfied using modern line based grid. Default style has not changes much from previous versions.
+                    With this plugin you can edit some topic or forum values directly from the topics or forums lists, without the need to open individual topic or forum, and then opening edit screen, or going through the admin side to do that.
                 </p>
                 <p>
-                    Each of the styles comes with 5 colour schemes similar to the previously available Default styles, and each style has number of additional colors that can be customized using the Customizer controls.
+                    Plugin registers various values as editable, and right now that includes: topic or forum title, forum status and visibility, topic status, sticky status and parent forum.
+                </p>
+                <p>
+                    On single topic pages plugin adds 'Quick Edit' action that works for that one topic.
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
@@ -37,10 +40,10 @@
             <div class="d4p-layout-unit half align-left">
                 <h3>Bulk editing for topics and forums</h3>
                 <p>
-                    Customizer support has been significantly updated, and now you can not only select one of predefined color/style schemes, you can build one by selecting one of the 3 themes available, modifying one of the base colors, typography or additional colors.
+                    And, if you want to edit multiple forums or topics at once, you can do that with the use of bulk editing - simply select one or more forum or topic from any list showing them, and bulk edit panel will be available.
                 </p>
                 <p>
-                    Additional colors are all disabled by default, but, you can enable colour override and you can adjust the colour you need. Typography includes only font size and line height, and the font is inherited from whatever the theme uses.
+                    Bulk editor popup panel is similar to Edit, but, titles can't be changed, and all other fields have "Don't Change" value, allowing you to change only some of the included values.
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
@@ -52,18 +55,17 @@
     <div class="d4p-whatsnew-section">
         <div class="d4p-layout-grid">
             <div class="d4p-layout-unit half align-left">
-                <h3>Rewritten Plugin Core</h3>
+                <h3>Developer Friendly</h3>
                 <p>
-                    Most of the plugin core is rewritten and updated to use PHP Namespacing and the autoloader for plugin Classes. As a result, it improves the loading of the plugin and it is easier to maintain and work with.
+                    Plugin can be expanded to include more actions for both topics and forums, for edit or bulk edit. Dev4Press own GD Topic Prefix Pro plugin is the first one to include support for GD Forum Manager by adding Prefix edit action, and more plugins will follow.
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
-                <h3>Various Updates and Fixes</h3>
+                <h3>Lightweight and AJAX powered</h3>
                 <p>
-                    There are many updates in this version, improved styling, improved SCSS organization and more. And, there are number of bugs fixed, including some issues with bbPress 2.5, some styling problems and some layout issues.
+                    Plugin works through AJAX (popup display and saving), and it adds very little overhead to pages, and it does so only for users with keymaster or moderator roles, it doesn't load for any other user roles. It is very easy and simple to setup, with only few options available.
                 </p>
             </div>
         </div>
     </div>
-
 </div>
