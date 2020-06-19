@@ -1,3 +1,35 @@
+.bbp-forum-info .gdfar-ctrl-wrapper,
 .bbp-topic-title .gdfar-ctrl-wrapper {
   float: left;
+}
+
+.gdfar-modal__content dl > dt {
+  border-left: 1px solid #ddd;
+  border-right: none;
+  text-align: left;
+}
+.gdfar-modal__content dl.gdfar-is-error > dt {
+  border-left-color: #d6b3b3;
+}
+.gdfar-modal__content form select {
+  padding: 0 4px 0 24px;
+}
+
+.gdfar-bulk-control > div.__status {
+  padding: 0 0 0 10px;
+  margin: 0 0 0 10px;
+  border-left: 1px solid #999;
+  border-right: none;
+}
+.gdfar-bulk-control > div.__status span {
+  font-weight: bold;
+}
+.gdfar-bulk-control > div.__editor {
+  float: left;
+}
+
+@media (max-width: 600px) {
+  .gdfar-modal__content dl > dt {
+    text-align: right;
+  }
 }

@@ -34,7 +34,12 @@ class Integration {
     public function enqueue() {
         $this->_queued = true;
 
-        wp_enqueue_style('gdfar-manager');
+        if (is_rtl()) {
+            wp_enqueue_style('gdfar-manager-rtl');
+        } else {
+            wp_enqueue_style('gdfar-manager');
+        }
+
         wp_enqueue_script('gdfar-manager');
 
         $id = bbp_is_single_forum() ? bbp_get_forum_id() : (
