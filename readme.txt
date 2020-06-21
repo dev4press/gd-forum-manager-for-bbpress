@@ -17,6 +17,9 @@ Editing topics and forums in the bbPress powered forums can be a slow process be
 
 Now, with GD Forum Manager for bbPress, you can do it quick and accessible from any topics or forums list on the frontend in two ways: single forum or topic editing and bulk editing of one or more selected forums or topics. Every forum or topic list (single forum, forums or topics index, topic views, user profile) now has controls to edit a single item or select items for bulk editing. And editing is done using popup modal dialog.
 
+= Plugin In Action =
+https://www.youtube.com/watch?v=-zS7cZaZ11A
+
 = Features Overview =
 * Using AJAX to retrieve actions and values
 * Using AJAX to perform the edit operations
@@ -43,7 +46,7 @@ Now, with GD Forum Manager for bbPress, you can do it quick and accessible from 
 * Ability to override existing actions for additional control
 
 = bbPress Plugin Versions =
-GD Forum Manager supports bbPress 2.5.12 or newer. But, you should be using bbPress 2.6 or later with this plugin. Older bbPress is not supported!
+GD Forum Manager supports bbPress 2.5.12 or newer. But, you should be using this plugin with bbPress 2.6 or newer. Older bbPress versions are not supported!
 
 = More Free Dev4Press plugins for bbPress =
 * [GD bbPress Attachments](https://wordpress.org/plugins/gd-bbpress-attachments/) - attachments for topics and replies
@@ -62,7 +65,7 @@ Get Premium plugins for bbPress to enhance bbPress powered forums. More informat
 * WordPress: 4.9 or newer
 
 = bbPress Requirements =
-* bbPress Plugin: 2.5 or newer
+* bbPress Plugin: 2.5.12 or newer
 
 = Basic Installation =
 * Plugin folder in the WordPress plugins folder must be `gd-forum-manager-for-bbpress`

@@ -60,6 +60,10 @@ class Defaults {
             case 'publish':
                 if ($old_status == 'pending') {
                     do_action('bbp_approve_topic', $topic_id);
+                } else if ($old_status == 'spam') {
+                    do_action('bbp_unspam_topic', $topic_id);
+                } else if ($old_status == 'trash') {
+                    do_action('bbp_untrash_topic', $topic_id);
                 } else {
                     do_action('bbp_open_topic', $topic_id);
                 }
@@ -84,6 +88,10 @@ class Defaults {
             case 'publish':
                 if ($old_status == 'pending') {
                     do_action('bbp_approved_topic', $topic_id);
+                } else if ($old_status == 'spam') {
+                    do_action('bbp_unspammed_topic', $topic_id);
+                } else if ($old_status == 'trash') {
+                    do_action('bbp_untrashed_topic', $topic_id);
                 } else {
                     do_action('bbp_opened_topic', $topic_id);
                 }
@@ -104,7 +112,7 @@ class Defaults {
     }
 
     public function display_forum_edit_rename($render, $args = array()) {
-        return '<input id="'.esc_args($args['element']).'" type="text" name="'.esc_args($args['base']).'[title]" value="'.esc_attr(bbp_get_forum_title($args['id'])).'" />';
+        return '<input id="'.esc_attr($args['element']).'" type="text" name="'.esc_attr($args['base']).'[title]" value="'.esc_attr(bbp_get_forum_title($args['id'])).'" />';
     }
 
     public function display_forum_edit_status($render, $args = array()) {
@@ -263,7 +271,7 @@ class Defaults {
     }
 
     public function display_topic_edit_rename($render, $args = array()) {
-        return '<input id="'.esc_args($args['element']).'" type="text" name="'.esc_args($args['base']).'[title]" value="'.esc_attr(bbp_get_topic_title($args['id'])).'" />';
+        return '<input id="'.esc_attr($args['element']).'" type="text" name="'.esc_attr($args['base']).'[title]" value="'.esc_attr(bbp_get_topic_title($args['id'])).'" />';
     }
 
     public function display_topic_edit_forum($render, $args = array()) {
