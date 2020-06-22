@@ -87,9 +87,11 @@
   min-height: 30px;
   color: #32373c;
   border-color: #7e8993;
+  margin: 0;
+  height: 32px;
 }
 .gdfar-modal__content form select {
-  padding: 0 24px 0 4px;
+  padding: 0 24px 0 8px;
   max-width: 200px;
 }
 .gdfar-modal__content form input[type=number],
