@@ -12,6 +12,7 @@
 .bbp-forum-info .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox,
 .bbp-topic-title .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox {
   visibility: hidden;
+  margin: 0;
 }
 .bbp-forum-info .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox.gdfar-is-on,
 .bbp-topic-title .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox.gdfar-is-on {
