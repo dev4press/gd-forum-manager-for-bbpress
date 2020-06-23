@@ -11,16 +11,16 @@ if (!defined('ABSPATH')) {
 class Information extends BaseInformation {
     public $code = 'gd-forum-manager-for-bbpress';
 
-    public $version = '1.0';
-    public $build = 10;
+    public $version = '1.1';
+    public $build = 15;
     public $edition = 'free';
     public $status = 'stable';
-    public $updated = '2020.06.22';
+    public $updated = '2020.06.24';
     public $released = '2020.06.22';
 
     public $is_bbpress_plugin = true;
 
     public function __construct() {
-        $this->plugins['bbpress'] = '2.6';
+        $this->plugins['bbpress'] = '2.5.12';
     }
 }

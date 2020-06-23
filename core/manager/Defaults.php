@@ -275,7 +275,7 @@ class Defaults {
     }
 
     public function display_topic_edit_forum($render, $args = array()) {
-        return bbp_get_dropdown(array('selected' => bbp_get_topic_forum_id($args['id']), 'show_none' => false, 'select_id' => $args['base'].'[forum]'));
+        return bbp_get_dropdown(array('selected' => bbp_get_topic_forum_id($args['id']), 'select_class' => 'bbp_dropdown gdfar-full-width', 'show_none' => false, 'select_id' => $args['base'].'[forum]'));
     }
 
     public function display_topic_edit_status($render, $args = array()) {
@@ -390,7 +390,7 @@ class Defaults {
     }
 
     public function display_topic_bulk_forum($render, $args = array()) {
-        return bbp_get_dropdown(array('selected' => 0, 'show_none' => __("Don't change", "gd-forum-manager-for-bbpress"), 'select_id' => $args['base'].'[forum]'));
+        return bbp_get_dropdown(array('selected' => 0, 'select_class' => 'bbp_dropdown gdfar-full-width', 'show_none' => __("Don't change", "gd-forum-manager-for-bbpress"), 'select_id' => $args['base'].'[forum]'));
     }
 
     public function display_topic_bulk_status($render, $args = array()) {

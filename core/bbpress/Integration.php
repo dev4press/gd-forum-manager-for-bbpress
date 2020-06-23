@@ -7,6 +7,7 @@ if (!defined('ABSPATH')) {
 }
 
 class Integration {
+    public $_always_on = false;
     public $_queued = false;
     public $_key = 1;
 
@@ -27,6 +28,10 @@ class Integration {
                 add_action('bbp_theme_before_topic_title', array($this, 'topic_controls'), 1);
                 add_action('bbp_template_after_topics_loop', array($this, 'topic_bulk'));
                 add_filter('bbp_topic_admin_links', array($this, 'topic_admin_links'), 10, 2);
+            }
+
+            if (gdfar_settings()->get('small_screen_always_show')) {
+                $this->_always_on = true;
             }
         }
     }
@@ -80,7 +85,13 @@ class Integration {
     public function forum_controls() {
         $forum_id = absint(bbp_get_forum_id());
 
-        echo '<div class="gdfar-ctrl-wrapper gdfar-ctrl-forum" data-key="'.$this->_key.'" data-type="forum" data-id="'.$forum_id.'">';
+        $classes = array('gdfar-ctrl-wrapper', 'gdfar-ctrl-forum');
+
+        if ($this->_always_on) {
+            $classes[] = 'is-always-on';
+        }
+
+        echo '<div class="'.join(' ', $classes).'" data-key="'.$this->_key.'" data-type="forum" data-id="'.$forum_id.'">';
         echo '<input type="checkbox" class="gdfar-ctrl-checkbox" />';
         echo '<a href="#" class="gdfar-ctrl-edit">'.esc_html__("edit", "gd-forum-manager-for-bbpress").'</a>';
         echo '</div>';
@@ -95,7 +106,13 @@ class Integration {
     public function topic_controls() {
         $topic_id = absint(bbp_get_topic_id());
 
-        echo '<div class="gdfar-ctrl-wrapper gdfar-ctrl-topic" data-key="'.$this->_key.'" data-type="topic" data-id="'.$topic_id.'">';
+        $classes = array('gdfar-ctrl-wrapper', 'gdfar-ctrl-topic');
+
+        if ($this->_always_on) {
+            $classes[] = 'is-always-on';
+        }
+
+        echo '<div class="'.join(' ', $classes).'" data-key="'.$this->_key.'" data-type="topic" data-id="'.$topic_id.'">';
         echo '<input type="checkbox" class="gdfar-ctrl-checkbox" />';
         echo '<a href="#" class="gdfar-ctrl-edit">'.esc_html__("edit", "gd-forum-manager-for-bbpress").'</a>';
         echo '</div>';

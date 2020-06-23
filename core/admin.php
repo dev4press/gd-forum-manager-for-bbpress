@@ -17,6 +17,10 @@ function _gdfar_display_option($option) {
             $title = __("Toggle option for topics editing", "gd-forum-manager-for-bbpress");
             $label = __("Edit Topics", "gd-forum-manager-for-bbpress");
             break;
+        case 'small_screen_always_show':
+            $title = __("Toggle option for display on small screens", "gd-forum-manager-for-bbpress");
+            $label = __("Always show on small screens", "gd-forum-manager-for-bbpress");
+            break;
     }
 
     $status = gdfar_settings()->get($option) ? 'enabled' : 'disabled';

@@ -18,7 +18,8 @@ class Settings extends BaseSettings {
         'settings' => array(
             'moderators' => true,
             'forum' => true,
-            'topic' => true
+            'topic' => true,
+            'small_screen_always_show' => false
         )
     );
 

@@ -4,7 +4,7 @@
 Plugin Name: GD Forum Manager for bbPress
 Plugin URI: https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
 Description: Expand how the moderators can manage forum content from the frontend, including forums and topics quick and bulk editing from any page showing list of topics or forums.
-Version: 1.0
+Version: 1.1
 Author: Milan Petrovic
 Author URI: https://www.dev4press.com/
 Text Domain: gd-forum-manager-for-bbpress

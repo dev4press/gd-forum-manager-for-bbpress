@@ -1,4 +1,4 @@
-<div class="d4p-group d4p-dashboard-card d4p-dashboard-card-polls">
+<div class="d4p-group d4p-dashboard-card d4p-dashboard-card-actions">
     <h3><?php _e("Registered Actions", "gd-forum-manager-for-bbpress"); ?></h3>
     <div class="d4p-group-header">
         <ul class="d4p-full-width">

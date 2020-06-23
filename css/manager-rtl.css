@@ -1,6 +1,7 @@
 .bbp-forum-info .gdfar-ctrl-wrapper,
 .bbp-topic-title .gdfar-ctrl-wrapper {
   float: left;
+  margin: 0 5px 0 0;
 }
 
 .gdfar-modal__content dl > dt {

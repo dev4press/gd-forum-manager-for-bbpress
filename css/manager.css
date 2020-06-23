@@ -8,6 +8,7 @@
   z-index: 1000;
   text-align: center;
   position: relative;
+  margin: 0 0 0 5px;
 }
 .bbp-forum-info .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox,
 .bbp-topic-title .gdfar-ctrl-wrapper .gdfar-ctrl-checkbox {
@@ -95,6 +96,9 @@
   padding: 0 24px 0 8px;
   max-width: 200px;
 }
+.gdfar-modal__content form select.gdfar-full-width {
+  max-width: 100%;
+}
 .gdfar-modal__content form input[type=number],
 .gdfar-modal__content form input[type=text] {
   padding: 0 8px;
@@ -149,7 +153,14 @@
   background-color: #dddddd;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .bbp-forum-info .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-checkbox,
+.bbp-forum-info .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-edit,
+.bbp-topic-title .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-checkbox,
+.bbp-topic-title .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-edit {
+    visibility: visible;
+  }
+
   .gdfar-modal__content dl {
     display: block;
     padding: 15px 15px 0;
@@ -170,5 +181,17 @@
   }
   .gdfar-modal__content dl > dd {
     padding: 0;
+  }
+
+  .gdfar-bulk-control > div.__editor {
+    float: none;
+    display: block;
+    text-align: center;
+    margin: 10px 0 0;
+  }
+}
+@media (max-width: 480px) {
+  .gdfar-modal__content form select {
+    max-width: 100%;
   }
 }
