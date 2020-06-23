@@ -90,6 +90,7 @@ Many styling improvements and updates.
 * Edit: improvements to the forums selection rendering
 * Edit: improved popup height calculation and scrolling
 * Edit: various styling improvements
+* Fix: settings object base prefix
 
 = 1.0 - 2022.06.22 =
 * First plugin version

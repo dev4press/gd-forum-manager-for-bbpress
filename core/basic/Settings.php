@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 }
 
 class Settings extends BaseSettings {
-    public $base = 'gdfon';
+    public $base = 'gdfar';
 
     public $settings = array(
         'core' => array(

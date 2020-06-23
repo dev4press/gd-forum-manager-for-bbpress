@@ -8,6 +8,7 @@
             <li><strong>edit</strong> improvements to the forums selection rendering</li>
             <li><strong>edit</strong> improved popup height calculation and scrolling</li>
             <li><strong>edit</strong> various styling improvements</li>
+            <li><strong>fix</strong>  settings object base prefix</li>
         </ul>
 
         <h4>Version: 1.0 / June 22 2020</h4>
