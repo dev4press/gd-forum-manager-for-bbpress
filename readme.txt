@@ -84,7 +84,7 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 Many styling improvements and updates.
 
 == Changelog ==
-= 1.1 - 2022.06.24 =
+= 1.1 - 2020.06.24 =
 * New: responsive styling for the bulk toolbar
 * New: option to always show controls on small screens
 * Edit: improvements to the forums selection rendering
@@ -92,7 +92,7 @@ Many styling improvements and updates.
 * Edit: various styling improvements
 * Fix: settings object base prefix
 
-= 1.0 - 2022.06.22 =
+= 1.0 - 2020.06.22 =
 * First plugin version
 
 == Screenshots ==
