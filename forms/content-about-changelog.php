@@ -1,6 +1,12 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php _e("Version", "gd-forum-manager-for-bbpress"); ?> 1</h3>
     <div>
+        <h4>Version: 1.2 / August 14 2020</h4>
+        <ul>
+            <li><strong>edit</strong> improved plugin dashboard displaying list of actions</li>
+            <li><strong>edit</strong> d4pLib 3.2</li>
+        </ul>
+
         <h4>Version: 1.1 / June 24 2020</h4>
         <ul>
             <li><strong>new</strong> responsive styling for the bulk toolbar</li>

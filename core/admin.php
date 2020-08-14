@@ -38,9 +38,9 @@ function _gdfar_display_option($option) {
 function _gdfar_display_actions($scope, $action) {
     $actions = gdfar()->actions()->get_actions($scope, $action);
 
-    echo '<ul class="d4p-with-bullets">';
+    echo '<ul class="d4p-with-bullets d4p-full-width">';
     foreach ($actions as $action) {
-        echo '<li style="line-height: 1.6;"><strong>'.esc_html($action['label']).'</strong>: '.esc_html($action['description']);
+        echo '<li style="line-height: 2;"><strong>'.esc_html($action['label']).'</strong>: '.esc_html($action['description']);
         echo '<span class="d4p-card-badge d4p-badge-right d4p-badge-green">'.esc_html($action['source']).'</span>';
         echo '</li>';
     }

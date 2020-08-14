@@ -10,6 +10,6 @@ if (!defined('ABSPATH')) {
 
 class PostBack extends BasePostBack {
     protected function remove() {
-        // TODO: Implement remove() method.
+
     }
 }
