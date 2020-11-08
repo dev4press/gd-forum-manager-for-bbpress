@@ -66,9 +66,9 @@
         }
 
         > dt {
-            background: #f5f5f5;
+            background: #F5F5F5;
             color: #555;
-            border-right: 1px solid #ddd;
+            border-right: 1px solid #DDD;
             text-align: right;
             width: 30%;
         }
@@ -79,14 +79,14 @@
 
         &.gdfar-is-error {
             > dt {
-                background: #fff5f5;
+                background: #FFF5F5;
                 color: #500;
-                border-right-color: #d6b3b3;
+                border-right-color: #D6B3B3;
             }
         }
 
         .gdfar-error-message {
-            background: #ffdfdf;
+            background: #FFDFDF;
             padding: 0 10px;
             margin: 5px 0 0;
             color: #900;
@@ -103,8 +103,8 @@
             font-size: 14px;
             line-height: 2;
             min-height: 30px;
-            color: #32373c;
-            border-color: #7e8993;
+            color: #32373C;
+            border-color: #7E8993;
             margin: 0;
             height: 32px;
         }
@@ -126,7 +126,7 @@
 }
 
 .gdfar-bulk-control {
-    background: #eee;
+    background: #EEE;
     padding: 10px;
     margin: 0 0 20px;
     line-height: 25px;
@@ -175,7 +175,7 @@
                 &:active,
                 &:hover {
                     background-image: none;
-                    background-color: #dddddd;
+                    background-color: #DDD;
                 }
             }
         }

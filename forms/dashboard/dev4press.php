@@ -23,11 +23,13 @@
             <li><a href="https://plugins.dev4press.com/gd-power-search-for-bbpress/" target="_blank">
                     <i class="d4p-icon d4p-plugin-icon-gd-power-search-for-bbpress"></i> GD Power Search Pro
                 </a></li>
-        </ul><div class="d4p-clearfix"></div>
+        </ul>
+        <div class="d4p-clearfix"></div>
     </div>
     <div class="d4p-group-inner">
         <h4>Discount Coupon</h4>
-        <p>Buy any of the Dev4Press plugins for bbPress, or bbPress Plugins Club Membership, and save <strong>10%</strong> with the discount coupon <strong>BBFREETOPRO</strong>.</p>
+        <p>Buy any of the Dev4Press plugins for bbPress, or bbPress Plugins Club Membership, and save
+            <strong>10%</strong> with the discount coupon <strong>BBFREETOPRO</strong>.</p>
     </div>
     <div class="d4p-group-footer">
         <a href="https://bbpress.dev4press.com" target="_blank" class="button-primary">bbPress Plugins Club Membership</a>

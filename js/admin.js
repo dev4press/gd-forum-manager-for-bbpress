@@ -6,11 +6,11 @@
     window.wp.gdfar = window.wp.gdfar || {};
 
     window.wp.gdfar.admin = {
-        init: function () {
+        init: function() {
             this.toggle();
         },
         toggle: function() {
-            $(document).on("click", ".gdfar-option-toggle", function(e){
+            $(document).on("click", ".gdfar-option-toggle", function(e) {
                 e.preventDefault();
 
                 var name = $(this).data("name"),

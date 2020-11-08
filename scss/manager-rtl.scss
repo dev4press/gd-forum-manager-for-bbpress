@@ -9,14 +9,14 @@
 .gdfar-modal__content {
     dl {
         > dt {
-            border-left: 1px solid #ddd;
+            border-left: 1px solid #DDD;
             border-right: none;
             text-align: left;
         }
 
         &.gdfar-is-error {
             > dt {
-                border-left-color: #d6b3b3;
+                border-left-color: #D6B3B3;
             }
         }
     }

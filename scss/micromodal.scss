@@ -74,7 +74,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0,0,0,0.6);
+        background: rgba(0, 0, 0, 0.6);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -82,7 +82,7 @@
     }
 
     .gdfar-modal__container {
-        background-color: #fff;
+        background-color: #FFF;
         padding: 0;
         width: 95%;
         max-width: 640px;
@@ -93,15 +93,15 @@
 
         .gdfar-modal__footer {
             padding: 15px;
-            background-color: #eee;
-            border-top: 1px solid #ddd;
+            background-color: #EEE;
+            border-top: 1px solid #DDD;
         }
 
         .gdfar-modal__header {
             display: flex;
             padding: 15px;
-            background-color: #eee;
-            border-bottom: 1px solid #ddd;
+            background-color: #EEE;
+            border-bottom: 1px solid #DDD;
             justify-content: space-between;
             align-items: center;
 
@@ -130,7 +130,7 @@
             padding: 0;
             margin: 0;
             line-height: 1.5;
-            color: rgba(0,0,0,.8);
+            color: rgba(0, 0, 0, .8);
             max-height: calc(100vh - 200px);
             overflow: auto;
         }
@@ -163,12 +163,12 @@
                 &:active,
                 &:hover {
                     background-image: none;
-                    background-color: #dddddd;
+                    background-color: #DDD;
                 }
 
                 &.gdfar-modal__btn-primary {
-                    background-color: #00449e;
-                    color: #fff;
+                    background-color: #00449E;
+                    color: #FFF;
 
                     &:active,
                     &:hover {

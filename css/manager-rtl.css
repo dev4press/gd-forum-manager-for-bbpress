@@ -5,12 +5,12 @@
 }
 
 .gdfar-modal__content dl > dt {
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #DDD;
   border-right: none;
   text-align: left;
 }
 .gdfar-modal__content dl.gdfar-is-error > dt {
-  border-left-color: #d6b3b3;
+  border-left-color: #D6B3B3;
 }
 .gdfar-modal__content form select {
   padding: 0 8px 0 24px;

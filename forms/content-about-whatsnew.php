@@ -1,4 +1,4 @@
-<?php include(GDFAR_PATH.'forms/content-about-minor.php'); ?>
+<?php include( GDFAR_PATH . 'forms/content-about-minor.php' ); ?>
 
 <div class="d4p-about-whatsnew">
     <div class="d4p-whatsnew-section d4p-whatsnew-heading">
@@ -30,7 +30,7 @@
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
-                <img src="<?php echo GDFAR_URL; ?>images/edit.jpg" />
+                <img src="<?php echo GDFAR_URL; ?>images/edit.jpg"/>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
-                <img src="<?php echo GDFAR_URL; ?>images/bulk.jpg" />
+                <img src="<?php echo GDFAR_URL; ?>images/bulk.jpg"/>
             </div>
         </div>
     </div>

@@ -1,19 +1,19 @@
 <?php
 
 /*
-Plugin Name: GD Forum Manager for bbPress
-Plugin URI: https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
-Description: Expand how the moderators can manage forum content from the frontend, including forums and topics quick and bulk editing from any page showing list of topics or forums.
-Version: 1.3
-Author: Milan Petrovic
-Author URI: https://www.dev4press.com/
-Text Domain: gd-forum-manager-for-bbpress
+Plugin Name:      GD Forum Manager for bbPress
+Plugin URI:       https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
+Description:      Expand how the moderators can manage forum content from the frontend, including forums and topics quick and bulk editing from any page showing list of topics or forums.
+Author:            Milan Petrovic
+Author URI:        https://www.dev4press.com/
+Text Domain:       gd-forum-manager-for-bbpress
+Version:           1.3
 Requires at least: 4.9
-Tested up to: 5.6
-Requires PHP: 7.0
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Private: true
+Tested up to:      5.6
+Requires PHP:      7.0
+License:           GPLv3 or later
+License URI:       http://www.gnu.org/licenses/gpl-3.0.html
+Private:           true
 
 == Copyright ==
 Copyright 2008 - 2020 Milan Petrovic (email: milan@gdragon.info)

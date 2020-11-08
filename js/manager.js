@@ -1,7 +1,7 @@
 /*jslint regexp: true, nomen: true, undef: true, sloppy: true, eqeq: true, vars: true, white: true, plusplus: true, maxerr: 50, indent: 4 */
 /*global gdfar_manager_data*/
 
-;(function ($, window, document, undefined) {
+;(function($, window, document, undefined) {
     window.wp = window.wp || {};
     window.wp.gdfar = window.wp.gdfar || {};
 
@@ -15,7 +15,7 @@
 
                 if (json.status === "ok") {
                     if (json.errors > 0) {
-                        $.each(json.elements, function (name, message) {
+                        $.each(json.elements, function(name, message) {
                             var el = $(".gdfar-action.gdfar-action-" + name);
 
                             el.addClass("gdfar-is-error");
@@ -37,7 +37,7 @@
                 MicroModal.show("gdfar-modal-edit", {});
 
                 $.ajax({
-                    success: function (html) {
+                    success: function(html) {
                         $("#gdfar-modal-edit-content").html(html);
                     },
                     type: "post", dataType: "html", data: {
@@ -86,7 +86,7 @@
                     type = wrapper.data("type"), key = wrapper.data("key"),
                     sel = ".gdfar-ctrl-wrapper[data-key=" + key + "] input[type=checkbox]:checked";
 
-                $(sel).each(function(){
+                $(sel).each(function() {
                     ids.push($(this).parent().data("id"));
                 });
 
@@ -97,7 +97,7 @@
                 MicroModal.show("gdfar-modal-bulk", {});
 
                 $.ajax({
-                    success: function (html) {
+                    success: function(html) {
                         $("#gdfar-modal-bulk-content").html(html);
 
                         for (i = 0; i < ids.length; i++) {
@@ -172,7 +172,7 @@
                 }
             }
         },
-        init: function () {
+        init: function() {
             $(document).on("change", ".gdfar-ctrl-topic .gdfar-ctrl-checkbox", wp.gdfar.manager.bulk.topic);
             $(document).on("change", ".gdfar-ctrl-forum .gdfar-ctrl-checkbox", wp.gdfar.manager.bulk.forum);
 

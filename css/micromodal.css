@@ -66,7 +66,7 @@
   z-index: 9999;
 }
 .gdfar-modal .gdfar-modal__container {
-  background-color: #fff;
+  background-color: #FFF;
   padding: 0;
   width: 95%;
   max-width: 640px;
@@ -77,14 +77,14 @@
 }
 .gdfar-modal .gdfar-modal__container .gdfar-modal__footer {
   padding: 15px;
-  background-color: #eee;
-  border-top: 1px solid #ddd;
+  background-color: #EEE;
+  border-top: 1px solid #DDD;
 }
 .gdfar-modal .gdfar-modal__container .gdfar-modal__header {
   display: flex;
   padding: 15px;
-  background-color: #eee;
-  border-bottom: 1px solid #ddd;
+  background-color: #EEE;
+  border-bottom: 1px solid #DDD;
   justify-content: space-between;
   align-items: center;
 }
@@ -138,11 +138,11 @@
 }
 .gdfar-modal .gdfar-modal__container .gdfar-modal__footer .gdfar-modal__btn:active, .gdfar-modal .gdfar-modal__container .gdfar-modal__footer .gdfar-modal__btn:hover {
   background-image: none;
-  background-color: #dddddd;
+  background-color: #DDD;
 }
 .gdfar-modal .gdfar-modal__container .gdfar-modal__footer .gdfar-modal__btn.gdfar-modal__btn-primary {
-  background-color: #00449e;
-  color: #fff;
+  background-color: #00449E;
+  color: #FFF;
 }
 .gdfar-modal .gdfar-modal__container .gdfar-modal__footer .gdfar-modal__btn.gdfar-modal__btn-primary:active, .gdfar-modal .gdfar-modal__container .gdfar-modal__footer .gdfar-modal__btn.gdfar-modal__btn-primary:hover {
   background-color: #0052BB;

@@ -65,7 +65,7 @@ Get Premium plugins for bbPress to enhance bbPress powered forums. More informat
 * WordPress: 4.9 or newer
 
 = bbPress Requirements =
-* bbPress Plugin: 2.5.12 or newer
+* bbPress Plugin: 2.6.2 or newer
 
 = Basic Installation =
 * Plugin folder in the WordPress plugins folder must be `gd-forum-manager-for-bbpress`
@@ -87,7 +87,10 @@ Few updates and improvements.
 Few updates and improvements.
 
 == Changelog ==
-= 1.3 - 2020.11.09 =
+= 1.3 - 2020.11.10 =
+* Edit: refactored and updated to WordPress coding style
+* Edit: requires bbPress 2.6.2 or newer
+* Edit: removed support for bbPress 2.5
 * Edit: d4pLib 3.3
 * Fix: few minor issues caused by the shared library changes
 
