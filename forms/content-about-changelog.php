@@ -1,13 +1,21 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php _e("Version", "gd-forum-manager-for-bbpress"); ?> 1</h3>
     <div>
-        <h4>Version: 1.2 / August 14 2020</h4>
+        <h4>Version: 1.3 / November 9 2020</h4>
         <ul>
-            <li><strong>edit</strong> improved plugin dashboard displaying list of actions</li>
-            <li><strong>edit</strong> d4pLib 3.2</li>
+            <li><strong>edit</strong> various</li>
+            <li><strong>edit</strong> d4pLib 3.3</li>
+            <li><strong>fix</strong> few minor issues caused by the shared library changes</li>
         </ul>
 
-        <h4>Version: 1.1 / June 24 2020</h4>
+        <div>
+            <h4>Version: 1.2 / August 14 2020</h4>
+            <ul>
+                <li><strong>edit</strong> improved plugin dashboard displaying list of actions</li>
+                <li><strong>edit</strong> d4pLib 3.2</li>
+            </ul>
+
+            <h4>Version: 1.1 / June 24 2020</h4>
         <ul>
             <li><strong>new</strong> responsive styling for the bulk toolbar</li>
             <li><strong>new</strong> option to always show controls on small screens</li>

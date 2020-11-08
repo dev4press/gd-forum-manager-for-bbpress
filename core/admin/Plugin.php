@@ -14,7 +14,7 @@ class Plugin extends BasePlugin {
     public $plugin_menu = 'GD Forum Manager';
     public $plugin_title = 'GD Forum Manager for bbPress';
 
-    public function consturctor() {
+    public function constructor() {
         $this->url = GDFAR_URL;
         $this->path = GDFAR_PATH;
     }

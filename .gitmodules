@@ -1,3 +1,4 @@
 [submodule "d4plib"]
 	path = d4plib
-	url = ssh://APKAI7COUDS6YMCNDKXA@git-codecommit.us-east-1.amazonaws.com/v1/repos/d4plib
+	url = https://github.com/dev4press/library.git
+	branch = core
