@@ -87,7 +87,7 @@ Few updates and improvements.
 Few updates and improvements.
 
 == Changelog ==
-= 1.3 - 2020.11.10 =
+= 1.3 - 2020.11.12 =
 * Edit: refactored and updated to WordPress coding style
 * Edit: requires bbPress 2.6.2 or newer
 * Edit: removed support for bbPress 2.5

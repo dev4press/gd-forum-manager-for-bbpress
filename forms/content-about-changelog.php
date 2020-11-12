@@ -1,7 +1,7 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php _e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
-        <h4>Version: 1.3 / November 10 2020</h4>
+        <h4>Version: 1.3 / November 12 2020</h4>
         <ul>
             <li><strong>edit</strong> refactored and updated to WordPress coding style</li>
             <li><strong>edit</strong> requires bbPress 2.6.2 or newer</li>

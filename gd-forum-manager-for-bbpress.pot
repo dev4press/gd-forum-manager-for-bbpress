@@ -3,12 +3,12 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: GD Members Directory for bbPress\n"
-"POT-Creation-Date: 06/17/2020 09:03:35 AM\n"
+"POT-Creation-Date: 11/12/2020 06:29:27 PM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: GD i18n 2.2\n"
+"X-Generator: GD i18n 2.5; www.dev4press.com\n"
 
 #: core/admin/Plugin.php:24
 msgid "Install"
@@ -18,28 +18,28 @@ msgstr ""
 msgid "Before you continue, make sure plugin installation was successful."
 msgstr ""
 
-#: core/admin/Plugin.php:30
+#: core/admin/Plugin.php:31
 msgid "Update"
 msgstr ""
 
-#: core/admin/Plugin.php:33
+#: core/admin/Plugin.php:34
 msgid "Before you continue, make sure plugin was successfully updated."
 msgstr ""
 
-#: core/admin/Plugin.php:39
+#: core/admin/Plugin.php:41
 msgid "Getting Started"
 msgstr ""
 
-#: core/admin/Plugin.php:43
+#: core/admin/Plugin.php:46
 msgid "About"
 msgstr ""
 
 #: core/basic/AJAX.php:32
 #: core/basic/AJAX.php:58
 #: core/basic/AJAX.php:105
-#: core/basic/AJAX.php:152
-#: core/basic/AJAX.php:166
-#: core/basic/AJAX.php:217
+#: core/basic/AJAX.php:156
+#: core/basic/AJAX.php:170
+#: core/basic/AJAX.php:225
 msgid "Invalid Request."
 msgstr ""
 
@@ -47,62 +47,62 @@ msgstr ""
 msgid "Invalid Request"
 msgstr ""
 
-#: core/bbpress/Integration.php:61
+#: core/bbpress/Integration.php:81
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit Forum"
 msgstr ""
 
-#: core/bbpress/Integration.php:62
+#: core/bbpress/Integration.php:82
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit Topic"
 msgstr ""
 
-#: core/bbpress/Integration.php:65
+#: core/bbpress/Integration.php:85
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:66
+#: core/bbpress/Integration.php:86
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit selected Topics"
 msgstr ""
 
-#: core/bbpress/Integration.php:57
+#: core/bbpress/Integration.php:77
 msgid "Please Wait..."
 msgstr ""
 
-#: core/bbpress/Integration.php:79
-#: core/bbpress/Integration.php:94
+#: core/bbpress/Integration.php:105
+#: core/bbpress/Integration.php:126
 msgid "edit"
 msgstr ""
 
-#: core/bbpress/Integration.php:106
+#: core/bbpress/Integration.php:138
 msgid "Quick Edit"
 msgstr ""
 
-#: core/bbpress/Integration.php:129
+#: core/bbpress/Integration.php:161
 msgid "Selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:130
-#: core/bbpress/Integration.php:140
+#: core/bbpress/Integration.php:162
+#: core/bbpress/Integration.php:172
 msgid "select all"
 msgstr ""
 
-#: core/bbpress/Integration.php:130
-#: core/bbpress/Integration.php:140
+#: core/bbpress/Integration.php:162
+#: core/bbpress/Integration.php:172
 msgid "select none"
 msgstr ""
 
-#: core/bbpress/Integration.php:131
+#: core/bbpress/Integration.php:163
 msgid "Edit Selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:139
+#: core/bbpress/Integration.php:171
 msgid "Selected Topics"
 msgstr ""
 
-#: core/bbpress/Integration.php:141
+#: core/bbpress/Integration.php:173
 msgid "Edit Selected Topics"
 msgstr ""
 
@@ -175,38 +175,38 @@ msgstr ""
 msgid "Super Sticky"
 msgstr ""
 
-#: core/manager/Defaults.php:130
-#: core/manager/Defaults.php:293
+#: core/manager/Defaults.php:148
+#: core/manager/Defaults.php:332
 msgid "The title is too long."
 msgstr ""
 
-#: core/manager/Defaults.php:154
-#: core/manager/Defaults.php:214
-#: core/manager/Defaults.php:335
-#: core/manager/Defaults.php:426
+#: core/manager/Defaults.php:172
+#: core/manager/Defaults.php:240
+#: core/manager/Defaults.php:374
+#: core/manager/Defaults.php:478
 msgid "Invalid status value."
 msgstr ""
 
-#: core/manager/Defaults.php:178
-#: core/manager/Defaults.php:242
+#: core/manager/Defaults.php:196
+#: core/manager/Defaults.php:268
 msgid "Invalid visibility value."
 msgstr ""
 
-#: core/manager/Defaults.php:196
-#: core/manager/Defaults.php:202
-#: core/manager/Defaults.php:384
-#: core/manager/Defaults.php:388
-#: core/manager/Defaults.php:394
+#: core/manager/Defaults.php:214
+#: core/manager/Defaults.php:224
+#: core/manager/Defaults.php:426
+#: core/manager/Defaults.php:432
+#: core/manager/Defaults.php:442
 msgid "Don't change"
 msgstr ""
 
-#: core/manager/Defaults.php:316
-#: core/manager/Defaults.php:404
+#: core/manager/Defaults.php:355
+#: core/manager/Defaults.php:456
 msgid "Invalid forum ID."
 msgstr ""
 
-#: core/manager/Defaults.php:364
-#: core/manager/Defaults.php:459
+#: core/manager/Defaults.php:403
+#: core/manager/Defaults.php:511
 msgid "Invalid sticky value."
 msgstr ""
 
@@ -247,13 +247,19 @@ msgid "Edit Forums"
 msgstr ""
 
 #: core/admin.php:16
-#: forms/dashboard/settings.php:14
 msgid "Toggle option for topics editing"
 msgstr ""
 
 #: core/admin.php:17
-#: forms/dashboard/settings.php:14
 msgid "Edit Topics"
+msgstr ""
+
+#: core/admin.php:20
+msgid "Toggle option for display on small screens"
+msgstr ""
+
+#: core/admin.php:21
+msgid "Always show on small screens"
 msgstr ""
 
 #: core/functions.php:11
@@ -272,19 +278,19 @@ msgstr ""
 msgid "For Topics"
 msgstr ""
 
-#: forms/dashboard/actions.php:19
+#: forms/dashboard/actions.php:20
 msgid "Forums, Edit"
 msgstr ""
 
-#: forms/dashboard/actions.php:21
+#: forms/dashboard/actions.php:22
 msgid "Forums, Bulk Edit"
 msgstr ""
 
-#: forms/dashboard/actions.php:23
+#: forms/dashboard/actions.php:24
 msgid "Topics, Edit"
 msgstr ""
 
-#: forms/dashboard/actions.php:25
+#: forms/dashboard/actions.php:26
 msgid "Topics, Bulk Edit"
 msgstr ""
 
@@ -306,12 +312,16 @@ msgstr ""
 msgid "From here you can control plugin settings. Plugin only has few settings you can change."
 msgstr ""
 
-#: forms/dashboard/settings.php:10
+#: forms/dashboard/settings.php:11
 msgid "Moderation"
 msgstr ""
 
-#: forms/dashboard/settings.php:12
+#: forms/dashboard/settings.php:13
 msgid "Content Editing"
+msgstr ""
+
+#: forms/dashboard/settings.php:16
+msgid "Display Controls"
 msgstr ""
 
 #: forms/manager/dialog-bulk.php:5
@@ -336,6 +346,8 @@ msgstr ""
 
 #: forms/content-about-changelog.php:1
 #: forms/content-about-minor.php:3
+#: forms/content-about-minor.php:7
+#: forms/content-about-minor.php:11
 msgid "Version"
 msgstr ""
 
@@ -343,7 +355,7 @@ msgstr ""
 msgid "Maintenance and Security Releases"
 msgstr ""
 
-#: forms/content-about-minor.php:7
+#: forms/content-about-minor.php:15
 msgid "For more information, see <a href='%s'>the changelog</a>."
 msgstr ""
 
