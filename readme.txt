@@ -1,9 +1,9 @@
 === GD Forum Manager for bbPress ===
 Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
-Version: 1.3
+Version: 1.4
 Tags: dev4press, bbpress, edit, bulk edit, quick edit, moderation
-Requires at least: 4.9
+Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 7.0
 Stable tag: trunk
@@ -53,6 +53,7 @@ GD Forum Manager supports bbPress 2.5.12 or newer. But, you should be using this
 * [GD bbPress Tools](https://wordpress.org/plugins/gd-bbpress-tools/) - various expansion tools for forums
 * [GD Topic Polls](https://wordpress.org/plugins/gd-topic-polls/) - add polls to the bbPress topics
 * [GD Power Search](https://wordpress.org/plugins/gd-power-search-for-bbpress/) - add advanced search to the bbPress topics
+* [GD Members Directory](https://wordpress.org/plugins/gd-members-directory-for-bbpress/) - add page with list of foum users
 
 = Dev4Press Pro plugins for bbPress =
 Get Premium plugins for bbPress to enhance bbPress powered forums. More information is available here: [bbPress Plugins Club](https://bbpress.dev4press.com/?utm_source=wporg&utm_medium=link&utm_campaign=gd-bbpress-tools).
@@ -62,7 +63,7 @@ Get Premium plugins for bbPress to enhance bbPress powered forums. More informat
 * PHP: 7.0 or newer
 
 = WordPress Requirements =
-* WordPress: 4.9 or newer
+* WordPress: 5.0 or newer
 
 = bbPress Requirements =
 * bbPress Plugin: 2.6.2 or newer
@@ -80,6 +81,9 @@ The plugin adds a menu item in the WordPress Settings menu. There you have only 
 Yes. The POT file is provided as a base for translation. Translation files should go into languages directory.
 
 == Upgrade Notice ==
+= 1.4 =
+Few updates and improvements.
+
 = 1.3 =
 Few updates and improvements.
 
@@ -87,6 +91,11 @@ Few updates and improvements.
 Few updates and improvements.
 
 == Changelog ==
+= 1.4 - 2020.12.29 =
+* Edit: updated plugin requirements
+* Edit: various minor updates
+* Edit: d4pLib 3.3.1
+
 = 1.3 - 2020.11.12 =
 * Edit: refactored and updated to WordPress coding style
 * Edit: requires bbPress 2.6.2 or newer
