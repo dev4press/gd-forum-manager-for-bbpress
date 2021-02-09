@@ -19,7 +19,8 @@ class Settings extends BaseSettings {
 			'moderators'               => true,
 			'forum'                    => true,
 			'topic'                    => true,
-			'small_screen_always_show' => false
+			'small_screen_always_show' => false,
+			'topic_edit_log'           => false
 		)
 	);
 
@@ -29,7 +30,7 @@ class Settings extends BaseSettings {
 		add_action( 'gdfar_load_settings', array( $this, 'init' ), 2 );
 	}
 
-	protected function _name( $name ) {
+	protected function _name( $name ) : string {
 		return 'dev4press_' . $this->info->code . '_' . $name;
 	}
 }

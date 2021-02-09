@@ -31,7 +31,7 @@ class Defaults {
 		}
 	}
 
-	private function _get_list_for_stickies() {
+	private function _get_list_for_stickies() : array {
 		return array(
 			'no'     => __( "No", "gd-forum-manager-for-bbpress" ),
 			'sticky' => __( "Sticky", "gd-forum-manager-for-bbpress" ),
@@ -39,7 +39,7 @@ class Defaults {
 		);
 	}
 
-	private function _get_topic_sticky_status( $topic_id ) {
+	private function _get_topic_sticky_status( $topic_id ) : string {
 		return bbp_is_topic_super_sticky( $topic_id )
 			? 'super'
 			: (
@@ -113,11 +113,11 @@ class Defaults {
 		}
 	}
 
-	public function display_forum_edit_rename( $render, $args = array() ) {
+	public function display_forum_edit_rename( $render, $args = array() ) : string {
 		return '<input id="' . esc_attr( $args['element'] ) . '" type="text" name="' . esc_attr( $args['base'] ) . '[title]" value="' . esc_attr( bbp_get_forum_title( $args['id'] ) ) . '" />';
 	}
 
-	public function display_forum_edit_status( $render, $args = array() ) {
+	public function display_forum_edit_status( $render, $args = array() ) : string {
 		$list = bbp_get_forum_statuses( $args['id'] );
 
 		return gdfar_render()->select( $list, array(
@@ -127,7 +127,7 @@ class Defaults {
 		) );
 	}
 
-	public function display_forum_edit_visibility( $render, $args = array() ) {
+	public function display_forum_edit_visibility( $render, $args = array() ) : string {
 		$list = bbp_get_forum_visibilities( $args['id'] );
 
 		return gdfar_render()->select( $list, array(

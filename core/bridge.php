@@ -21,11 +21,6 @@ function gdfar_settings() {
 	return Settings::instance();
 }
 
-/** @return \Dev4Press\Plugin\GDFAR\Basic\DB */
-function gdfar_db() {
-	return DB::instance();
-}
-
 /** @return \Dev4Press\Plugin\GDFAR\Admin\Plugin */
 function gdfar_admin() {
 	return AdminPlugin::instance();

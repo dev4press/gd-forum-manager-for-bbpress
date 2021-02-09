@@ -62,10 +62,11 @@
   color: #555;
   border-right: 1px solid #DDD;
   text-align: right;
-  width: 30%;
+  font-size: 15px;
+  width: 34%;
 }
 .gdfar-modal__content dl > dd {
-  width: 70%;
+  width: 66%;
 }
 .gdfar-modal__content dl.gdfar-is-error > dt {
   background: #FFF5F5;

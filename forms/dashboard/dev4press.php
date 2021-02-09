@@ -8,9 +8,6 @@
             <li><a href="https://plugins.dev4press.com/gd-quantum-theme-for-bbpress/" target="_blank">
                     <i class="d4p-icon d4p-plugin-icon-gd-quantum-theme-for-bbpress"></i> GD Quantum Theme Pro
                 </a></li>
-            <li><a href="https://plugins.dev4press.com/gd-members-directory-for-bbpress/" target="_blank">
-                    <i class="d4p-icon d4p-plugin-icon-gd-members-directory-for-bbpress"></i> GD Members Directory Pro
-                </a></li>
             <li><a href="https://plugins.dev4press.com/gd-forum-notices-for-bbpress/" target="_blank">
                     <i class="d4p-icon d4p-plugin-icon-gd-forum-notices-for-bbpress"></i> GD Forum Notices Pro
                 </a></li>

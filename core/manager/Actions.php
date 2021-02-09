@@ -15,7 +15,7 @@ class Actions {
 		do_action( 'gdfar_register_actions' );
 	}
 
-	public function register( $name, $args = array() ) {
+	public function register( $name, $args = array() ) : bool {
 		$defaults = array(
 			'scope'          => '',
 			'action'         => '',
@@ -60,11 +60,11 @@ class Actions {
 		return true;
 	}
 
-	public function get_actions( $scope, $action ) {
+	public function get_actions( $scope, $action ) : array {
 		return isset( $this->_actions[ $scope ][ $action ] ) ? $this->_actions[ $scope ][ $action ] : array();
 	}
 
-	public function count_actions( $scope, $action ) {
+	public function count_actions( $scope, $action ) : int {
 		return isset( $this->_actions[ $scope ][ $action ] ) ? count( $this->_actions[ $scope ][ $action ] ) : 0;
 	}
 

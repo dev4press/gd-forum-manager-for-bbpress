@@ -21,6 +21,10 @@ function _gdfar_display_option( $option ) {
 			$title = __( "Toggle option for display on small screens", "gd-forum-manager-for-bbpress" );
 			$label = __( "Always show on small screens", "gd-forum-manager-for-bbpress" );
 			break;
+		case 'topic_edit_log':
+			$title = __( "Toggle option for keeping edit log for topics", "gd-forum-manager-for-bbpress" );
+			$label = __( "Show keep the edit log for topics controls", "gd-forum-manager-for-bbpress" );
+			break;
 	}
 
 	$status = gdfar_settings()->get( $option ) ? 'enabled' : 'disabled';

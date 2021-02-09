@@ -16,7 +16,7 @@ class AJAX {
 		add_action( 'wp_ajax_gdfar_process_bulk', array( $this, 'bulk_process' ) );
 	}
 
-	public static function instance() {
+	public static function instance() : AJAX {
 		static $instance = false;
 
 		if ( $instance === false ) {

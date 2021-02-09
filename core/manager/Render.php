@@ -6,7 +6,6 @@ use WP_Error;
 
 class Render {
 	public function __construct() {
-
 	}
 
 	public static function instance() {
@@ -167,11 +166,24 @@ class Render {
 			'id'       => '',
 			'class'    => '',
 			'style'    => '',
+			'title'    => '',
 			'multi'    => false,
 			'echo'     => false,
 			'readonly' => false
 		);
 		$args     = wp_parse_args( $args, $defaults );
+
+		/**
+		 * @var mixed  $selected
+		 * @var string $name
+		 * @var string $id
+		 * @var string $class
+		 * @var string $style
+		 * @var string $title
+		 * @var bool   $multi
+		 * @var bool   $echo
+		 * @var bool   $readonly
+		 */
 		extract( $args );
 
 		$render      = '';
@@ -186,6 +198,10 @@ class Render {
 
 		if ( $style != '' ) {
 			$attributes[] = 'style="' . esc_attr( $style ) . '"';
+		}
+
+		if ( $title != '' ) {
+			$attributes[] = 'title="' . esc_attr( $title ) . '"';
 		}
 
 		if ( $multi ) {

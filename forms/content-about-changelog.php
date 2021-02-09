@@ -1,6 +1,16 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php _e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
+        <h4>Version: 2.0 / February 15 2020</h4>
+        <ul>
+            <li><strong>edit</strong> d4pLib 3.4</li>
+        </ul>
+    </div>
+</div>
+
+<div class="d4p-info-block d4p-info-block-changelog">
+    <h3><?php _e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
+    <div>
         <h4>Version: 1.4 / December 29 2020</h4>
         <ul>
             <li><strong>edit</strong> updated plugin requirements</li>
