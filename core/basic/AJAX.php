@@ -145,8 +145,7 @@ class AJAX {
 					'topic'
 				) ) && $data['id'] > 0 || $data['action'] == 'edit' || ! empty( $nonce ) ) {
 				if ( wp_verify_nonce( $data['nonce'], 'gdfar-manager-edit-' . $data['type'] . '-' . $data['id'] ) ) {
-					$process = new Process( $data );
-					$result  = $process->edit();
+					$result = Process::instance()->init( $data )->edit();
 
 					if ( is_wp_error( $result ) ) {
 						$this->json_respond( array(
@@ -226,8 +225,7 @@ class AJAX {
 					'topic'
 				) ) && ! empty( $data['id'] ) || $data['action'] == 'bulk' || ! empty( $nonce ) ) {
 				if ( wp_verify_nonce( $data['nonce'], 'gdfar-manager-bulk-' . $data['type'] ) ) {
-					$process = new Process( $data );
-					$result  = $process->bulk();
+					$result = Process::instance()->init( $data )->bulk();
 
 					if ( is_wp_error( $result ) ) {
 						$this->json_respond( array(

@@ -31,6 +31,10 @@ class Defaults {
 		}
 	}
 
+	public function modded( $type, $id ) {
+		Process::instance()->modded( $type, $id );
+	}
+
 	private function _get_list_for_stickies() : array {
 		return array(
 			'no'     => __( "No", "gd-forum-manager-for-bbpress" ),
@@ -157,6 +161,8 @@ class Defaults {
 			if ( is_wp_error( $update ) ) {
 				return $update;
 			}
+
+			$this->modded( 'forum', $forum_id );
 		}
 
 		return $result;
@@ -181,6 +187,8 @@ class Defaults {
 			}
 
 			$this->_update_forum_status( $new_status, $forum_id );
+
+			$this->modded( 'forum', $forum_id );
 		}
 
 		return $result;
@@ -206,6 +214,8 @@ class Defaults {
 			if ( is_wp_error( $update ) ) {
 				return $update;
 			}
+
+			$this->modded( 'forum', $forum_id );
 		}
 
 		return $result;
@@ -252,6 +262,8 @@ class Defaults {
 					}
 
 					$this->_update_forum_status( $new_status, $forum_id );
+
+					$this->modded( 'forum', $forum_id );
 				}
 			}
 		}
@@ -281,6 +293,8 @@ class Defaults {
 					if ( is_wp_error( $update ) ) {
 						return $update;
 					}
+
+					$this->modded( 'forum', $forum_id );
 				}
 			}
 		}
@@ -345,6 +359,8 @@ class Defaults {
 			if ( is_wp_error( $update ) ) {
 				return $update;
 			}
+
+			$this->modded( 'topic', $topic_id );
 		}
 
 		return $result;
@@ -353,6 +369,7 @@ class Defaults {
 	public function process_topic_edit_tags( $result, $args = array() ) {
 		$topic_id = $args['id'];
 		$terms    = isset( $args['value']['topic-tags'] ) ? sanitize_text_field( $args['value']['topic-tags'] ) : '';
+		$current  = bbp_get_topic_tag_names( $topic_id );
 
 		if ( ! taxonomy_exists( bbp_get_topic_tag_tax_id() ) ) {
 			return new WP_Error( 'invalid_taxonomy', __( "Topic Tags taxonomy not found.", "gd-forum-manager-for-bbpress" ) );
@@ -373,6 +390,14 @@ class Defaults {
 			return $update;
 		}
 
+		wp_cache_flush();
+
+		$updated = bbp_get_topic_tag_names( $topic_id );
+
+		if ( $updated != $current ) {
+			$this->modded( 'topic', $topic_id );
+		}
+
 		return $result;
 	}
 
@@ -388,6 +413,8 @@ class Defaults {
 
 			if ( $old_forum != $new_forum ) {
 				bbp_move_topic_handler( $topic_id, $old_forum, $new_forum );
+
+				$this->modded( 'topic', $topic_id );
 			}
 		}
 
@@ -418,6 +445,8 @@ class Defaults {
 			if ( is_wp_error( $update ) ) {
 				return $update;
 			}
+
+			$this->modded( 'topic', $topic_id );
 		}
 
 		return $result;
@@ -445,6 +474,8 @@ class Defaults {
 					bbp_stick_topic( $topic_id, true );
 					break;
 			}
+
+			$this->modded( 'topic', $topic_id );
 		}
 
 		return $result;
@@ -505,6 +536,8 @@ class Defaults {
 
 				if ( $old_forum != $new_forum ) {
 					bbp_move_topic_handler( $topic_id, $old_forum, $new_forum );
+
+					$this->modded( 'topic', $topic_id );
 				}
 			}
 		}
@@ -521,10 +554,16 @@ class Defaults {
 			}
 
 			foreach ( $args['id'] as $topic_id ) {
-				$update = wp_set_object_terms( $topic_id, array(), bbp_get_topic_tag_tax_id() );
+				$current = bbp_get_topic_tag_names( $topic_id );
 
-				if ( is_wp_error( $update ) ) {
-					return $update;
+				if ( ! empty( $current ) ) {
+					$update = wp_set_object_terms( $topic_id, array(), bbp_get_topic_tag_tax_id() );
+
+					if ( is_wp_error( $update ) ) {
+						return $update;
+					}
+
+					$this->modded( 'topic', $topic_id );
 				}
 			}
 		}
@@ -558,6 +597,8 @@ class Defaults {
 					if ( is_wp_error( $update ) ) {
 						return $update;
 					}
+
+					$this->modded( 'topic', $topic_id );
 				}
 			}
 		}
@@ -589,6 +630,8 @@ class Defaults {
 							bbp_stick_topic( $topic_id, true );
 							break;
 					}
+
+					$this->modded( 'topic', $topic_id );
 				}
 			}
 		}

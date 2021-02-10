@@ -6,9 +6,51 @@ use WP_Error;
 
 class Process {
 	private $data;
+	private $modd;
 
-	public function __construct( $data ) {
+	public function __construct() {
+	}
+
+	public static function instance() : Process {
+		static $instance = false;
+
+		if ( $instance === false ) {
+			$instance = new Process();
+		}
+
+		return $instance;
+	}
+
+	public function init( $data ) {
 		$this->data = $data;
+		$this->modd = array(
+			'topic' => array(),
+			'forum' => array()
+		);
+
+		return $this;
+	}
+
+	public function modded( $type, $id ) {
+		if ( $type === 'forum' || $type === 'topic' ) {
+			$id = absint( $id );
+
+			if ( $id > 0 ) {
+				if ( ! in_array( $id, $this->modd[ $type ] ) ) {
+					$this->modd[ $type ][] = $id;
+				}
+			}
+		}
+	}
+
+	public function is_modded( $type, $id ) : bool {
+		if ( $type === 'forum' || $type === 'topic' ) {
+			$id = absint( $id );
+
+			return in_array( $id, $this->modd[ $type ] );
+		}
+
+		return false;
 	}
 
 	public function bulk() {
@@ -83,7 +125,9 @@ class Process {
 
 		if ( $type == 'topic' && $this->data['edit-log'] !== false ) {
 			foreach ( $id as $topic_id ) {
-				$this->_revision( $topic_id );
+				if ( $this->is_modded( 'topic', $topic_id ) ) {
+					$this->_revision( $topic_id );
+				}
 			}
 		}
 
@@ -100,8 +144,10 @@ class Process {
 				'id'    => $id,
 				'value' => $value
 			) );
+		}
 
-			if ( $type == 'topic' && $this->data['edit-log'] !== false ) {
+		if ( $type == 'topic' && $this->data['edit-log'] !== false ) {
+			if ( $this->is_modded( 'topic', $id ) ) {
 				$this->_revision( $id );
 			}
 		}
@@ -128,6 +174,8 @@ class Process {
 	}
 
 	private function _revision( $topic_id ) {
+		add_filter( 'wp_save_post_revision_check_for_changes', '__return_false' );
+
 		$revision_id = wp_save_post_revision( $topic_id );
 
 		if ( ! empty( $revision_id ) ) {

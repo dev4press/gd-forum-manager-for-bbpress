@@ -8,7 +8,7 @@ class Render {
 	public function __construct() {
 	}
 
-	public static function instance() {
+	public static function instance() : Render {
 		static $instance = false;
 
 		if ( $instance === false ) {
