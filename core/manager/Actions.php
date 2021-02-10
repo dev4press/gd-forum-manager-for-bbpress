@@ -125,6 +125,22 @@ class Actions {
 			'description' => __( "Change the forum for the topic.", "gd-forum-manager-for-bbpress" )
 		) );
 
+		if ( bbp_allow_topic_tags() ) {
+			$this->register( 'tags', array(
+				'scope'       => 'topic',
+				'action'      => 'edit',
+				'label'       => __( "Topic Tags", "gd-forum-manager-for-bbpress" ),
+				'description' => __( "Change topic tags.", "gd-forum-manager-for-bbpress" )
+			) );
+
+			$this->register( 'cleartags', array(
+				'scope'       => 'topic',
+				'action'      => 'bulk',
+				'label'       => __( "Topic Tags", "gd-forum-manager-for-bbpress" ),
+				'description' => __( "Remove topic tags.", "gd-forum-manager-for-bbpress" )
+			) );
+		}
+
 		$this->register( 'status', array(
 			'scope'       => 'topic',
 			'action'      => 'edit',

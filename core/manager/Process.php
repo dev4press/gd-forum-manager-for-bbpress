@@ -69,7 +69,7 @@ class Process {
 		return new WP_Error( 'object_not_found', __( "Request object not found.", "gd-forum-manager-for-bbpress" ) );
 	}
 
-	private function _bulk( $actions, $type, $id, $field ) {
+	private function _bulk( $actions, $type, $id, $field ) : array {
 		$elements = array();
 
 		foreach ( $actions as $action ) {
@@ -81,10 +81,16 @@ class Process {
 			) );
 		}
 
+		if ( $type == 'topic' && $this->data['edit-log'] !== false ) {
+			foreach ( $id as $topic_id ) {
+				$this->_revision( $topic_id );
+			}
+		}
+
 		return $elements;
 	}
 
-	private function _edit( $actions, $type, $id, $field ) {
+	private function _edit( $actions, $type, $id, $field ) : array {
 		$elements = array();
 
 		foreach ( $actions as $action ) {
@@ -94,12 +100,16 @@ class Process {
 				'id'    => $id,
 				'value' => $value
 			) );
+
+			if ( $type == 'topic' && $this->data['edit-log'] !== false ) {
+				$this->_revision( $id );
+			}
 		}
 
 		return $elements;
 	}
 
-	private function _validate( $type, $ids = array() ) {
+	private function _validate( $type, $ids = array() ) : array {
 		$clean = array();
 
 		foreach ( $ids as $id ) {
@@ -115,5 +125,18 @@ class Process {
 		}
 
 		return $clean;
+	}
+
+	private function _revision( $topic_id ) {
+		$revision_id = wp_save_post_revision( $topic_id );
+
+		if ( ! empty( $revision_id ) ) {
+			bbp_update_topic_revision_log( array(
+				'topic_id'    => $topic_id,
+				'revision_id' => $revision_id,
+				'author_id'   => bbp_get_current_user_id(),
+				'reason'      => $this->data['edit-log']['reason']
+			) );
+		}
 	}
 }

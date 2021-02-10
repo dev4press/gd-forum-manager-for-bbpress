@@ -1,12 +1,12 @@
-<?php include( GDFAR_PATH . 'forms/content-about-minor.php' ); ?>
+<?php // include( GDFAR_PATH . 'forms/content-about-minor.php' ); ?>
 
 <div class="d4p-about-whatsnew">
     <div class="d4p-whatsnew-section d4p-whatsnew-heading">
         <div class="d4p-layout-grid">
             <div class="d4p-layout-unit whole align-center">
-                <h2 style="font-size: 52px;">Quick Updates</h2>
+                <h2 style="font-size: 52px;">Edit Log and More</h2>
                 <p class="lead-description">
-                    For bbPress forums and topics
+                    Save edit log entry and improve styling
                 </p>
                 <p>
                     New and free plugin adds popups for editing topics and forums from the listing pages, for individual editing and bulk editing. Plugin includes 4 topics and 3 forum default actions.

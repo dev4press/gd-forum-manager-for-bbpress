@@ -3,12 +3,12 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: GD Members Directory for bbPress\n"
-"POT-Creation-Date: 11/12/2020 06:29:27 PM\n"
+"POT-Creation-Date: 02/10/2021 01:12:17 PM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: GD i18n 2.5; www.dev4press.com\n"
+"X-Generator: GD i18n 2.7; www.dev4press.com\n"
 
 #: core/admin/Plugin.php:24
 msgid "Install"
@@ -37,9 +37,9 @@ msgstr ""
 #: core/basic/AJAX.php:32
 #: core/basic/AJAX.php:58
 #: core/basic/AJAX.php:105
-#: core/basic/AJAX.php:156
-#: core/basic/AJAX.php:170
-#: core/basic/AJAX.php:225
+#: core/basic/AJAX.php:168
+#: core/basic/AJAX.php:182
+#: core/basic/AJAX.php:249
 msgid "Invalid Request."
 msgstr ""
 
@@ -117,8 +117,8 @@ msgstr ""
 
 #: core/manager/Actions.php:81
 #: core/manager/Actions.php:95
-#: core/manager/Actions.php:130
-#: core/manager/Actions.php:137
+#: core/manager/Actions.php:146
+#: core/manager/Actions.php:153
 msgid "Status"
 msgstr ""
 
@@ -153,17 +153,30 @@ msgstr ""
 
 #: core/manager/Actions.php:131
 #: core/manager/Actions.php:138
+msgid "Topic Tags"
+msgstr ""
+
+#: core/manager/Actions.php:132
+msgid "Change topic tags."
+msgstr ""
+
+#: core/manager/Actions.php:139
+msgid "Remove topic tags."
+msgstr ""
+
+#: core/manager/Actions.php:147
+#: core/manager/Actions.php:154
 msgid "Change topic status."
 msgstr ""
 
-#: core/manager/Actions.php:144
-#: core/manager/Actions.php:151
+#: core/manager/Actions.php:160
+#: core/manager/Actions.php:167
 #: core/manager/Defaults.php:36
 msgid "Sticky"
 msgstr ""
 
-#: core/manager/Actions.php:145
-#: core/manager/Actions.php:152
+#: core/manager/Actions.php:161
+#: core/manager/Actions.php:168
 msgid "Change topic sticky status."
 msgstr ""
 
@@ -176,14 +189,14 @@ msgid "Super Sticky"
 msgstr ""
 
 #: core/manager/Defaults.php:148
-#: core/manager/Defaults.php:332
+#: core/manager/Defaults.php:336
 msgid "The title is too long."
 msgstr ""
 
 #: core/manager/Defaults.php:172
 #: core/manager/Defaults.php:240
-#: core/manager/Defaults.php:374
-#: core/manager/Defaults.php:478
+#: core/manager/Defaults.php:404
+#: core/manager/Defaults.php:541
 msgid "Invalid status value."
 msgstr ""
 
@@ -194,30 +207,40 @@ msgstr ""
 
 #: core/manager/Defaults.php:214
 #: core/manager/Defaults.php:224
-#: core/manager/Defaults.php:426
-#: core/manager/Defaults.php:432
-#: core/manager/Defaults.php:442
+#: core/manager/Defaults.php:456
+#: core/manager/Defaults.php:462
+#: core/manager/Defaults.php:473
+#: core/manager/Defaults.php:485
 msgid "Don't change"
 msgstr ""
 
-#: core/manager/Defaults.php:355
-#: core/manager/Defaults.php:456
+#: core/manager/Defaults.php:357
+#: core/manager/Defaults.php:519
+msgid "Topic Tags taxonomy not found."
+msgstr ""
+
+#: core/manager/Defaults.php:385
+#: core/manager/Defaults.php:499
 msgid "Invalid forum ID."
 msgstr ""
 
-#: core/manager/Defaults.php:403
-#: core/manager/Defaults.php:511
+#: core/manager/Defaults.php:433
+#: core/manager/Defaults.php:574
 msgid "Invalid sticky value."
+msgstr ""
+
+#: core/manager/Defaults.php:474
+msgid "Remove all topic tags"
 msgstr ""
 
 #: core/manager/Process.php:17
 #: core/manager/Process.php:29
 #: core/manager/Process.php:47
 #: core/manager/Process.php:54
-#: core/manager/Render.php:25
-#: core/manager/Render.php:31
-#: core/manager/Render.php:91
-#: core/manager/Render.php:100
+#: core/manager/Render.php:24
+#: core/manager/Render.php:30
+#: core/manager/Render.php:50
+#: core/manager/Render.php:59
 msgid "No actions found."
 msgstr ""
 
@@ -226,8 +249,20 @@ msgid "Selected objects are not valid."
 msgstr ""
 
 #: core/manager/Process.php:68
-#: core/manager/Render.php:114
+#: core/manager/Render.php:76
 msgid "Request object not found."
+msgstr ""
+
+#: core/manager/Render.php:185
+msgid "Edit Log"
+msgstr ""
+
+#: core/manager/Render.php:189
+msgid "Keep a log of this edit"
+msgstr ""
+
+#: core/manager/Render.php:191
+msgid "Optional reason for editing"
 msgstr ""
 
 #: core/admin.php:8
@@ -260,6 +295,14 @@ msgstr ""
 
 #: core/admin.php:21
 msgid "Always show on small screens"
+msgstr ""
+
+#: core/admin.php:24
+msgid "Toggle option for keeping edit log for topics"
+msgstr ""
+
+#: core/admin.php:25
+msgid "Show keep the edit log for topics controls"
 msgstr ""
 
 #: core/functions.php:11
@@ -324,6 +367,10 @@ msgstr ""
 msgid "Display Controls"
 msgstr ""
 
+#: forms/dashboard/settings.php:18
+msgid "Advanced Settings"
+msgstr ""
+
 #: forms/manager/dialog-bulk.php:5
 #: forms/manager/dialog-bulk.php:10
 #: forms/manager/dialog-edit.php:5
@@ -345,9 +392,8 @@ msgid "Close"
 msgstr ""
 
 #: forms/content-about-changelog.php:1
+#: forms/content-about-changelog.php:18
 #: forms/content-about-minor.php:3
-#: forms/content-about-minor.php:7
-#: forms/content-about-minor.php:11
 msgid "Version"
 msgstr ""
 
@@ -355,7 +401,7 @@ msgstr ""
 msgid "Maintenance and Security Releases"
 msgstr ""
 
-#: forms/content-about-minor.php:15
+#: forms/content-about-minor.php:7
 msgid "For more information, see <a href='%s'>the changelog</a>."
 msgstr ""
 

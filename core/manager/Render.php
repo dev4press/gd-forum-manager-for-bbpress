@@ -34,15 +34,53 @@ class Render {
 			$render .= '<input type="hidden" name="gdfar[action]" value="bulk" />';
 			$render .= '<input type="hidden" name="gdfar[nonce]" value="' . wp_create_nonce( 'gdfar-manager-bulk-' . $type ) . '" />';
 			$render .= '<input type="hidden" name="gdfar[type]" value="' . esc_attr( $type ) . '" />';
+			$render .= '<div class="gdfar-manager-elements">';
 			$render .= join( '', $elements );
+			$render .= '</div>';
+			$render .= $this->_log();
 			$render .= '</form>';
 
 			return $render;
 		}
 	}
 
-	private function _bulk( $actions, $type, $context ) {
+	public function edit( $type, $id, $context = array() ) {
+		$actions = gdfar()->actions()->get_actions( $type, 'edit' );
+
+		if ( empty( $actions ) ) {
+			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
+		}
+
+		$id = absint( $id );
+
+		if ( ( $type == 'forum' && bbp_is_forum( $id ) ) || ( $type == 'topic' && bbp_is_topic( $id ) ) ) {
+			$elements = $this->_edit( $actions, $type, $id, $context );
+
+			if ( empty( $elements ) ) {
+				return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
+			} else {
+				$render = '<form method="post" id="gdfar-manager-form-edit">';
+				$render .= '<input type="hidden" name="gdfar[action]" value="edit" />';
+				$render .= '<input type="hidden" name="gdfar[nonce]" value="' . wp_create_nonce( 'gdfar-manager-edit-' . $type . '-' . $id ) . '" />';
+				$render .= '<input type="hidden" name="gdfar[type]" value="' . esc_attr( $type ) . '" />';
+				$render .= '<input type="hidden" name="gdfar[id]" value="' . esc_attr( $id ) . '" />';
+				$render .= '<div class="gdfar-manager-elements">';
+				$render .= join( '', $elements );
+				$render .= '</div>';
+				$render .= $this->_log();
+				$render .= '</form>';
+
+				return $render;
+			}
+		}
+
+		return new WP_Error( 'object_not_found', __( "Request object not found.", "gd-forum-manager-for-bbpress" ) );
+	}
+
+	private function _bulk( $actions, $type, $context ) : array {
 		$elements = array();
+
+		$i = 1;
 
 		foreach ( $actions as $action ) {
 			$visible = apply_filters( $action['filter_visible'], true, array(
@@ -51,7 +89,7 @@ class Render {
 			) );
 
 			if ( $visible ) {
-				$element = 'action-' . $action['name'] . '-' . rand( 1000, 9999 );
+				$element = 'action-' . $action['name'] . '-' . str_pad( $i, 4, '0', STR_PAD_LEFT ) . '-' . rand( 1000, 9999 );
 
 				$render = apply_filters( $action['filter_display'], '', array(
 					'base'    => 'gdfar[field][' . $action['name'] . ']',
@@ -75,47 +113,21 @@ class Render {
 					$elements[] = '<dl class="' . join( ' ', $classes ) . '"><dt>' .
 					              '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . $label . '</label></div>' .
 					              '</dt><dd>' .
-					              '<div class="gdfar-conent-wrapper">' . $render . '</div>' .
+					              '<div class="gdfar-content-wrapper">' . $render . '</div>' .
 					              '</dd></dl>';
 				}
 			}
+
+			$i ++;
 		}
 
 		return $elements;
 	}
 
-	public function edit( $type, $id, $context = array() ) {
-		$actions = gdfar()->actions()->get_actions( $type, 'edit' );
-
-		if ( empty( $actions ) ) {
-			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
-		}
-
-		$id = absint( $id );
-
-		if ( ( $type == 'forum' && bbp_is_forum( $id ) ) || ( $type == 'topic' && bbp_is_topic( $id ) ) ) {
-			$elements = $this->_edit( $actions, $type, $id, $context );
-
-			if ( empty( $elements ) ) {
-				return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
-			} else {
-				$render = '<form method="post" id="gdfar-manager-form-edit">';
-				$render .= '<input type="hidden" name="gdfar[action]" value="edit" />';
-				$render .= '<input type="hidden" name="gdfar[nonce]" value="' . wp_create_nonce( 'gdfar-manager-edit-' . $type . '-' . $id ) . '" />';
-				$render .= '<input type="hidden" name="gdfar[type]" value="' . esc_attr( $type ) . '" />';
-				$render .= '<input type="hidden" name="gdfar[id]" value="' . esc_attr( $id ) . '" />';
-				$render .= join( '', $elements );
-				$render .= '</form>';
-
-				return $render;
-			}
-		}
-
-		return new WP_Error( 'object_not_found', __( "Request object not found.", "gd-forum-manager-for-bbpress" ) );
-	}
-
-	private function _edit( $actions, $type, $id, $context ) {
+	private function _edit( $actions, $type, $id, $context ) : array {
 		$elements = array();
+
+		$i = 1;
 
 		foreach ( $actions as $action ) {
 			$visible = apply_filters( $action['filter_visible'], true, array(
@@ -125,7 +137,7 @@ class Render {
 			) );
 
 			if ( $visible ) {
-				$element = 'action-' . $action['name'] . '-' . rand( 1000, 9999 );
+				$element = 'action-' . $action['name'] . '-' . str_pad( $i, 4, '0', STR_PAD_LEFT ) . '-' . rand( 1000, 9999 );
 
 				$render = apply_filters( $action['filter_display'], '', array(
 					'id'      => $id,
@@ -150,16 +162,41 @@ class Render {
 					$elements[] = '<dl class="' . join( ' ', $classes ) . '"><dt>' .
 					              '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . $label . '</label></div>' .
 					              '</dt><dd>' .
-					              '<div class="gdfar-conent-wrapper">' . $render . '</div>' .
+					              '<div class="gdfar-content-wrapper">' . $render . '</div>' .
 					              '</dd></dl>';
 				}
 			}
+
+			$i ++;
 		}
 
 		return $elements;
 	}
 
-	public function select( $values, $args = array(), $attr = array() ) {
+	private function _log() {
+		if ( gdfar_settings()->get( 'topic_edit_log' ) ) {
+			$element = 'action-edit-log-9999' . '-' . rand( 1000, 9999 );
+
+			$classes = array(
+				'gdfar-action',
+				'gdfar-action-edit-log'
+			);
+
+			return '<div class="gdfar-manager-edit-log"><dl class="' . join( ' ', $classes ) . '"><dt>' .
+			       '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . __( "Edit Log", "gd-forum-manager-for-bbpress" ) . '</label></div>' .
+			       '</dt><dd>' .
+			       '<div class="gdfar-content-wrapper">' .
+			       '<input type="checkbox" checked="checked" name="gdfar[edit-log][keep]" />' .
+			       '<span>' . __( "Keep a log of this edit", "gd-forum-manager-for-bbpress" ) . '</span>' .
+			       '</div>' .
+			       '<input type="text" name="gdfar[edit-log][reason]" value="" placeholder="' . __( "Optional reason for editing", "gd-forum-manager-for-bbpress" ) . '" />' .
+			       '</dd></dl></div>';
+		}
+
+		return '';
+	}
+
+	public function select( $values, $args = array(), $attr = array() ) : string {
 		$defaults = array(
 			'selected' => '',
 			'name'     => '',

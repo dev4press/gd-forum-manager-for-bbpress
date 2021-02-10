@@ -99,6 +99,8 @@
 }
 .gdfar-modal .gdfar-modal__container .gdfar-modal__header .gdfar-modal__close {
   background: transparent;
+  font-weight: bold;
+  color: #00449E;
   border: 0;
   padding: 0;
 }

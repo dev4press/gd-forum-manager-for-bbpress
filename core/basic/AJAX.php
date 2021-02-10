@@ -121,11 +121,23 @@ class AJAX {
 		if ( isset( $_REQUEST['gdfar'] ) ) {
 			$data = (array) $_REQUEST['gdfar'];
 
-			$data['action'] = isset( $data['action'] ) ? d4p_sanitize_slug( $data['action'] ) : '';
-			$data['type']   = isset( $data['type'] ) ? d4p_sanitize_slug( $data['type'] ) : '';
-			$data['nonce']  = isset( $data['nonce'] ) ? d4p_sanitize_basic( $data['nonce'] ) : '';
-			$data['id']     = isset( $data['id'] ) ? absint( $data['id'] ) : 0;
-			$data['field']  = isset( $data['field'] ) ? gdfar_array_sanitize_text_field( (array) $data['field'] ) : array();
+			$log = false;
+
+			if ( isset( $data['edit-log'] ) ) {
+				if ( isset( $data['edit-log']['keep'] ) ) {
+					$log = array(
+						'keep'   => true,
+						'reason' => isset( $data['edit-log']['reason'] ) ? d4p_sanitize_basic( $data['edit-log']['reason'] ) : ''
+					);
+				}
+			}
+
+			$data['action']   = isset( $data['action'] ) ? d4p_sanitize_slug( $data['action'] ) : '';
+			$data['type']     = isset( $data['type'] ) ? d4p_sanitize_slug( $data['type'] ) : '';
+			$data['nonce']    = isset( $data['nonce'] ) ? d4p_sanitize_basic( $data['nonce'] ) : '';
+			$data['id']       = isset( $data['id'] ) ? absint( $data['id'] ) : 0;
+			$data['field']    = isset( $data['field'] ) ? gdfar_array_sanitize_text_field( (array) $data['field'] ) : array();
+			$data['edit-log'] = $log;
 
 			if (
 				in_array( $data['type'], array(
@@ -186,10 +198,22 @@ class AJAX {
 		if ( isset( $_REQUEST['gdfar'] ) ) {
 			$data = (array) $_REQUEST['gdfar'];
 
-			$data['action'] = isset( $data['action'] ) ? d4p_sanitize_slug( $data['action'] ) : '';
-			$data['type']   = isset( $data['type'] ) ? d4p_sanitize_slug( $data['type'] ) : '';
-			$data['nonce']  = isset( $data['nonce'] ) ? d4p_sanitize_basic( $data['nonce'] ) : '';
-			$data['field']  = isset( $data['field'] ) ? (array) $data['field'] : array();
+			$log = false;
+
+			if ( isset( $data['edit-log'] ) ) {
+				if ( isset( $data['edit-log']['keep'] ) ) {
+					$log = array(
+						'keep'   => true,
+						'reason' => isset( $data['edit-log']['reason'] ) ? d4p_sanitize_basic( $data['edit-log']['reason'] ) : ''
+					);
+				}
+			}
+
+			$data['action']   = isset( $data['action'] ) ? d4p_sanitize_slug( $data['action'] ) : '';
+			$data['type']     = isset( $data['type'] ) ? d4p_sanitize_slug( $data['type'] ) : '';
+			$data['nonce']    = isset( $data['nonce'] ) ? d4p_sanitize_basic( $data['nonce'] ) : '';
+			$data['field']    = isset( $data['field'] ) ? (array) $data['field'] : array();
+			$data['edit-log'] = $log;
 
 			$data['id'] = isset( $data['id'] ) ? (array) $data['id'] : array();
 			$data['id'] = array_map( 'absint', $data['id'] );

@@ -11,8 +11,8 @@ class Defaults {
 			'bulk' => array( 'status', 'visibility' )
 		),
 		'topic' => array(
-			'edit' => array( 'rename', 'forum', 'status', 'sticky' ),
-			'bulk' => array( 'status', 'forum', 'sticky' )
+			'edit' => array( 'rename', 'forum', 'status', 'sticky', 'tags' ),
+			'bulk' => array( 'status', 'forum', 'sticky', 'cleartags' )
 		)
 	);
 
@@ -292,6 +292,10 @@ class Defaults {
 		return '<input id="' . esc_attr( $args['element'] ) . '" type="text" name="' . esc_attr( $args['base'] ) . '[title]" value="' . esc_attr( bbp_get_topic_title( $args['id'] ) ) . '" />';
 	}
 
+	public function display_topic_edit_tags( $render, $args = array() ) {
+		return '<input id="' . esc_attr( $args['element'] ) . '" type="text" name="' . esc_attr( $args['base'] ) . '[topic-tags]" value="' . esc_attr( bbp_get_topic_tag_names( $args['id'] ) ) . '" />';
+	}
+
 	public function display_topic_edit_forum( $render, $args = array() ) {
 		return bbp_get_dropdown( array(
 			'selected'     => bbp_get_topic_forum_id( $args['id'] ),
@@ -341,6 +345,32 @@ class Defaults {
 			if ( is_wp_error( $update ) ) {
 				return $update;
 			}
+		}
+
+		return $result;
+	}
+
+	public function process_topic_edit_tags( $result, $args = array() ) {
+		$topic_id = $args['id'];
+		$terms    = isset( $args['value']['topic-tags'] ) ? sanitize_text_field( $args['value']['topic-tags'] ) : '';
+
+		if ( ! taxonomy_exists( bbp_get_topic_tag_tax_id() ) ) {
+			return new WP_Error( 'invalid_taxonomy', __( "Topic Tags taxonomy not found.", "gd-forum-manager-for-bbpress" ) );
+		}
+
+		if ( strstr( $terms, ',' ) ) {
+			$terms = explode( ',', $terms );
+		}
+
+		$terms = array( bbp_get_topic_tag_tax_id() => $terms );
+
+		$update = wp_update_post( array(
+			'ID'        => $topic_id,
+			'tax_input' => $terms
+		), true );
+
+		if ( is_wp_error( $update ) ) {
+			return $update;
 		}
 
 		return $result;
@@ -439,6 +469,19 @@ class Defaults {
 		) );
 	}
 
+	public function display_topic_bulk_cleartags( $render, $args = array() ) {
+		$list = array(
+			''      => __( "Don't change", "gd-forum-manager-for-bbpress" ),
+			'clear' => __( "Remove all topic tags", "gd-forum-manager-for-bbpress" )
+		);
+
+		return gdfar_render()->select( $list, array(
+			'selected' => '',
+			'name'     => $args['base'] . '[clear-tags]',
+			'id'       => $args['element']
+		) );
+	}
+
 	public function display_topic_bulk_sticky( $render, $args = array() ) {
 		$list = array_merge( array( '' => __( "Don't change", "gd-forum-manager-for-bbpress" ) ), $this->_get_list_for_stickies() );
 
@@ -462,6 +505,26 @@ class Defaults {
 
 				if ( $old_forum != $new_forum ) {
 					bbp_move_topic_handler( $topic_id, $old_forum, $new_forum );
+				}
+			}
+		}
+
+		return $result;
+	}
+
+	public function process_topic_bulk_cleartags( $result, $args = array() ) {
+		$clear = isset( $args['value']['clear-tags'] ) && $args['value']['clear-tags'] === 'clear';
+
+		if ( $clear ) {
+			if ( ! taxonomy_exists( bbp_get_topic_tag_tax_id() ) ) {
+				return new WP_Error( 'invalid_taxonomy', __( "Topic Tags taxonomy not found.", "gd-forum-manager-for-bbpress" ) );
+			}
+
+			foreach ( $args['id'] as $topic_id ) {
+				$update = wp_set_object_terms( $topic_id, array(), bbp_get_topic_tag_tax_id() );
+
+				if ( is_wp_error( $update ) ) {
+					return $update;
 				}
 			}
 		}

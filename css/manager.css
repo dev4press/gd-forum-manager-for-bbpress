@@ -54,7 +54,7 @@
 .gdfar-modal__content dl > dd {
   display: table-cell;
   vertical-align: top;
-  padding: 15px;
+  padding: 8px 15px;
   margin: 0;
 }
 .gdfar-modal__content dl > dt {
@@ -81,6 +81,14 @@
   border-radius: 4px;
   font-weight: bold;
 }
+.gdfar-modal__content dl:first-of-type > dt,
+.gdfar-modal__content dl:first-of-type > dd {
+  padding-top: 15px;
+}
+.gdfar-modal__content dl:last-of-type > dt,
+.gdfar-modal__content dl:last-of-type > dd {
+  padding-bottom: 15px;
+}
 .gdfar-modal__content form select,
 .gdfar-modal__content form input[type=number],
 .gdfar-modal__content form input[type=text] {
@@ -103,6 +111,18 @@
 .gdfar-modal__content form input[type=number],
 .gdfar-modal__content form input[type=text] {
   padding: 0 8px;
+}
+.gdfar-modal__content .gdfar-manager-edit-log {
+  border-top: 2px solid #DDD;
+}
+.gdfar-modal__content .gdfar-manager-edit-log input[type=checkbox] {
+  width: 16px;
+  height: 16px;
+  float: left;
+  margin: 9px 5px 0 0;
+}
+.gdfar-modal__content .gdfar-manager-edit-log span {
+  font-size: 15px;
 }
 
 .gdfar-bulk-control {
@@ -166,8 +186,16 @@
     display: block;
     padding: 15px 15px 0;
   }
-  .gdfar-modal__content dl:last-child {
+  .gdfar-modal__content dl:first-of-type > dt,
+.gdfar-modal__content dl:first-of-type > dd {
+    padding-top: 0;
+  }
+  .gdfar-modal__content dl:last-of-type {
     padding-bottom: 15px;
+  }
+  .gdfar-modal__content dl:last-of-type > dt,
+.gdfar-modal__content dl:last-of-type > dd {
+    padding-bottom: 0;
   }
   .gdfar-modal__content dl > dt,
 .gdfar-modal__content dl > dd {

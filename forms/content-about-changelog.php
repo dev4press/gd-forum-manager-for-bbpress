@@ -3,7 +3,15 @@
     <div>
         <h4>Version: 2.0 / February 15 2020</h4>
         <ul>
+            <li><strong>new</strong> actions: change single topic topic tags</li>
+            <li><strong>new</strong> actions: bulk remove topic tags</li>
+            <li><strong>new</strong> option to control saving of the edit log or topics</li>
+            <li><strong>edit</strong> various improvements to the plugin core code</li>
+            <li><strong>edit</strong> several styling improvements and changes to popup dialog</li>
+            <li><strong>edit</strong> more compact styling layout for the dialog elements</li>
             <li><strong>edit</strong> d4pLib 3.4</li>
+            <li><strong>fix</strong> minor issues with the admin side plugin settings handling</li>
+            <li><strong>fix</strong> various typos and other wording and naming issues</li>
         </ul>
     </div>
 </div>

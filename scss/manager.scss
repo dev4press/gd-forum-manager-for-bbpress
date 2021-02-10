@@ -61,7 +61,7 @@
         > dd {
             display: table-cell;
             vertical-align: top;
-            padding: 15px;
+            padding: 8px 15px;
             margin: 0;
         }
 
@@ -94,6 +94,21 @@
             border-radius: 4px;
             font-weight: bold;
         }
+
+        &:first-of-type {
+            > dt,
+            > dd {
+                padding-top: 15px;
+            }
+        }
+
+        &:last-of-type {
+            > dt,
+            > dd {
+                padding-bottom: 15px;
+            }
+        }
+
     }
 
     form {
@@ -122,6 +137,21 @@
         input[type=number],
         input[type=text] {
             padding: 0 8px;
+        }
+    }
+
+    .gdfar-manager-edit-log {
+        border-top: 2px solid #DDD;
+
+        input[type=checkbox] {
+            width: 16px;
+            height: 16px;
+            float: left;
+            margin: 9px 5px 0 0;
+        }
+
+        span {
+            font-size: 15px;
         }
     }
 }
@@ -199,8 +229,20 @@
             display: block;
             padding: 15px 15px 0;
 
-            &:last-child {
+            &:first-of-type {
+                > dt,
+                > dd {
+                    padding-top: 0;
+                }
+            }
+
+            &:last-of-type {
                 padding-bottom: 15px;
+
+                > dt,
+                > dd {
+                    padding-bottom: 0;
+                }
             }
 
             > dt,

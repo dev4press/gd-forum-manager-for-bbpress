@@ -31,7 +31,7 @@ function _gdfar_display_option( $option ) {
 
 	$render = '<div class="d4p-dashboard-status-row d4p-dashboard-is-' . $status . '">';
 	$render .= '<a title="' . esc_attr( $title ) . '" href="#" data-name="' . $option . '" data-nonce="' . wp_create_nonce( 'gdfar-toggle-option-' . $option ) . '" class="gdfar-option-toggle d4p-type-toggle d4p-type-status-' . $status . '">';
-	$render .= '<i class="d4p-icon d4p-ui-toggle-on' . ( $status != 'enabled' ? ' d4p-flip-horizontal' : '' ) . '"></i>';
+	$render .= '<i class="d4p-icon d4p-ui-toggle-on' . ( $status != 'enabled' ? ' d4p-icon-flip-horizontal' : '' ) . '"></i>';
 	$render .= '</a>';
 	$render .= '<span>' . esc_html( $label ) . '</span>';
 	$render .= '</div>';

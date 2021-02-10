@@ -20,7 +20,7 @@
 
                             el.addClass("gdfar-is-error");
 
-                            $(".gdfar-conent-wrapper", el).append("<p class='gdfar-error-message'>" + message + '</p>');
+                            $(".gdfar-content-wrapper", el).append("<p class='gdfar-error-message'>" + message + '</p>');
                         });
                     } else {
                         location.reload(false);
