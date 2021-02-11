@@ -98,12 +98,13 @@
   min-height: 30px;
   color: #32373C;
   border-color: #7E8993;
+  border-radius: 3px;
   margin: 0;
   height: 32px;
 }
 .gdfar-modal__content form select {
   padding: 0 24px 0 8px;
-  max-width: 200px;
+  max-width: 250px;
 }
 .gdfar-modal__content form select.gdfar-full-width {
   max-width: 100%;

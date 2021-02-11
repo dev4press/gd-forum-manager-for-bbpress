@@ -9,6 +9,7 @@
             <li><strong>edit</strong> various improvements to the plugin core code</li>
             <li><strong>edit</strong> several styling improvements and changes to popup dialog</li>
             <li><strong>edit</strong> more compact styling layout for the dialog elements</li>
+            <li><strong>edit</strong> MicroModal library 0.4.6</li>
             <li><strong>edit</strong> d4pLib 3.4</li>
             <li><strong>fix</strong> minor issues with the admin side plugin settings handling</li>
             <li><strong>fix</strong> various typos and other wording and naming issues</li>

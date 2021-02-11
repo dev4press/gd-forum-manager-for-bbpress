@@ -67,7 +67,7 @@ class Render {
 				$render .= '<div class="gdfar-manager-elements">';
 				$render .= join( '', $elements );
 				$render .= '</div>';
-				$render .= $this->_log();
+				$render .= $this->_log( $type );
 				$render .= '</form>';
 
 				return $render;
@@ -173,8 +173,8 @@ class Render {
 		return $elements;
 	}
 
-	private function _log() {
-		if ( gdfar_settings()->get( 'topic_edit_log' ) ) {
+	private function _log( $type ) {
+		if ( $type == 'topic' && gdfar_settings()->get( 'topic_edit_log' ) ) {
 			$element = 'action-edit-log-9999' . '-' . rand( 1000, 9999 );
 
 			$classes = array(

@@ -35,6 +35,23 @@ class Defaults {
 		Process::instance()->modded( $type, $id );
 	}
 
+	public function update_post( $args, $type ) {
+		$revisions_removed = false;
+
+		if ( $type == 'topic' && post_type_supports( bbp_get_topic_post_type(), 'revisions' ) ) {
+			$revisions_removed = true;
+			remove_post_type_support( bbp_get_topic_post_type(), 'revisions' );
+		}
+
+		$id = wp_update_post( $args );
+
+		if ( true === $revisions_removed ) {
+			add_post_type_support( bbp_get_topic_post_type(), 'revisions' );
+		}
+
+		return $id;
+	}
+
 	private function _get_list_for_stickies() : array {
 		return array(
 			'no'     => __( "No", "gd-forum-manager-for-bbpress" ),
@@ -153,7 +170,7 @@ class Defaults {
 				return new WP_Error( "title_too_long", __( "The title is too long.", "gd-forum-manager-for-bbpress" ) );
 			}
 
-			$update = wp_update_post( array(
+			$update = $this->update_post( array(
 				'ID'         => $forum_id,
 				'post_title' => $forum_title
 			), true );
@@ -206,7 +223,7 @@ class Defaults {
 		}
 
 		if ( $old_status != $new_status ) {
-			$update = wp_update_post( array(
+			$update = $this->update_post( array(
 				'ID'          => $forum_id,
 				'post_status' => $new_status
 			), true );
@@ -285,7 +302,7 @@ class Defaults {
 				$old_status = bbp_get_forum_visibility( $forum_id );
 
 				if ( $old_status != $new_status ) {
-					$update = wp_update_post( array(
+					$update = $this->update_post( array(
 						'ID'          => $forum_id,
 						'post_status' => $new_status
 					), true );
@@ -351,7 +368,7 @@ class Defaults {
 				return new WP_Error( "title_too_long", __( "The title is too long.", "gd-forum-manager-for-bbpress" ) );
 			}
 
-			$update = wp_update_post( array(
+			$update = $this->update_post( array(
 				'ID'         => $topic_id,
 				'post_title' => $topic_title
 			), true );
@@ -381,7 +398,7 @@ class Defaults {
 
 		$terms = array( bbp_get_topic_tag_tax_id() => $terms );
 
-		$update = wp_update_post( array(
+		$update = $this->update_post( array(
 			'ID'        => $topic_id,
 			'tax_input' => $terms
 		), true );
@@ -435,7 +452,7 @@ class Defaults {
 		if ( $old_status != $new_status ) {
 			$this->_before_update_topic_status( $new_status, $old_status, $topic_id );
 
-			$update = wp_update_post( array(
+			$update = $this->update_post( array(
 				'ID'          => $topic_id,
 				'post_status' => $new_status
 			), true );
@@ -587,7 +604,7 @@ class Defaults {
 				if ( $old_status != $new_status ) {
 					$this->_before_update_topic_status( $new_status, $old_status, $topic_id );
 
-					$update = wp_update_post( array(
+					$update = $this->update_post( array(
 						'ID'          => $topic_id,
 						'post_status' => $new_status
 					), true );

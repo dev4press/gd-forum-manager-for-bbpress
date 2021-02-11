@@ -1,9 +1,8 @@
-(function(global, factory) {
+(function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :
             (global = global || self, global.MicroModal = factory());
-}(this, (function() {
-    'use strict';
+}(this, (function () { 'use strict';
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -60,21 +59,19 @@
         throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
     }
 
-    var MicroModal = function() {
+    var MicroModal = function () {
 
         var FOCUSABLE_ELEMENTS = ['a[href]', 'area[href]', 'input:not([disabled]):not([type="hidden"]):not([aria-hidden])', 'select:not([disabled]):not([aria-hidden])', 'textarea:not([disabled]):not([aria-hidden])', 'button:not([disabled]):not([aria-hidden])', 'iframe', 'object', 'embed', '[contenteditable]', '[tabindex]:not([tabindex^="-"])'];
 
-        var Modal = /*#__PURE__*/function() {
+        var Modal = /*#__PURE__*/function () {
             function Modal(_ref) {
                 var targetModal = _ref.targetModal,
                     _ref$triggers = _ref.triggers,
                     triggers = _ref$triggers === void 0 ? [] : _ref$triggers,
                     _ref$onShow = _ref.onShow,
-                    onShow = _ref$onShow === void 0 ? function() {
-                    } : _ref$onShow,
+                    onShow = _ref$onShow === void 0 ? function () {} : _ref$onShow,
                     _ref$onClose = _ref.onClose,
-                    onClose = _ref$onClose === void 0 ? function() {
-                    } : _ref$onClose,
+                    onClose = _ref$onClose === void 0 ? function () {} : _ref$onClose,
                     _ref$openTrigger = _ref.openTrigger,
                     openTrigger = _ref$openTrigger === void 0 ? 'data-micromodal-trigger' : _ref$openTrigger,
                     _ref$closeTrigger = _ref.closeTrigger,
@@ -115,7 +112,6 @@
                 this.onClick = this.onClick.bind(this);
                 this.onKeydown = this.onKeydown.bind(this);
             }
-
             /**
              * Loops through all openTriggers and binds click event
              * @param  {array} triggers [Array of node elements]
@@ -132,8 +128,8 @@
                         triggers[_key] = arguments[_key];
                     }
 
-                    triggers.filter(Boolean).forEach(function(trigger) {
-                        trigger.addEventListener('click', function(event) {
+                    triggers.filter(Boolean).forEach(function (trigger) {
+                        trigger.addEventListener('click', function (event) {
                             return _this.showModal(event);
                         });
                     });
@@ -266,7 +262,7 @@
                     if (focusableNodes.length === 0) return; // remove nodes on whose click, the modal closes
                     // could not think of a better name :(
 
-                    var nodesWhichAreNotCloseTargets = focusableNodes.filter(function(node) {
+                    var nodesWhichAreNotCloseTargets = focusableNodes.filter(function (node) {
                         return !node.hasAttribute(_this3.config.closeTrigger);
                     });
                     if (nodesWhichAreNotCloseTargets.length > 0) nodesWhichAreNotCloseTargets[0].focus();
@@ -283,7 +279,7 @@
                      * focus leak outside modal
                      */
 
-                    focusableNodes = focusableNodes.filter(function(node) {
+                    focusableNodes = focusableNodes.filter(function (node) {
                         return node.offsetParent !== null;
                     }); // if disableFocus is true
 
@@ -326,7 +322,7 @@
 
         var generateTriggerMap = function generateTriggerMap(triggers, triggerAttr) {
             var triggerMap = [];
-            triggers.forEach(function(trigger) {
+            triggers.forEach(function (trigger) {
                 var targetModal = trigger.attributes[triggerAttr].value;
                 if (triggerMap[targetModal] === undefined) triggerMap[targetModal] = [];
                 triggerMap[targetModal].push(trigger);
@@ -434,6 +430,7 @@
          * @param  {string} targetModal [The id of the modal to close]
          * @return {void}
          */
+
 
         var close = function close(targetModal) {
             targetModal ? activeModal.closeModalById(targetModal) : activeModal.closeModal();
