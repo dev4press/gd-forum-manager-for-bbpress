@@ -36,20 +36,7 @@ class Defaults {
 	}
 
 	public function update_post( $args, $type ) {
-		$revisions_removed = false;
-
-		if ( $type == 'topic' && post_type_supports( bbp_get_topic_post_type(), 'revisions' ) ) {
-			$revisions_removed = true;
-			remove_post_type_support( bbp_get_topic_post_type(), 'revisions' );
-		}
-
-		$id = wp_update_post( $args );
-
-		if ( true === $revisions_removed ) {
-			add_post_type_support( bbp_get_topic_post_type(), 'revisions' );
-		}
-
-		return $id;
+		return Process::instance()->update_post( $args, $type );
 	}
 
 	private function _get_list_for_stickies() : array {

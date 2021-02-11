@@ -43,6 +43,23 @@ class Process {
 		}
 	}
 
+	public function update_post( $args, $type ) {
+		$revisions_removed = false;
+
+		if ( $type == 'topic' && post_type_supports( bbp_get_topic_post_type(), 'revisions' ) ) {
+			$revisions_removed = true;
+			remove_post_type_support( bbp_get_topic_post_type(), 'revisions' );
+		}
+
+		$id = wp_update_post( $args );
+
+		if ( true === $revisions_removed ) {
+			add_post_type_support( bbp_get_topic_post_type(), 'revisions' );
+		}
+
+		return $id;
+	}
+
 	public function is_modded( $type, $id ) : bool {
 		if ( $type === 'forum' || $type === 'topic' ) {
 			$id = absint( $id );
@@ -175,6 +192,8 @@ class Process {
 
 	private function _revision( $topic_id ) {
 		add_filter( 'wp_save_post_revision_check_for_changes', '__return_false' );
+
+		$this->update_post(array( 'ID' => $topic_id ), 'topic');
 
 		$revision_id = wp_save_post_revision( $topic_id );
 

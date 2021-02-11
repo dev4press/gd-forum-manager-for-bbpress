@@ -37,7 +37,7 @@ class Render {
 			$render .= '<div class="gdfar-manager-elements">';
 			$render .= join( '', $elements );
 			$render .= '</div>';
-			$render .= $this->_log();
+			$render .= $this->_log( $type );
 			$render .= '</form>';
 
 			return $render;
