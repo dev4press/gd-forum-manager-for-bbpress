@@ -4,6 +4,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+function gdfar_editor_active() {
+	if ( ! defined( 'GDFAR_EDITOR_ACTIVE' ) ) {
+		_doing_it_wrong( __FUNCTION__, __( "Editor has not been initialized yet.", "gd-forum-manager-for-bbpress" ), '2.0' );
+
+		return false;
+	}
+
+	return GDFAR_EDITOR_ACTIVE;
+}
+
 function gdfar_register_action( $name, $args = array() ) {
 	if ( current_filter() == 'gdfar_register_actions' ) {
 		return gdfar()->actions()->register( $name, $args );

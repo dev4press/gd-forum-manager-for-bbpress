@@ -193,7 +193,7 @@ class Process {
 	private function _revision( $topic_id ) {
 		add_filter( 'wp_save_post_revision_check_for_changes', '__return_false' );
 
-		$this->update_post(array( 'ID' => $topic_id ), 'topic');
+		$this->update_post( array( 'ID' => $topic_id ), 'topic' );
 
 		$revision_id = wp_save_post_revision( $topic_id );
 

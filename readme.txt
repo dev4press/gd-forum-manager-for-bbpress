@@ -81,6 +81,9 @@ The plugin adds a menu item in the WordPress Settings menu. There you have only 
 Yes. The POT file is provided as a base for translation. Translation files should go into languages directory.
 
 == Upgrade Notice ==
+= 2.0 =
+* Change topic tags. Saving of topics edit log. Many improvements and fixes.
+
 = 1.4 =
 Few updates and improvements.
 
@@ -91,8 +94,21 @@ Few updates and improvements.
 Few updates and improvements.
 
 == Changelog ==
-= 2.0 - 2021.02.15 =
+= 2.0 - 2021.02.16 =
+* New: actions: change single topic topic tags
+* New: actions: bulk remove topic tags
+* New: global var defined when the editor is active or not
+* New: function to determine if the editor is active or not
+* New: option to control saving of the edit log or topics
+* New: fire actions before and after ajax processing calls
+* New: filters to modify Edit and Quick Edit button HTML content
+* Edit: various improvements to the plugin core code
+* Edit: several styling improvements and changes to popup dialog
+* Edit: more compact styling layout for the dialog elements
+* Edit: MicroModal library 0.4.6
 * Edit: d4pLib 3.4
+* Fix: minor issues with the admin side plugin settings handling
+* Fix: various typos and other wording and naming issues
 
 = 1.4 - 2020.12.29 =
 * Edit: updated plugin requirements

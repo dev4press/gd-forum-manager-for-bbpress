@@ -19,6 +19,8 @@ class Integration {
 
 	public function init() {
 		if ( gdfar()->allowed() ) {
+			define( 'GDFAR_EDITOR_ACTIVE', true );
+
 			if ( gdfar_settings()->get( 'forum' ) ) {
 				add_action( 'bbp_theme_before_forum_title', array( $this, 'forum_controls' ), 1 );
 				add_action( 'bbp_template_after_forums_loop', array( $this, 'forum_bulk' ) );
@@ -33,6 +35,8 @@ class Integration {
 			if ( gdfar_settings()->get( 'small_screen_always_show' ) ) {
 				$this->_always_on = true;
 			}
+		} else {
+			define( 'GDFAR_EDITOR_ACTIVE', false );
 		}
 	}
 
@@ -101,9 +105,11 @@ class Integration {
 			$classes[] = 'is-always-on';
 		}
 
+		$_edit = apply_filters( 'gdfar_control_forum_edit', esc_html__( "edit", "gd-forum-manager-for-bbpress" ) );
+
 		echo '<div class="' . join( ' ', $classes ) . '" data-key="' . $this->_key . '" data-type="forum" data-id="' . $forum_id . '">';
 		echo '<input type="checkbox" class="gdfar-ctrl-checkbox" />';
-		echo '<a href="#" class="gdfar-ctrl-edit">' . esc_html__( "edit", "gd-forum-manager-for-bbpress" ) . '</a>';
+		echo '<a href="#" class="gdfar-ctrl-edit">' . $_edit . '</a>';
 		echo '</div>';
 
 		if ( ! $this->_queued ) {
@@ -122,9 +128,11 @@ class Integration {
 			$classes[] = 'is-always-on';
 		}
 
+		$_edit = apply_filters( 'gdfar_control_topic_edit', esc_html__( "edit", "gd-forum-manager-for-bbpress" ) );
+
 		echo '<div class="' . join( ' ', $classes ) . '" data-key="' . $this->_key . '" data-type="topic" data-id="' . $topic_id . '">';
 		echo '<input type="checkbox" class="gdfar-ctrl-checkbox" />';
-		echo '<a href="#" class="gdfar-ctrl-edit">' . esc_html__( "edit", "gd-forum-manager-for-bbpress" ) . '</a>';
+		echo '<a href="#" class="gdfar-ctrl-edit">' . $_edit . '</a>';
 		echo '</div>';
 
 		if ( ! $this->_queued ) {
@@ -135,8 +143,10 @@ class Integration {
 	}
 
 	public function topic_admin_links( $links, $topic_id ) {
+		$_edit = apply_filters( 'gdfar_control_topic_quick_edit', esc_html__( "Quick Edit", "gd-forum-manager-for-bbpress" ) );
+
 		$links = array(
-			         'quick-edit' => '<a class="bbp-topic-quick-edit-link" href="#" data-id="' . $topic_id . '">' . esc_html__( "Quick Edit", "gd-forum-manager-for-bbpress" ) . '</a>'
+			         'quick-edit' => '<a class="bbp-topic-quick-edit-link" href="#" data-id="' . $topic_id . '">' . $_edit . '</a>'
 		         ) + $links;
 
 		if ( ! $this->_queued ) {

@@ -1,12 +1,15 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php _e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
-        <h4>Version: 2.0 / February 15 2020</h4>
+        <h4>Version: 2.0 / February 16 2021</h4>
         <ul>
             <li><strong>new</strong> actions: change single topic topic tags</li>
             <li><strong>new</strong> actions: bulk remove topic tags</li>
+            <li><strong>new</strong> global var defined when the editor is active or not</li>
+            <li><strong>new</strong> function to determine if the editor is active or not</li>
             <li><strong>new</strong> option to control saving of the edit log or topics</li>
             <li><strong>new</strong> fire actions before and after ajax processing calls</li>
+            <li><strong>new</strong> filters to modify Edit and Quick Edit button HTML content</li>
             <li><strong>edit</strong> various improvements to the plugin core code</li>
             <li><strong>edit</strong> several styling improvements and changes to popup dialog</li>
             <li><strong>edit</strong> more compact styling layout for the dialog elements</li>
