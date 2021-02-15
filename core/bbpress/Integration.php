@@ -12,7 +12,7 @@ class Integration {
 	public $_key = 1;
 
 	public function __construct() {
-		add_action( 'gdfar_plugin_init', array( $this, 'init' ) );
+		add_action( 'gdfar_plugin_init', array( $this, 'init' ), 20 );
 	}
 
 	public function init() {
