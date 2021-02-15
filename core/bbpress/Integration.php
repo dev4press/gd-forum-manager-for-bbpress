@@ -12,17 +12,11 @@ class Integration {
 	public $_key = 1;
 
 	public function __construct() {
-		if ( is_user_logged_in() && !is_admin() ) {
-			add_action( 'bbp_init', array( $this, 'init' ) );
-		} else {
-			define( 'GDFAR_EDITOR_ACTIVE', false );
-		}
+		add_action( 'gdfar_plugin_init', array( $this, 'init' ) );
 	}
 
 	public function init() {
-		if ( gdfar()->allowed() ) {
-			define( 'GDFAR_EDITOR_ACTIVE', true );
-
+		if ( GDFAR_EDITOR_ACTIVE ) {
 			if ( gdfar_settings()->get( 'forum' ) ) {
 				add_action( 'bbp_theme_before_forum_title', array( $this, 'forum_controls' ), 1 );
 				add_action( 'bbp_template_after_forums_loop', array( $this, 'forum_bulk' ) );
@@ -37,8 +31,6 @@ class Integration {
 			if ( gdfar_settings()->get( 'small_screen_always_show' ) ) {
 				$this->_always_on = true;
 			}
-		} else {
-			define( 'GDFAR_EDITOR_ACTIVE', false );
 		}
 	}
 

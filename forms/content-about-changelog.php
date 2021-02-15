@@ -10,6 +10,7 @@
             <li><strong>new</strong> option to control saving of the edit log or topics</li>
             <li><strong>new</strong> fire actions before and after ajax processing calls</li>
             <li><strong>new</strong> filters to modify Edit and Quick Edit button HTML content</li>
+            <li><strong>edit</strong> many improvements to the plugin initialization</li>
             <li><strong>edit</strong> various improvements to the plugin core code</li>
             <li><strong>edit</strong> several styling improvements and changes to popup dialog</li>
             <li><strong>edit</strong> more compact styling layout for the dialog elements</li>

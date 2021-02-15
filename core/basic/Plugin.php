@@ -17,6 +17,7 @@ class Plugin extends Core {
 	public $plugin = 'gd-forum-manager-for-bbpress';
 
 	private $_datetime;
+	private $_active = false;
 	private $_bbpress = null;
 	private $_actions = null;
 	private $_roles = array();
@@ -129,6 +130,12 @@ class Plugin extends Core {
 	}
 
 	public function plugin_init() {
+		if ( ! is_admin() && is_user_logged_in() && $this->allowed() ) {
+			$this->_active = true;
+		}
+
+		define( 'GDFAR_EDITOR_ACTIVE', $this->_active );
+
 		do_action( 'gdfar_plugin_init' );
 	}
 

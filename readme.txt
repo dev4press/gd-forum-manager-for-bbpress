@@ -4,7 +4,7 @@ Donate link: https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
 Version: 2.0
 Tags: dev4press, bbpress, edit, bulk edit, quick edit, moderation
 Requires at least: 5.0
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 7.0
 Stable tag: trunk
 License: GPLv3 or later
@@ -82,7 +82,7 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 
 == Upgrade Notice ==
 = 2.0 =
-* Change topic tags. Saving of topics edit log. Many improvements and fixes.
+* Change topic tags. Saving of topics edit log. New actions, filters and variables. Many improvements and fixes.
 
 = 1.4 =
 Few updates and improvements.
@@ -102,6 +102,7 @@ Few updates and improvements.
 * New: option to control saving of the edit log or topics
 * New: fire actions before and after ajax processing calls
 * New: filters to modify Edit and Quick Edit button HTML content
+* Edit: many improvements to the plugin initialization
 * Edit: various improvements to the plugin core code
 * Edit: several styling improvements and changes to popup dialog
 * Edit: more compact styling layout for the dialog elements
