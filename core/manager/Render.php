@@ -110,10 +110,16 @@ class Render {
 						$classes[] = $action['class'];
 					}
 
+					$notice = '';
+
+					if (!empty($action['notice'])) {
+						$notice = '<div class="gdfar-content-notice">' . $action['notice'] . '</div>';
+					}
+
 					$elements[] = '<dl class="' . join( ' ', $classes ) . '"><dt>' .
 					              '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . $label . '</label></div>' .
 					              '</dt><dd>' .
-					              '<div class="gdfar-content-wrapper">' . $render . '</div>' .
+					              '<div class="gdfar-content-wrapper">' . $render . $notice . '</div>' .
 					              '</dd></dl>';
 				}
 			}
@@ -159,10 +165,16 @@ class Render {
 						$classes[] = $action['class'];
 					}
 
+					$notice = '';
+
+					if (!empty($action['notice'])) {
+						$notice = '<div class="gdfar-content-notice">' . $action['notice'] . '</div>';
+					}
+
 					$elements[] = '<dl class="' . join( ' ', $classes ) . '"><dt>' .
 					              '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . $label . '</label></div>' .
 					              '</dt><dd>' .
-					              '<div class="gdfar-content-wrapper">' . $render . '</div>' .
+					              '<div class="gdfar-content-wrapper">' . $render . $notice . '</div>' .
 					              '</dd></dl>';
 				}
 			}

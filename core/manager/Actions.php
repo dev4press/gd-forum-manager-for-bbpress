@@ -125,12 +125,21 @@ class Actions {
 			'description' => __( "Change the forum for the topic.", "gd-forum-manager-for-bbpress" )
 		) );
 
+		$this->register( 'author', array(
+			'scope'       => 'topic',
+			'action'      => 'edit',
+			'label'       => __( "Author", "gd-forum-manager-for-bbpress" ),
+			'description' => __( "Change the author of the topic.", "gd-forum-manager-for-bbpress" ),
+			'notice'      => __( "Topic author username." )
+		) );
+
 		if ( bbp_allow_topic_tags() ) {
 			$this->register( 'tags', array(
 				'scope'       => 'topic',
 				'action'      => 'edit',
 				'label'       => __( "Topic Tags", "gd-forum-manager-for-bbpress" ),
-				'description' => __( "Change topic tags.", "gd-forum-manager-for-bbpress" )
+				'description' => __( "Change topic tags.", "gd-forum-manager-for-bbpress" ),
+				'notice'      => __( "Comma separated list of topic tags." )
 			) );
 		}
 
@@ -155,6 +164,13 @@ class Actions {
 			'action'      => 'bulk',
 			'label'       => __( "Forum", "gd-forum-manager-for-bbpress" ),
 			'description' => __( "Change the forum for the topic.", "gd-forum-manager-for-bbpress" )
+		) );
+
+		$this->register( 'author', array(
+			'scope'       => 'topic',
+			'action'      => 'bulk',
+			'label'       => __( "Author", "gd-forum-manager-for-bbpress" ),
+			'description' => __( "Change the author of the topic.", "gd-forum-manager-for-bbpress" )
 		) );
 
 		if ( bbp_allow_topic_tags() ) {

@@ -11,8 +11,8 @@ class Defaults {
 			'bulk' => array( 'status', 'visibility' )
 		),
 		'topic' => array(
-			'edit' => array( 'rename', 'forum', 'status', 'sticky', 'tags' ),
-			'bulk' => array( 'status', 'forum', 'sticky', 'cleartags' )
+			'edit' => array( 'rename', 'forum', 'author', 'status', 'sticky', 'tags' ),
+			'bulk' => array( 'status', 'forum', 'author', 'sticky', 'cleartags' )
 		)
 	);
 
@@ -321,6 +321,21 @@ class Defaults {
 			'show_none'    => false,
 			'select_id'    => $args['base'] . '[forum]'
 		) );
+	}
+
+	public function display_topic_edit_author( $render, $args = array() ) {
+		$author_id = bbp_get_topic_author_id($args['id']);
+		$author_username = '';
+
+		if ($author_id > 0) {
+			$author = get_user_by('id', $author_id);
+
+			if ($author) {
+				$author_username = $author->user_login;
+			}
+		}
+
+		return '<input id="' . esc_attr( $args['element'] ) . '" type="text" name="' . esc_attr( $args['base'] ) . '[author]" value="' . esc_attr( $author_username ) . '" />';
 	}
 
 	public function display_topic_edit_status( $render, $args = array() ) {

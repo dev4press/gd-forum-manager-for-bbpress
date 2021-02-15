@@ -5,6 +5,8 @@
         <ul>
             <li><strong>new</strong> actions: change single topic topic tags</li>
             <li><strong>new</strong> actions: bulk remove topic tags</li>
+            <li><strong>new</strong> actions: change single topic author username</li>
+            <li><strong>new</strong> actions: bulk change topic author username</li>
             <li><strong>new</strong> global var defined when the editor is active or not</li>
             <li><strong>new</strong> function to determine if the editor is active or not</li>
             <li><strong>new</strong> option to control saving of the edit log or topics</li>
