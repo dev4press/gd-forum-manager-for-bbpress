@@ -22,6 +22,8 @@ class Process {
 	}
 
 	public function init( $data ) {
+		define( 'GDFAR_EDITOR_PROCESSING', true );
+
 		$this->data = $data;
 		$this->modd = array(
 			'topic' => array(),

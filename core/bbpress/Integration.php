@@ -12,8 +12,10 @@ class Integration {
 	public $_key = 1;
 
 	public function __construct() {
-		if ( is_user_logged_in() ) {
+		if ( is_user_logged_in() && !is_admin() ) {
 			add_action( 'bbp_init', array( $this, 'init' ) );
+		} else {
+			define( 'GDFAR_EDITOR_ACTIVE', false );
 		}
 	}
 
