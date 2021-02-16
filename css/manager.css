@@ -84,6 +84,11 @@
   color: #500;
   border-right-color: #D6B3B3;
 }
+.gdfar-modal__content dl .gdfar-label-wrapper label {
+  line-height: 32px;
+  font-weight: bold;
+  font-size: 1em;
+}
 .gdfar-modal__content dl .gdfar-content-wrapper label {
   font-size: 13px;
   line-height: 32px;
