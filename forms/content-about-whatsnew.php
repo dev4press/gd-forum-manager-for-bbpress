@@ -9,7 +9,7 @@
                     Save edit log entry and improve styling
                 </p>
                 <p>
-                    New and free plugin adds popups for editing topics and forums from the listing pages, for individual editing and bulk editing. Plugin includes 4 topics and 3 forum default actions.
+                    The new major update brings new actions for topics editing (topic tags and author), options to save edit log and store optional revision information, with many updates and fixes included.
                 </p>
             </div>
         </div>
@@ -18,15 +18,12 @@
     <div class="d4p-whatsnew-section">
         <div class="d4p-layout-grid">
             <div class="d4p-layout-unit half align-left">
-                <h3>Edit individual topics and forums</h3>
+                <h3>New topics editing features</h3>
                 <p>
-                    With this plugin you can edit some topic or forum values directly from the topics or forums lists, without the need to open individual topic or forum, and then opening edit screen, or going through the admin side to do that.
+                    The new plugin version expands the list of the topic related edit (and bulk edit) actions with actions for editing topic tags and topic author. When used in bulk mode, topic tags can only be cleared.
                 </p>
                 <p>
-                    Plugin registers various values as editable, and right now that includes: topic or forum title, forum status and visibility, topic status, sticky status and parent forum.
-                </p>
-                <p>
-                    On single topic pages plugin adds 'Quick Edit' action that works for that one topic.
+                    And, there is new set of options for saving edit log for modified topics, with the optional revision entry, similar to what bbPress does for normal topic edit. This edit log feature is disabled by default (and available for topics only), and you can enable it from the plugin settings page.
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
@@ -38,32 +35,15 @@
     <div class="d4p-whatsnew-section">
         <div class="d4p-layout-grid">
             <div class="d4p-layout-unit half align-left">
-                <h3>Bulk editing for topics and forums</h3>
+                <h3>More Developer Features</h3>
                 <p>
-                    And, if you want to edit multiple forums or topics at once, you can do that with the use of bulk editing - simply select one or more forum or topic from any list showing them, and bulk edit panel will be available.
-                </p>
-                <p>
-                    Bulk editor popup panel is similar to Edit, but, titles can't be changed, and all other fields have "Don't Change" value, allowing you to change only some of the included values.
+                    Plugin has many new actions and filters to further expanded and modify the plugin behaviour. There are improvements to the plugin workflow and more control for adding and handling new actions from third-party plugins.
                 </p>
             </div>
             <div class="d4p-layout-unit half align-left">
-                <img src="<?php echo GDFAR_URL; ?>images/bulk.jpg"/>
-            </div>
-        </div>
-    </div>
-
-    <div class="d4p-whatsnew-section">
-        <div class="d4p-layout-grid">
-            <div class="d4p-layout-unit half align-left">
-                <h3>Developer Friendly</h3>
+                <h3>Various updates and fixes</h3>
                 <p>
-                    Plugin can be expanded to include more actions for both topics and forums, for edit or bulk edit. Dev4Press own GD Topic Prefix Pro plugin is the first one to include support for GD Forum Manager by adding Prefix edit action, and more plugins will follow.
-                </p>
-            </div>
-            <div class="d4p-layout-unit half align-left">
-                <h3>Lightweight and AJAX powered</h3>
-                <p>
-                    Plugin works through AJAX (popup display and saving), and it adds very little overhead to pages, and it does so only for users with keymaster or moderator roles, it doesn't load for any other user roles. It is very easy and simple to setup, with only few options available.
+                    Plugin styling has been improved and updated, with improved, compact editor popup layout. Some of the options can show notices, and that can be disabled from plugin settings. There are few more updates and few bugs fixed.
                 </p>
             </div>
         </div>

@@ -1,40 +1,36 @@
 .bbp-forum-info .gdfar-ctrl-wrapper,
 .bbp-topic-title .gdfar-ctrl-wrapper {
-    float: left;
-    margin: 0 5px 0 0;
+  float: left;
+  margin: 0 5px 0 0;
 }
 
 .gdfar-modal__content dl > dt {
-    border-left: 1px solid #DDD;
-    border-right: none;
-    text-align: left;
+  border-left: 1px solid #DDD;
+  border-right: none;
+  text-align: left;
 }
-
 .gdfar-modal__content dl.gdfar-is-error > dt {
-    border-left-color: #D6B3B3;
+  border-left-color: #D6B3B3;
 }
-
 .gdfar-modal__content form select {
-    padding: 0 8px 0 24px;
+  padding: 0 8px 0 24px;
 }
 
 .gdfar-bulk-control > div.__status {
-    padding: 0 0 0 10px;
-    margin: 0 0 0 10px;
-    border-left: 1px solid #999;
-    border-right: none;
+  padding: 0 0 0 10px;
+  margin: 0 0 0 10px;
+  border-left: 1px solid #999;
+  border-right: none;
 }
-
 .gdfar-bulk-control > div.__status span {
-    font-weight: bold;
+  font-weight: bold;
 }
-
 .gdfar-bulk-control > div.__editor {
-    float: left;
+  float: left;
 }
 
 @media (max-width: 600px) {
-    .gdfar-modal__content dl > dt {
-        text-align: right;
-    }
+  .gdfar-modal__content dl > dt {
+    text-align: right;
+  }
 }

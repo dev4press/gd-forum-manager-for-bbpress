@@ -3,22 +3,22 @@
     <div class="d4p-group-header">
         <ul>
             <li><a href="https://plugins.dev4press.com/gd-bbpress-toolbox/" target="_blank">
-                    <i class="d4p-icon d4p-plugin-icon-gd-bbpress-toolbox"></i> GD bbPress Toolbox Pro
+                    <i class="d4p-icon d4p-plugin-gd-bbpress-toolbox"></i> GD bbPress Toolbox Pro
                 </a></li>
             <li><a href="https://plugins.dev4press.com/gd-quantum-theme-for-bbpress/" target="_blank">
-                    <i class="d4p-icon d4p-plugin-icon-gd-quantum-theme-for-bbpress"></i> GD Quantum Theme Pro
+                    <i class="d4p-icon d4p-plugin-gd-quantum-theme-for-bbpress"></i> GD Quantum Theme Pro
                 </a></li>
             <li><a href="https://plugins.dev4press.com/gd-forum-notices-for-bbpress/" target="_blank">
-                    <i class="d4p-icon d4p-plugin-icon-gd-forum-notices-for-bbpress"></i> GD Forum Notices Pro
+                    <i class="d4p-icon d4p-plugin-gd-forum-notices-for-bbpress"></i> GD Forum Notices Pro
                 </a></li>
             <li><a href="https://plugins.dev4press.com/gd-topic-polls/" target="_blank">
-                    <i class="d4p-icon d4p-plugin-icon-gd-topic-polls"></i> GD Topic Polls Pro
+                    <i class="d4p-icon d4p-plugin-gd-topic-polls"></i> GD Topic Polls Pro
                 </a></li>
             <li><a href="https://plugins.dev4press.com/gd-topic-prefix/" target="_blank">
-                    <i class="d4p-icon d4p-plugin-icon-gd-topic-prefix"></i> GD Topic Prefix Pro
+                    <i class="d4p-icon d4p-plugin-gd-topic-prefix"></i> GD Topic Prefix Pro
                 </a></li>
             <li><a href="https://plugins.dev4press.com/gd-power-search-for-bbpress/" target="_blank">
-                    <i class="d4p-icon d4p-plugin-icon-gd-power-search-for-bbpress"></i> GD Power Search Pro
+                    <i class="d4p-icon d4p-plugin-gd-power-search-for-bbpress"></i> GD Power Search Pro
                 </a></li>
         </ul>
         <div class="d4p-clearfix"></div>

@@ -31,6 +31,8 @@ https://www.youtube.com/watch?v=-zS7cZaZ11A
 * Enable moderators to use the plugin
 * Enable use of a plugin for forums
 * Enable use of a plugin for topics
+* Various display related settings
+* Option to enable saving of edit log
 
 = Forums Editing =
 * Quick Edit: title, status, and visibility
@@ -48,15 +50,25 @@ https://www.youtube.com/watch?v=-zS7cZaZ11A
 = bbPress Plugin Versions =
 GD Forum Manager supports bbPress 2.6.2 or newer. Older bbPress versions are not supported!
 
+= Home and GitHub =
+* Learn more about the plugin: [GD Forum Manager for bbPress Website](https://plugins.dev4press.com/gd-forum-manager-for-bbpress/)
+* Contribute to plugin development: [GD Forum Manager for bbPress on GitHub](https://github.com/dev4press/gd-forum-manager-for-bbpress)
+
+= Documentation and Support =
+To get help with the plugin, you can use WordPress.org support forums, or you can use Dev4Press.com support forums.
+
+* Plugin Documentation: [GD Forum Manager for bbPress Website](https://support.dev4press.com/kb/product/gd-forum-manager-for-bbpress/)
+* Support Forum: [Dev4Press Support](https://support.dev4press.com/forums/forum/plugins/gd-forum-manager-for-bbpress/)
+
 = More Free Dev4Press plugins for bbPress =
+* [GD Members Directory](https://wordpress.org/plugins/gd-members-directory-for-bbpress/) - add page with list of forum users
+* [GD Power Search](https://wordpress.org/plugins/gd-power-search-for-bbpress/) - add advanced search to the bbPress topics
+* [GD Topic Polls](https://wordpress.org/plugins/gd-topic-polls/) - add polls to the bbPress topics
 * [GD bbPress Attachments](https://wordpress.org/plugins/gd-bbpress-attachments/) - attachments for topics and replies
 * [GD bbPress Tools](https://wordpress.org/plugins/gd-bbpress-tools/) - various expansion tools for forums
-* [GD Topic Polls](https://wordpress.org/plugins/gd-topic-polls/) - add polls to the bbPress topics
-* [GD Power Search](https://wordpress.org/plugins/gd-power-search-for-bbpress/) - add advanced search to the bbPress topics
-* [GD Members Directory](https://wordpress.org/plugins/gd-members-directory-for-bbpress/) - add page with list of foum users
 
 = Dev4Press Pro plugins for bbPress =
-Get Premium plugins for bbPress to enhance bbPress powered forums. More information is available here: [bbPress Plugins Club](https://bbpress.dev4press.com/?utm_source=wporg&utm_medium=link&utm_campaign=gd-bbpress-tools).
+Get Premium plugins for bbPress to enhance bbPress powered forums. More information is available here: [bbPress Plugins Club](https://bbpress.dev4press.com/?utm_source=wporg&utm_medium=link&utm_campaign=gd-forum-manager-for-bbpress).
 
 == Installation ==
 = General Requirements =
@@ -69,7 +81,7 @@ Get Premium plugins for bbPress to enhance bbPress powered forums. More informat
 * bbPress Plugin: 2.6.2 or newer
 
 = Basic Installation =
-* Plugin folder in the WordPress plugins folder must be `gd-forum-manager-for-bbpress`
+* Plugin folder in the WordPress plugins folder should be `gd-forum-manager-for-bbpress`
 * Upload folder `gd-forum-manager-for-bbpress` to the `/wp-content/plugins/` directory
 * Activate the plugin through the 'Plugins' menu in WordPress
 
@@ -143,6 +155,7 @@ Few updates and improvements.
 
 == Screenshots ==
 1. Single Topic Edit Popup
-2. Forums Bulk Edit Popup
-3. Topics and Forums Select for Edit
-4. Plugin Dashboard and Settings
+2. Topics Bulk Edit Popup
+3. Forums Bulk Edit Popup
+4. Topics and Forums Select for Edit
+5. Plugin Dashboard and Settings
