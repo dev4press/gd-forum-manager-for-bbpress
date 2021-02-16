@@ -15,7 +15,7 @@ Expand how the moderators can manage forum content from the frontend, from any p
 == Description ==
 Editing topics and forums in the bbPress powered forums can be a slow process because you can do it only from the edit pages, and for forums only from the administration side. If you need to perform quick changes, close topics, rename them, that can take a while if you need to go through several screens to reach the edit page.
 
-Now, with GD Forum Manager for bbPress, you can do it quick and accessible from any topics or forums list on the frontend in two ways: single forum or topic editing and bulk editing of one or more selected forums or topics. Every forum or topic list (single forum, forums or topics index, topic views, user profile) now has controls to edit a single item or select items for bulk editing. And editing is done using popup modal dialog.
+Now, with GD Forum Manager for bbPress, you can do it quick and accessible from any topics or forums list on the frontend in two ways: single forum or topic editing and bulk editing of one or more selected forums or topics. Every forum or topic list (single forum, forums or topics index, topic views, user profile) now has controls to edit a single item or select items for bulk editing. And editing is done using popup modal dialog. You can even do something that bbPress doesn't allow you to do: change the author of the topic.
 
 = Plugin In Action =
 https://www.youtube.com/watch?v=-zS7cZaZ11A
