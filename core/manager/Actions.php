@@ -63,6 +63,12 @@ class Actions {
 		return true;
 	}
 
+	public function unregister( $name, $scope, $action ) {
+		if ( isset( $this->_actions[ $scope ][ $action ][ $name ] ) ) {
+			unset( $this->_actions[ $scope ][ $action ][ $name ] );
+		}
+	}
+
 	public function get_actions( $scope, $action ) : array {
 		return isset( $this->_actions[ $scope ][ $action ] ) ? $this->_actions[ $scope ][ $action ] : array();
 	}
@@ -130,7 +136,7 @@ class Actions {
 			'action'      => 'edit',
 			'label'       => __( "Author", "gd-forum-manager-for-bbpress" ),
 			'description' => __( "Change the author of the topic.", "gd-forum-manager-for-bbpress" ),
-			'notice'      => __( "Topic author username." )
+			'notice'      => __( "Topic author username.", "gd-forum-manager-for-bbpress" )
 		) );
 
 		if ( bbp_allow_topic_tags() ) {
@@ -139,7 +145,7 @@ class Actions {
 				'action'      => 'edit',
 				'label'       => __( "Topic Tags", "gd-forum-manager-for-bbpress" ),
 				'description' => __( "Change topic tags.", "gd-forum-manager-for-bbpress" ),
-				'notice'      => __( "Comma separated list of topic tags." )
+				'notice'      => __( "Comma separated list of topic tags.", "gd-forum-manager-for-bbpress" )
 			) );
 		}
 
@@ -170,7 +176,8 @@ class Actions {
 			'scope'       => 'topic',
 			'action'      => 'bulk',
 			'label'       => __( "Author", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change the author of the topic.", "gd-forum-manager-for-bbpress" )
+			'description' => __( "Change the author of the topic.", "gd-forum-manager-for-bbpress" ),
+			'notice'      => __( "Topic author username. Leave empty to skip the change.", "gd-forum-manager-for-bbpress" )
 		) );
 
 		if ( bbp_allow_topic_tags() ) {

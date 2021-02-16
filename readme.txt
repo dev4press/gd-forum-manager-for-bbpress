@@ -37,8 +37,8 @@ https://www.youtube.com/watch?v=-zS7cZaZ11A
 * Bulk Edit: status and visibility
 
 = Topic Editing =
-* Quick Edit: title, sticky, status, and forum
-* Bulk Edit: sticky, status and forum
+* Quick Edit: title, author, topic tags, sticky, status, and forum
+* Bulk Edit: author, clear tags, sticky, status and forum
 * Quick Edit also available from the single topic pages
 
 = Developers Friendly =
@@ -46,7 +46,7 @@ https://www.youtube.com/watch?v=-zS7cZaZ11A
 * Ability to override existing actions for additional control
 
 = bbPress Plugin Versions =
-GD Forum Manager supports bbPress 2.5.12 or newer. But, you should be using this plugin with bbPress 2.6 or newer. Older bbPress versions are not supported!
+GD Forum Manager supports bbPress 2.6.2 or newer. Older bbPress versions are not supported!
 
 = More Free Dev4Press plugins for bbPress =
 * [GD bbPress Attachments](https://wordpress.org/plugins/gd-bbpress-attachments/) - attachments for topics and replies
@@ -82,7 +82,7 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 
 == Upgrade Notice ==
 = 2.0 =
-* Change topic tags. Saving of topics edit log. New actions, filters and variables. Many improvements and fixes.
+* Change topic tags and topic author. Saving of topics edit log. New actions, filters and variables. Many improvements and fixes.
 
 = 1.4 =
 Few updates and improvements.
@@ -97,8 +97,11 @@ Few updates and improvements.
 = 2.0 - 2021.02.16 =
 * New: actions: change single topic topic tags
 * New: actions: bulk remove topic tags
+* New: actions: change single topic author username
+* New: actions: bulk change topic author username
 * New: global var defined when the editor is active or not
 * New: function to determine if the editor is active or not
+* New: option to control display of the important action notices
 * New: option to control saving of the edit log or topics
 * New: fire actions before and after ajax processing calls
 * New: filters to modify Edit and Quick Edit button HTML content

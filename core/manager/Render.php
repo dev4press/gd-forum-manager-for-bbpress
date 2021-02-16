@@ -112,7 +112,7 @@ class Render {
 
 					$notice = '';
 
-					if (!empty($action['notice'])) {
+					if ( ! empty( $action['notice'] ) && gdfar_settings()->get( 'notices_under_fields' ) ) {
 						$notice = '<div class="gdfar-content-notice">' . $action['notice'] . '</div>';
 					}
 
@@ -167,7 +167,7 @@ class Render {
 
 					$notice = '';
 
-					if (!empty($action['notice'])) {
+					if ( ! empty( $action['notice'] ) && gdfar_settings()->get( 'notices_under_fields' ) ) {
 						$notice = '<div class="gdfar-content-notice">' . $action['notice'] . '</div>';
 					}
 

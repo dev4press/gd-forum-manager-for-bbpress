@@ -37,6 +37,17 @@
 .gdfar-modal__content * {
   box-sizing: border-box;
 }
+.gdfar-modal__content .gdfar-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .gdfar-modal__content .gdfar-dialog-error,
 .gdfar-modal__content .gdfar-dialog-message {
   padding: 15px;
@@ -73,13 +84,20 @@
   color: #500;
   border-right-color: #D6B3B3;
 }
-.gdfar-modal__content dl .gdfar-content-notice {
+.gdfar-modal__content dl .gdfar-content-wrapper label {
+  font-size: 13px;
+  line-height: 32px;
+}
+.gdfar-modal__content dl .gdfar-content-wrapper label:after {
+  content: ": ";
+}
+.gdfar-modal__content dl .gdfar-content-wrapper .gdfar-content-notice {
   font-size: 13px;
   font-style: italic;
   line-height: 1.5;
   margin: 3px 0 0;
 }
-.gdfar-modal__content dl .gdfar-error-message {
+.gdfar-modal__content dl .gdfar-content-wrapper .gdfar-error-message {
   background: #FFDFDF;
   padding: 0 10px;
   margin: 5px 0 0;

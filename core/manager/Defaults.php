@@ -324,18 +324,18 @@ class Defaults {
 	}
 
 	public function display_topic_edit_author( $render, $args = array() ) {
-		$author_id = bbp_get_topic_author_id($args['id']);
+		$author_id       = bbp_get_topic_author_id( $args['id'] );
 		$author_username = '';
 
-		if ($author_id > 0) {
-			$author = get_user_by('id', $author_id);
+		if ( $author_id > 0 ) {
+			$author = get_user_by( 'id', $author_id );
 
-			if ($author) {
+			if ( $author ) {
 				$author_username = $author->user_login;
 			}
 		}
 
-		return '<input id="' . esc_attr( $args['element'] ) . '" type="text" name="' . esc_attr( $args['base'] ) . '[author]" value="' . esc_attr( $author_username ) . '" />';
+		return '<input id="' . esc_attr( $args['element'] ) . '" type="text" name="' . esc_attr( $args['base'] ) . '[username]" value="' . esc_attr( $author_username ) . '" />';
 	}
 
 	public function display_topic_edit_status( $render, $args = array() ) {
@@ -440,6 +440,32 @@ class Defaults {
 		return $result;
 	}
 
+	public function process_topic_edit_author( $result, $args = array() ) {
+		$topic_id = $args['id'];
+		$author   = get_user_by( 'login', $args['value']['username'] );
+
+		if ( $author && $author->ID > 0 ) {
+			$old_author = bbp_get_topic_author_id( $topic_id );
+
+			if ( $old_author != $author->ID ) {
+				$update = $this->update_post( array(
+					'ID'          => $topic_id,
+					'post_author' => $author->ID
+				), true );
+
+				if ( is_wp_error( $update ) ) {
+					return $update;
+				}
+
+				$this->modded( 'topic', $topic_id );
+			}
+		} else {
+			return new WP_Error( "invalid_author", __( "Author username is not valid.", "gd-forum-manager-for-bbpress" ) );
+		}
+
+		return $result;
+	}
+
 	public function process_topic_edit_status( $result, $args = array() ) {
 		$list = bbp_get_topic_statuses( $args['id'] );
 
@@ -509,6 +535,10 @@ class Defaults {
 		) );
 	}
 
+	public function display_topic_bulk_author( $render, $args = array() ) {
+		return '<input id="' . esc_attr( $args['element'] ) . '" type="text" name="' . esc_attr( $args['base'] ) . '[username]" value="" />';
+	}
+
 	public function display_topic_bulk_status( $render, $args = array() ) {
 		$list = array_merge( array( '' => __( "Don't change", "gd-forum-manager-for-bbpress" ) ), bbp_get_topic_statuses() );
 
@@ -558,6 +588,37 @@ class Defaults {
 
 					$this->modded( 'topic', $topic_id );
 				}
+			}
+		}
+
+		return $result;
+	}
+
+	public function process_topic_bulk_author( $result, $args = array() ) {
+		$new_author = isset( $args['value']['username'] ) ? $args['value']['username'] : '';
+
+		if ( ! empty( $new_author ) ) {
+			$author = get_user_by( 'login', $new_author );
+
+			if ( $author && $author->ID > 0 ) {
+				foreach ( $args['id'] as $topic_id ) {
+					$old_author = bbp_get_topic_author_id( $topic_id );
+
+					if ( $old_author != $author->ID ) {
+						$update = $this->update_post( array(
+							'ID'          => $topic_id,
+							'post_author' => $author->ID
+						), true );
+
+						if ( is_wp_error( $update ) ) {
+							return $update;
+						}
+
+						$this->modded( 'topic', $topic_id );
+					}
+				}
+			} else {
+				return new WP_Error( "invalid_author", __( "Author username is not valid.", "gd-forum-manager-for-bbpress" ) );
 			}
 		}
 

@@ -19,6 +19,7 @@ class Settings extends BaseSettings {
 			'moderators'               => true,
 			'forum'                    => true,
 			'topic'                    => true,
+			'notices_under_fields'     => true,
 			'small_screen_always_show' => false,
 			'topic_edit_log'           => false
 		)

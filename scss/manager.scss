@@ -43,6 +43,18 @@
         box-sizing: border-box;
     }
 
+    .gdfar-sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
     .gdfar-dialog-error,
     .gdfar-dialog-message {
         padding: 15px;
@@ -86,20 +98,31 @@
             }
         }
 
-        .gdfar-content-notice {
-            font-size: 13px;
-            font-style: italic;
-            line-height: 1.5;
-            margin: 3px 0 0;
-        }
+        .gdfar-content-wrapper {
+            label {
+                font-size: 13px;
+                line-height: 32px;
 
-        .gdfar-error-message {
-            background: #FFDFDF;
-            padding: 0 10px;
-            margin: 5px 0 0;
-            color: #900;
-            border-radius: 4px;
-            font-weight: bold;
+                &:after {
+                    content: ": ";
+                }
+            }
+
+            .gdfar-content-notice {
+                font-size: 13px;
+                font-style: italic;
+                line-height: 1.5;
+                margin: 3px 0 0;
+            }
+
+            .gdfar-error-message {
+                background: #FFDFDF;
+                padding: 0 10px;
+                margin: 5px 0 0;
+                color: #900;
+                border-radius: 4px;
+                font-weight: bold;
+            }
         }
 
         &:first-of-type {

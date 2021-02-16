@@ -9,6 +9,7 @@
             <li><strong>new</strong> actions: bulk change topic author username</li>
             <li><strong>new</strong> global var defined when the editor is active or not</li>
             <li><strong>new</strong> function to determine if the editor is active or not</li>
+            <li><strong>new</strong> option to control display of the important action notices</li>
             <li><strong>new</strong> option to control saving of the edit log or topics</li>
             <li><strong>new</strong> fire actions before and after ajax processing calls</li>
             <li><strong>new</strong> filters to modify Edit and Quick Edit button HTML content</li>
