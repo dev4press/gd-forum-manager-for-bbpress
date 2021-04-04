@@ -1,6 +1,11 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php _e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
+        <h4>Version: 2.0.1 / April 14 2021</h4>
+        <ul>
+            <li><strong>edit</strong> d4pLib 3.4.1</li>
+        </ul>
+
         <h4>Version: 2.0 / February 16 2021</h4>
         <ul>
             <li><strong>new</strong> actions: change single topic topic tags</li>
