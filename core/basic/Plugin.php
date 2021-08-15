@@ -2,12 +2,12 @@
 
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
-use Dev4Press\v36\Core\DateTime;
-use Dev4Press\v36\Core\Plugins\Core;
-use Dev4Press\v36\Core\Shared\Enqueue;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 use Dev4Press\Plugin\GDFAR\Manager\Actions;
 use Dev4Press\Plugin\GDFAR\Manager\Defaults;
+use Dev4Press\v36\Core\DateTime;
+use Dev4Press\v36\Core\Plugins\Core;
+use Dev4Press\v36\Core\Shared\Enqueue;
 use function Dev4Press\v36\Functions\WP\is_current_user_roles;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -138,7 +138,7 @@ class Plugin extends Core {
 	}
 
 	public function plugin_init() {
-		if ( ! is_admin() && is_user_logged_in() && $this->allowed() ) {
+		if ( ! is_admin() && is_user_logged_in() ) {
 			$this->_active = true;
 		}
 
@@ -159,7 +159,23 @@ class Plugin extends Core {
 		return $this->_actions;
 	}
 
+	public function is_allowed_for_forums() : bool {
+		return is_user_logged_in() && is_current_user_roles( $this->_roles );
+	}
+
+	public function is_allowed_for_topic( $topic_id ) : bool {
+		$allowed = $this->is_allowed_for_forums();
+
+		if ( ! $allowed && gdfar_settings()->get( 'forum_moderators' ) ) {
+			$allowed = current_user_can( 'moderate', $topic_id );
+		}
+
+		return $allowed;
+	}
+
 	public function allowed() : bool {
+		_deprecated_function( __METHOD__, '2.1' );
+
 		$allowed = false;
 
 		if ( is_user_logged_in() ) {

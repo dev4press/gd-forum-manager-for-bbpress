@@ -4,6 +4,7 @@ namespace Dev4Press\Plugin\GDFAR\Basic;
 
 use Dev4Press\Plugin\GDFAR\Manager\Process;
 use function Dev4Press\v36\Functions\sanitize_basic;
+use function Dev4Press\v36\Functions\sanitize_ids_list;
 use function Dev4Press\v36\Functions\sanitize_key_expanded;
 use function Dev4Press\v36\Functions\sanitize_slug;
 use function Dev4Press\v36\Functions\WP\is_current_user_admin;
@@ -30,22 +31,6 @@ class AJAX {
 		return $instance;
 	}
 
-	private function check_moderation() {
-		$mod = gdfar()->allowed();
-
-		if ( $mod === false ) {
-			_ajax_wp_die_handler( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
-		}
-	}
-
-	public function admin_check_nonce( $action = 'gdfar-admin-internal', $nonce = '_ajax_nonce' ) {
-		$check = wp_verify_nonce( $_REQUEST[ $nonce ], $action );
-
-		if ( $check === false ) {
-			wp_die( - 1 );
-		}
-	}
-
 	private function check_nonce( $is = false, $forum = false ) {
 		$nonce = $this->nonce;
 
@@ -62,21 +47,6 @@ class AJAX {
 		if ( $valid === false ) {
 			$this->error( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
 		}
-	}
-
-	public function toggle_option() {
-		if ( is_current_user_admin() ) {
-			$name = sanitize_key_expanded( $_POST['option'] );
-
-			$this->admin_check_nonce( 'gdfar-toggle-option-' . $name );
-
-			$new_value = gdfar_settings()->get( $name ) ? false : true;
-			gdfar_settings()->set( $name, $new_value, 'settings', true );
-
-			die( _gdfar_display_option( $name ) );
-		}
-
-		die( __( "Invalid Request", "gd-forum-manager-for-bbpress" ) );
 	}
 
 	private function error( $message ) {
@@ -96,15 +66,71 @@ class AJAX {
 		die( json_encode( $response ) );
 	}
 
-	public function edit_request() {
-		$this->check_moderation();
+	public function check_edit_moderation( $type, $id ) {
+		$mod = false;
 
+		if ( $type == 'forum' ) {
+			$mod = gdfar()->is_allowed_for_forums();
+		} else if ( $type == 'topic' ) {
+			$mod = gdfar()->is_allowed_for_topic( $id );
+		}
+
+		if ( $mod === false ) {
+			_ajax_wp_die_handler( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
+		}
+	}
+
+	public function check_bulk_moderation( $type, $id ) {
+		$mod = false;
+
+		if ( $type == 'forum' ) {
+			$mod = gdfar()->is_allowed_for_forums();
+		} else if ( $type == 'topic' ) {
+			foreach ( $id as $topic_id ) {
+				$mod = gdfar()->is_allowed_for_topic( $topic_id );
+
+				if ( $mod === false ) {
+					break;
+				}
+			}
+		}
+
+		if ( $mod === false ) {
+			_ajax_wp_die_handler( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
+		}
+	}
+
+	public function admin_check_nonce( $action = 'gdfar-admin-internal', $nonce = '_ajax_nonce' ) {
+		$check = wp_verify_nonce( $_REQUEST[ $nonce ], $action );
+
+		if ( $check === false ) {
+			wp_die( - 1 );
+		}
+	}
+
+	public function toggle_option() {
+		if ( is_current_user_admin() ) {
+			$name = sanitize_key_expanded( $_POST['option'] );
+
+			$this->admin_check_nonce( 'gdfar-toggle-option-' . $name );
+
+			$new_value = gdfar_settings()->get( $name ) ? false : true;
+			gdfar_settings()->set( $name, $new_value, 'settings', true );
+
+			die( _gdfar_display_option( $name ) );
+		}
+
+		die( __( "Invalid Request", "gd-forum-manager-for-bbpress" ) );
+	}
+
+	public function edit_request() {
 		$is    = isset( $_REQUEST['is'] ) ? sanitize_slug( $_REQUEST['is'] ) : '';
 		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0;
 		$type  = isset( $_REQUEST['type'] ) ? sanitize_slug( $_REQUEST['type'] ) : '';
 		$id    = isset( $_REQUEST['id'] ) ? absint( $_REQUEST['id'] ) : 0;
 
 		$this->check_nonce( $is, $forum );
+		$this->check_edit_moderation( $type, $id );
 
 		if ( ! in_array( $type, array( 'forum', 'topic' ) ) || $id == 0 ) {
 			$this->error( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
@@ -120,8 +146,6 @@ class AJAX {
 	}
 
 	public function edit_process() {
-		$this->check_moderation();
-
 		if ( isset( $_REQUEST['gdfar'] ) ) {
 			$data = (array) $_REQUEST['gdfar'];
 
@@ -149,6 +173,8 @@ class AJAX {
 					'topic'
 				) ) && $data['id'] > 0 || $data['action'] == 'edit' || ! empty( $nonce ) ) {
 				if ( wp_verify_nonce( $data['nonce'], 'gdfar-manager-edit-' . $data['type'] . '-' . $data['id'] ) ) {
+					$this->check_edit_moderation( $data['type'], $data['id'] );
+
 					do_action( 'gdfar_ajax_edit_process_start', $data );
 
 					$result = Process::instance()->init( $data )->edit();
@@ -178,13 +204,13 @@ class AJAX {
 	}
 
 	public function bulk_request() {
-		$this->check_moderation();
-
 		$is    = isset( $_REQUEST['is'] ) ? sanitize_slug( $_REQUEST['is'] ) : '';
 		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0;
 		$type  = isset( $_REQUEST['type'] ) ? sanitize_slug( $_REQUEST['type'] ) : '';
+		$id    = isset( $_REQUEST['id'] ) ? sanitize_ids_list( $_REQUEST['id'] ) : array();
 
 		$this->check_nonce( $is, $forum );
+		$this->check_bulk_moderation( $type, $id );
 
 		if ( ! in_array( $type, array( 'forum', 'topic' ) ) ) {
 			$this->error( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
@@ -200,8 +226,6 @@ class AJAX {
 	}
 
 	public function bulk_process() {
-		$this->check_moderation();
-
 		if ( isset( $_REQUEST['gdfar'] ) ) {
 			$data = (array) $_REQUEST['gdfar'];
 
@@ -220,12 +244,8 @@ class AJAX {
 			$data['type']     = isset( $data['type'] ) ? sanitize_slug( $data['type'] ) : '';
 			$data['nonce']    = isset( $data['nonce'] ) ? sanitize_basic( $data['nonce'] ) : '';
 			$data['field']    = isset( $data['field'] ) ? (array) $data['field'] : array();
+			$data['id']       = isset( $data['id'] ) ? sanitize_ids_list( $data['id'] ) : array();
 			$data['edit-log'] = $log;
-
-			$data['id'] = isset( $data['id'] ) ? (array) $data['id'] : array();
-			$data['id'] = array_map( 'absint', $data['id'] );
-			$data['id'] = array_unique( $data['id'] );
-			$data['id'] = array_filter( $data['id'] );
 
 			if (
 				in_array( $data['type'], array(
@@ -233,6 +253,8 @@ class AJAX {
 					'topic'
 				) ) && ! empty( $data['id'] ) || $data['action'] == 'bulk' || ! empty( $nonce ) ) {
 				if ( wp_verify_nonce( $data['nonce'], 'gdfar-manager-bulk-' . $data['type'] ) ) {
+					$this->check_bulk_moderation( $data['type'], $data['id'] );
+
 					do_action( 'gdfar_ajax_bulk_process_start', $data );
 
 					$result = Process::instance()->init( $data )->bulk();

@@ -107,7 +107,8 @@
                     type: "post", dataType: "html", data: {
                         is: gdfar_manager_data.bbpress.is,
                         forum: gdfar_manager_data.bbpress.forum_id,
-                        type: type
+                        type: type,
+                        id: ids
                     },
                     url: gdfar_manager_data.ajaxurl + "?action=gdfar_request_bulk&_ajax_nonce=" + gdfar_manager_data.nonce
                 });

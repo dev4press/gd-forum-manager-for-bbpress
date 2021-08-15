@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function gdfar() : Plugin{
+function gdfar() : Plugin {
 	return Plugin::instance();
 }
 

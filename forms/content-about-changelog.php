@@ -3,6 +3,7 @@
     <div>
         <h4>Version: 2.1 / August 16 2021</h4>
         <ul>
+            <li><strong>new</strong> allow editing of topics to forum moderators</li>
             <li><strong>edit</strong> d4pLib 3.6</li>
         </ul>
 

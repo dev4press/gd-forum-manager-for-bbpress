@@ -240,7 +240,7 @@ class Render {
 		$attributes  = array();
 		$selected    = is_null( $selected ) ? array_keys( $values ) : (array) $selected;
 		$associative = ! is_associative_array( $values );
-		$id          = d4p_html_id_from_name( $name, $id );
+		$id          = $this->id_from_name( $name, $id );
 
 		if ( $class != '' ) {
 			$attributes[] = 'class="' . esc_attr( $class ) . '"';
@@ -290,5 +290,16 @@ class Render {
 		} else {
 			return $render;
 		}
+	}
+
+	private function id_from_name( $name, $id = '' ) : string {
+		if ( $id == '' ) {
+			$id = str_replace( ']', '', $name );
+			$id = str_replace( '[', '_', $id );
+		} else if ( $id == '_' ) {
+			$id = '';
+		}
+
+		return (string) $id;
 	}
 }

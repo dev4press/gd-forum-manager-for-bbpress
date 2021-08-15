@@ -1,17 +1,17 @@
 <?php
 
-function _gdfar_display_option( $option ) {
+function _gdfar_display_option( $option ) : string {
 	$title = '';
 	$label = '';
 
 	switch ( $option ) {
 		case 'moderators':
 			$title = __( "Toggle option for moderators access", "gd-forum-manager-for-bbpress" );
-			$label = __( "Moderators can use the plugin", "gd-forum-manager-for-bbpress" );
+			$label = __( "Global Moderators can use the plugin", "gd-forum-manager-for-bbpress" );
 			break;
 		case 'forum_moderators':
 			$title = __( "Toggle option for forum moderators access", "gd-forum-manager-for-bbpress" );
-			$label = __( "Forum moderators can use the plugin", "gd-forum-manager-for-bbpress" );
+			$label = __( "Forum Moderators can use the plugin", "gd-forum-manager-for-bbpress" );
 			break;
 		case 'forum':
 			$title = __( "Toggle option for forums editing", "gd-forum-manager-for-bbpress" );

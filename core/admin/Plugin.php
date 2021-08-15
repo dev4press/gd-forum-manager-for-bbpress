@@ -2,6 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\Admin;
 
+use Dev4Press\Plugin\GDFAR\Basic\Settings;
 use Dev4Press\v36\Core\Admin\Submenu\Plugin as BasePlugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -73,7 +74,7 @@ class Plugin extends BasePlugin {
 		);
 	}
 
-	public function svg_icon() : String {
+	public function svg_icon() : string {
 		return gdfon()->svg_icon;
 	}
 
@@ -89,7 +90,7 @@ class Plugin extends BasePlugin {
 		return $msg;
 	}
 
-	public function settings() {
+	public function settings() : Settings {
 		return gdfar_settings();
 	}
 
