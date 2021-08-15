@@ -2,7 +2,6 @@
 
 use Dev4Press\Plugin\GDFAR\Admin\Plugin as AdminPlugin;
 use Dev4Press\Plugin\GDFAR\Basic\AJAX;
-use Dev4Press\Plugin\GDFAR\Basic\DB;
 use Dev4Press\Plugin\GDFAR\Basic\Plugin;
 use Dev4Press\Plugin\GDFAR\Basic\Settings;
 use Dev4Press\Plugin\GDFAR\Manager\Render;
@@ -11,27 +10,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** @return \Dev4Press\Plugin\GDFAR\Basic\Plugin */
-function gdfar() {
+function gdfar() : Plugin{
 	return Plugin::instance();
 }
 
-/** @return \Dev4Press\Plugin\GDFAR\Basic\Settings */
-function gdfar_settings() {
+function gdfar_settings() : Settings {
 	return Settings::instance();
 }
 
-/** @return \Dev4Press\Plugin\GDFAR\Admin\Plugin */
-function gdfar_admin() {
+function gdfar_admin() : AdminPlugin {
 	return AdminPlugin::instance();
 }
 
-/** @return \Dev4Press\Plugin\GDFAR\Basic\AJAX */
-function gdfar_ajax() {
+function gdfar_ajax() : AJAX {
 	return AJAX::instance();
 }
 
-/** @return \Dev4Press\Plugin\GDFAR\Manager\Render */
-function gdfar_render() {
+function gdfar_render() : Render {
 	return Render::instance();
 }

@@ -3,6 +3,7 @@
 namespace Dev4Press\Plugin\GDFAR\Manager;
 
 use WP_Error;
+use function Dev4Press\v36\Functions\is_associative_array;
 
 class Render {
 	public function __construct() {
@@ -238,7 +239,7 @@ class Render {
 		$render      = '';
 		$attributes  = array();
 		$selected    = is_null( $selected ) ? array_keys( $values ) : (array) $selected;
-		$associative = ! d4p_is_array_associative( $values );
+		$associative = ! is_associative_array( $values );
 		$id          = d4p_html_id_from_name( $name, $id );
 
 		if ( $class != '' ) {

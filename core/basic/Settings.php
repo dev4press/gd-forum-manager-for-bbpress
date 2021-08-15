@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
-use Dev4Press\Core\Plugins\Settings as BaseSettings;
+use Dev4Press\v36\Core\Plugins\Settings as BaseSettings;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -17,6 +17,7 @@ class Settings extends BaseSettings {
 		),
 		'settings' => array(
 			'moderators'               => true,
+			'forum_moderators'         => false,
 			'forum'                    => true,
 			'topic'                    => true,
 			'notices_under_fields'     => true,
@@ -28,7 +29,19 @@ class Settings extends BaseSettings {
 	protected function constructor() {
 		$this->info = new Information();
 
+		define( 'GDFAR_VERSION', $this->info->version_full() );
+
 		add_action( 'gdfar_load_settings', array( $this, 'init' ), 2 );
+	}
+
+	public static function instance() : Settings {
+		static $instance = false;
+
+		if ( ! $instance ) {
+			$instance = new Settings();
+		}
+
+		return $instance;
 	}
 
 	protected function _name( $name ) : string {

@@ -3,6 +3,10 @@
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
 use Dev4Press\Plugin\GDFAR\Manager\Process;
+use function Dev4Press\v36\Functions\sanitize_basic;
+use function Dev4Press\v36\Functions\sanitize_key_expanded;
+use function Dev4Press\v36\Functions\sanitize_slug;
+use function Dev4Press\v36\Functions\WP\is_current_user_admin;
 
 class AJAX {
 	private $nonce = 'gdfar-manager-request';
@@ -61,8 +65,8 @@ class AJAX {
 	}
 
 	public function toggle_option() {
-		if ( d4p_is_current_user_admin() ) {
-			$name = d4p_sanitize_key_expanded( $_POST['option'] );
+		if ( is_current_user_admin() ) {
+			$name = sanitize_key_expanded( $_POST['option'] );
 
 			$this->admin_check_nonce( 'gdfar-toggle-option-' . $name );
 
@@ -95,9 +99,9 @@ class AJAX {
 	public function edit_request() {
 		$this->check_moderation();
 
-		$is    = isset( $_REQUEST['is'] ) ? d4p_sanitize_slug( $_REQUEST['is'] ) : '';
+		$is    = isset( $_REQUEST['is'] ) ? sanitize_slug( $_REQUEST['is'] ) : '';
 		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0;
-		$type  = isset( $_REQUEST['type'] ) ? d4p_sanitize_slug( $_REQUEST['type'] ) : '';
+		$type  = isset( $_REQUEST['type'] ) ? sanitize_slug( $_REQUEST['type'] ) : '';
 		$id    = isset( $_REQUEST['id'] ) ? absint( $_REQUEST['id'] ) : 0;
 
 		$this->check_nonce( $is, $forum );
@@ -127,14 +131,14 @@ class AJAX {
 				if ( isset( $data['edit-log']['keep'] ) ) {
 					$log = array(
 						'keep'   => true,
-						'reason' => isset( $data['edit-log']['reason'] ) ? d4p_sanitize_basic( $data['edit-log']['reason'] ) : ''
+						'reason' => isset( $data['edit-log']['reason'] ) ? sanitize_basic( $data['edit-log']['reason'] ) : ''
 					);
 				}
 			}
 
-			$data['action']   = isset( $data['action'] ) ? d4p_sanitize_slug( $data['action'] ) : '';
-			$data['type']     = isset( $data['type'] ) ? d4p_sanitize_slug( $data['type'] ) : '';
-			$data['nonce']    = isset( $data['nonce'] ) ? d4p_sanitize_basic( $data['nonce'] ) : '';
+			$data['action']   = isset( $data['action'] ) ? sanitize_slug( $data['action'] ) : '';
+			$data['type']     = isset( $data['type'] ) ? sanitize_slug( $data['type'] ) : '';
+			$data['nonce']    = isset( $data['nonce'] ) ? sanitize_basic( $data['nonce'] ) : '';
 			$data['id']       = isset( $data['id'] ) ? absint( $data['id'] ) : 0;
 			$data['field']    = isset( $data['field'] ) ? gdfar_array_sanitize_text_field( (array) $data['field'] ) : array();
 			$data['edit-log'] = $log;
@@ -176,9 +180,9 @@ class AJAX {
 	public function bulk_request() {
 		$this->check_moderation();
 
-		$is    = isset( $_REQUEST['is'] ) ? d4p_sanitize_slug( $_REQUEST['is'] ) : '';
+		$is    = isset( $_REQUEST['is'] ) ? sanitize_slug( $_REQUEST['is'] ) : '';
 		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0;
-		$type  = isset( $_REQUEST['type'] ) ? d4p_sanitize_slug( $_REQUEST['type'] ) : '';
+		$type  = isset( $_REQUEST['type'] ) ? sanitize_slug( $_REQUEST['type'] ) : '';
 
 		$this->check_nonce( $is, $forum );
 
@@ -207,14 +211,14 @@ class AJAX {
 				if ( isset( $data['edit-log']['keep'] ) ) {
 					$log = array(
 						'keep'   => true,
-						'reason' => isset( $data['edit-log']['reason'] ) ? d4p_sanitize_basic( $data['edit-log']['reason'] ) : ''
+						'reason' => isset( $data['edit-log']['reason'] ) ? sanitize_basic( $data['edit-log']['reason'] ) : ''
 					);
 				}
 			}
 
-			$data['action']   = isset( $data['action'] ) ? d4p_sanitize_slug( $data['action'] ) : '';
-			$data['type']     = isset( $data['type'] ) ? d4p_sanitize_slug( $data['type'] ) : '';
-			$data['nonce']    = isset( $data['nonce'] ) ? d4p_sanitize_basic( $data['nonce'] ) : '';
+			$data['action']   = isset( $data['action'] ) ? sanitize_slug( $data['action'] ) : '';
+			$data['type']     = isset( $data['type'] ) ? sanitize_slug( $data['type'] ) : '';
+			$data['nonce']    = isset( $data['nonce'] ) ? sanitize_basic( $data['nonce'] ) : '';
 			$data['field']    = isset( $data['field'] ) ? (array) $data['field'] : array();
 			$data['edit-log'] = $log;
 

@@ -11,6 +11,7 @@
     <div class="d4p-group-inner">
         <h4><?php esc_html_e( "Moderation", "gd-forum-manager-for-bbpress" ); ?></h4>
 		<?php echo _gdfar_display_option( 'moderators' ); ?>
+	    <?php echo _gdfar_display_option( 'forum_moderators' ); ?>
         <h4 style="margin-top: 20px;"><?php esc_html_e( "Content Editing", "gd-forum-manager-for-bbpress" ); ?></h4>
 		<?php echo _gdfar_display_option( 'forum' ); ?>
 		<?php echo _gdfar_display_option( 'topic' ); ?>

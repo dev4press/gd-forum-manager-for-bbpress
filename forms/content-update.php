@@ -1,3 +1,8 @@
+<?php
+
+use function Dev4Press\v36\Functions\panel;
+
+?>
 <div class="d4p-content">
     <div class="d4p-update-info">
 		<?php
@@ -17,7 +22,7 @@
         </div>
 
         <div class="d4p-install-confirm">
-            <a class="button-primary" href="<?php echo d4p_panel()->a()->panel_url( 'about' ) ?>&update"><?php _e( "Click here to continue", "gd-forum-manager-for-bbpress" ); ?></a>
+            <a class="button-primary" href="<?php echo panel()->a()->panel_url( 'about' ) ?>&update"><?php _e( "Click here to continue", "gd-forum-manager-for-bbpress" ); ?></a>
         </div>
     </div>
 </div>

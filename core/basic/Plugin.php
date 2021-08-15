@@ -2,12 +2,13 @@
 
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
-use Dev4Press\Core\DateTime;
-use Dev4Press\Core\Plugins\Core;
-use Dev4Press\Core\Shared\Enqueue;
+use Dev4Press\v36\Core\DateTime;
+use Dev4Press\v36\Core\Plugins\Core;
+use Dev4Press\v36\Core\Shared\Enqueue;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 use Dev4Press\Plugin\GDFAR\Manager\Actions;
 use Dev4Press\Plugin\GDFAR\Manager\Defaults;
+use function Dev4Press\v36\Functions\WP\is_current_user_roles;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -32,14 +33,21 @@ class Plugin extends Core {
 		parent::__construct();
 	}
 
+	public static function instance() : Plugin {
+		static $instance = false;
+
+		if ( ! $instance ) {
+			$instance = new Plugin();
+		}
+
+		return $instance;
+	}
+
 	public function s() {
 		return gdfar_settings();
 	}
 
 	public function run() {
-		define( 'GDFAR_WPV', intval( $this->wp_version ) );
-		define( 'GDFAR_WPV_MAJOR', substr( $this->wp_version, 0, 3 ) );
-
 		do_action( 'gdfar_load_settings' );
 
 		if ( is_user_logged_in() ) {
@@ -62,7 +70,7 @@ class Plugin extends Core {
 		add_action( 'init', array( $this, 'plugin_init' ), 20 );
 
 		if ( ! is_admin() ) {
-			Enqueue::init( GDFAR_URL . 'd4plib/' );
+			Enqueue::init();
 
 			add_action( 'd4plib_shared_enqueue_prepare', array( $this, 'register_css_and_js' ) );
 		}
@@ -155,7 +163,7 @@ class Plugin extends Core {
 		$allowed = false;
 
 		if ( is_user_logged_in() ) {
-			$allowed = d4p_is_current_user_roles( $this->_roles );
+			$allowed = is_current_user_roles( $this->_roles );
 		}
 
 		return $allowed;

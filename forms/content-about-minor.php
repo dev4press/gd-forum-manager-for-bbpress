@@ -1,7 +1,7 @@
 <div class="d4p-about-minor">
     <h3><?php _e( "Maintenance and Security Releases", "gd-forum-manager-for-bbpress" ); ?></h3>
     <p>
-        <strong><?php _e( "Version", "gd-forum-manager-for-bbpress" ); ?> <span>2.0.1</span></strong> &minus;
+        <strong><?php _e( "Version", "gd-forum-manager-for-bbpress" ); ?> <span>2.1</span></strong> &minus;
         .
     </p>
     <p>

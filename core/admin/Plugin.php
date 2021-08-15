@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\Admin;
 
-use Dev4Press\Core\Admin\Submenu\Plugin as BasePlugin;
+use Dev4Press\v36\Core\Admin\Submenu\Plugin as BasePlugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -14,9 +14,31 @@ class Plugin extends BasePlugin {
 	public $plugin_menu = 'GD Forum Manager';
 	public $plugin_title = 'GD Forum Manager for bbPress';
 
+	public static function instance() : Plugin {
+		static $instance = false;
+
+		if ( ! $instance ) {
+			$instance = new Plugin();
+		}
+
+		return $instance;
+	}
+
 	public function constructor() {
 		$this->url  = GDFAR_URL;
 		$this->path = GDFAR_PATH;
+	}
+
+	public function register_scripts_and_styles() {
+		$this->enqueue->register( 'js', 'gdfar-admin',
+			array(
+				'path' => 'js/',
+				'file' => 'admin',
+				'ext'  => 'js',
+				'min'  => true,
+				'ver'  => gdfar_settings()->file_version(),
+				'src'  => 'plugin'
+			) );
 	}
 
 	public function after_setup_theme() {
@@ -51,7 +73,7 @@ class Plugin extends BasePlugin {
 		);
 	}
 
-	public function svg_icon() {
+	public function svg_icon() : String {
 		return gdfon()->svg_icon;
 	}
 
@@ -73,5 +95,9 @@ class Plugin extends BasePlugin {
 
 	public function settings_definitions() {
 		return null;
+	}
+
+	protected function extra_enqueue_scripts_plugin() {
+		$this->enqueue->js( 'gdfar-admin' );
 	}
 }
