@@ -93,7 +93,7 @@ class AJAX {
 		}
 
 		if ( $mod === false ) {
-			_ajax_wp_die_handler( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
+			$this->error( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
 		}
 	}
 
