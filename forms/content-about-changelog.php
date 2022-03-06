@@ -9,8 +9,10 @@
             <li><strong>edit</strong> many improvements to sanitation and escaping on echo</li>
             <li><strong>edit</strong> more string translations using escape functions</li>
             <li><strong>edit</strong> including only minified version of MicroModal library</li>
+            <li><strong>edit</strong> improved AJAX request error handling</li>
             <li><strong>edit</strong> MicroModal library 0.4.10</li>
             <li><strong>edit</strong> d4pLib 3.7.3</li>
+            <li><strong>fix</strong> some issues with the minified JavaScript file</li>
         </ul>
 
         <h4>Version: 2.0 / February 16 2021</h4>

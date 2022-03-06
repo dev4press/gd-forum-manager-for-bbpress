@@ -116,8 +116,10 @@ Few updates and improvements.
 * Edit: more string translations using escape functions
 * Edit: updated plugin requirements
 * Edit: including only minified version of MicroModal library
+* Edit: improved AJAX request error handling
 * Edit: MicroModal library 0.4.10
 * Edit: d4pLib 3.7.3
+* Fix: some issues with the minified JavaScript file
 
 = 2.0 - 2021.02.16 =
 * New: actions: change single topic tags
