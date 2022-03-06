@@ -2,8 +2,9 @@
 
 namespace Dev4Press\Plugin\GDFAR\Manager;
 
+use Dev4Press\v37\Core\Quick\Arr;
+use Dev4Press\v37\Core\Quick\Sanitize;
 use WP_Error;
-use function Dev4Press\v36\Functions\is_associative_array;
 
 class Render {
 	public function __construct() {
@@ -117,7 +118,7 @@ class Render {
 						$notice = '<div class="gdfar-content-notice">' . $action['notice'] . '</div>';
 					}
 
-					$elements[] = '<dl class="' . join( ' ', $classes ) . '"><dt>' .
+					$elements[] = '<dl class="' . Sanitize::html_classes( $classes ) . '"><dt>' .
 					              '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . $label . '</label></div>' .
 					              '</dt><dd>' .
 					              '<div class="gdfar-content-wrapper">' . $render . $notice . '</div>' .
@@ -172,7 +173,7 @@ class Render {
 						$notice = '<div class="gdfar-content-notice">' . $action['notice'] . '</div>';
 					}
 
-					$elements[] = '<dl class="' . join( ' ', $classes ) . '"><dt>' .
+					$elements[] = '<dl class="' . Sanitize::html_classes( $classes ) . '"><dt>' .
 					              '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . $label . '</label></div>' .
 					              '</dt><dd>' .
 					              '<div class="gdfar-content-wrapper">' . $render . $notice . '</div>' .
@@ -195,7 +196,7 @@ class Render {
 				'gdfar-action-edit-log'
 			);
 
-			return '<div class="gdfar-manager-edit-log"><dl class="' . join( ' ', $classes ) . '"><dt>' .
+			return '<div class="gdfar-manager-edit-log"><dl class="' . Sanitize::html_classes( $classes ) . '"><dt>' .
 			       '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . __( "Edit Log", "gd-forum-manager-for-bbpress" ) . '</label></div>' .
 			       '</dt><dd>' .
 			       '<div class="gdfar-content-wrapper">' .
@@ -239,7 +240,7 @@ class Render {
 		$render      = '';
 		$attributes  = array();
 		$selected    = is_null( $selected ) ? array_keys( $values ) : (array) $selected;
-		$associative = ! is_associative_array( $values );
+		$associative = ! Arr::is_associative( $values );
 		$id          = $this->id_from_name( $name, $id );
 
 		if ( $class != '' ) {

@@ -2,6 +2,8 @@
 
 namespace Dev4Press\Plugin\GDFAR\bbPress;
 
+use Dev4Press\v37\Core\Quick\Sanitize;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -101,7 +103,7 @@ class Integration {
 		$_link_aria = apply_filters( 'gdfar_control_forum_edit_aria_label', sprintf( esc_html__( "Open popup to edit '%s' forum", "gd-forum-manager-for-bbpress" ), bbp_get_forum_title() ) );
 		$_bulk_aria = apply_filters( 'gdfar_control_forum_edit_bulk_aria_label', sprintf( esc_html__( "Enable bulk edit for '%s' forum", "gd-forum-manager-for-bbpress" ), bbp_get_forum_title() ) );
 
-		echo '<div class="' . join( ' ', $classes ) . '" data-key="' . $this->_key . '" data-type="forum" data-id="' . $forum_id . '">';
+		echo '<div class="' . Sanitize::html_classes( $classes ) . '" data-key="' . $this->_key . '" data-type="forum" data-id="' . $forum_id . '">';
 		echo '<input aria-label="' . $_bulk_aria . '" type="checkbox" class="gdfar-ctrl-checkbox" />';
 		echo '<a aria-label="' . $_link_aria . '" href="#" class="gdfar-ctrl-edit">' . $_link_edit . '</a>';
 		echo '</div>';
@@ -127,7 +129,7 @@ class Integration {
 			$_link_aria = apply_filters( 'gdfar_control_topic_edit_aria_label', sprintf( esc_html__( "Open popup to edit '%s' topic", "gd-forum-manager-for-bbpress" ), bbp_get_topic_title() ) );
 			$_bulk_aria = apply_filters( 'gdfar_control_topic_edit_bulk_aria_label', sprintf( esc_html__( "Enable bulk edit for '%s' topic", "gd-forum-manager-for-bbpress" ), bbp_get_topic_title() ) );
 
-			echo '<div class="' . join( ' ', $classes ) . '" data-key="' . $this->_key . '" data-type="topic" data-id="' . $topic_id . '">';
+			echo '<div class="' . Sanitize::html_classes( $classes ) . '" data-key="' . $this->_key . '" data-type="topic" data-id="' . $topic_id . '">';
 			echo '<input aria-label="' . $_bulk_aria . '" type="checkbox" class="gdfar-ctrl-checkbox" />';
 			echo '<a aria-label="' . $_link_aria . '" href="#" class="gdfar-ctrl-edit">' . $_link_edit . '</a>';
 			echo '</div>';

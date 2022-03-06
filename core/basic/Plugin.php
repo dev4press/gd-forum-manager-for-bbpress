@@ -5,10 +5,10 @@ namespace Dev4Press\Plugin\GDFAR\Basic;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 use Dev4Press\Plugin\GDFAR\Manager\Actions;
 use Dev4Press\Plugin\GDFAR\Manager\Defaults;
-use Dev4Press\v36\Core\DateTime;
-use Dev4Press\v36\Core\Plugins\Core;
-use Dev4Press\v36\Core\Shared\Enqueue;
-use function Dev4Press\v36\Functions\WP\is_current_user_roles;
+use Dev4Press\v37\Core\DateTime;
+use Dev4Press\v37\Core\Plugins\Core;
+use Dev4Press\v37\Core\Quick\WPR;
+use Dev4Press\v37\Core\Shared\Enqueue;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -110,10 +110,10 @@ class Plugin extends Core {
 		Enqueue::i()->add_js( 'gdfar-micromodal', array(
 			'lib'      => false,
 			'url'      => GDFAR_URL . 'js/',
-			'file'     => 'micromodal',
+			'file'     => 'micromodal.min',
 			'ver'      => gdfar_settings()->file_version(),
 			'ext'      => 'js',
-			'min'      => true,
+			'min'      => false,
 			'footer'   => true,
 			'localize' => true,
 			'int'      => array()
@@ -160,7 +160,7 @@ class Plugin extends Core {
 	}
 
 	public function is_allowed_for_forums() : bool {
-		return is_user_logged_in() && is_current_user_roles( $this->_roles );
+		return is_user_logged_in() && WPR::is_current_user_roles( $this->_roles );
 	}
 
 	public function is_allowed_for_topic( $topic_id ) : bool {
@@ -179,7 +179,7 @@ class Plugin extends Core {
 		$allowed = false;
 
 		if ( is_user_logged_in() ) {
-			$allowed = is_current_user_roles( $this->_roles );
+			$allowed = WPR::is_current_user_roles( $this->_roles );
 		}
 
 		return $allowed;

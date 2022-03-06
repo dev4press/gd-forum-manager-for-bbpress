@@ -595,7 +595,7 @@ class Defaults {
 	}
 
 	public function process_topic_bulk_author( $result, $args = array() ) {
-		$new_author = isset( $args['value']['username'] ) ? $args['value']['username'] : '';
+		$new_author = $args['value']['username'] ?? '';
 
 		if ( ! empty( $new_author ) ) {
 			$author = get_user_by( 'login', $new_author );

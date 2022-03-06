@@ -1,15 +1,21 @@
 <div class="d4p-info-block d4p-info-block-changelog">
-    <h3><?php _e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
+    <h3><?php esc_html_e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
-        <h4>Version: 2.1 / August 16 2021</h4>
+        <h4>Version: 2.1 / March 6 2022</h4>
         <ul>
             <li><strong>new</strong> allow editing of topics to forum moderators</li>
-            <li><strong>edit</strong> d4pLib 3.6</li>
+            <li><strong>new</strong> improved admin side interface through updated shared library</li>
+            <li><strong>edit</strong> updated plugin requirements</li>
+            <li><strong>edit</strong> many improvements to sanitation and escaping on echo</li>
+            <li><strong>edit</strong> more string translations using escape functions</li>
+            <li><strong>edit</strong> including only minified version of MicroModal library</li>
+            <li><strong>edit</strong> MicroModal library 0.4.10</li>
+            <li><strong>edit</strong> d4pLib 3.7.3</li>
         </ul>
 
         <h4>Version: 2.0 / February 16 2021</h4>
         <ul>
-            <li><strong>new</strong> actions: change single topic topic tags</li>
+            <li><strong>new</strong> actions: change single topic tags</li>
             <li><strong>new</strong> actions: bulk remove topic tags</li>
             <li><strong>new</strong> actions: change single topic author username</li>
             <li><strong>new</strong> actions: bulk change topic author username</li>
@@ -32,7 +38,7 @@
 </div>
 
 <div class="d4p-info-block d4p-info-block-changelog">
-    <h3><?php _e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
+    <h3><?php esc_html_e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
         <h4>Version: 1.4 / December 29 2020</h4>
         <ul>

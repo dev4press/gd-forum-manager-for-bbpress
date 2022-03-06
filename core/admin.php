@@ -38,7 +38,7 @@ function _gdfar_display_option( $option ) : string {
 	$status = gdfar_settings()->get( $option ) ? 'enabled' : 'disabled';
 
 	$render = '<div class="d4p-dashboard-status-row d4p-dashboard-is-' . $status . '">';
-	$render .= '<a title="' . esc_attr( $title ) . '" href="#" data-name="' . $option . '" data-nonce="' . wp_create_nonce( 'gdfar-toggle-option-' . $option ) . '" class="gdfar-option-toggle d4p-type-toggle d4p-type-status-' . $status . '">';
+	$render .= '<a title="' . esc_attr( $title ) . '" href="#" data-name="' . esc_attr( $option ) . '" data-nonce="' . wp_create_nonce( 'gdfar-toggle-option-' . $option ) . '" class="gdfar-option-toggle d4p-type-toggle d4p-type-status-' . esc_attr( $status ) . '">';
 	$render .= '<i class="d4p-icon d4p-ui-toggle-on' . ( $status != 'enabled' ? ' d4p-icon-flip-horizontal' : '' ) . '"></i>';
 	$render .= '</a>';
 	$render .= '<span>' . esc_html( $label ) . '</span>';

@@ -3,7 +3,7 @@
 namespace Dev4Press\Plugin\GDFAR\Admin;
 
 use Dev4Press\Plugin\GDFAR\Basic\Settings;
-use Dev4Press\v36\Core\Admin\Submenu\Plugin as BasePlugin;
+use Dev4Press\v37\Core\Admin\Submenu\Plugin as BasePlugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -14,6 +14,8 @@ class Plugin extends BasePlugin {
 	public $plugin_prefix = 'gdfar';
 	public $plugin_menu = 'GD Forum Manager';
 	public $plugin_title = 'GD Forum Manager for bbPress';
+
+	public $auto_mod_interface_colors = true;
 
 	public static function instance() : Plugin {
 		static $instance = false;

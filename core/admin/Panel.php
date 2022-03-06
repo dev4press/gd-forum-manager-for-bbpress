@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\Admin;
 
-use Dev4Press\v36\Core\UI\Admin\Panel as BasePanel;
+use Dev4Press\v37\Core\UI\Admin\Panel as BasePanel;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

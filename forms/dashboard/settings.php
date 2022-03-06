@@ -1,9 +1,9 @@
 <div class="d4p-group d4p-dashboard-card d4p-dashboard-card-settings">
-    <h3><?php _e( "Plugin Settings", "gd-forum-manager-for-bbpress" ); ?></h3>
+    <h3><?php esc_html_e( "Plugin Settings", "gd-forum-manager-for-bbpress" ); ?></h3>
     <div class="d4p-group-header">
         <ul class="d4p-full-width">
             <li>
-				<?php _e( "From here you can control plugin settings. Plugin only has few settings you can change.", "gd-forum-manager-for-bbpress" ); ?>
+				<?php esc_html_e( "The plugin is easy to configure, and there are only few settings you can and need to change, and they are all available from this panel.", "gd-forum-manager-for-bbpress" ); ?>
             </li>
         </ul>
         <div class="d4p-clearfix"></div>

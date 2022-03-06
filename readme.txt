@@ -3,9 +3,9 @@ Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
 Version: 2.1
 Tags: dev4press, bbpress, edit, bulk edit, quick edit, moderation
-Requires at least: 5.1
-Tested up to: 5.8
-Requires PHP: 7.0
+Requires at least: 5.3
+Tested up to: 5.9
+Requires PHP: 7.2
 Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -72,10 +72,10 @@ Get Premium plugins for bbPress to enhance bbPress powered forums. More informat
 
 == Installation ==
 = General Requirements =
-* PHP: 7.0 or newer
+* PHP: 7.2 or newer
 
 = WordPress Requirements =
-* WordPress: 5.1 or newer
+* WordPress: 5.3 or newer
 
 = bbPress Requirements =
 * bbPress Plugin: 2.6.2 or newer
@@ -94,6 +94,7 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 
 == Upgrade Notice ==
 = 2.1 =
+Various updates and improvements.
 
 = 2.0 =
 * Change topic tags and topic author. Saving of topics edit log. New actions, filters and variables. Many improvements and fixes.
@@ -108,11 +109,18 @@ Few updates and improvements.
 Few updates and improvements.
 
 == Changelog ==
-= 2.1 - 2021.08.16 =
-* Edit: d4pLib 3.6
+= 2.1 - 2022.03.06 =
+* New: allow editing of topics to forum moderators
+* New: improved admin side interface through updated shared library
+* Edit: many improvements to sanitation and escaping on echo
+* Edit: more string translations using escape functions
+* Edit: updated plugin requirements
+* Edit: including only minified version of MicroModal library
+* Edit: MicroModal library 0.4.10
+* Edit: d4pLib 3.7.3
 
 = 2.0 - 2021.02.16 =
-* New: actions: change single topic topic tags
+* New: actions: change single topic tags
 * New: actions: bulk remove topic tags
 * New: actions: change single topic author username
 * New: actions: bulk change topic author username

@@ -134,7 +134,7 @@ class Process {
 		$elements = array();
 
 		foreach ( $actions as $action ) {
-			$value = isset( $field[ $action['name'] ] ) ? $field[ $action['name'] ] : false;
+			$value = $field[ $action['name'] ] ?? false;
 
 			$elements[ $action['name'] ] = apply_filters( $action['filter_process'], true, array(
 				'id'    => $id,
@@ -157,7 +157,7 @@ class Process {
 		$elements = array();
 
 		foreach ( $actions as $action ) {
-			$value = isset( $field[ $action['name'] ] ) ? $field[ $action['name'] ] : false;
+			$value = $field[ $action['name'] ] ?? false;
 
 			$elements[ $action['name'] ] = apply_filters( $action['filter_process'], true, array(
 				'id'    => $id,

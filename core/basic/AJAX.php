@@ -3,11 +3,8 @@
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
 use Dev4Press\Plugin\GDFAR\Manager\Process;
-use function Dev4Press\v36\Functions\sanitize_basic;
-use function Dev4Press\v36\Functions\sanitize_ids_list;
-use function Dev4Press\v36\Functions\sanitize_key_expanded;
-use function Dev4Press\v36\Functions\sanitize_slug;
-use function Dev4Press\v36\Functions\WP\is_current_user_admin;
+use Dev4Press\v37\Core\Quick\Sanitize;
+use Dev4Press\v37\Core\Quick\WPR;
 
 class AJAX {
 	private $nonce = 'gdfar-manager-request';
@@ -109,12 +106,12 @@ class AJAX {
 	}
 
 	public function toggle_option() {
-		if ( is_current_user_admin() ) {
-			$name = sanitize_key_expanded( $_POST['option'] );
+		if ( WPR::is_current_user_admin() ) {
+			$name = Sanitize::key_expanded( $_POST['option'] );
 
 			$this->admin_check_nonce( 'gdfar-toggle-option-' . $name );
 
-			$new_value = gdfar_settings()->get( $name ) ? false : true;
+			$new_value = ! gdfar_settings()->get( $name );
 			gdfar_settings()->set( $name, $new_value, 'settings', true );
 
 			die( _gdfar_display_option( $name ) );
@@ -124,9 +121,9 @@ class AJAX {
 	}
 
 	public function edit_request() {
-		$is    = isset( $_REQUEST['is'] ) ? sanitize_slug( $_REQUEST['is'] ) : '';
+		$is    = isset( $_REQUEST['is'] ) ? Sanitize::slug( $_REQUEST['is'] ) : '';
 		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0;
-		$type  = isset( $_REQUEST['type'] ) ? sanitize_slug( $_REQUEST['type'] ) : '';
+		$type  = isset( $_REQUEST['type'] ) ? Sanitize::slug( $_REQUEST['type'] ) : '';
 		$id    = isset( $_REQUEST['id'] ) ? absint( $_REQUEST['id'] ) : 0;
 
 		$this->check_nonce( $is, $forum );
@@ -155,14 +152,14 @@ class AJAX {
 				if ( isset( $data['edit-log']['keep'] ) ) {
 					$log = array(
 						'keep'   => true,
-						'reason' => isset( $data['edit-log']['reason'] ) ? sanitize_basic( $data['edit-log']['reason'] ) : ''
+						'reason' => isset( $data['edit-log']['reason'] ) ? Sanitize::basic( $data['edit-log']['reason'] ) : ''
 					);
 				}
 			}
 
-			$data['action']   = isset( $data['action'] ) ? sanitize_slug( $data['action'] ) : '';
-			$data['type']     = isset( $data['type'] ) ? sanitize_slug( $data['type'] ) : '';
-			$data['nonce']    = isset( $data['nonce'] ) ? sanitize_basic( $data['nonce'] ) : '';
+			$data['action']   = isset( $data['action'] ) ? Sanitize::slug( $data['action'] ) : '';
+			$data['type']     = isset( $data['type'] ) ? Sanitize::slug( $data['type'] ) : '';
+			$data['nonce']    = isset( $data['nonce'] ) ? Sanitize::basic( $data['nonce'] ) : '';
 			$data['id']       = isset( $data['id'] ) ? absint( $data['id'] ) : 0;
 			$data['field']    = isset( $data['field'] ) ? gdfar_array_sanitize_text_field( (array) $data['field'] ) : array();
 			$data['edit-log'] = $log;
@@ -204,10 +201,10 @@ class AJAX {
 	}
 
 	public function bulk_request() {
-		$is    = isset( $_REQUEST['is'] ) ? sanitize_slug( $_REQUEST['is'] ) : '';
+		$is    = isset( $_REQUEST['is'] ) ? Sanitize::slug( $_REQUEST['is'] ) : '';
 		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0;
-		$type  = isset( $_REQUEST['type'] ) ? sanitize_slug( $_REQUEST['type'] ) : '';
-		$id    = isset( $_REQUEST['id'] ) ? sanitize_ids_list( $_REQUEST['id'] ) : array();
+		$type  = isset( $_REQUEST['type'] ) ? Sanitize::slug( $_REQUEST['type'] ) : '';
+		$id    = isset( $_REQUEST['id'] ) ? Sanitize::ids_list( $_REQUEST['id'] ) : array();
 
 		$this->check_nonce( $is, $forum );
 		$this->check_bulk_moderation( $type, $id );
@@ -235,16 +232,16 @@ class AJAX {
 				if ( isset( $data['edit-log']['keep'] ) ) {
 					$log = array(
 						'keep'   => true,
-						'reason' => isset( $data['edit-log']['reason'] ) ? sanitize_basic( $data['edit-log']['reason'] ) : ''
+						'reason' => isset( $data['edit-log']['reason'] ) ? Sanitize::basic( $data['edit-log']['reason'] ) : ''
 					);
 				}
 			}
 
-			$data['action']   = isset( $data['action'] ) ? sanitize_slug( $data['action'] ) : '';
-			$data['type']     = isset( $data['type'] ) ? sanitize_slug( $data['type'] ) : '';
-			$data['nonce']    = isset( $data['nonce'] ) ? sanitize_basic( $data['nonce'] ) : '';
+			$data['action']   = isset( $data['action'] ) ? Sanitize::slug( $data['action'] ) : '';
+			$data['type']     = isset( $data['type'] ) ? Sanitize::slug( $data['type'] ) : '';
+			$data['nonce']    = isset( $data['nonce'] ) ? Sanitize::basic( $data['nonce'] ) : '';
 			$data['field']    = isset( $data['field'] ) ? (array) $data['field'] : array();
-			$data['id']       = isset( $data['id'] ) ? sanitize_ids_list( $data['id'] ) : array();
+			$data['id']       = isset( $data['id'] ) ? Sanitize::ids_list( $data['id'] ) : array();
 			$data['edit-log'] = $log;
 
 			if (

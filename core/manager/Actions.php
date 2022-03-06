@@ -70,7 +70,7 @@ class Actions {
 	}
 
 	public function get_actions( $scope, $action ) : array {
-		return isset( $this->_actions[ $scope ][ $action ] ) ? $this->_actions[ $scope ][ $action ] : array();
+		return $this->_actions[ $scope ][ $action ] ?? array();
 	}
 
 	public function count_actions( $scope, $action ) : int {
