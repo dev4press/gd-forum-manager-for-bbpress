@@ -1,6 +1,12 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php esc_html_e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
+        <h4>Version: 2.1.1 / March 13 2022</h4>
+        <ul>
+            <li><strong>edit</strong> d4pLib 3.7.4</li>
+            <li><strong>fix</strong> wrong case for some file names</li>
+        </ul>
+
         <h4>Version: 2.1 / March 6 2022</h4>
         <ul>
             <li><strong>new</strong> allow editing of topics to forum moderators</li>

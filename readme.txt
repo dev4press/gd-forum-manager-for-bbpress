@@ -1,7 +1,7 @@
 === GD Forum Manager for bbPress ===
 Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
-Version: 2.1
+Version: 2.1.1
 Tags: dev4press, bbpress, edit, bulk edit, quick edit, moderation
 Requires at least: 5.3
 Tested up to: 5.9
@@ -109,6 +109,10 @@ Few updates and improvements.
 Few updates and improvements.
 
 == Changelog ==
+= 2.1.1 - 2022.03.13 =
+* Edit: d4pLib 3.7.3
+* Fix: wrong case for some file names
+
 = 2.1 - 2022.03.06 =
 * New: allow editing of topics to forum moderators
 * New: improved admin side interface through updated shared library

@@ -7,7 +7,7 @@ Description:       Expand how the moderators can manage forum content from the f
 Author:            Milan Petrovic
 Author URI:        https://www.dev4press.com/
 Text Domain:       gd-forum-manager-for-bbpress
-Version:           2.1
+Version:           2.1.1
 Requires at least: 5.3
 Tested up to:      5.9
 Requires PHP:      7.2
