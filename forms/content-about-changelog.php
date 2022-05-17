@@ -1,6 +1,16 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php esc_html_e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
+        <h4>Version: 2.2 / May 17 2022</h4>
+        <ul>
+            <li><strong>new</strong> tested with WordPress 6.0</li>
+            <li><strong>new</strong> changed order and actions for the plugin loading</li>
+            <li><strong>new</strong> method to check for the forum integration</li>
+            <li><strong>edit</strong> d4pLib 3.8</li>
+            <li><strong>fix</strong> bulk box HTML visible for all logged in users</li>
+            <li><strong>fix</strong> several updates to the admin side interface</li>
+        </ul>
+
         <h4>Version: 2.1.1 / March 13 2022</h4>
         <ul>
             <li><strong>edit</strong> d4pLib 3.7.4</li>

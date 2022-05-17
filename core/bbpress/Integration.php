@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\bbPress;
 
-use Dev4Press\v37\Core\Quick\Sanitize;
+use Dev4Press\v38\Core\Quick\Sanitize;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -15,19 +15,22 @@ class Integration {
 
 	public function __construct() {
 		add_action( 'gdfar_plugin_init', array( $this, 'init' ), 20 );
+		add_action( 'gdfar_plugin_wp', array( $this, 'wp' ), 20 );
 	}
 
 	public function init() {
 		if ( gdfar_settings()->get( 'small_screen_always_show' ) ) {
 			$this->_always_on = true;
 		}
+	}
 
+	public function wp() {
 		if ( gdfar_settings()->get( 'forum' ) && gdfar()->is_allowed_for_forums() ) {
 			add_action( 'bbp_theme_before_forum_title', array( $this, 'forum_controls' ), 1 );
 			add_action( 'bbp_template_after_forums_loop', array( $this, 'forum_bulk' ) );
 		}
 
-		if ( gdfar_settings()->get( 'topic' ) && is_user_logged_in() ) {
+		if ( gdfar_settings()->get( 'topic' ) && gdfar()->is_allowed_for_forum( bbp_get_forum_id() ) ) {
 			add_action( 'bbp_theme_before_topic_title', array( $this, 'topic_controls' ), 1 );
 			add_action( 'bbp_template_after_topics_loop', array( $this, 'topic_bulk' ) );
 			add_filter( 'bbp_topic_admin_links', array( $this, 'topic_admin_links' ), 10, 2 );

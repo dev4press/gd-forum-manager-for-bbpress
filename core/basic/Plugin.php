@@ -5,10 +5,9 @@ namespace Dev4Press\Plugin\GDFAR\Basic;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 use Dev4Press\Plugin\GDFAR\Manager\Actions;
 use Dev4Press\Plugin\GDFAR\Manager\Defaults;
-use Dev4Press\v37\Core\DateTime;
-use Dev4Press\v37\Core\Plugins\Core;
-use Dev4Press\v37\Core\Quick\WPR;
-use Dev4Press\v37\Core\Shared\Enqueue;
+use Dev4Press\v38\Core\Plugins\Core;
+use Dev4Press\v38\Core\Quick\WPR;
+use Dev4Press\v38\Core\Shared\Enqueue;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -17,7 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Plugin extends Core {
 	public $plugin = 'gd-forum-manager-for-bbpress';
 
-	private $_datetime;
 	private $_active = false;
 	private $_bbpress = null;
 	private $_actions = null;
@@ -27,8 +25,6 @@ class Plugin extends Core {
 
 	public function __construct() {
 		$this->url = GDFAR_URL;
-
-		$this->_datetime = new DateTime();
 
 		parent::__construct();
 	}
@@ -68,6 +64,7 @@ class Plugin extends Core {
 		}
 
 		add_action( 'init', array( $this, 'plugin_init' ), 20 );
+		add_action( 'wp', array( $this, 'plugin_wp'), 20 );
 
 		if ( ! is_admin() ) {
 			Enqueue::init();
@@ -147,8 +144,8 @@ class Plugin extends Core {
 		do_action( 'gdfar_plugin_init' );
 	}
 
-	public function datetime() : DateTime {
-		return $this->_datetime;
+	public function plugin_wp() {
+		do_action( 'gdfar_plugin_wp' );
 	}
 
 	public function bbpress() : Integration {
@@ -161,6 +158,16 @@ class Plugin extends Core {
 
 	public function is_allowed_for_forums() : bool {
 		return is_user_logged_in() && WPR::is_current_user_roles( $this->_roles );
+	}
+
+	public function is_allowed_for_forum( $forum_id ) : bool {
+		$allowed = $this->is_allowed_for_forums();
+
+		if ( ! $allowed && gdfar_settings()->get( 'forum_moderators' ) ) {
+			$allowed = current_user_can( 'moderate', $forum_id );
+		}
+
+		return $allowed;
 	}
 
 	public function is_allowed_for_topic( $topic_id ) : bool {
