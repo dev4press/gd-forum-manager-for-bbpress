@@ -1,11 +1,11 @@
 === GD Forum Manager for bbPress ===
 Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
-Version: 2.2
+Version: 2.3
 Tags: dev4press, bbpress, edit, bulk edit, quick edit, moderation
-Requires at least: 5.3
-Tested up to: 6.0
-Requires PHP: 7.2
+Requires at least: 5.5
+Tested up to: 6.1
+Requires PHP: 7.3
 Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -72,10 +72,10 @@ Get Premium plugins for bbPress to enhance bbPress powered forums. More informat
 
 == Installation ==
 = General Requirements =
-* PHP: 7.2 or newer
+* PHP: 7.3 or newer
 
 = WordPress Requirements =
-* WordPress: 5.3 or newer
+* WordPress: 5.5 or newer
 
 = bbPress Requirements =
 * bbPress Plugin: 2.6.2 or newer
@@ -93,6 +93,9 @@ The plugin adds a menu item in the WordPress Settings menu. There you have only 
 Yes. The POT file is provided as a base for translation. Translation files should go into languages directory.
 
 == Upgrade Notice ==
+= 2.3 =
+Various updates and improvements.
+
 = 2.2 =
 Various updates and improvements.
 
@@ -103,15 +106,23 @@ Various updates and improvements.
 * Change topic tags and topic author. Saving of topics edit log. New actions, filters and variables. Many improvements and fixes.
 
 == Changelog ==
-= 2.1.2 - 2022.05.17 =
+= 2.3 - 2023.01.18 =
+* New: tested with WordPress 6.1
+* New: tested with PHP 8.1/8.2
+* New: updated plugin system requirements
+* Edit: expanded settings with extra information
+* Edit: improved admin side interface with new look
+* Edit: Dev4Press Library 3.9
+
+= 2.2 - 2022.05.17 =
 * New: tested with WordPress 6.0
 * New: changed order and actions for the plugin loading
 * New: method to check for the forum integration
-* Edit: d4pLib 3.8
-* Fix: bulk box HTML visible for all logged in users
+* Edit: Dev4Press Library 3.8
+* Fix: bulk box HTML visible for all logged-in users
 
 = 2.1.1 - 2022.03.13 =
-* Edit: d4pLib 3.7.3
+* Edit: Dev4Press Library 3.7.3
 * Fix: wrong case for some file names
 
 = 2.1 - 2022.03.06 =
@@ -123,7 +134,7 @@ Various updates and improvements.
 * Edit: including only minified version of MicroModal library
 * Edit: improved AJAX request error handling
 * Edit: MicroModal library 0.4.10
-* Edit: d4pLib 3.7.3
+* Edit: Dev4Press Library 3.7.3
 * Fix: some issues with the minified JavaScript file
 
 = 2.0 - 2021.02.16 =
@@ -142,25 +153,25 @@ Various updates and improvements.
 * Edit: several styling improvements and changes to popup dialog
 * Edit: more compact styling layout for the dialog elements
 * Edit: MicroModal library 0.4.6
-* Edit: d4pLib 3.4
+* Edit: Dev4Press Library 3.4
 * Fix: minor issues with the admin side plugin settings handling
 * Fix: various typos and other wording and naming issues
 
 = 1.4 - 2020.12.29 =
 * Edit: updated plugin requirements
 * Edit: various minor updates
-* Edit: d4pLib 3.3.1
+* Edit: Dev4Press Library 3.3.1
 
 = 1.3 - 2020.11.12 =
 * Edit: refactored and updated to WordPress coding style
 * Edit: requires bbPress 2.6.2 or newer
 * Edit: removed support for bbPress 2.5
-* Edit: d4pLib 3.3
+* Edit: Dev4Press Library 3.3
 * Fix: few minor issues caused by the shared library changes
 
 = 1.2 - 2020.08.14 =
 * Edit: improved plugin dashboard displaying list of actions
-* Edit: d4pLib 3.2
+* Edit: Dev4Press Library 3.2
 
 = 1.1 - 2020.06.24 =
 * New: responsive styling for the bulk toolbar

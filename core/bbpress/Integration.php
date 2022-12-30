@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\bbPress;
 
-use Dev4Press\v38\Core\Quick\Sanitize;
+use Dev4Press\v39\Core\Quick\Sanitize;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

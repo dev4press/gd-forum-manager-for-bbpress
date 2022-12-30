@@ -3,8 +3,8 @@
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
 use Dev4Press\Plugin\GDFAR\Manager\Process;
-use Dev4Press\v38\Core\Quick\Sanitize;
-use Dev4Press\v38\Core\Quick\WPR;
+use Dev4Press\v39\Core\Quick\Sanitize;
+use Dev4Press\v39\Core\Quick\WPR;
 
 class AJAX {
 	private $nonce = 'gdfar-manager-request';
@@ -107,7 +107,7 @@ class AJAX {
 
 	public function toggle_option() {
 		if ( WPR::is_current_user_admin() ) {
-			$name = Sanitize::key_expanded( $_POST['option'] );
+			$name = Sanitize::slug( $_POST['option'] );
 
 			$this->admin_check_nonce( 'gdfar-toggle-option-' . $name );
 

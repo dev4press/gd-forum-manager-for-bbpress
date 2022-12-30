@@ -5,9 +5,9 @@ namespace Dev4Press\Plugin\GDFAR\Basic;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 use Dev4Press\Plugin\GDFAR\Manager\Actions;
 use Dev4Press\Plugin\GDFAR\Manager\Defaults;
-use Dev4Press\v38\Core\Plugins\Core;
-use Dev4Press\v38\Core\Quick\WPR;
-use Dev4Press\v38\Core\Shared\Enqueue;
+use Dev4Press\v39\Core\Plugins\Core;
+use Dev4Press\v39\Core\Quick\WPR;
+use Dev4Press\v39\Core\Shared\Enqueue;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -64,7 +64,7 @@ class Plugin extends Core {
 		}
 
 		add_action( 'init', array( $this, 'plugin_init' ), 20 );
-		add_action( 'wp', array( $this, 'plugin_wp'), 20 );
+		add_action( 'wp', array( $this, 'plugin_wp' ), 20 );
 
 		if ( ! is_admin() ) {
 			Enqueue::init();

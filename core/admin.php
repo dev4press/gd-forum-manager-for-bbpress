@@ -3,6 +3,7 @@
 function _gdfar_display_option( $option ) : string {
 	$title = '';
 	$label = '';
+	$info  = '';
 
 	switch ( $option ) {
 		case 'moderators':
@@ -16,32 +17,43 @@ function _gdfar_display_option( $option ) : string {
 		case 'forum':
 			$title = __( "Toggle option for forums editing", "gd-forum-manager-for-bbpress" );
 			$label = __( "Edit Forums", "gd-forum-manager-for-bbpress" );
+			$info  = __( "If enabled, plugin will add edit controls to every forum list for individual forums.", "gd-forum-manager-for-bbpress" );
 			break;
 		case 'topic':
 			$title = __( "Toggle option for topics editing", "gd-forum-manager-for-bbpress" );
 			$label = __( "Edit Topics", "gd-forum-manager-for-bbpress" );
+			$info  = __( "If enabled, plugin will add edit controls to every topics list for individual topics. Some edit options may be unavailable in Topic Views.", "gd-forum-manager-for-bbpress" );
 			break;
 		case 'small_screen_always_show':
 			$title = __( "Toggle option for display on small screens", "gd-forum-manager-for-bbpress" );
 			$label = __( "Always show on small screens", "gd-forum-manager-for-bbpress" );
+			$info  = __( "If enabled, controls will be available on small screens or mobile devices.", "gd-forum-manager-for-bbpress" );
 			break;
 		case 'notices_under_fields':
 			$title = __( "Toggle option for displaying action notices", "gd-forum-manager-for-bbpress" );
 			$label = __( "Show action notices where available", "gd-forum-manager-for-bbpress" );
+			$info  = __( "If enabled, information for edit fields will be visible. If you want to have more compact layout of editor popup, it is better to disable this option.", "gd-forum-manager-for-bbpress" );
 			break;
 		case 'topic_edit_log':
 			$title = __( "Toggle option for keeping edit log for topics", "gd-forum-manager-for-bbpress" );
-			$label = __( "Show keep the edit log for topics controls", "gd-forum-manager-for-bbpress" );
+			$label = __( "Show 'Keep The Edit Log' for topics controls", "gd-forum-manager-for-bbpress" );
 			break;
 	}
 
 	$status = gdfar_settings()->get( $option ) ? 'enabled' : 'disabled';
 
 	$render = '<div class="d4p-dashboard-status-row d4p-dashboard-is-' . $status . '">';
-	$render .= '<a title="' . esc_attr( $title ) . '" href="#" data-name="' . esc_attr( $option ) . '" data-nonce="' . wp_create_nonce( 'gdfar-toggle-option-' . $option ) . '" class="gdfar-option-toggle d4p-type-toggle d4p-type-status-' . esc_attr( $status ) . '">';
+	$render .= '<button title="' . esc_attr( $title ) . '" href="#" data-name="' . esc_attr( $option ) . '" data-nonce="' . wp_create_nonce( 'gdfar-toggle-option-' . $option ) . '" class="gdfar-option-toggle d4p-type-toggle d4p-type-status-' . esc_attr( $status ) . '">';
 	$render .= '<i class="d4p-icon d4p-ui-toggle-on' . ( $status != 'enabled' ? ' d4p-icon-flip-horizontal' : '' ) . '"></i>';
-	$render .= '</a>';
-	$render .= '<span>' . esc_html( $label ) . '</span>';
+	$render .= '</button>';
+	$render .= '<div>';
+	$render .= esc_html( $label );
+
+	if ( ! empty( $info ) ) {
+		$render .= '<em>' . esc_html( $info ) . '</em>';
+	}
+
+	$render .= '</div>';
 	$render .= '</div>';
 
 	return $render;

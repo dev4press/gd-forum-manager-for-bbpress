@@ -3,7 +3,7 @@
 namespace Dev4Press\Plugin\GDFAR\Admin;
 
 use Dev4Press\Plugin\GDFAR\Basic\Settings;
-use Dev4Press\v38\Core\Admin\Submenu\Plugin as BasePlugin;
+use Dev4Press\v39\Core\Admin\Submenu\Plugin as BasePlugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

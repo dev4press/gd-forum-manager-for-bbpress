@@ -1,19 +1,29 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php esc_html_e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
+        <h4>Version: 2.3 / January 18 2023</h4>
+        <ul>
+            <li><strong>new</strong> tested with WordPress 6.1</li>
+            <li><strong>new</strong> tested with PHP 8.1/8.2</li>
+            <li><strong>new</strong> updated plugin system requirements</li>
+            <li><strong>edit</strong> expanded settings with extra information</li>
+            <li><strong>edit</strong> improved admin side interface with new look</li>
+            <li><strong>edit</strong> Dev4Press Library 3.9</li>
+        </ul>
+
         <h4>Version: 2.2 / May 17 2022</h4>
         <ul>
             <li><strong>new</strong> tested with WordPress 6.0</li>
             <li><strong>new</strong> changed order and actions for the plugin loading</li>
             <li><strong>new</strong> method to check for the forum integration</li>
-            <li><strong>edit</strong> d4pLib 3.8</li>
-            <li><strong>fix</strong> bulk box HTML visible for all logged in users</li>
+            <li><strong>edit</strong> Dev4Press Library 3.8</li>
+            <li><strong>fix</strong> bulk box HTML visible for all logged-in users</li>
             <li><strong>fix</strong> several updates to the admin side interface</li>
         </ul>
 
         <h4>Version: 2.1.1 / March 13 2022</h4>
         <ul>
-            <li><strong>edit</strong> d4pLib 3.7.4</li>
+            <li><strong>edit</strong> Dev4Press Library 3.7.4</li>
             <li><strong>fix</strong> wrong case for some file names</li>
         </ul>
 
@@ -27,7 +37,7 @@
             <li><strong>edit</strong> including only minified version of MicroModal library</li>
             <li><strong>edit</strong> improved AJAX request error handling</li>
             <li><strong>edit</strong> MicroModal library 0.4.10</li>
-            <li><strong>edit</strong> d4pLib 3.7.3</li>
+            <li><strong>edit</strong> Dev4Press Library 3.7.3</li>
             <li><strong>fix</strong> some issues with the minified JavaScript file</li>
         </ul>
 
@@ -48,7 +58,7 @@
             <li><strong>edit</strong> several styling improvements and changes to popup dialog</li>
             <li><strong>edit</strong> more compact styling layout for the dialog elements</li>
             <li><strong>edit</strong> MicroModal library 0.4.6</li>
-            <li><strong>edit</strong> d4pLib 3.4</li>
+            <li><strong>edit</strong> Dev4Press Library 3.4</li>
             <li><strong>fix</strong> minor issues with the admin side plugin settings handling</li>
             <li><strong>fix</strong> various typos and other wording and naming issues</li>
         </ul>
@@ -62,7 +72,7 @@
         <ul>
             <li><strong>edit</strong> updated plugin requirements</li>
             <li><strong>edit</strong> various minor updates</li>
-            <li><strong>edit</strong> d4pLib 3.3.1</li>
+            <li><strong>edit</strong> Dev4Press Library 3.3.1</li>
         </ul>
 
         <h4>Version: 1.3 / November 12 2020</h4>
@@ -70,14 +80,14 @@
             <li><strong>edit</strong> refactored and updated to WordPress coding style</li>
             <li><strong>edit</strong> requires bbPress 2.6.2 or newer</li>
             <li><strong>edit</strong> removed support for bbPress 2.5</li>
-            <li><strong>edit</strong> d4pLib 3.3</li>
+            <li><strong>edit</strong> Dev4Press Library 3.3</li>
             <li><strong>fix</strong> few minor issues caused by the shared library changes</li>
         </ul>
 
         <h4>Version: 1.2 / August 14 2020</h4>
         <ul>
             <li><strong>edit</strong> improved plugin dashboard displaying list of actions</li>
-            <li><strong>edit</strong> d4pLib 3.2</li>
+            <li><strong>edit</strong> Dev4Press Library 3.2</li>
         </ul>
 
         <h4>Version: 1.1 / June 24 2020</h4>
