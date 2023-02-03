@@ -1,14 +1,14 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php esc_html_e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
-        <h4>Version: 2.3 / January 18 2023</h4>
+        <h4>Version: 2.3 / February 3 2023</h4>
         <ul>
             <li><strong>new</strong> tested with WordPress 6.1</li>
-            <li><strong>new</strong> tested with PHP 8.1/8.2</li>
+            <li><strong>new</strong> tested with PHP 8.1 and 8.2</li>
             <li><strong>new</strong> updated plugin system requirements</li>
             <li><strong>edit</strong> expanded settings with extra information</li>
             <li><strong>edit</strong> improved admin side interface with new look</li>
-            <li><strong>edit</strong> Dev4Press Library 3.9</li>
+            <li><strong>edit</strong> Dev4Press Library 3.9.2</li>
         </ul>
 
         <h4>Version: 2.2 / May 17 2022</h4>

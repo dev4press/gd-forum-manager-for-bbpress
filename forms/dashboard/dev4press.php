@@ -1,4 +1,4 @@
-<div class="d4p-group d4p-dashboard-card d4p-dashboard-card-dev4press" style="max-width: 1200px; border-color: green;">
+<div class="d4p-group d4p-dashboard-card d4p-dashboard-card-dev4press d4p-card-double" style="border-color: green;">
     <h3 style="background: green; color: white;">Dev4Press Pro plugins for bbPress</h3>
     <div class="d4p-group-header">
         <ul>

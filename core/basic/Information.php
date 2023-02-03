@@ -12,10 +12,10 @@ class Information extends BaseInformation {
 	public $code = 'gd-forum-manager-for-bbpress';
 
 	public $version = '2.3';
-	public $build = 90;
+	public $build = 100;
 	public $edition = 'free';
 	public $status = 'stable';
-	public $updated = '2023.01.18';
+	public $updated = '2023.02.03';
 	public $released = '2020.06.22';
 
 	public $is_bbpress_plugin = true;
