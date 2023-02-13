@@ -136,7 +136,6 @@
   transition: transform 0.25s ease-out;
   -moz-osx-font-smoothing: grayscale;
   -webkit-backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
 }
 .gdfar-modal .gdfar-modal__container .gdfar-modal__footer .gdfar-modal__btn:active, .gdfar-modal .gdfar-modal__container .gdfar-modal__footer .gdfar-modal__btn:hover {
   background-image: none;

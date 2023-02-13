@@ -197,7 +197,6 @@
   transition: transform 0.25s ease-out;
   -moz-osx-font-smoothing: grayscale;
   -webkit-backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
 }
 .gdfar-bulk-control > div.__editor button:active, .gdfar-bulk-control > div.__editor button:hover {
   background-image: none;
@@ -211,7 +210,6 @@
 .bbp-topic-title .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-edit {
     visibility: visible;
   }
-
   .gdfar-modal__content dl {
     display: block;
     padding: 15px 15px 0;
@@ -241,7 +239,6 @@
   .gdfar-modal__content dl > dd {
     padding: 0;
   }
-
   .gdfar-bulk-control > div.__editor {
     float: none;
     display: block;

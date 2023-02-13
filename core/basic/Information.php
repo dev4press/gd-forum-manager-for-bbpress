@@ -11,26 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Information extends BaseInformation {
 	public $code = 'gd-forum-manager-for-bbpress';
 
-	public $version = '2.3';
-	public $build = 100;
+	public $version = '2.3.1';
+	public $build = 101;
 	public $edition = 'free';
 	public $status = 'stable';
-	public $updated = '2023.02.03';
+	public $updated = '2023.02.14';
 	public $released = '2020.06.22';
 
 	public $is_bbpress_plugin = true;
-
-	public function __construct() {
-		$this->plugins['bbpress'] = '2.6.2';
-	}
-
-	public static function instance() : Information {
-		static $instance = false;
-
-		if ( ! $instance ) {
-			$instance = new Information();
-		}
-
-		return $instance;
-	}
 }
