@@ -15,6 +15,7 @@ class Plugin extends BasePlugin {
 	public $plugin_menu = 'GD Forum Manager';
 	public $plugin_title = 'GD Forum Manager for bbPress';
 
+	public $buy_me_a_coffee = true;
 	public $auto_mod_interface_colors = true;
 
 	public function constructor() {

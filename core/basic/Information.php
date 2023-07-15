@@ -19,4 +19,7 @@ class Information extends BaseInformation {
 	public $released = '2020.06.22';
 
 	public $is_bbpress_plugin = true;
+
+	public $github_url = 'https://github.com/dev4press/gd-forum-manager-for-bbpress';
+	public $wp_org_url = 'https://wordpress.org/plugins/gd-forum-manager-for-bbpress/';
 }
