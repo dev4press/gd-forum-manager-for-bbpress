@@ -33,32 +33,32 @@ class Actions {
 			'filter_process' => ''
 		);
 
-		$args         = wp_parse_args( $args, $defaults );
-		$args['name'] = $name;
+		$args           = wp_parse_args( $args, $defaults );
+		$args[ 'name' ] = $name;
 
-		if ( ! in_array( $args['scope'], array( 'topic', 'forum' ), true ) ) {
+		if ( ! in_array( $args[ 'scope' ], array( 'topic', 'forum' ), true ) ) {
 			return false;
 		}
 
-		if ( ! in_array( $args['action'], array( 'edit', 'bulk' ), true ) ) {
+		if ( ! in_array( $args[ 'action' ], array( 'edit', 'bulk' ), true ) ) {
 			return false;
 		}
 
-		$key = $args['scope'] . '-' . $args['action'] . '-' . $args['name'];
+		$key = $args[ 'scope' ] . '-' . $args[ 'action' ] . '-' . $args[ 'name' ];
 
-		if ( empty( $args['filter_visible'] ) ) {
-			$args['filter_visible'] = $args['prefix'] . '-action-visible-' . $key;
+		if ( empty( $args[ 'filter_visible' ] ) ) {
+			$args[ 'filter_visible' ] = $args[ 'prefix' ] . '-action-visible-' . $key;
 		}
 
-		if ( empty( $args['filter_display'] ) ) {
-			$args['filter_display'] = $args['prefix'] . '-action-display-' . $key;
+		if ( empty( $args[ 'filter_display' ] ) ) {
+			$args[ 'filter_display' ] = $args[ 'prefix' ] . '-action-display-' . $key;
 		}
 
-		if ( empty( $args['filter_process'] ) ) {
-			$args['filter_process'] = $args['prefix'] . '-action-process-' . $key;
+		if ( empty( $args[ 'filter_process' ] ) ) {
+			$args[ 'filter_process' ] = $args[ 'prefix' ] . '-action-process-' . $key;
 		}
 
-		$this->_actions[ $args['scope'] ][ $args['action'] ][ $name ] = $args;
+		$this->_actions[ $args[ 'scope' ] ][ $args[ 'action' ] ][ $name ] = $args;
 
 		return true;
 	}

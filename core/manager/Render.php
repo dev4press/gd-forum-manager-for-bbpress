@@ -2,8 +2,8 @@
 
 namespace Dev4Press\Plugin\GDFAR\Manager;
 
-use Dev4Press\v39\Core\Quick\Arr;
-use Dev4Press\v39\Core\Quick\Sanitize;
+use Dev4Press\v42\Core\Quick\Arr;
+use Dev4Press\v42\Core\Quick\Sanitize;
 use WP_Error;
 
 class Render {
@@ -85,37 +85,37 @@ class Render {
 		$i = 1;
 
 		foreach ( $actions as $action ) {
-			$visible = apply_filters( $action['filter_visible'], true, array(
+			$visible = apply_filters( $action[ 'filter_visible' ], true, array(
 				'action'  => 'bulk',
 				'context' => $context
 			) );
 
 			if ( $visible ) {
-				$element = 'action-' . $action['name'] . '-' . str_pad( $i, 4, '0', STR_PAD_LEFT ) . '-' . rand( 1000, 9999 );
+				$element = 'action-' . $action[ 'name' ] . '-' . str_pad( $i, 4, '0', STR_PAD_LEFT ) . '-' . rand( 1000, 9999 );
 
-				$render = apply_filters( $action['filter_display'], '', array(
-					'base'    => 'gdfar[field][' . $action['name'] . ']',
+				$render = apply_filters( $action[ 'filter_display' ], '', array(
+					'base'    => 'gdfar[field][' . $action[ 'name' ] . ']',
 					'type'    => $type,
 					'element' => $element,
 					'context' => $context
 				) );
 
-				$label = $action['label'];
+				$label = $action[ 'label' ];
 
 				if ( ! empty( $render ) && ! empty( $label ) ) {
 					$classes = array(
 						'gdfar-action',
-						'gdfar-action-' . $action['name']
+						'gdfar-action-' . $action[ 'name' ]
 					);
 
-					if ( ! empty( $action['class'] ) ) {
-						$classes[] = $action['class'];
+					if ( ! empty( $action[ 'class' ] ) ) {
+						$classes[] = $action[ 'class' ];
 					}
 
 					$notice = '';
 
-					if ( ! empty( $action['notice'] ) && gdfar_settings()->get( 'notices_under_fields' ) ) {
-						$notice = '<div class="gdfar-content-notice">' . $action['notice'] . '</div>';
+					if ( ! empty( $action[ 'notice' ] ) && gdfar_settings()->get( 'notices_under_fields' ) ) {
+						$notice = '<div class="gdfar-content-notice">' . $action[ 'notice' ] . '</div>';
 					}
 
 					$elements[] = '<dl class="' . Sanitize::html_classes( $classes ) . '"><dt>' .
@@ -138,39 +138,39 @@ class Render {
 		$i = 1;
 
 		foreach ( $actions as $action ) {
-			$visible = apply_filters( $action['filter_visible'], true, array(
+			$visible = apply_filters( $action[ 'filter_visible' ], true, array(
 				'action'  => 'edit',
 				'id'      => $id,
 				'context' => $context
 			) );
 
 			if ( $visible ) {
-				$element = 'action-' . $action['name'] . '-' . str_pad( $i, 4, '0', STR_PAD_LEFT ) . '-' . rand( 1000, 9999 );
+				$element = 'action-' . $action[ 'name' ] . '-' . str_pad( $i, 4, '0', STR_PAD_LEFT ) . '-' . rand( 1000, 9999 );
 
-				$render = apply_filters( $action['filter_display'], '', array(
+				$render = apply_filters( $action[ 'filter_display' ], '', array(
 					'id'      => $id,
-					'base'    => 'gdfar[field][' . $action['name'] . ']',
+					'base'    => 'gdfar[field][' . $action[ 'name' ] . ']',
 					'type'    => $type,
 					'element' => $element,
 					'context' => $context
 				) );
 
-				$label = $action['label'];
+				$label = $action[ 'label' ];
 
 				if ( ! empty( $render ) && ! empty( $label ) ) {
 					$classes = array(
 						'gdfar-action',
-						'gdfar-action-' . $action['name']
+						'gdfar-action-' . $action[ 'name' ]
 					);
 
-					if ( ! empty( $action['class'] ) ) {
-						$classes[] = $action['class'];
+					if ( ! empty( $action[ 'class' ] ) ) {
+						$classes[] = $action[ 'class' ];
 					}
 
 					$notice = '';
 
-					if ( ! empty( $action['notice'] ) && gdfar_settings()->get( 'notices_under_fields' ) ) {
-						$notice = '<div class="gdfar-content-notice">' . $action['notice'] . '</div>';
+					if ( ! empty( $action[ 'notice' ] ) && gdfar_settings()->get( 'notices_under_fields' ) ) {
+						$notice = '<div class="gdfar-content-notice">' . $action[ 'notice' ] . '</div>';
 					}
 
 					$elements[] = '<dl class="' . Sanitize::html_classes( $classes ) . '"><dt>' .

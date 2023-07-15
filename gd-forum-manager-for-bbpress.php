@@ -7,9 +7,9 @@ Description:       Expand how the moderators can manage forum content from the f
 Author:            Milan Petrovic
 Author URI:        https://www.dev4press.com/
 Text Domain:       gd-forum-manager-for-bbpress
-Version:           2.3.1
+Version:           2.4
 Requires at least: 5.5
-Tested up to:      6.1
+Tested up to:      6.3
 Requires PHP:      7.3
 License:           GPLv3 or later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
@@ -31,7 +31,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>
 */
 
-use Dev4Press\v39\WordPress;
+use Dev4Press\v42\WordPress;
 
 $gdfar_dirname_basic = dirname( __FILE__ ) . '/';
 $gdfar_urlname_basic = plugins_url( '/', __FILE__ );

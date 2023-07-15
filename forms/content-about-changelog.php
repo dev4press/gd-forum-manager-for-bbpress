@@ -1,6 +1,12 @@
 <div class="d4p-info-block d4p-info-block-changelog">
     <h3><?php esc_html_e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
     <div>
+        <h4>Version: 2.4 / July 15 2023</h4>
+        <ul>
+            <li><strong>new</strong> tested with WordPress 6.2 and 6.3</li>
+            <li><strong>edit</strong> Dev4Press Library 4.2</li>
+        </ul>
+
         <h4>Version: 2.3.1 / February 14 2023</h4>
         <ul>
             <li><strong>edit</strong> few updates to the core classes</li>
