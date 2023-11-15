@@ -173,10 +173,13 @@ class AJAX {
 					$this->check_edit_moderation( $data['type'], $data['id'] );
 
 					do_action( 'gdfar_ajax_edit_process_start', $data );
+					do_action( 'gdfar_ajax_edit_' . $data['type'] . '_process_start', $data );
 
-					$result = Process::instance()->init( $data )->edit();
+					$result  = Process::instance()->init( $data )->edit();
+					$changes = Process::instance()->get_changes( $data['type'], $data['id'] );
 
-					do_action( 'gdfar_ajax_edit_process_end', $data, $result );
+					do_action( 'gdfar_ajax_edit_process_end', $data, $result, $changes );
+					do_action( 'gdfar_ajax_edit_' . $data['type'] . '_process_end', $data, $result, $changes );
 
 					if ( is_wp_error( $result ) ) {
 						$this->json_respond( array(
@@ -253,10 +256,13 @@ class AJAX {
 					$this->check_bulk_moderation( $data['type'], $data['id'] );
 
 					do_action( 'gdfar_ajax_bulk_process_start', $data );
+					do_action( 'gdfar_ajax_bulk_' . $data['type'] . '_process_start', $data );
 
-					$result = Process::instance()->init( $data )->bulk();
+					$result  = Process::instance()->init( $data )->bulk();
+					$changes = Process::instance()->get_changes( $data['type'] );
 
-					do_action( 'gdfar_ajax_bulk_process_end', $data, $result );
+					do_action( 'gdfar_ajax_bulk_process_end', $data, $result, $changes );
+					do_action( 'gdfar_ajax_bulk_' . $data['type'] . '_process_end', $data, $result, $changes );
 
 					if ( is_wp_error( $result ) ) {
 						$this->json_respond( array(

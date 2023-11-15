@@ -4,8 +4,12 @@
         <h4>Version: 2.4 / November 15 2023</h4>
         <ul>
             <li><strong>new</strong> tested with WordPress 6.4</li>
+            <li><strong>new</strong> log each change during the edit or bulk processing</li>
+            <li><strong>new</strong> additional actions fired during the AJAX handling</li>
+            <li><strong>edit</strong> if author name is empty, it will not be changed</li>
             <li><strong>edit</strong> plugin admin dashboard styling improvements</li>
             <li><strong>edit</strong> Dev4Press Library 4.3</li>
+            <li><strong>fix</strong> author username issue if the post is anonymous</li>
         </ul>
 
         <h4>Version: 2.4 / July 15 2023</h4>

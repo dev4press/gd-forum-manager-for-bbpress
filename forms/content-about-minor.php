@@ -2,7 +2,7 @@
     <h3><?php esc_html_e( 'Maintenance and Security Releases', 'gd-forum-manager-for-bbpress' ); ?></h3>
     <p>
         <strong><?php esc_html_e( 'Version', 'gd-forum-manager-for-bbpress' ); ?> <span>2.5</span></strong> &minus;
-        Various small updates.
+        Many improvements and tweaks, with some bug fixes.
     </p>
     <p>
         <strong><?php esc_html_e( 'Version', 'gd-forum-manager-for-bbpress' ); ?> <span>2.2 / 2.3 / 2.4</span></strong> &minus;

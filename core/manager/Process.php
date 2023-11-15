@@ -7,6 +7,7 @@ use WP_Error;
 class Process {
 	private $data;
 	private $modd;
+	private $changes;
 
 	public function __construct() {
 	}
@@ -24,8 +25,12 @@ class Process {
 	public function init( $data ) : Process {
 		define( 'GDFAR_EDITOR_PROCESSING', true );
 
-		$this->data = $data;
-		$this->modd = array(
+		$this->data    = $data;
+		$this->modd    = array(
+			'topic' => array(),
+			'forum' => array(),
+		);
+		$this->changes = array(
 			'topic' => array(),
 			'forum' => array(),
 		);
@@ -33,13 +38,20 @@ class Process {
 		return $this;
 	}
 
-	public function modded( $type, $id ) {
+	public function modded( $type, $id, $element = null, $new = null, $old = null ) {
 		if ( $type === 'forum' || $type === 'topic' ) {
 			$id = absint( $id );
 
 			if ( $id > 0 ) {
 				if ( ! in_array( $id, $this->modd[ $type ] ) ) {
 					$this->modd[ $type ][] = $id;
+				}
+
+				if ( ! is_null( $element ) ) {
+					$this->changes[ $type ][ $id ][ $element ] = array(
+						'new' => $new,
+						'old' => $old,
+					);
 				}
 			}
 		}
@@ -60,6 +72,14 @@ class Process {
 		}
 
 		return $id;
+	}
+
+	public function get_changes( $type, $id = null ) {
+		if ( is_null( $id ) ) {
+			return $this->changes[ $type ] ?? array();
+		} else {
+			return $this->changes[ $type ][ $id ] ?? array();
+		}
 	}
 
 	public function is_modded( $type, $id ) : bool {

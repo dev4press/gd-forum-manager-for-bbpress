@@ -31,8 +31,8 @@ class Defaults {
 		}
 	}
 
-	public function modded( $type, $id ) {
-		Process::instance()->modded( $type, $id );
+	public function modded( $type, $id, $element = null, $new = null, $old = null ) {
+		Process::instance()->modded( $type, $id, $element, $new, $old );
 	}
 
 	public function update_post( $args, $type ) {
@@ -166,7 +166,7 @@ class Defaults {
 				return $update;
 			}
 
-			$this->modded( 'forum', $forum_id );
+			$this->modded( 'forum', $forum_id, 'title', $new_title, $old_title );
 		}
 
 		return $result;
@@ -192,7 +192,7 @@ class Defaults {
 
 			$this->_update_forum_status( $new_status, $forum_id );
 
-			$this->modded( 'forum', $forum_id );
+			$this->modded( 'forum', $forum_id, 'status', $new_status, $old_status );
 		}
 
 		return $result;
@@ -219,7 +219,7 @@ class Defaults {
 				return $update;
 			}
 
-			$this->modded( 'forum', $forum_id );
+			$this->modded( 'forum', $forum_id, 'visibility', $new_status, $old_status );
 		}
 
 		return $result;
@@ -267,7 +267,7 @@ class Defaults {
 
 					$this->_update_forum_status( $new_status, $forum_id );
 
-					$this->modded( 'forum', $forum_id );
+					$this->modded( 'forum', $forum_id, 'status', $new_status, $old_status );
 				}
 			}
 		}
@@ -298,7 +298,7 @@ class Defaults {
 						return $update;
 					}
 
-					$this->modded( 'forum', $forum_id );
+					$this->modded( 'forum', $forum_id, 'visibility', $new_status, $old_status );
 				}
 			}
 		}
@@ -379,7 +379,7 @@ class Defaults {
 				return $update;
 			}
 
-			$this->modded( 'topic', $topic_id );
+			$this->modded( 'topic', $topic_id, 'title', $new_title, $old_title );
 		}
 
 		return $result;
@@ -414,7 +414,7 @@ class Defaults {
 		$updated = bbp_get_topic_tag_names( $topic_id );
 
 		if ( $updated != $current ) {
-			$this->modded( 'topic', $topic_id );
+			$this->modded( 'topic', $topic_id, 'topic-tags', $terms, $current );
 		}
 
 		return $result;
@@ -433,7 +433,7 @@ class Defaults {
 			if ( $old_forum != $new_forum ) {
 				bbp_move_topic_handler( $topic_id, $old_forum, $new_forum );
 
-				$this->modded( 'topic', $topic_id );
+				$this->modded( 'topic', $topic_id, 'forum', $new_forum, $old_forum );
 			}
 		}
 
@@ -441,26 +441,28 @@ class Defaults {
 	}
 
 	public function process_topic_edit_author( $result, $args = array() ) {
-		$topic_id = $args['id'];
-		$author   = get_user_by( 'login', $args['value']['username'] );
+		if ( ! empty( $args['value']['username'] ) ) {
+			$topic_id = $args['id'];
+			$author   = get_user_by( 'login', $args['value']['username'] );
 
-		if ( $author && $author->ID > 0 ) {
-			$old_author = bbp_get_topic_author_id( $topic_id );
+			if ( $author && $author->ID > 0 ) {
+				$old_author = bbp_get_topic_author_id( $topic_id );
 
-			if ( $old_author != $author->ID ) {
-				$update = $this->update_post( array(
-					'ID'          => $topic_id,
-					'post_author' => $author->ID,
-				), true );
+				if ( $old_author != $author->ID ) {
+					$update = $this->update_post( array(
+						'ID'          => $topic_id,
+						'post_author' => $author->ID,
+					), true );
 
-				if ( is_wp_error( $update ) ) {
-					return $update;
+					if ( is_wp_error( $update ) ) {
+						return $update;
+					}
+
+					$this->modded( 'topic', $topic_id, 'author', $author->ID, $old_author );
 				}
-
-				$this->modded( 'topic', $topic_id );
+			} else {
+				return new WP_Error( "invalid_author", __( 'Author username is not valid.', 'gd-forum-manager-for-bbpress' ) );
 			}
-		} else {
-			return new WP_Error( "invalid_author", __( 'Author username is not valid.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		return $result;
@@ -491,7 +493,7 @@ class Defaults {
 				return $update;
 			}
 
-			$this->modded( 'topic', $topic_id );
+			$this->modded( 'topic', $topic_id, 'status', $new_status, $old_status );
 		}
 
 		return $result;
@@ -520,7 +522,7 @@ class Defaults {
 					break;
 			}
 
-			$this->modded( 'topic', $topic_id );
+			$this->modded( 'topic', $topic_id, 'sticky', $new_status, $old_status );
 		}
 
 		return $result;
@@ -586,7 +588,7 @@ class Defaults {
 				if ( $old_forum != $new_forum ) {
 					bbp_move_topic_handler( $topic_id, $old_forum, $new_forum );
 
-					$this->modded( 'topic', $topic_id );
+					$this->modded( 'topic', $topic_id, 'forum', $new_forum, $old_forum );
 				}
 			}
 		}
@@ -614,7 +616,7 @@ class Defaults {
 							return $update;
 						}
 
-						$this->modded( 'topic', $topic_id );
+						$this->modded( 'topic', $topic_id, 'author', $author->ID, $old_author );
 					}
 				}
 			} else {
@@ -643,7 +645,7 @@ class Defaults {
 						return $update;
 					}
 
-					$this->modded( 'topic', $topic_id );
+					$this->modded( 'topic', $topic_id, 'clear-tags', array(), $current );
 				}
 			}
 		}
@@ -678,7 +680,7 @@ class Defaults {
 						return $update;
 					}
 
-					$this->modded( 'topic', $topic_id );
+					$this->modded( 'topic', $topic_id, 'status', $new_status, $old_status );
 				}
 			}
 		}
@@ -711,7 +713,7 @@ class Defaults {
 							break;
 					}
 
-					$this->modded( 'topic', $topic_id );
+					$this->modded( 'topic', $topic_id, 'sticky', $new_status, $old_status );
 				}
 			}
 		}
