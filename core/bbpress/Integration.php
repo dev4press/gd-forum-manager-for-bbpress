@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\bbPress;
 
-use Dev4Press\v42\Core\Quick\Sanitize;
+use Dev4Press\v43\Core\Quick\Sanitize;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -73,21 +73,21 @@ class Integration {
 			'nonce'   => wp_create_nonce( 'gdfar-manager-request-' . $is . '-' . $id ),
 			'bbpress' => array(
 				'is'       => $is,
-				'forum_id' => $id
+				'forum_id' => $id,
 			),
 			'message' => array(
-				'please_wait' => esc_html__( "Please Wait...", "gd-forum-manager-for-bbpress" )
+				'please_wait' => esc_html__( "Please Wait...", "gd-forum-manager-for-bbpress" ),
 			),
 			'titles'  => array(
 				'edit' => array(
 					'forum' => esc_html_x( "Edit Forum", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress" ),
-					'topic' => esc_html_x( "Edit Topic", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress" )
+					'topic' => esc_html_x( "Edit Topic", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress" ),
 				),
 				'bulk' => array(
 					'forum' => esc_html_x( "Edit selected Forums", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress" ),
-					'topic' => esc_html_x( "Edit selected Topics", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress" )
-				)
-			)
+					'topic' => esc_html_x( "Edit selected Topics", "Edit Modal Dialog, Title", "gd-forum-manager-for-bbpress" ),
+				),
+			),
 		) );
 
 		do_action( 'gdfar_plugin_enqueue_scripts' );

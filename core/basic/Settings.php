@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
-use Dev4Press\v42\Core\Plugins\Settings as BaseSettings;
+use Dev4Press\v43\Core\Plugins\Settings as BaseSettings;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -13,7 +13,7 @@ class Settings extends BaseSettings {
 
 	public $settings = array(
 		'core'     => array(
-			'activated' => 0
+			'activated' => 0,
 		),
 		'settings' => array(
 			'moderators'               => true,
@@ -22,8 +22,8 @@ class Settings extends BaseSettings {
 			'topic'                    => true,
 			'notices_under_fields'     => true,
 			'small_screen_always_show' => false,
-			'topic_edit_log'           => false
-		)
+			'topic_edit_log'           => false,
+		),
 	);
 
 	protected function constructor() {

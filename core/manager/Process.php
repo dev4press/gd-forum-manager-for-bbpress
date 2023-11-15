@@ -27,7 +27,7 @@ class Process {
 		$this->data = $data;
 		$this->modd = array(
 			'topic' => array(),
-			'forum' => array()
+			'forum' => array(),
 		);
 
 		return $this;
@@ -73,19 +73,19 @@ class Process {
 	}
 
 	public function bulk() {
-		$actions = gdfar()->actions()->get_actions( $this->data[ 'type' ], 'bulk' );
+		$actions = gdfar()->actions()->get_actions( $this->data['type'], 'bulk' );
 
 		if ( empty( $actions ) ) {
 			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
 		}
 
-		$ids = $this->_validate( $this->data[ 'type' ], $this->data[ 'id' ] );
+		$ids = $this->_validate( $this->data['type'], $this->data['id'] );
 
 		if ( empty( $ids ) ) {
 			return new WP_Error( 'invalid_objects', __( "Selected objects are not valid.", "gd-forum-manager-for-bbpress" ) );
 		}
 
-		$elements = $this->_bulk( $actions, $this->data[ 'type' ], $this->data[ 'id' ], $this->data[ 'field' ] );
+		$elements = $this->_bulk( $actions, $this->data['type'], $this->data['id'], $this->data['field'] );
 
 		if ( empty( $elements ) ) {
 			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
@@ -103,14 +103,14 @@ class Process {
 	}
 
 	public function edit() {
-		$actions = gdfar()->actions()->get_actions( $this->data[ 'type' ], 'edit' );
+		$actions = gdfar()->actions()->get_actions( $this->data['type'], 'edit' );
 
 		if ( empty( $actions ) ) {
 			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
 		}
 
-		if ( ( $this->data[ 'type' ] == 'forum' && bbp_is_forum( $this->data[ 'id' ] ) ) || ( $this->data[ 'type' ] == 'topic' && bbp_is_topic( $this->data[ 'id' ] ) ) ) {
-			$elements = $this->_edit( $actions, $this->data[ 'type' ], $this->data[ 'id' ], $this->data[ 'field' ] );
+		if ( ( $this->data['type'] == 'forum' && bbp_is_forum( $this->data['id'] ) ) || ( $this->data['type'] == 'topic' && bbp_is_topic( $this->data['id'] ) ) ) {
+			$elements = $this->_edit( $actions, $this->data['type'], $this->data['id'], $this->data['field'] );
 
 			if ( empty( $elements ) ) {
 				return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
@@ -134,15 +134,15 @@ class Process {
 		$elements = array();
 
 		foreach ( $actions as $action ) {
-			$value = $field[ $action[ 'name' ] ] ?? false;
+			$value = $field[ $action['name'] ] ?? false;
 
-			$elements[ $action[ 'name' ] ] = apply_filters( $action[ 'filter_process' ], true, array(
+			$elements[ $action['name'] ] = apply_filters( $action['filter_process'], true, array(
 				'id'    => $id,
-				'value' => $value
+				'value' => $value,
 			) );
 		}
 
-		if ( $type == 'topic' && $this->data[ 'edit-log' ] !== false ) {
+		if ( $type == 'topic' && $this->data['edit-log'] !== false ) {
 			foreach ( $id as $topic_id ) {
 				if ( $this->is_modded( 'topic', $topic_id ) ) {
 					$this->_revision( $topic_id );
@@ -157,15 +157,15 @@ class Process {
 		$elements = array();
 
 		foreach ( $actions as $action ) {
-			$value = $field[ $action[ 'name' ] ] ?? false;
+			$value = $field[ $action['name'] ] ?? false;
 
-			$elements[ $action[ 'name' ] ] = apply_filters( $action[ 'filter_process' ], true, array(
+			$elements[ $action['name'] ] = apply_filters( $action['filter_process'], true, array(
 				'id'    => $id,
-				'value' => $value
+				'value' => $value,
 			) );
 		}
 
-		if ( $type == 'topic' && $this->data[ 'edit-log' ] !== false ) {
+		if ( $type == 'topic' && $this->data['edit-log'] !== false ) {
 			if ( $this->is_modded( 'topic', $id ) ) {
 				$this->_revision( $id );
 			}
@@ -204,7 +204,7 @@ class Process {
 				'topic_id'    => $topic_id,
 				'revision_id' => $revision_id,
 				'author_id'   => bbp_get_current_user_id(),
-				'reason'      => $this->data[ 'edit-log' ][ 'reason' ]
+				'reason'      => $this->data['edit-log']['reason'],
 			) );
 		}
 	}

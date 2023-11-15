@@ -3,8 +3,8 @@
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
 use Dev4Press\Plugin\GDFAR\Manager\Process;
-use Dev4Press\v42\Core\Quick\Sanitize;
-use Dev4Press\v42\Core\Quick\WPR;
+use Dev4Press\v43\Core\Quick\Sanitize;
+use Dev4Press\v43\Core\Quick\WPR;
 
 class AJAX {
 	private $nonce = 'gdfar-manager-request';
@@ -39,7 +39,7 @@ class AJAX {
 			$nonce .= '-' . $forum;
 		}
 
-		$valid = wp_verify_nonce( $_REQUEST[ '_ajax_nonce' ], $nonce );
+		$valid = wp_verify_nonce( $_REQUEST['_ajax_nonce'], $nonce );
 
 		if ( $valid === false ) {
 			$this->error( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
@@ -107,7 +107,7 @@ class AJAX {
 
 	public function toggle_option() {
 		if ( WPR::is_current_user_admin() ) {
-			$name = Sanitize::slug( $_POST[ 'option' ] );
+			$name = Sanitize::slug( $_POST['option'] );
 
 			$this->admin_check_nonce( 'gdfar-toggle-option-' . $name );
 
@@ -121,10 +121,10 @@ class AJAX {
 	}
 
 	public function edit_request() {
-		$is    = isset( $_REQUEST[ 'is' ] ) ? Sanitize::slug( $_REQUEST[ 'is' ] ) : '';
-		$forum = isset( $_REQUEST[ 'forum' ] ) ? absint( $_REQUEST[ 'forum' ] ) : 0;
-		$type  = isset( $_REQUEST[ 'type' ] ) ? Sanitize::slug( $_REQUEST[ 'type' ] ) : '';
-		$id    = isset( $_REQUEST[ 'id' ] ) ? absint( $_REQUEST[ 'id' ] ) : 0;
+		$is    = isset( $_REQUEST['is'] ) ? Sanitize::slug( $_REQUEST['is'] ) : '';
+		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0;
+		$type  = isset( $_REQUEST['type'] ) ? Sanitize::slug( $_REQUEST['type'] ) : '';
+		$id    = isset( $_REQUEST['id'] ) ? absint( $_REQUEST['id'] ) : 0;
 
 		$this->check_nonce( $is, $forum );
 		$this->check_edit_moderation( $type, $id );
@@ -143,34 +143,34 @@ class AJAX {
 	}
 
 	public function edit_process() {
-		if ( isset( $_REQUEST[ 'gdfar' ] ) ) {
-			$data = (array) $_REQUEST[ 'gdfar' ];
+		if ( isset( $_REQUEST['gdfar'] ) ) {
+			$data = (array) $_REQUEST['gdfar'];
 
 			$log = false;
 
-			if ( isset( $data[ 'edit-log' ] ) ) {
-				if ( isset( $data[ 'edit-log' ][ 'keep' ] ) ) {
+			if ( isset( $data['edit-log'] ) ) {
+				if ( isset( $data['edit-log']['keep'] ) ) {
 					$log = array(
 						'keep'   => true,
-						'reason' => isset( $data[ 'edit-log' ][ 'reason' ] ) ? Sanitize::basic( $data[ 'edit-log' ][ 'reason' ] ) : ''
+						'reason' => isset( $data['edit-log']['reason'] ) ? Sanitize::basic( $data['edit-log']['reason'] ) : '',
 					);
 				}
 			}
 
-			$data[ 'action' ]   = isset( $data[ 'action' ] ) ? Sanitize::slug( $data[ 'action' ] ) : '';
-			$data[ 'type' ]     = isset( $data[ 'type' ] ) ? Sanitize::slug( $data[ 'type' ] ) : '';
-			$data[ 'nonce' ]    = isset( $data[ 'nonce' ] ) ? Sanitize::basic( $data[ 'nonce' ] ) : '';
-			$data[ 'id' ]       = isset( $data[ 'id' ] ) ? absint( $data[ 'id' ] ) : 0;
-			$data[ 'field' ]    = isset( $data[ 'field' ] ) ? gdfar_array_sanitize_text_field( (array) $data[ 'field' ] ) : array();
-			$data[ 'edit-log' ] = $log;
+			$data['action']   = isset( $data['action'] ) ? Sanitize::slug( $data['action'] ) : '';
+			$data['type']     = isset( $data['type'] ) ? Sanitize::slug( $data['type'] ) : '';
+			$data['nonce']    = isset( $data['nonce'] ) ? Sanitize::basic( $data['nonce'] ) : '';
+			$data['id']       = isset( $data['id'] ) ? absint( $data['id'] ) : 0;
+			$data['field']    = isset( $data['field'] ) ? gdfar_array_sanitize_text_field( (array) $data['field'] ) : array();
+			$data['edit-log'] = $log;
 
 			if (
-				in_array( $data[ 'type' ], array(
+				in_array( $data['type'], array(
 					'forum',
-					'topic'
-				) ) && $data[ 'id' ] > 0 || $data[ 'action' ] == 'edit' || ! empty( $nonce ) ) {
-				if ( wp_verify_nonce( $data[ 'nonce' ], 'gdfar-manager-edit-' . $data[ 'type' ] . '-' . $data[ 'id' ] ) ) {
-					$this->check_edit_moderation( $data[ 'type' ], $data[ 'id' ] );
+					'topic',
+				) ) && $data['id'] > 0 || $data['action'] == 'edit' || ! empty( $nonce ) ) {
+				if ( wp_verify_nonce( $data['nonce'], 'gdfar-manager-edit-' . $data['type'] . '-' . $data['id'] ) ) {
+					$this->check_edit_moderation( $data['type'], $data['id'] );
 
 					do_action( 'gdfar_ajax_edit_process_start', $data );
 
@@ -181,13 +181,13 @@ class AJAX {
 					if ( is_wp_error( $result ) ) {
 						$this->json_respond( array(
 							'status' => 'error',
-							'error'  => $result->get_error_message()
+							'error'  => $result->get_error_message(),
 						) );
 					} else {
 						$this->json_respond( array(
 							'status'   => 'ok',
 							'errors'   => count( $result ),
-							'elements' => $result
+							'elements' => $result,
 						) );
 					}
 				}
@@ -196,15 +196,15 @@ class AJAX {
 
 		$this->json_respond( array(
 			'status' => 'error',
-			'error'  => __( "Invalid Request.", "gd-forum-manager-for-bbpress" )
+			'error'  => __( "Invalid Request.", "gd-forum-manager-for-bbpress" ),
 		) );
 	}
 
 	public function bulk_request() {
-		$is    = isset( $_REQUEST[ 'is' ] ) ? Sanitize::slug( $_REQUEST[ 'is' ] ) : '';
-		$forum = isset( $_REQUEST[ 'forum' ] ) ? absint( $_REQUEST[ 'forum' ] ) : 0;
-		$type  = isset( $_REQUEST[ 'type' ] ) ? Sanitize::slug( $_REQUEST[ 'type' ] ) : '';
-		$id    = isset( $_REQUEST[ 'id' ] ) ? Sanitize::ids_list( $_REQUEST[ 'id' ] ) : array();
+		$is    = isset( $_REQUEST['is'] ) ? Sanitize::slug( $_REQUEST['is'] ) : '';
+		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0;
+		$type  = isset( $_REQUEST['type'] ) ? Sanitize::slug( $_REQUEST['type'] ) : '';
+		$id    = isset( $_REQUEST['id'] ) ? Sanitize::ids_list( $_REQUEST['id'] ) : array();
 
 		$this->check_nonce( $is, $forum );
 		$this->check_bulk_moderation( $type, $id );
@@ -223,34 +223,34 @@ class AJAX {
 	}
 
 	public function bulk_process() {
-		if ( isset( $_REQUEST[ 'gdfar' ] ) ) {
-			$data = (array) $_REQUEST[ 'gdfar' ];
+		if ( isset( $_REQUEST['gdfar'] ) ) {
+			$data = (array) $_REQUEST['gdfar'];
 
 			$log = false;
 
-			if ( isset( $data[ 'edit-log' ] ) ) {
-				if ( isset( $data[ 'edit-log' ][ 'keep' ] ) ) {
+			if ( isset( $data['edit-log'] ) ) {
+				if ( isset( $data['edit-log']['keep'] ) ) {
 					$log = array(
 						'keep'   => true,
-						'reason' => isset( $data[ 'edit-log' ][ 'reason' ] ) ? Sanitize::basic( $data[ 'edit-log' ][ 'reason' ] ) : ''
+						'reason' => isset( $data['edit-log']['reason'] ) ? Sanitize::basic( $data['edit-log']['reason'] ) : '',
 					);
 				}
 			}
 
-			$data[ 'action' ]   = isset( $data[ 'action' ] ) ? Sanitize::slug( $data[ 'action' ] ) : '';
-			$data[ 'type' ]     = isset( $data[ 'type' ] ) ? Sanitize::slug( $data[ 'type' ] ) : '';
-			$data[ 'nonce' ]    = isset( $data[ 'nonce' ] ) ? Sanitize::basic( $data[ 'nonce' ] ) : '';
-			$data[ 'field' ]    = isset( $data[ 'field' ] ) ? (array) $data[ 'field' ] : array();
-			$data[ 'id' ]       = isset( $data[ 'id' ] ) ? Sanitize::ids_list( $data[ 'id' ] ) : array();
-			$data[ 'edit-log' ] = $log;
+			$data['action']   = isset( $data['action'] ) ? Sanitize::slug( $data['action'] ) : '';
+			$data['type']     = isset( $data['type'] ) ? Sanitize::slug( $data['type'] ) : '';
+			$data['nonce']    = isset( $data['nonce'] ) ? Sanitize::basic( $data['nonce'] ) : '';
+			$data['field']    = isset( $data['field'] ) ? (array) $data['field'] : array();
+			$data['id']       = isset( $data['id'] ) ? Sanitize::ids_list( $data['id'] ) : array();
+			$data['edit-log'] = $log;
 
 			if (
-				in_array( $data[ 'type' ], array(
+				in_array( $data['type'], array(
 					'forum',
-					'topic'
-				) ) && ! empty( $data[ 'id' ] ) || $data[ 'action' ] == 'bulk' || ! empty( $nonce ) ) {
-				if ( wp_verify_nonce( $data[ 'nonce' ], 'gdfar-manager-bulk-' . $data[ 'type' ] ) ) {
-					$this->check_bulk_moderation( $data[ 'type' ], $data[ 'id' ] );
+					'topic',
+				) ) && ! empty( $data['id'] ) || $data['action'] == 'bulk' || ! empty( $nonce ) ) {
+				if ( wp_verify_nonce( $data['nonce'], 'gdfar-manager-bulk-' . $data['type'] ) ) {
+					$this->check_bulk_moderation( $data['type'], $data['id'] );
 
 					do_action( 'gdfar_ajax_bulk_process_start', $data );
 
@@ -261,13 +261,13 @@ class AJAX {
 					if ( is_wp_error( $result ) ) {
 						$this->json_respond( array(
 							'status' => 'error',
-							'error'  => $result->get_error_message()
+							'error'  => $result->get_error_message(),
 						) );
 					} else {
 						$this->json_respond( array(
 							'status'   => 'ok',
 							'errors'   => count( $result ),
-							'elements' => $result
+							'elements' => $result,
 						) );
 					}
 				}
@@ -276,7 +276,7 @@ class AJAX {
 
 		$this->json_respond( array(
 			'status' => 'error',
-			'error'  => __( "Invalid Request.", "gd-forum-manager-for-bbpress" )
+			'error'  => __( "Invalid Request.", "gd-forum-manager-for-bbpress" ),
 		) );
 	}
 }

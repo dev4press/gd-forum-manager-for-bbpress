@@ -5,9 +5,9 @@ namespace Dev4Press\Plugin\GDFAR\Basic;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 use Dev4Press\Plugin\GDFAR\Manager\Actions;
 use Dev4Press\Plugin\GDFAR\Manager\Defaults;
-use Dev4Press\v42\Core\Plugins\Core;
-use Dev4Press\v42\Core\Quick\WPR;
-use Dev4Press\v42\Core\Shared\Enqueue;
+use Dev4Press\v43\Core\Plugins\Core;
+use Dev4Press\v43\Core\Quick\WPR;
+use Dev4Press\v43\Core\Shared\Enqueue;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -34,6 +34,10 @@ class Plugin extends Core {
 	}
 
 	public function f() {
+		return null;
+	}
+
+	public function b() {
 		return null;
 	}
 
@@ -75,7 +79,7 @@ class Plugin extends Core {
 			'ver'  => gdfar_settings()->file_version(),
 			'ext'  => 'css',
 			'min'  => true,
-			'int'  => array()
+			'int'  => array(),
 		) );
 
 		Enqueue::i()->add_css( 'gdfar-manager', array(
@@ -85,7 +89,7 @@ class Plugin extends Core {
 			'ver'  => gdfar_settings()->file_version(),
 			'ext'  => 'css',
 			'min'  => true,
-			'int'  => array( 'gdfar-micromodal' )
+			'int'  => array( 'gdfar-micromodal' ),
 		) );
 
 		Enqueue::i()->add_css( 'gdfar-manager-rtl', array(
@@ -95,7 +99,7 @@ class Plugin extends Core {
 			'ver'  => gdfar_settings()->file_version(),
 			'ext'  => 'css',
 			'min'  => true,
-			'int'  => array( 'gdfar-manager' )
+			'int'  => array( 'gdfar-manager' ),
 		) );
 
 		Enqueue::i()->add_js( 'gdfar-micromodal', array(
@@ -107,7 +111,7 @@ class Plugin extends Core {
 			'min'      => false,
 			'footer'   => true,
 			'localize' => true,
-			'int'      => array()
+			'int'      => array(),
 		) );
 
 		Enqueue::i()->add_js( 'gdfar-manager', array(
@@ -120,7 +124,7 @@ class Plugin extends Core {
 			'footer'   => true,
 			'localize' => true,
 			'req'      => array( 'jquery', 'jquery-form' ),
-			'int'      => array( 'gdfar-micromodal' )
+			'int'      => array( 'gdfar-micromodal' ),
 		) );
 	}
 
