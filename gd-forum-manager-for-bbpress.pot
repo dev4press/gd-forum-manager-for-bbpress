@@ -3,487 +3,517 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: GD Forum Manager for bbPress\n"
-"POT-Creation-Date: 08/15/2021 04:35:44 PM\n"
+"POT-Creation-Date: 11/15/2023 09:54:41 AM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: GD i18n 2.7; www.dev4press.com\n"
+"X-Generator: GD i18n 2.8; www.dev4press.com\n"
 
-#: core/admin/Plugin.php:47
+#: core/admin/Plugin.php:49
 msgid "Install"
 msgstr ""
 
-#: core/admin/Plugin.php:50
+#: core/admin/Plugin.php:52
 msgid "Before you continue, make sure plugin installation was successful."
 msgstr ""
 
-#: core/admin/Plugin.php:54
+#: core/admin/Plugin.php:56
 msgid "Update"
 msgstr ""
 
-#: core/admin/Plugin.php:57
+#: core/admin/Plugin.php:59
 msgid "Before you continue, make sure plugin was successfully updated."
 msgstr ""
 
-#: core/admin/Plugin.php:64
+#: core/admin/Plugin.php:66
 msgid "Getting Started"
 msgstr ""
 
-#: core/admin/Plugin.php:69
+#: core/admin/Plugin.php:71
 msgid "About"
 msgstr ""
 
-#: core/basic/AJAX.php:47
-#: core/basic/AJAX.php:78
-#: core/basic/AJAX.php:98
-#: core/basic/AJAX.php:135
-#: core/basic/AJAX.php:201
-#: core/basic/AJAX.php:215
-#: core/basic/AJAX.php:281
+#: core/basic/AJAX.php:45
+#: core/basic/AJAX.php:76
+#: core/basic/AJAX.php:96
+#: core/basic/AJAX.php:133
+#: core/basic/AJAX.php:199
+#: core/basic/AJAX.php:213
+#: core/basic/AJAX.php:279
 msgid "Invalid Request."
 msgstr ""
 
-#: core/basic/AJAX.php:122
+#: core/basic/AJAX.php:120
 msgid "Invalid Request"
 msgstr ""
 
-#: core/bbpress/Integration.php:77
+#: core/bbpress/Integration.php:83
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit Forum"
 msgstr ""
 
-#: core/bbpress/Integration.php:78
+#: core/bbpress/Integration.php:84
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit Topic"
 msgstr ""
 
-#: core/bbpress/Integration.php:81
+#: core/bbpress/Integration.php:87
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:82
+#: core/bbpress/Integration.php:88
 msgctxt "Edit Modal Dialog, Title"
 msgid "Edit selected Topics"
 msgstr ""
 
-#: core/bbpress/Integration.php:73
+#: core/bbpress/Integration.php:79
 msgid "Please Wait..."
 msgstr ""
 
-#: core/bbpress/Integration.php:99
-#: core/bbpress/Integration.php:125
+#: core/bbpress/Integration.php:105
+#: core/bbpress/Integration.php:131
 msgid "edit"
 msgstr ""
 
-#: core/bbpress/Integration.php:100
+#: core/bbpress/Integration.php:106
 msgid "Open popup to edit '%s' forum"
 msgstr ""
 
-#: core/bbpress/Integration.php:101
+#: core/bbpress/Integration.php:107
 msgid "Enable bulk edit for '%s' forum"
 msgstr ""
 
-#: core/bbpress/Integration.php:126
+#: core/bbpress/Integration.php:132
 msgid "Open popup to edit '%s' topic"
 msgstr ""
 
-#: core/bbpress/Integration.php:127
+#: core/bbpress/Integration.php:133
 msgid "Enable bulk edit for '%s' topic"
 msgstr ""
 
-#: core/bbpress/Integration.php:144
+#: core/bbpress/Integration.php:150
 msgid "Quick Edit"
 msgstr ""
 
-#: core/bbpress/Integration.php:169
+#: core/bbpress/Integration.php:175
 msgid "Selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:170
-#: core/bbpress/Integration.php:180
+#: core/bbpress/Integration.php:176
+#: core/bbpress/Integration.php:186
 msgid "select all"
 msgstr ""
 
-#: core/bbpress/Integration.php:170
-#: core/bbpress/Integration.php:180
+#: core/bbpress/Integration.php:176
+#: core/bbpress/Integration.php:186
 msgid "select none"
 msgstr ""
 
-#: core/bbpress/Integration.php:171
+#: core/bbpress/Integration.php:177
 msgid "Edit Selected Forums"
 msgstr ""
 
-#: core/bbpress/Integration.php:179
+#: core/bbpress/Integration.php:185
 msgid "Selected Topics"
 msgstr ""
 
-#: core/bbpress/Integration.php:181
+#: core/bbpress/Integration.php:187
 msgid "Edit Selected Topics"
 msgstr ""
 
-#: core/manager/Actions.php:83
-#: core/manager/Actions.php:122
+#: core/manager/Actions.php:84
+#: core/manager/Actions.php:123
 msgid "Title"
 msgstr ""
 
-#: core/manager/Actions.php:84
+#: core/manager/Actions.php:85
 msgid "Change forum title."
-msgstr ""
-
-#: core/manager/Actions.php:90
-#: core/manager/Actions.php:106
-#: core/manager/Actions.php:154
-#: core/manager/Actions.php:194
-msgid "Status"
 msgstr ""
 
 #: core/manager/Actions.php:91
 #: core/manager/Actions.php:107
-msgid "Change forum status."
+#: core/manager/Actions.php:155
+#: core/manager/Actions.php:195
+msgid "Status"
 msgstr ""
 
-#: core/manager/Actions.php:97
-#: core/manager/Actions.php:113
-msgid "Visibility"
+#: core/manager/Actions.php:92
+#: core/manager/Actions.php:108
+msgid "Change forum status."
 msgstr ""
 
 #: core/manager/Actions.php:98
 #: core/manager/Actions.php:114
+msgid "Visibility"
+msgstr ""
+
+#: core/manager/Actions.php:99
+#: core/manager/Actions.php:115
 msgid "Change forum visibility."
 msgstr ""
 
-#: core/manager/Actions.php:123
+#: core/manager/Actions.php:124
 msgid "Change topic title."
-msgstr ""
-
-#: core/manager/Actions.php:129
-#: core/manager/Actions.php:170
-msgid "Forum"
 msgstr ""
 
 #: core/manager/Actions.php:130
 #: core/manager/Actions.php:171
-msgid "Change the forum for the topic."
+msgid "Forum"
 msgstr ""
 
-#: core/manager/Actions.php:136
-#: core/manager/Actions.php:177
-msgid "Author"
+#: core/manager/Actions.php:131
+#: core/manager/Actions.php:172
+msgid "Change the forum for the topic."
 msgstr ""
 
 #: core/manager/Actions.php:137
 #: core/manager/Actions.php:178
-msgid "Change the author of the topic."
+msgid "Author"
 msgstr ""
 
 #: core/manager/Actions.php:138
+#: core/manager/Actions.php:179
+msgid "Change the author of the topic."
+msgstr ""
+
+#: core/manager/Actions.php:139
 msgid "Topic author username."
 msgstr ""
 
-#: core/manager/Actions.php:145
-#: core/manager/Actions.php:186
+#: core/manager/Actions.php:146
+#: core/manager/Actions.php:187
 msgid "Topic Tags"
 msgstr ""
 
-#: core/manager/Actions.php:146
+#: core/manager/Actions.php:147
 msgid "Change topic tags."
 msgstr ""
 
-#: core/manager/Actions.php:147
+#: core/manager/Actions.php:148
 msgid "Comma separated list of topic tags."
 msgstr ""
 
-#: core/manager/Actions.php:155
-#: core/manager/Actions.php:195
+#: core/manager/Actions.php:156
+#: core/manager/Actions.php:196
 msgid "Change topic status."
-msgstr ""
-
-#: core/manager/Actions.php:161
-#: core/manager/Actions.php:201
-#: core/manager/Defaults.php:44
-msgid "Sticky"
 msgstr ""
 
 #: core/manager/Actions.php:162
 #: core/manager/Actions.php:202
+#: core/manager/Defaults.php:45
+msgid "Sticky"
+msgstr ""
+
+#: core/manager/Actions.php:163
+#: core/manager/Actions.php:203
 msgid "Change topic sticky status."
 msgstr ""
 
-#: core/manager/Actions.php:179
+#: core/manager/Actions.php:180
 msgid "Topic author username. Leave empty to skip the change."
 msgstr ""
 
-#: core/manager/Actions.php:187
+#: core/manager/Actions.php:188
 msgid "Remove topic tags."
 msgstr ""
 
-#: core/manager/Defaults.php:43
+#: core/manager/Defaults.php:44
 msgid "No"
 msgstr ""
 
-#: core/manager/Defaults.php:45
+#: core/manager/Defaults.php:46
 msgid "Super Sticky"
 msgstr ""
 
-#: core/manager/Defaults.php:156
-#: core/manager/Defaults.php:369
+#: core/manager/Defaults.php:157
+#: core/manager/Defaults.php:370
 msgid "The title is too long."
 msgstr ""
 
-#: core/manager/Defaults.php:182
-#: core/manager/Defaults.php:254
-#: core/manager/Defaults.php:476
-#: core/manager/Defaults.php:660
+#: core/manager/Defaults.php:183
+#: core/manager/Defaults.php:255
+#: core/manager/Defaults.php:477
+#: core/manager/Defaults.php:661
 msgid "Invalid status value."
 msgstr ""
 
-#: core/manager/Defaults.php:208
-#: core/manager/Defaults.php:284
+#: core/manager/Defaults.php:209
+#: core/manager/Defaults.php:285
 msgid "Invalid visibility value."
 msgstr ""
 
-#: core/manager/Defaults.php:228
-#: core/manager/Defaults.php:238
-#: core/manager/Defaults.php:532
-#: core/manager/Defaults.php:542
-#: core/manager/Defaults.php:553
-#: core/manager/Defaults.php:565
+#: core/manager/Defaults.php:229
+#: core/manager/Defaults.php:239
+#: core/manager/Defaults.php:533
+#: core/manager/Defaults.php:543
+#: core/manager/Defaults.php:554
+#: core/manager/Defaults.php:566
 msgid "Don't change"
 msgstr ""
 
-#: core/manager/Defaults.php:393
-#: core/manager/Defaults.php:632
+#: core/manager/Defaults.php:394
+#: core/manager/Defaults.php:633
 msgid "Topic Tags taxonomy not found."
 msgstr ""
 
-#: core/manager/Defaults.php:429
-#: core/manager/Defaults.php:579
+#: core/manager/Defaults.php:430
+#: core/manager/Defaults.php:580
 msgid "Invalid forum ID."
 msgstr ""
 
-#: core/manager/Defaults.php:462
-#: core/manager/Defaults.php:620
+#: core/manager/Defaults.php:463
+#: core/manager/Defaults.php:621
 msgid "Author username is not valid."
 msgstr ""
 
-#: core/manager/Defaults.php:507
-#: core/manager/Defaults.php:695
+#: core/manager/Defaults.php:508
+#: core/manager/Defaults.php:696
 msgid "Invalid sticky value."
 msgstr ""
 
-#: core/manager/Defaults.php:554
+#: core/manager/Defaults.php:555
 msgid "Remove all topic tags"
 msgstr ""
 
-#: core/manager/Process.php:78
-#: core/manager/Process.php:90
-#: core/manager/Process.php:108
-#: core/manager/Process.php:115
-#: core/manager/Render.php:25
-#: core/manager/Render.php:31
-#: core/manager/Render.php:51
-#: core/manager/Render.php:60
+#: core/manager/Process.php:79
+#: core/manager/Process.php:91
+#: core/manager/Process.php:109
+#: core/manager/Process.php:116
+#: core/manager/Render.php:27
+#: core/manager/Render.php:33
+#: core/manager/Render.php:53
+#: core/manager/Render.php:62
 msgid "No actions found."
 msgstr ""
 
-#: core/manager/Process.php:84
+#: core/manager/Process.php:85
 msgid "Selected objects are not valid."
 msgstr ""
 
-#: core/manager/Process.php:129
-#: core/manager/Render.php:77
+#: core/manager/Process.php:130
+#: core/manager/Render.php:79
 msgid "Request object not found."
 msgstr ""
 
-#: core/manager/Render.php:198
+#: core/manager/Render.php:200
 msgid "Edit Log"
 msgstr ""
 
-#: core/manager/Render.php:202
+#: core/manager/Render.php:204
 msgid "Keep a log of this edit"
 msgstr ""
 
-#: core/manager/Render.php:204
+#: core/manager/Render.php:206
 msgid "Optional reason for editing"
 msgstr ""
 
-#: core/admin.php:8
+#: core/admin.php:14
 msgid "Toggle option for moderators access"
 msgstr ""
 
-#: core/admin.php:9
+#: core/admin.php:15
 msgid "Global Moderators can use the plugin"
 msgstr ""
 
-#: core/admin.php:12
+#: core/admin.php:16
+msgid "All users with moderator or keymaster role will be able to use the plugin."
+msgstr ""
+
+#: core/admin.php:19
 msgid "Toggle option for forum moderators access"
 msgstr ""
 
-#: core/admin.php:13
+#: core/admin.php:20
 msgid "Forum Moderators can use the plugin"
 msgstr ""
 
-#: core/admin.php:16
-msgid "Toggle option for forums editing"
-msgstr ""
-
-#: core/admin.php:17
-msgid "Edit Forums"
-msgstr ""
-
-#: core/admin.php:20
-msgid "Toggle option for topics editing"
-msgstr ""
-
 #: core/admin.php:21
-msgid "Edit Topics"
+msgid "All users with the moderation capability for individual forums will be able to use the plugin inside ."
 msgstr ""
 
 #: core/admin.php:24
-msgid "Toggle option for display on small screens"
+msgid "Toggle option for forums editing"
 msgstr ""
 
 #: core/admin.php:25
-msgid "Always show on small screens"
+msgid "Edit Forums"
 msgstr ""
 
-#: core/admin.php:28
-msgid "Toggle option for displaying action notices"
+#: core/admin.php:26
+msgid "If enabled, plugin will add edit controls to every forums list."
 msgstr ""
 
 #: core/admin.php:29
+msgid "Toggle option for topics editing"
+msgstr ""
+
+#: core/admin.php:30
+msgid "Edit Topics"
+msgstr ""
+
+#: core/admin.php:31
+msgid "If enabled, plugin will add edit controls to every topics list. Some edit options may be unavailable in Topic Views."
+msgstr ""
+
+#: core/admin.php:34
+msgid "Toggle option for display on small screens"
+msgstr ""
+
+#: core/admin.php:35
+msgid "Always show on small screens"
+msgstr ""
+
+#: core/admin.php:36
+msgid "If enabled, controls will be available on small screens or mobile devices."
+msgstr ""
+
+#: core/admin.php:39
+msgid "Toggle option for displaying action notices"
+msgstr ""
+
+#: core/admin.php:40
 msgid "Show action notices where available"
 msgstr ""
 
-#: core/admin.php:32
+#: core/admin.php:41
+msgid "If enabled, information for edit fields will be visible. If you want to have more compact layout of editor popup, it is better to disable this option."
+msgstr ""
+
+#: core/admin.php:44
 msgid "Toggle option for keeping edit log for topics"
 msgstr ""
 
-#: core/admin.php:33
-msgid "Show keep the edit log for topics controls"
+#: core/admin.php:45
+msgid "Show 'Keep The Edit Log' for topics controls"
 msgstr ""
 
-#: core/functions.php:8
+#: core/admin.php:46
+msgid "If enabled, you will be able to add the edit log message with each edit."
+msgstr ""
+
+#: core/functions.php:9
 msgid "Editor has not been initialized yet."
 msgstr ""
 
-#: core/functions.php:21
+#: core/functions.php:22
 msgid "This function has to be called inside 'gdfar_register_actions' action."
 msgstr ""
 
-#: forms/dashboard/actions.php:1
+#: forms/dashboard/actions.php:2
 msgid "Registered Actions"
 msgstr ""
 
-#: forms/dashboard/actions.php:6
+#: forms/dashboard/actions.php:8
 msgid "For Forums"
 msgstr ""
 
-#: forms/dashboard/actions.php:12
+#: forms/dashboard/actions.php:16
 msgid "For Topics"
 msgstr ""
 
-#: forms/dashboard/actions.php:20
+#: forms/dashboard/actions.php:25
 msgid "Forums, Edit"
 msgstr ""
 
-#: forms/dashboard/actions.php:22
+#: forms/dashboard/actions.php:28
 msgid "Forums, Bulk Edit"
 msgstr ""
 
-#: forms/dashboard/actions.php:24
+#: forms/dashboard/actions.php:31
 msgid "Topics, Edit"
 msgstr ""
 
-#: forms/dashboard/actions.php:26
+#: forms/dashboard/actions.php:34
 msgid "Topics, Bulk Edit"
 msgstr ""
 
-#: forms/dashboard/actions.php:7
-#: forms/dashboard/actions.php:13
+#: forms/dashboard/actions.php:10
+#: forms/dashboard/actions.php:18
 msgid "%s for Bulk Edit"
 msgstr ""
 
-#: forms/dashboard/actions.php:8
-#: forms/dashboard/actions.php:14
+#: forms/dashboard/actions.php:11
+#: forms/dashboard/actions.php:19
 msgid "%s for Edit"
 msgstr ""
 
-#: forms/dashboard/settings.php:1
+#: forms/dashboard/settings.php:2
 msgid "Plugin Settings"
 msgstr ""
 
-#: forms/dashboard/settings.php:5
-msgid "From here you can control plugin settings. Plugin only has few settings you can change."
+#: forms/dashboard/settings.php:6
+msgid "The plugin is easy to configure, and there are only few settings you can and need to change, and they are all available from this panel."
 msgstr ""
 
-#: forms/dashboard/settings.php:11
+#: forms/dashboard/settings.php:12
 msgid "Moderation"
 msgstr ""
 
-#: forms/dashboard/settings.php:14
+#: forms/dashboard/settings.php:16
 msgid "Content Editing"
 msgstr ""
 
-#: forms/dashboard/settings.php:17
+#: forms/dashboard/settings.php:20
 msgid "Display Controls"
 msgstr ""
 
-#: forms/dashboard/settings.php:20
+#: forms/dashboard/settings.php:24
 msgid "Advanced Settings"
 msgstr ""
 
-#: forms/manager/dialog-bulk.php:5
-#: forms/manager/dialog-bulk.php:10
-#: forms/manager/dialog-edit.php:5
-#: forms/manager/dialog-edit.php:10
+#: forms/manager/dialog-bulk.php:6
+#: forms/manager/dialog-bulk.php:11
+#: forms/manager/dialog-edit.php:6
+#: forms/manager/dialog-edit.php:11
 msgctxt "Edit Modal Dialog, Close Button Label"
 msgid "Close this dialog"
 msgstr ""
 
-#: forms/manager/dialog-bulk.php:9
-#: forms/manager/dialog-edit.php:9
+#: forms/manager/dialog-bulk.php:10
+#: forms/manager/dialog-edit.php:10
 msgctxt "Edit Modal Dialog, Save Button"
 msgid "Save"
 msgstr ""
 
-#: forms/manager/dialog-bulk.php:10
-#: forms/manager/dialog-edit.php:10
+#: forms/manager/dialog-bulk.php:11
+#: forms/manager/dialog-edit.php:11
 msgctxt "Edit Modal Dialog, Close Button"
 msgid "Close"
 msgstr ""
 
-#: forms/content-about-changelog.php:1
-#: forms/content-about-changelog.php:34
-#: forms/content-about-minor.php:3
+#: forms/content-about-changelog.php:2
+#: forms/content-about-changelog.php:88
+#: forms/content-about-minor.php:4
+#: forms/content-about-minor.php:8
+#: forms/content-about-minor.php:12
 msgid "Version"
 msgstr ""
 
-#: forms/content-about-minor.php:1
+#: forms/content-about-minor.php:2
 msgid "Maintenance and Security Releases"
 msgstr ""
 
-#: forms/content-about-minor.php:7
+#: forms/content-about-minor.php:16
 msgid "For more information, see <a href='%s'>the changelog</a>."
 msgstr ""
 
-#: forms/content-install.php:16
-#: forms/content-update.php:16
+#: forms/content-install.php:18
+#: forms/content-update.php:18
 msgid "All Done"
 msgstr ""
 
-#: forms/content-install.php:19
+#: forms/content-install.php:21
 msgid "Installation completed."
 msgstr ""
 
-#: forms/content-install.php:24
-#: forms/content-update.php:24
+#: forms/content-install.php:26
+#: forms/content-update.php:26
 msgid "Click here to continue"
 msgstr ""
 
-#: forms/content-update.php:19
+#: forms/content-update.php:21
 msgid "Update completed."
 msgstr ""
 

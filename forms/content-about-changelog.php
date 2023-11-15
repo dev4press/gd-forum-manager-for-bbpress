@@ -1,9 +1,10 @@
 <div class="d4p-info-block d4p-info-block-changelog">
-    <h3><?php esc_html_e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
+    <h3><?php esc_html_e( 'Version', 'gd-forum-manager-for-bbpress' ); ?> 1</h3>
     <div>
         <h4>Version: 2.4 / November 15 2023</h4>
         <ul>
             <li><strong>new</strong> tested with WordPress 6.4</li>
+            <li><strong>edit</strong> plugin admin dashboard styling improvements</li>
             <li><strong>edit</strong> Dev4Press Library 4.3</li>
         </ul>
 
@@ -84,7 +85,7 @@
 </div>
 
 <div class="d4p-info-block d4p-info-block-changelog">
-    <h3><?php esc_html_e( "Version", "gd-forum-manager-for-bbpress" ); ?> 1</h3>
+    <h3><?php esc_html_e( 'Version', 'gd-forum-manager-for-bbpress' ); ?> 1</h3>
     <div>
         <h4>Version: 1.4 / December 29 2020</h4>
         <ul>

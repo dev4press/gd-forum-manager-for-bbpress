@@ -24,13 +24,13 @@ class Render {
 		$actions = gdfar()->actions()->get_actions( $type, 'bulk' );
 
 		if ( empty( $actions ) ) {
-			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( 'no_actions_found', __( 'No actions found.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		$elements = $this->_bulk( $actions, $type, $context );
 
 		if ( empty( $elements ) ) {
-			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( 'no_actions_found', __( 'No actions found.', 'gd-forum-manager-for-bbpress' ) );
 		} else {
 			$render = '<form method="post" id="gdfar-manager-form-bulk">';
 			$render .= '<input type="hidden" name="gdfar[action]" value="bulk" />';
@@ -50,7 +50,7 @@ class Render {
 		$actions = gdfar()->actions()->get_actions( $type, 'edit' );
 
 		if ( empty( $actions ) ) {
-			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( 'no_actions_found', __( 'No actions found.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		$id = absint( $id );
@@ -59,7 +59,7 @@ class Render {
 			$elements = $this->_edit( $actions, $type, $id, $context );
 
 			if ( empty( $elements ) ) {
-				return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( 'no_actions_found', __( 'No actions found.', 'gd-forum-manager-for-bbpress' ) );
 			} else {
 				$render = '<form method="post" id="gdfar-manager-form-edit">';
 				$render .= '<input type="hidden" name="gdfar[action]" value="edit" />';
@@ -76,7 +76,7 @@ class Render {
 			}
 		}
 
-		return new WP_Error( 'object_not_found', __( "Request object not found.", "gd-forum-manager-for-bbpress" ) );
+		return new WP_Error( 'object_not_found', __( 'Request object not found.', 'gd-forum-manager-for-bbpress' ) );
 	}
 
 	private function _bulk( $actions, $type, $context ) : array {
@@ -197,13 +197,13 @@ class Render {
 			);
 
 			return '<div class="gdfar-manager-edit-log"><dl class="' . Sanitize::html_classes( $classes ) . '"><dt>' .
-			       '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . __( "Edit Log", "gd-forum-manager-for-bbpress" ) . '</label></div>' .
+			       '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . __( 'Edit Log', 'gd-forum-manager-for-bbpress' ) . '</label></div>' .
 			       '</dt><dd>' .
 			       '<div class="gdfar-content-wrapper">' .
 			       '<input type="checkbox" checked="checked" name="gdfar[edit-log][keep]" />' .
-			       '<span>' . __( "Keep a log of this edit", "gd-forum-manager-for-bbpress" ) . '</span>' .
+			       '<span>' . __( 'Keep a log of this edit', 'gd-forum-manager-for-bbpress' ) . '</span>' .
 			       '</div>' .
-			       '<input type="text" name="gdfar[edit-log][reason]" value="" placeholder="' . __( "Optional reason for editing", "gd-forum-manager-for-bbpress" ) . '" />' .
+			       '<input type="text" name="gdfar[edit-log][reason]" value="" placeholder="' . __( 'Optional reason for editing', 'gd-forum-manager-for-bbpress' ) . '" />' .
 			       '</dd></dl></div>';
 		}
 

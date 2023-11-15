@@ -42,7 +42,7 @@ class AJAX {
 		$valid = wp_verify_nonce( $_REQUEST['_ajax_nonce'], $nonce );
 
 		if ( $valid === false ) {
-			$this->error( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
+			$this->error( __( 'Invalid Request.', 'gd-forum-manager-for-bbpress' ) );
 		}
 	}
 
@@ -73,7 +73,7 @@ class AJAX {
 		}
 
 		if ( $mod === false ) {
-			$this->error( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
+			$this->error( __( 'Invalid Request.', 'gd-forum-manager-for-bbpress' ) );
 		}
 	}
 
@@ -93,7 +93,7 @@ class AJAX {
 		}
 
 		if ( $mod === false ) {
-			$this->error( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
+			$this->error( __( 'Invalid Request.', 'gd-forum-manager-for-bbpress' ) );
 		}
 	}
 
@@ -117,7 +117,7 @@ class AJAX {
 			die( _gdfar_display_option( $name ) );
 		}
 
-		die( __( "Invalid Request", "gd-forum-manager-for-bbpress" ) );
+		die( __( 'Invalid Request', 'gd-forum-manager-for-bbpress' ) );
 	}
 
 	public function edit_request() {
@@ -130,7 +130,7 @@ class AJAX {
 		$this->check_edit_moderation( $type, $id );
 
 		if ( ! in_array( $type, array( 'forum', 'topic' ) ) || $id == 0 ) {
-			$this->error( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
+			$this->error( __( 'Invalid Request.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		$edit = gdfar_render()->edit( $type, $id, array( 'is' => $is, 'forum' => $forum ) );
@@ -196,7 +196,7 @@ class AJAX {
 
 		$this->json_respond( array(
 			'status' => 'error',
-			'error'  => __( "Invalid Request.", "gd-forum-manager-for-bbpress" ),
+			'error'  => __( 'Invalid Request.', 'gd-forum-manager-for-bbpress' ),
 		) );
 	}
 
@@ -210,7 +210,7 @@ class AJAX {
 		$this->check_bulk_moderation( $type, $id );
 
 		if ( ! in_array( $type, array( 'forum', 'topic' ) ) ) {
-			$this->error( __( "Invalid Request.", "gd-forum-manager-for-bbpress" ) );
+			$this->error( __( 'Invalid Request.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		$edit = gdfar_render()->bulk( $type, array( 'is' => $is, 'forum' => $forum ) );
@@ -276,7 +276,7 @@ class AJAX {
 
 		$this->json_respond( array(
 			'status' => 'error',
-			'error'  => __( "Invalid Request.", "gd-forum-manager-for-bbpress" ),
+			'error'  => __( 'Invalid Request.', 'gd-forum-manager-for-bbpress' ),
 		) );
 	}
 }

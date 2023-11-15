@@ -41,9 +41,9 @@ class Defaults {
 
 	private function _get_list_for_stickies() : array {
 		return array(
-			'no'     => __( "No", "gd-forum-manager-for-bbpress" ),
-			'sticky' => __( "Sticky", "gd-forum-manager-for-bbpress" ),
-			'super'  => __( "Super Sticky", "gd-forum-manager-for-bbpress" ),
+			'no'     => __( 'No', 'gd-forum-manager-for-bbpress' ),
+			'sticky' => __( 'Sticky', 'gd-forum-manager-for-bbpress' ),
+			'super'  => __( 'Super Sticky', 'gd-forum-manager-for-bbpress' ),
 		);
 	}
 
@@ -154,7 +154,7 @@ class Defaults {
 			$forum_title = apply_filters( 'bbp_edit_forum_pre_title', $new_title, $forum_id );
 
 			if ( bbp_is_title_too_long( $forum_title ) ) {
-				return new WP_Error( "title_too_long", __( "The title is too long.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( "title_too_long", __( 'The title is too long.', 'gd-forum-manager-for-bbpress' ) );
 			}
 
 			$update = $this->update_post( array(
@@ -180,7 +180,7 @@ class Defaults {
 		$old_status = bbp_get_forum_status( $forum_id );
 
 		if ( empty( $new_status ) || ! isset( $list[ $new_status ] ) ) {
-			return new WP_Error( "invalid_status", __( "Invalid status value.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( "invalid_status", __( 'Invalid status value.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		if ( $old_status != $new_status ) {
@@ -206,7 +206,7 @@ class Defaults {
 		$old_status = bbp_get_forum_visibility( $forum_id );
 
 		if ( empty( $new_status ) || ! isset( $list[ $new_status ] ) ) {
-			return new WP_Error( "invalid_status", __( "Invalid visibility value.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( "invalid_status", __( 'Invalid visibility value.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		if ( $old_status != $new_status ) {
@@ -226,7 +226,7 @@ class Defaults {
 	}
 
 	public function display_forum_bulk_status( $render, $args = array() ) {
-		$list = array_merge( array( '' => __( "Don't change", "gd-forum-manager-for-bbpress" ) ), bbp_get_forum_statuses() );
+		$list = array_merge( array( '' => __( 'Don\'t change', 'gd-forum-manager-for-bbpress' ) ), bbp_get_forum_statuses() );
 
 		return gdfar_render()->select( $list, array(
 			'selected' => '',
@@ -236,7 +236,7 @@ class Defaults {
 	}
 
 	public function display_forum_bulk_visibility( $render, $args = array() ) {
-		$list = array_merge( array( '' => __( "Don't change", "gd-forum-manager-for-bbpress" ) ), bbp_get_forum_visibilities() );
+		$list = array_merge( array( '' => __( 'Don\'t change', 'gd-forum-manager-for-bbpress' ) ), bbp_get_forum_visibilities() );
 
 		return gdfar_render()->select( $list, array(
 			'selected' => '',
@@ -252,7 +252,7 @@ class Defaults {
 
 		if ( ! empty( $new_status ) ) {
 			if ( ! isset( $list[ $new_status ] ) ) {
-				return new WP_Error( "invalid_status", __( "Invalid status value.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( "invalid_status", __( 'Invalid status value.', 'gd-forum-manager-for-bbpress' ) );
 			}
 
 			foreach ( $args['id'] as $forum_id ) {
@@ -282,7 +282,7 @@ class Defaults {
 
 		if ( ! empty( $new_status ) ) {
 			if ( ! isset( $list[ $new_status ] ) ) {
-				return new WP_Error( "invalid_status", __( "Invalid visibility value.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( "invalid_status", __( 'Invalid visibility value.', 'gd-forum-manager-for-bbpress' ) );
 			}
 
 			foreach ( $args['id'] as $forum_id ) {
@@ -367,7 +367,7 @@ class Defaults {
 			$topic_title = apply_filters( 'bbp_edit_topic_pre_title', $new_title, $topic_id );
 
 			if ( bbp_is_title_too_long( $topic_title ) ) {
-				return new WP_Error( "title_too_long", __( "The title is too long.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( "title_too_long", __( 'The title is too long.', 'gd-forum-manager-for-bbpress' ) );
 			}
 
 			$update = $this->update_post( array(
@@ -391,7 +391,7 @@ class Defaults {
 		$current  = bbp_get_topic_tag_names( $topic_id );
 
 		if ( ! taxonomy_exists( bbp_get_topic_tag_tax_id() ) ) {
-			return new WP_Error( 'invalid_taxonomy', __( "Topic Tags taxonomy not found.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( 'invalid_taxonomy', __( 'Topic Tags taxonomy not found.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		if ( strstr( $terms, ',' ) ) {
@@ -427,7 +427,7 @@ class Defaults {
 
 		if ( $new_forum > 0 ) {
 			if ( ! bbp_is_forum( $new_forum ) ) {
-				return new WP_Error( "invalid_forum", __( "Invalid forum ID.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( "invalid_forum", __( 'Invalid forum ID.', 'gd-forum-manager-for-bbpress' ) );
 			}
 
 			if ( $old_forum != $new_forum ) {
@@ -460,7 +460,7 @@ class Defaults {
 				$this->modded( 'topic', $topic_id );
 			}
 		} else {
-			return new WP_Error( "invalid_author", __( "Author username is not valid.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( "invalid_author", __( 'Author username is not valid.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		return $result;
@@ -474,7 +474,7 @@ class Defaults {
 		$old_status = bbp_get_topic_status( $topic_id );
 
 		if ( empty( $new_status ) || ! isset( $list[ $new_status ] ) ) {
-			return new WP_Error( "invalid_status", __( "Invalid status value.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( "invalid_status", __( 'Invalid status value.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		if ( $old_status != $new_status ) {
@@ -505,7 +505,7 @@ class Defaults {
 		$old_status = $this->_get_topic_sticky_status( $topic_id );
 
 		if ( empty( $new_status ) || ! isset( $list[ $new_status ] ) ) {
-			return new WP_Error( "invalid_sticky", __( "Invalid sticky value.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( "invalid_sticky", __( 'Invalid sticky value.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		if ( $old_status != $new_status ) {
@@ -530,7 +530,7 @@ class Defaults {
 		return bbp_get_dropdown( array(
 			'selected'     => 0,
 			'select_class' => 'bbp_dropdown gdfar-full-width',
-			'show_none'    => __( "Don't change", "gd-forum-manager-for-bbpress" ),
+			'show_none'    => __( 'Don\'t change', 'gd-forum-manager-for-bbpress' ),
 			'select_id'    => $args['base'] . '[forum]',
 		) );
 	}
@@ -540,7 +540,7 @@ class Defaults {
 	}
 
 	public function display_topic_bulk_status( $render, $args = array() ) {
-		$list = array_merge( array( '' => __( "Don't change", "gd-forum-manager-for-bbpress" ) ), bbp_get_topic_statuses() );
+		$list = array_merge( array( '' => __( 'Don\'t change', 'gd-forum-manager-for-bbpress' ) ), bbp_get_topic_statuses() );
 
 		return gdfar_render()->select( $list, array(
 			'selected' => '',
@@ -551,8 +551,8 @@ class Defaults {
 
 	public function display_topic_bulk_cleartags( $render, $args = array() ) {
 		$list = array(
-			''      => __( "Don't change", "gd-forum-manager-for-bbpress" ),
-			'clear' => __( "Remove all topic tags", "gd-forum-manager-for-bbpress" ),
+			''      => __( 'Don\'t change', 'gd-forum-manager-for-bbpress' ),
+			'clear' => __( 'Remove all topic tags', 'gd-forum-manager-for-bbpress' ),
 		);
 
 		return gdfar_render()->select( $list, array(
@@ -563,7 +563,7 @@ class Defaults {
 	}
 
 	public function display_topic_bulk_sticky( $render, $args = array() ) {
-		$list = array_merge( array( '' => __( "Don't change", "gd-forum-manager-for-bbpress" ) ), $this->_get_list_for_stickies() );
+		$list = array_merge( array( '' => __( 'Don\'t change', 'gd-forum-manager-for-bbpress' ) ), $this->_get_list_for_stickies() );
 
 		return gdfar_render()->select( $list, array(
 			'selected' => '',
@@ -577,7 +577,7 @@ class Defaults {
 
 		if ( $new_forum > 0 ) {
 			if ( ! bbp_is_forum( $new_forum ) ) {
-				return new WP_Error( "invalid_forum", __( "Invalid forum ID.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( "invalid_forum", __( 'Invalid forum ID.', 'gd-forum-manager-for-bbpress' ) );
 			}
 
 			foreach ( $args['id'] as $topic_id ) {
@@ -618,7 +618,7 @@ class Defaults {
 					}
 				}
 			} else {
-				return new WP_Error( "invalid_author", __( "Author username is not valid.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( "invalid_author", __( 'Author username is not valid.', 'gd-forum-manager-for-bbpress' ) );
 			}
 		}
 
@@ -630,7 +630,7 @@ class Defaults {
 
 		if ( $clear ) {
 			if ( ! taxonomy_exists( bbp_get_topic_tag_tax_id() ) ) {
-				return new WP_Error( 'invalid_taxonomy', __( "Topic Tags taxonomy not found.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( 'invalid_taxonomy', __( 'Topic Tags taxonomy not found.', 'gd-forum-manager-for-bbpress' ) );
 			}
 
 			foreach ( $args['id'] as $topic_id ) {
@@ -658,7 +658,7 @@ class Defaults {
 
 		if ( ! empty( $new_status ) ) {
 			if ( ! isset( $list[ $new_status ] ) ) {
-				return new WP_Error( "invalid_status", __( "Invalid status value.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( "invalid_status", __( 'Invalid status value.', 'gd-forum-manager-for-bbpress' ) );
 			}
 
 			foreach ( $args['id'] as $topic_id ) {
@@ -693,7 +693,7 @@ class Defaults {
 
 		if ( ! empty( $new_status ) ) {
 			if ( ! isset( $list[ $new_status ] ) ) {
-				return new WP_Error( "invalid_sticky", __( "Invalid sticky value.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( "invalid_sticky", __( 'Invalid sticky value.', 'gd-forum-manager-for-bbpress' ) );
 			}
 
 			foreach ( $args['id'] as $topic_id ) {

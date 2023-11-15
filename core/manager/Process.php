@@ -21,7 +21,7 @@ class Process {
 		return $instance;
 	}
 
-	public function init( $data ) {
+	public function init( $data ) : Process {
 		define( 'GDFAR_EDITOR_PROCESSING', true );
 
 		$this->data = $data;
@@ -76,19 +76,19 @@ class Process {
 		$actions = gdfar()->actions()->get_actions( $this->data['type'], 'bulk' );
 
 		if ( empty( $actions ) ) {
-			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( 'no_actions_found', __( 'No actions found.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		$ids = $this->_validate( $this->data['type'], $this->data['id'] );
 
 		if ( empty( $ids ) ) {
-			return new WP_Error( 'invalid_objects', __( "Selected objects are not valid.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( 'invalid_objects', __( 'Selected objects are not valid.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		$elements = $this->_bulk( $actions, $this->data['type'], $this->data['id'], $this->data['field'] );
 
 		if ( empty( $elements ) ) {
-			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( 'no_actions_found', __( 'No actions found.', 'gd-forum-manager-for-bbpress' ) );
 		} else {
 			$report = array();
 
@@ -106,14 +106,14 @@ class Process {
 		$actions = gdfar()->actions()->get_actions( $this->data['type'], 'edit' );
 
 		if ( empty( $actions ) ) {
-			return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
+			return new WP_Error( 'no_actions_found', __( 'No actions found.', 'gd-forum-manager-for-bbpress' ) );
 		}
 
 		if ( ( $this->data['type'] == 'forum' && bbp_is_forum( $this->data['id'] ) ) || ( $this->data['type'] == 'topic' && bbp_is_topic( $this->data['id'] ) ) ) {
 			$elements = $this->_edit( $actions, $this->data['type'], $this->data['id'], $this->data['field'] );
 
 			if ( empty( $elements ) ) {
-				return new WP_Error( 'no_actions_found', __( "No actions found.", "gd-forum-manager-for-bbpress" ) );
+				return new WP_Error( 'no_actions_found', __( 'No actions found.', 'gd-forum-manager-for-bbpress' ) );
 			} else {
 				$report = array();
 
@@ -127,7 +127,7 @@ class Process {
 			}
 		}
 
-		return new WP_Error( 'object_not_found', __( "Request object not found.", "gd-forum-manager-for-bbpress" ) );
+		return new WP_Error( 'object_not_found', __( 'Request object not found.', 'gd-forum-manager-for-bbpress' ) );
 	}
 
 	private function _bulk( $actions, $type, $id, $field ) : array {

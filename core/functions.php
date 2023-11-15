@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function gdfar_editor_active() : bool {
 	if ( ! defined( 'GDFAR_EDITOR_ACTIVE' ) ) {
-		_doing_it_wrong( __FUNCTION__, __( "Editor has not been initialized yet.", "gd-forum-manager-for-bbpress" ), '2.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Editor has not been initialized yet.', 'gd-forum-manager-for-bbpress' ), '2.0' );
 
 		return false;
 	}
@@ -19,7 +19,7 @@ function gdfar_register_action( $name, $args = array() ) : bool {
 		return gdfar()->actions()->register( $name, $args );
 	}
 
-	_doing_it_wrong( 'gdfar_register_action', __( "This function has to be called inside 'gdfar_register_actions' action.", "gd-forum-manager-for-bbpress" ), '1.0' );
+	_doing_it_wrong( 'gdfar_register_action', __( 'This function has to be called inside \'gdfar_register_actions\' action.', 'gd-forum-manager-for-bbpress' ), '1.0' );
 
 	return false;
 }

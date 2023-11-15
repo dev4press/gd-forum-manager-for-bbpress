@@ -81,22 +81,22 @@ class Actions {
 		$this->register( 'rename', array(
 			'scope'       => 'forum',
 			'action'      => 'edit',
-			'label'       => __( "Title", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change forum title.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Title', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change forum title.', 'gd-forum-manager-for-bbpress' ),
 		) );
 
 		$this->register( 'status', array(
 			'scope'       => 'forum',
 			'action'      => 'edit',
-			'label'       => __( "Status", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change forum status.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Status', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change forum status.', 'gd-forum-manager-for-bbpress' ),
 		) );
 
 		$this->register( 'visibility', array(
 			'scope'       => 'forum',
 			'action'      => 'edit',
-			'label'       => __( "Visibility", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change forum visibility.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Visibility', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change forum visibility.', 'gd-forum-manager-for-bbpress' ),
 		) );
 	}
 
@@ -104,15 +104,15 @@ class Actions {
 		$this->register( 'status', array(
 			'scope'       => 'forum',
 			'action'      => 'bulk',
-			'label'       => __( "Status", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change forum status.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Status', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change forum status.', 'gd-forum-manager-for-bbpress' ),
 		) );
 
 		$this->register( 'visibility', array(
 			'scope'       => 'forum',
 			'action'      => 'bulk',
-			'label'       => __( "Visibility", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change forum visibility.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Visibility', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change forum visibility.', 'gd-forum-manager-for-bbpress' ),
 		) );
 	}
 
@@ -120,47 +120,47 @@ class Actions {
 		$this->register( 'rename', array(
 			'scope'       => 'topic',
 			'action'      => 'edit',
-			'label'       => __( "Title", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change topic title.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Title', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change topic title.', 'gd-forum-manager-for-bbpress' ),
 		) );
 
 		$this->register( 'forum', array(
 			'scope'       => 'topic',
 			'action'      => 'edit',
-			'label'       => __( "Forum", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change the forum for the topic.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Forum', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change the forum for the topic.', 'gd-forum-manager-for-bbpress' ),
 		) );
 
 		$this->register( 'author', array(
 			'scope'       => 'topic',
 			'action'      => 'edit',
-			'label'       => __( "Author", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change the author of the topic.", "gd-forum-manager-for-bbpress" ),
-			'notice'      => __( "Topic author username.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Author', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change the author of the topic.', 'gd-forum-manager-for-bbpress' ),
+			'notice'      => __( 'Topic author username.', 'gd-forum-manager-for-bbpress' ),
 		) );
 
 		if ( bbp_allow_topic_tags() ) {
 			$this->register( 'tags', array(
 				'scope'       => 'topic',
 				'action'      => 'edit',
-				'label'       => __( "Topic Tags", "gd-forum-manager-for-bbpress" ),
-				'description' => __( "Change topic tags.", "gd-forum-manager-for-bbpress" ),
-				'notice'      => __( "Comma separated list of topic tags.", "gd-forum-manager-for-bbpress" ),
+				'label'       => __( 'Topic Tags', 'gd-forum-manager-for-bbpress' ),
+				'description' => __( 'Change topic tags.', 'gd-forum-manager-for-bbpress' ),
+				'notice'      => __( 'Comma separated list of topic tags.', 'gd-forum-manager-for-bbpress' ),
 			) );
 		}
 
 		$this->register( 'status', array(
 			'scope'       => 'topic',
 			'action'      => 'edit',
-			'label'       => __( "Status", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change topic status.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Status', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change topic status.', 'gd-forum-manager-for-bbpress' ),
 		) );
 
 		$this->register( 'sticky', array(
 			'scope'       => 'topic',
 			'action'      => 'edit',
-			'label'       => __( "Sticky", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change topic sticky status.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Sticky', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change topic sticky status.', 'gd-forum-manager-for-bbpress' ),
 		) );
 	}
 
@@ -168,39 +168,39 @@ class Actions {
 		$this->register( 'forum', array(
 			'scope'       => 'topic',
 			'action'      => 'bulk',
-			'label'       => __( "Forum", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change the forum for the topic.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Forum', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change the forum for the topic.', 'gd-forum-manager-for-bbpress' ),
 		) );
 
 		$this->register( 'author', array(
 			'scope'       => 'topic',
 			'action'      => 'bulk',
-			'label'       => __( "Author", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change the author of the topic.", "gd-forum-manager-for-bbpress" ),
-			'notice'      => __( "Topic author username. Leave empty to skip the change.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Author', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change the author of the topic.', 'gd-forum-manager-for-bbpress' ),
+			'notice'      => __( 'Topic author username. Leave empty to skip the change.', 'gd-forum-manager-for-bbpress' ),
 		) );
 
 		if ( bbp_allow_topic_tags() ) {
 			$this->register( 'cleartags', array(
 				'scope'       => 'topic',
 				'action'      => 'bulk',
-				'label'       => __( "Topic Tags", "gd-forum-manager-for-bbpress" ),
-				'description' => __( "Remove topic tags.", "gd-forum-manager-for-bbpress" ),
+				'label'       => __( 'Topic Tags', 'gd-forum-manager-for-bbpress' ),
+				'description' => __( 'Remove topic tags.', 'gd-forum-manager-for-bbpress' ),
 			) );
 		}
 
 		$this->register( 'status', array(
 			'scope'       => 'topic',
 			'action'      => 'bulk',
-			'label'       => __( "Status", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change topic status.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Status', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change topic status.', 'gd-forum-manager-for-bbpress' ),
 		) );
 
 		$this->register( 'sticky', array(
 			'scope'       => 'topic',
 			'action'      => 'bulk',
-			'label'       => __( "Sticky", "gd-forum-manager-for-bbpress" ),
-			'description' => __( "Change topic sticky status.", "gd-forum-manager-for-bbpress" ),
+			'label'       => __( 'Sticky', 'gd-forum-manager-for-bbpress' ),
+			'description' => __( 'Change topic sticky status.', 'gd-forum-manager-for-bbpress' ),
 		) );
 	}
 }

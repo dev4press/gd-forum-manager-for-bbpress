@@ -32,35 +32,43 @@ class Plugin extends BasePlugin {
 				'min'  => true,
 				'ver'  => gdfar_settings()->file_version(),
 				'src'  => 'plugin',
-			) );
+			) )->register( 'css', 'gdfar-admin',
+			array(
+				'path' => 'css/',
+				'file' => 'admin',
+				'ext'  => 'css',
+				'min'  => true,
+				'ver'  => gdfar_settings()->file_version(),
+				'src'  => 'plugin',
+			) );;
 	}
 
 	public function admin_menu_items() {
 		$this->setup_items = array(
 			'install' => array(
-				'title' => __( "Install", "gd-forum-manager-for-bbpress" ),
+				'title' => __( 'Install', 'gd-forum-manager-for-bbpress' ),
 				'icon'  => 'ui-traffic',
 				'type'  => 'setup',
-				'info'  => __( "Before you continue, make sure plugin installation was successful.", "gd-forum-manager-for-bbpress" ),
+				'info'  => __( 'Before you continue, make sure plugin installation was successful.', 'gd-forum-manager-for-bbpress' ),
 				'class' => '\\Dev4Press\\Plugin\\GDFAR\\Admin\\Panel\\Install',
 			),
 			'update'  => array(
-				'title' => __( "Update", "gd-forum-manager-for-bbpress" ),
+				'title' => __( 'Update', 'gd-forum-manager-for-bbpress' ),
 				'icon'  => 'ui-traffic',
 				'type'  => 'setup',
-				'info'  => __( "Before you continue, make sure plugin was successfully updated.", "gd-forum-manager-for-bbpress" ),
+				'info'  => __( 'Before you continue, make sure plugin was successfully updated.', 'gd-forum-manager-for-bbpress' ),
 				'class' => '\\Dev4Press\\Plugin\\GDFAR\\Admin\\Panel\\Update',
 			),
 		);
 
 		$this->menu_items = array(
 			'dashboard' => array(
-				'title' => __( "Getting Started", "gd-forum-manager-for-bbpress" ),
+				'title' => __( 'Getting Started', 'gd-forum-manager-for-bbpress' ),
 				'icon'  => 'ui-home',
 				'class' => '\\Dev4Press\\Plugin\\GDFAR\\Admin\\Panel\\Dashboard',
 			),
 			'about'     => array(
-				'title' => __( "About", "gd-forum-manager-for-bbpress" ),
+				'title' => __( 'About', 'gd-forum-manager-for-bbpress' ),
 				'icon'  => 'ui-info',
 				'class' => '\\Dev4Press\\Plugin\\GDFAR\\Admin\\Panel\\About',
 			),
@@ -91,15 +99,16 @@ class Plugin extends BasePlugin {
 		return gdfar();
 	}
 
+	public function wizard() {
+		return null;
+	}
+
 	public function settings_definitions() {
 		return null;
 	}
 
 	protected function extra_enqueue_scripts_plugin() {
 		$this->enqueue->js( 'gdfar-admin' );
-	}
-
-	public function wizard() {
-		return null;
+		$this->enqueue->css( 'gdfar-admin' );
 	}
 }
