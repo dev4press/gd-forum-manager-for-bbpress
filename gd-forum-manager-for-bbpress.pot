@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: GD Forum Manager for bbPress\n"
-"POT-Creation-Date: 11/15/2023 09:54:41 AM\n"
+"POT-Creation-Date: 12/21/2023 09:19:59 AM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,9 +38,9 @@ msgstr ""
 #: core/basic/AJAX.php:76
 #: core/basic/AJAX.php:96
 #: core/basic/AJAX.php:133
-#: core/basic/AJAX.php:199
-#: core/basic/AJAX.php:213
-#: core/basic/AJAX.php:279
+#: core/basic/AJAX.php:202
+#: core/basic/AJAX.php:216
+#: core/basic/AJAX.php:285
 msgid "Invalid Request."
 msgstr ""
 
@@ -234,8 +234,8 @@ msgstr ""
 
 #: core/manager/Defaults.php:183
 #: core/manager/Defaults.php:255
-#: core/manager/Defaults.php:477
-#: core/manager/Defaults.php:661
+#: core/manager/Defaults.php:479
+#: core/manager/Defaults.php:663
 msgid "Invalid status value."
 msgstr ""
 
@@ -246,41 +246,41 @@ msgstr ""
 
 #: core/manager/Defaults.php:229
 #: core/manager/Defaults.php:239
-#: core/manager/Defaults.php:533
-#: core/manager/Defaults.php:543
-#: core/manager/Defaults.php:554
-#: core/manager/Defaults.php:566
+#: core/manager/Defaults.php:535
+#: core/manager/Defaults.php:545
+#: core/manager/Defaults.php:556
+#: core/manager/Defaults.php:568
 msgid "Don't change"
 msgstr ""
 
 #: core/manager/Defaults.php:394
-#: core/manager/Defaults.php:633
+#: core/manager/Defaults.php:635
 msgid "Topic Tags taxonomy not found."
 msgstr ""
 
 #: core/manager/Defaults.php:430
-#: core/manager/Defaults.php:580
+#: core/manager/Defaults.php:582
 msgid "Invalid forum ID."
 msgstr ""
 
-#: core/manager/Defaults.php:463
-#: core/manager/Defaults.php:621
+#: core/manager/Defaults.php:464
+#: core/manager/Defaults.php:623
 msgid "Author username is not valid."
 msgstr ""
 
-#: core/manager/Defaults.php:508
-#: core/manager/Defaults.php:696
+#: core/manager/Defaults.php:510
+#: core/manager/Defaults.php:698
 msgid "Invalid sticky value."
 msgstr ""
 
-#: core/manager/Defaults.php:555
+#: core/manager/Defaults.php:557
 msgid "Remove all topic tags"
 msgstr ""
 
-#: core/manager/Process.php:79
-#: core/manager/Process.php:91
-#: core/manager/Process.php:109
-#: core/manager/Process.php:116
+#: core/manager/Process.php:99
+#: core/manager/Process.php:111
+#: core/manager/Process.php:129
+#: core/manager/Process.php:136
 #: core/manager/Render.php:27
 #: core/manager/Render.php:33
 #: core/manager/Render.php:53
@@ -288,11 +288,11 @@ msgstr ""
 msgid "No actions found."
 msgstr ""
 
-#: core/manager/Process.php:85
+#: core/manager/Process.php:105
 msgid "Selected objects are not valid."
 msgstr ""
 
-#: core/manager/Process.php:130
+#: core/manager/Process.php:150
 #: core/manager/Render.php:79
 msgid "Request object not found."
 msgstr ""
@@ -484,7 +484,7 @@ msgid "Close"
 msgstr ""
 
 #: forms/content-about-changelog.php:2
-#: forms/content-about-changelog.php:88
+#: forms/content-about-changelog.php:92
 #: forms/content-about-minor.php:4
 #: forms/content-about-minor.php:8
 #: forms/content-about-minor.php:12

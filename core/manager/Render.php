@@ -2,8 +2,8 @@
 
 namespace Dev4Press\Plugin\GDFAR\Manager;
 
-use Dev4Press\v43\Core\Quick\Arr;
-use Dev4Press\v43\Core\Quick\Sanitize;
+use Dev4Press\v45\Core\Quick\Arr;
+use Dev4Press\v45\Core\Quick\Sanitize;
 use WP_Error;
 
 class Render {
@@ -91,7 +91,7 @@ class Render {
 			) );
 
 			if ( $visible ) {
-				$element = 'action-' . $action['name'] . '-' . str_pad( $i, 4, '0', STR_PAD_LEFT ) . '-' . rand( 1000, 9999 );
+				$element = 'action-' . $action['name'] . '-' . str_pad( $i, 4, '0', STR_PAD_LEFT ) . '-' . wp_rand( 1000, 9999 );
 
 				$render = apply_filters( $action['filter_display'], '', array(
 					'base'    => 'gdfar[field][' . $action['name'] . ']',
@@ -145,7 +145,7 @@ class Render {
 			) );
 
 			if ( $visible ) {
-				$element = 'action-' . $action['name'] . '-' . str_pad( $i, 4, '0', STR_PAD_LEFT ) . '-' . rand( 1000, 9999 );
+				$element = 'action-' . $action['name'] . '-' . str_pad( $i, 4, '0', STR_PAD_LEFT ) . '-' . wp_rand( 1000, 9999 );
 
 				$render = apply_filters( $action['filter_display'], '', array(
 					'id'      => $id,
@@ -189,7 +189,7 @@ class Render {
 
 	private function _log( $type ) {
 		if ( $type == 'topic' && gdfar_settings()->get( 'topic_edit_log' ) ) {
-			$element = 'action-edit-log-9999' . '-' . rand( 1000, 9999 );
+			$element = 'action-edit-log-9999' . '-' . wp_rand( 1000, 9999 );
 
 			$classes = array(
 				'gdfar-action',

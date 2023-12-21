@@ -5,9 +5,9 @@ namespace Dev4Press\Plugin\GDFAR\Basic;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 use Dev4Press\Plugin\GDFAR\Manager\Actions;
 use Dev4Press\Plugin\GDFAR\Manager\Defaults;
-use Dev4Press\v43\Core\Plugins\Core;
-use Dev4Press\v43\Core\Quick\WPR;
-use Dev4Press\v43\Core\Shared\Enqueue;
+use Dev4Press\v45\Core\Plugins\Core;
+use Dev4Press\v45\Core\Quick\WPR;
+use Dev4Press\v45\Core\Shared\Enqueue;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -24,7 +24,8 @@ class Plugin extends Core {
 	public $theme_package = 'default';
 
 	public function __construct() {
-		$this->url = GDFAR_URL;
+		$this->url  = GDFAR_URL;
+		$this->path = GDFAR_PATH;
 
 		parent::__construct();
 	}
@@ -38,6 +39,10 @@ class Plugin extends Core {
 	}
 
 	public function b() {
+		return null;
+	}
+
+	public function l() {
 		return null;
 	}
 

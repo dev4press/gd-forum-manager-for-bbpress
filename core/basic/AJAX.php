@@ -3,8 +3,8 @@
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
 use Dev4Press\Plugin\GDFAR\Manager\Process;
-use Dev4Press\v43\Core\Quick\Sanitize;
-use Dev4Press\v43\Core\Quick\WPR;
+use Dev4Press\v45\Core\Quick\Sanitize;
+use Dev4Press\v45\Core\Quick\WPR;
 
 class AJAX {
 	private $nonce = 'gdfar-manager-request';
@@ -60,7 +60,7 @@ class AJAX {
 			header( 'Content-Type: application/json' );
 		}
 
-		die( json_encode( $response ) );
+		die( wp_json_encode( $response ) );
 	}
 
 	public function check_edit_moderation( $type, $id ) {
@@ -107,7 +107,7 @@ class AJAX {
 
 	public function toggle_option() {
 		if ( WPR::is_current_user_admin() ) {
-			$name = Sanitize::slug( $_POST['option'] );
+			$name = Sanitize::slug( $_POST['option'] ); // phpcs:ignore WordPress.Security.NonceVerification
 
 			$this->admin_check_nonce( 'gdfar-toggle-option-' . $name );
 
@@ -121,10 +121,10 @@ class AJAX {
 	}
 
 	public function edit_request() {
-		$is    = isset( $_REQUEST['is'] ) ? Sanitize::slug( $_REQUEST['is'] ) : '';
-		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0;
-		$type  = isset( $_REQUEST['type'] ) ? Sanitize::slug( $_REQUEST['type'] ) : '';
-		$id    = isset( $_REQUEST['id'] ) ? absint( $_REQUEST['id'] ) : 0;
+		$is    = isset( $_REQUEST['is'] ) ? Sanitize::slug( $_REQUEST['is'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification
+		$type  = isset( $_REQUEST['type'] ) ? Sanitize::slug( $_REQUEST['type'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+		$id    = isset( $_REQUEST['id'] ) ? absint( $_REQUEST['id'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification
 
 		$this->check_nonce( $is, $forum );
 		$this->check_edit_moderation( $type, $id );
@@ -144,7 +144,7 @@ class AJAX {
 
 	public function edit_process() {
 		if ( isset( $_REQUEST['gdfar'] ) ) {
-			$data = (array) $_REQUEST['gdfar'];
+			$data = (array) $_REQUEST['gdfar']; // phpcs:ignore WordPress.Security.NonceVerification
 
 			$log = false;
 
@@ -204,10 +204,10 @@ class AJAX {
 	}
 
 	public function bulk_request() {
-		$is    = isset( $_REQUEST['is'] ) ? Sanitize::slug( $_REQUEST['is'] ) : '';
-		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0;
-		$type  = isset( $_REQUEST['type'] ) ? Sanitize::slug( $_REQUEST['type'] ) : '';
-		$id    = isset( $_REQUEST['id'] ) ? Sanitize::ids_list( $_REQUEST['id'] ) : array();
+		$is    = isset( $_REQUEST['is'] ) ? Sanitize::slug( $_REQUEST['is'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+		$forum = isset( $_REQUEST['forum'] ) ? absint( $_REQUEST['forum'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification
+		$type  = isset( $_REQUEST['type'] ) ? Sanitize::slug( $_REQUEST['type'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+		$id    = isset( $_REQUEST['id'] ) ? Sanitize::ids_list( $_REQUEST['id'] ) : array(); // phpcs:ignore WordPress.Security.NonceVerification
 
 		$this->check_nonce( $is, $forum );
 		$this->check_bulk_moderation( $type, $id );
@@ -227,7 +227,7 @@ class AJAX {
 
 	public function bulk_process() {
 		if ( isset( $_REQUEST['gdfar'] ) ) {
-			$data = (array) $_REQUEST['gdfar'];
+			$data = (array) $_REQUEST['gdfar']; // phpcs:ignore WordPress.Security.NonceVerification
 
 			$log = false;
 
