@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
-use Dev4Press\v45\Core\Plugins\Settings as BaseSettings;
+use Dev4Press\v48\Core\Plugins\Settings as BaseSettings;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -34,7 +34,7 @@ class Settings extends BaseSettings {
 		add_action( 'gdfar_load_settings', array( $this, 'init' ), 2 );
 	}
 
-	protected function _name( $name ) : string {
+	protected function _name( $name, $force_scope = '' ) : string {
 		return 'dev4press_' . $this->info->code . '_' . $name;
 	}
 }

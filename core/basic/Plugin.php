@@ -5,9 +5,9 @@ namespace Dev4Press\Plugin\GDFAR\Basic;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 use Dev4Press\Plugin\GDFAR\Manager\Actions;
 use Dev4Press\Plugin\GDFAR\Manager\Defaults;
-use Dev4Press\v45\Core\Plugins\Core;
-use Dev4Press\v45\Core\Quick\WPR;
-use Dev4Press\v45\Core\Shared\Enqueue;
+use Dev4Press\v48\Core\Plugins\Core;
+use Dev4Press\v48\Core\Quick\WPR;
+use Dev4Press\v48\Core\Shared\Enqueue;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

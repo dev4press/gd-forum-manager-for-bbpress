@@ -1,10 +1,10 @@
 === GD Forum Manager: plugin for WordPress and bbPress ===
 Contributors: GDragoN
 Donate link: https://buymeacoffee.com/millan
-Tags: dev4press, bbpress, edit, bulk edit, quick edit, moderation
-Stable tag: 2.6
+Tags: dev4press, bbpress, bulk edit, quick edit, moderation
+Stable tag: 2.7
 Requires at least: 5.8
-Tested up to: 6.4
+Tested up to: 6.5
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -97,6 +97,9 @@ The plugin adds a menu item in the WordPress Settings menu. There you have only 
 Yes. The POT file is provided as a base for translation. Translation files should go into languages directory.
 
 == Upgrade Notice ==
+= 2.7 =
+Various updates and improvements.
+
 = 2.6 =
 Various updates and improvements.
 
@@ -112,10 +115,12 @@ Various updates and improvements.
 = 2.2 =
 Various updates and improvements.
 
-= 2.1 =
-Various updates and improvements.
-
 == Changelog ==
+= 2.7 - 2024.04.28 =
+* New: directive `Requires Plugin` added into main plugin file
+* Edit: plugin admin dashboard styling improvements
+* Edit: Dev4Press Library 4.8
+
 = 2.6 - 2023.12.21 =
 * New: updated plugin system requirements
 * Edit: updated use of some PHP function with WordPress replacements

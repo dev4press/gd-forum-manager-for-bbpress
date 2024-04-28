@@ -3,8 +3,8 @@
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
 use Dev4Press\Plugin\GDFAR\Manager\Process;
-use Dev4Press\v45\Core\Quick\Sanitize;
-use Dev4Press\v45\Core\Quick\WPR;
+use Dev4Press\v48\Core\Quick\Sanitize;
+use Dev4Press\v48\Core\Quick\WPR;
 
 class AJAX {
 	private $nonce = 'gdfar-manager-request';
@@ -152,14 +152,14 @@ class AJAX {
 				if ( isset( $data['edit-log']['keep'] ) ) {
 					$log = array(
 						'keep'   => true,
-						'reason' => isset( $data['edit-log']['reason'] ) ? Sanitize::basic( $data['edit-log']['reason'] ) : '',
+						'reason' => isset( $data['edit-log']['reason'] ) ? Sanitize::text( $data['edit-log']['reason'] ) : '',
 					);
 				}
 			}
 
 			$data['action']   = isset( $data['action'] ) ? Sanitize::slug( $data['action'] ) : '';
 			$data['type']     = isset( $data['type'] ) ? Sanitize::slug( $data['type'] ) : '';
-			$data['nonce']    = isset( $data['nonce'] ) ? Sanitize::basic( $data['nonce'] ) : '';
+			$data['nonce']    = isset( $data['nonce'] ) ? Sanitize::text( $data['nonce'] ) : '';
 			$data['id']       = isset( $data['id'] ) ? absint( $data['id'] ) : 0;
 			$data['field']    = isset( $data['field'] ) ? gdfar_array_sanitize_text_field( (array) $data['field'] ) : array();
 			$data['edit-log'] = $log;
@@ -235,14 +235,14 @@ class AJAX {
 				if ( isset( $data['edit-log']['keep'] ) ) {
 					$log = array(
 						'keep'   => true,
-						'reason' => isset( $data['edit-log']['reason'] ) ? Sanitize::basic( $data['edit-log']['reason'] ) : '',
+						'reason' => isset( $data['edit-log']['reason'] ) ? Sanitize::text( $data['edit-log']['reason'] ) : '',
 					);
 				}
 			}
 
 			$data['action']   = isset( $data['action'] ) ? Sanitize::slug( $data['action'] ) : '';
 			$data['type']     = isset( $data['type'] ) ? Sanitize::slug( $data['type'] ) : '';
-			$data['nonce']    = isset( $data['nonce'] ) ? Sanitize::basic( $data['nonce'] ) : '';
+			$data['nonce']    = isset( $data['nonce'] ) ? Sanitize::text( $data['nonce'] ) : '';
 			$data['field']    = isset( $data['field'] ) ? (array) $data['field'] : array();
 			$data['id']       = isset( $data['id'] ) ? Sanitize::ids_list( $data['id'] ) : array();
 			$data['edit-log'] = $log;

@@ -2,6 +2,12 @@
 
 ## Changelog
 
+### Version: 2.7 / April 28 2024
+
+* **new** directive `Requires Plugin` added into main plugin file
+* **edit** plugin admin dashboard styling improvements
+* **edit** Dev4Press Library 4.8
+
 ### Version: 2.6 / December 21 2023
 
 * **new** updated plugin system requirements

@@ -2,8 +2,8 @@
 
 namespace Dev4Press\Plugin\GDFAR\Manager;
 
-use Dev4Press\v45\Core\Quick\Arr;
-use Dev4Press\v45\Core\Quick\Sanitize;
+use Dev4Press\v48\Core\Quick\Arr;
+use Dev4Press\v48\Core\Quick\Sanitize;
 use WP_Error;
 
 class Render {
