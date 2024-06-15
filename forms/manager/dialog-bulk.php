@@ -1,3 +1,10 @@
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+?>
 <div class="gdfar-modal gdfar-modal-slide" id="gdfar-modal-bulk" aria-hidden="true">
     <div class="gdfar-modal__overlay" tabindex="-1" data-micromodal-close>
         <div class="gdfar-modal__container" role="dialog" aria-modal="true" aria-labelledby="gdfar-modal-bulk-title">

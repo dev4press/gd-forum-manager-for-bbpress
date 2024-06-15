@@ -6,6 +6,9 @@
 
 * **edit** library `Micromodal` loaded from the shared Library
 * **edit** several small improvements to the plugin JS code
+* **edit** minor updates to the plugin readme file
+* **edit** few more changes related to WordPress and PHP code standards
+* **edit** protect all PHP files from direct file access
 * **edit** Dev4Press Library 4.9.1
 
 ### Version: 2.7 / April 28 2024

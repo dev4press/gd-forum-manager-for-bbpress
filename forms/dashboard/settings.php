@@ -1,3 +1,10 @@
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+?>
 <div class="d4p-group d4p-dashboard-card d4p-dashboard-card-settings d4p-dashboard-card-no-footer">
     <h3><?php esc_html_e( 'Plugin Settings', 'gd-forum-manager-for-bbpress' ); ?></h3>
     <div class="d4p-group-header">
