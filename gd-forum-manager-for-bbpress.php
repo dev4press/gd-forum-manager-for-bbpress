@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       GD Forum Manager: plugin for WordPress and bbPress
  * Plugin URI:        https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
- * Description:       Expand how the moderators can manage forum content from the frontend, from any page showing list of topics or forums.
+ * Description:       Expand how the moderators can manage forum and topics content from the frontend, from any page showing the list of topics or forums.
  * Author:            Milan Petrovic
  * Author URI:        https://www.dev4press.com/
  * Text Domain:       gd-forum-manager-for-bbpress

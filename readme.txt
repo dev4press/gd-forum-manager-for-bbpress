@@ -9,7 +9,7 @@ Requires PHP: 7.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Expand how the moderators can manage forum content from the frontend, from any page showing list of topics or forums.
+Expand how the moderators can manage forum and topics content from the frontend, from any page showing the list of topics or forums.
 
 == Description ==
 Editing topics and forums in the bbPress powered forums can be a slow process because you can do it only from the edit pages, and for forums only from the administration side. If you need to perform quick changes, close topics, rename them, that can take a while if you need to go through several screens to reach the edit page.
@@ -109,24 +109,27 @@ Various updates and improvements.
 = 2.5 =
 Many improvements and tweaks, with some bug fixes.
 
-= 2.4 =
-Various updates and improvements.
-
 == Changelog ==
-= 2.8 - 2024.04.28 =
+= Version 2.8 / 2024.06.14 =
+* Edit: library `Micromodal` loaded from the shared Library
+* Edit: several small improvements to the plugin JS code
+* Edit: minor updates to the plugin readme file
+* Edit: few more changes related to WordPress and PHP code standards
+* Edit: protect all PHP files from direct file access
+* Edit: Dev4Press Library 4.9.1
 
-= 2.7 - 2024.04.28 =
+= Version 2.7 / 2024.04.28 =
 * New: directive `Requires Plugin` added into main plugin file
 * Edit: plugin admin dashboard styling improvements
 * Edit: Dev4Press Library 4.8
 
-= 2.6 - 2023.12.21 =
+= Version 2.6 / 2023.12.21 =
 * New: updated plugin system requirements
 * Edit: updated use of some PHP function with WordPress replacements
 * Edit: plugin admin dashboard styling improvements
 * Edit: Dev4Press Library 4.5
 
-= 2.5 - 2023.11.15 =
+= Version 2.5 / 2023.11.15 =
 * New: tested with WordPress 6.4
 * New: log each change during the edit or bulk processing
 * Edit: if author name is empty, it will not be changed
@@ -134,15 +137,15 @@ Various updates and improvements.
 * Edit: Dev4Press Library 4.3
 * Fix: author username issue if the post is anonymous
 
-= 2.4 - 2023.07.15 =
+= Version 2.4 / 2023.07.15 =
 * New: tested with WordPress 6.2 and 6.3
 * Edit: Dev4Press Library 4.2
 
-= 2.3.1 - 2023.02.14 =
+= Version 2.3.1 / 2023.02.14 =
 * Edit: few updates to the core classes
 * Edit: Dev4Press Library 3.9.3
 
-= 2.3 - 2023.02.03 =
+= Version 2.3 / 2023.02.03 =
 * New: tested with WordPress 6.1
 * New: tested with PHP 8.1/8.2
 * New: updated plugin system requirements
@@ -150,18 +153,18 @@ Various updates and improvements.
 * Edit: improved admin side interface with new look
 * Edit: Dev4Press Library 3.9.2
 
-= 2.2 - 2022.05.17 =
+= Version 2.2 / 2022.05.17 =
 * New: tested with WordPress 6.0
 * New: changed order and actions for the plugin loading
 * New: method to check for the forum integration
 * Edit: Dev4Press Library 3.8
 * Fix: bulk box HTML visible for all logged-in users
 
-= 2.1.1 - 2022.03.13 =
+= Version 2.1.1 / 2022.03.13 =
 * Edit: Dev4Press Library 3.7.3
 * Fix: wrong case for some file names
 
-= 2.1 - 2022.03.06 =
+= Version 2.1 / 2022.03.06 =
 * New: allow editing of topics to forum moderators
 * New: improved admin side interface through updated shared library
 * Edit: many improvements to sanitation and escaping on echo
@@ -173,7 +176,7 @@ Various updates and improvements.
 * Edit: Dev4Press Library 3.7.3
 * Fix: some issues with the minified JavaScript file
 
-= 2.0 - 2021.02.16 =
+= Version 2.0 / 2021.02.16 =
 * New: actions: change single topic tags
 * New: actions: bulk remove topic tags
 * New: actions: change single topic author username
@@ -193,23 +196,23 @@ Various updates and improvements.
 * Fix: minor issues with the admin side plugin settings handling
 * Fix: various typos and other wording and naming issues
 
-= 1.4 - 2020.12.29 =
+= Version 1.4 / 2020.12.29 =
 * Edit: updated plugin requirements
 * Edit: various minor updates
 * Edit: Dev4Press Library 3.3.1
 
-= 1.3 - 2020.11.12 =
+= Version 1.3 / 2020.11.12 =
 * Edit: refactored and updated to WordPress coding style
 * Edit: requires bbPress 2.6.2 or newer
 * Edit: removed support for bbPress 2.5
 * Edit: Dev4Press Library 3.3
 * Fix: few minor issues caused by the shared library changes
 
-= 1.2 - 2020.08.14 =
+= Version 1.2 / 2020.08.14 =
 * Edit: improved plugin dashboard displaying list of actions
 * Edit: Dev4Press Library 3.2
 
-= 1.1 - 2020.06.24 =
+= Version 1.1 / 2020.06.24 =
 * New: responsive styling for the bulk toolbar
 * New: option to always show controls on small screens
 * Edit: improvements to the forums selection rendering
@@ -217,7 +220,7 @@ Various updates and improvements.
 * Edit: various styling improvements
 * Fix: settings object base prefix
 
-= 1.0 - 2020.06.22 =
+= Version 1.0 / 2020.06.22 =
 * First plugin version
 
 == Screenshots ==
