@@ -6,9 +6,9 @@
  * Author:            Milan Petrovic
  * Author URI:        https://www.dev4press.com/
  * Text Domain:       gd-forum-manager-for-bbpress
- * Version:           2.7
+ * Version:           2.8
  * Requires at least: 5.8
- * Tested up to:      6.5
+ * Tested up to:      6.6
  * Requires PHP:      7.4
  * Requires Plugins:  bbpress
  * License:           GPLv3 or later
@@ -31,7 +31,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>
  */
 
-use Dev4Press\v48\WordPress;
+use Dev4Press\v49\WordPress;
 
 const GDFAR_FILE = __FILE__;
 

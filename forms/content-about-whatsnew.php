@@ -1,4 +1,4 @@
-<?php include( GDFAR_PATH . 'forms/content-about-minor.php' ); ?>
+<?php include GDFAR_PATH . 'forms/content-about-minor.php'; ?>
 
 <div class="d4p-about-whatsnew">
     <div class="d4p-whatsnew-section d4p-whatsnew-heading">
@@ -23,11 +23,11 @@
                     The new plugin version expands the list of the topic related edit (and bulk edit) actions with actions for editing topic tags and topic author. When used in bulk mode, topic tags can only be cleared.
                 </p>
                 <p>
-                    And, there is new set of options for saving edit log for modified topics, with the optional revision entry, similar to what bbPress does for normal topic edit. This edit log feature is disabled by default (and available for topics only), and you can enable it from the plugin settings page.
+                    And, there is a new set of options for saving edit log for modified topics, with the optional revision entry, similar to what bbPress does for normal topic edit. This edit log feature is disabled by default (and available for topics only), and you can enable it from the plugin settings page.
                 </p>
             </div>
             <div class="core-col-sm-12 core-col-md-6">
-                <img src="<?php echo GDFAR_URL; ?>images/edit.jpg"/>
+                <img src="<?php echo GDFAR_URL; ?>images/edit.jpg" alt="Edit"/>
             </div>
         </div>
     </div>

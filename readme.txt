@@ -2,9 +2,9 @@
 Contributors: GDragoN
 Donate link: https://buymeacoffee.com/millan
 Tags: dev4press, bbpress, bulk edit, quick edit, moderation
-Stable tag: 2.7
+Stable tag: 2.8
 Requires at least: 5.8
-Tested up to: 6.5
+Tested up to: 6.6
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -14,12 +14,12 @@ Expand how the moderators can manage forum content from the frontend, from any p
 == Description ==
 Editing topics and forums in the bbPress powered forums can be a slow process because you can do it only from the edit pages, and for forums only from the administration side. If you need to perform quick changes, close topics, rename them, that can take a while if you need to go through several screens to reach the edit page.
 
-Now, with GD Forum Manager for bbPress, you can do it quick and accessible from any topics or forums list on the frontend in two ways: single forum or topic editing and bulk editing of one or more selected forums or topics. Every forum or topic list (single forum, forums or topics index, topic views, user profile) now has controls to edit a single item or select items for bulk editing. And editing is done using popup modal dialog. You can even do something that bbPress doesn't allow you to do: change the author of the topic.
-
-= Plugin In Action =
+= Quick Introduction Video =
 https://www.youtube.com/watch?v=-zS7cZaZ11A
 
-= Features Overview =
+Now, with GD Forum Manager for bbPress, you can do it quick and accessible from any topics or forums list on the frontend in two ways: single forum or topic editing and bulk editing of one or more selected forums or topics. Every forum or topic list (single forum, forums or topics index, topic views, user profile) now has controls to edit a single item or select items for bulk editing. And editing is done using popup modal dialog. You can even do something that bbPress doesn't allow you to do: change the author of the topic.
+
+= Feature Overview =
 * Using AJAX to retrieve actions and values
 * Using AJAX to perform the edit operations
 * Modal popup to display edit and bulk edit actions
@@ -43,16 +43,16 @@ https://www.youtube.com/watch?v=-zS7cZaZ11A
 * Quick Edit also available from the single topic pages
 
 = Developers Friendly =
-* Ability to register new actions for edit and bulk edit
-* Ability to override existing actions for additional control
+* The ability to register new actions for edit and bulk edit
+* The ability to override existing actions for additional control
 
 = Log changes into Database =
-GD Forum Manager supports logging of editing events into database with the use of 'coreActivity' plugin, and it is highly recommended to install and use coreActivity.
+GD Forum Manager supports logging of editing events into a database with the use of 'coreActivity' plugin, and it is highly recommended to install and use coreActivity.
 
-Log all edit and bulk edit events into database with the free plugin: [coreActivity Plugin](https://wordpress.org/plugins/coreactivity/), supporting over 120 events and more than 10 popular WordPress plugins. GD Forum Manager related events will be logged and available for later analysis.
+Log all edit and bulk edit events into a database with the free plugin: [coreActivity Plugin](https://wordpress.org/plugins/coreactivity/), supporting over 120 events and more than 10 popular WordPress plugins. GD Forum Manager related events will be logged and available for later analysis.
 
 = bbPress Plugin Versions =
-GD Forum Manager supports bbPress 2.6.2 or newer. Older bbPress versions are not supported!
+GD Forum Manager supports bbPress 2.6.2 or newer. **Older bbPress versions are not supported!**
 
 = Home and GitHub =
 * Learn more about the plugin: [GD Forum Manager for bbPress Website](https://plugins.dev4press.com/gd-forum-manager-for-bbpress/)
@@ -97,6 +97,9 @@ The plugin adds a menu item in the WordPress Settings menu. There you have only 
 Yes. The POT file is provided as a base for translation. Translation files should go into languages directory.
 
 == Upgrade Notice ==
+= 2.8 =
+Various updates and improvements.
+
 = 2.7 =
 Various updates and improvements.
 
@@ -109,13 +112,9 @@ Many improvements and tweaks, with some bug fixes.
 = 2.4 =
 Various updates and improvements.
 
-= 2.3 =
-Various updates and improvements.
-
-= 2.2 =
-Various updates and improvements.
-
 == Changelog ==
+= 2.8 - 2024.04.28 =
+
 = 2.7 - 2024.04.28 =
 * New: directive `Requires Plugin` added into main plugin file
 * Edit: plugin admin dashboard styling improvements

@@ -23,7 +23,7 @@
                             $(".gdfar-content-wrapper", el).append("<p class='gdfar-error-message'>" + message + '</p>');
                         });
                     } else {
-                        location.reload(false);
+                        location.reload();
                     }
                 } else if (json.status === "error") {
                     alert(json.error);
@@ -187,5 +187,7 @@
         }
     };
 
-    wp.gdfar.manager.init();
+    $(document).ready(function() {
+        wp.gdfar.manager.init();
+    });
 })(jQuery, window, document);

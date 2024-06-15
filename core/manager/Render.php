@@ -2,8 +2,8 @@
 
 namespace Dev4Press\Plugin\GDFAR\Manager;
 
-use Dev4Press\v48\Core\Quick\Arr;
-use Dev4Press\v48\Core\Quick\Sanitize;
+use Dev4Press\v49\Core\Quick\Arr;
+use Dev4Press\v49\Core\Quick\Sanitize;
 use WP_Error;
 
 class Render {
@@ -187,7 +187,7 @@ class Render {
 		return $elements;
 	}
 
-	private function _log( $type ) {
+	private function _log( $type ) : string {
 		if ( $type == 'topic' && gdfar_settings()->get( 'topic_edit_log' ) ) {
 			$element = 'action-edit-log-9999' . '-' . wp_rand( 1000, 9999 );
 

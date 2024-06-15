@@ -205,9 +205,9 @@
 
 @media (max-width: 640px) {
   .bbp-forum-info .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-checkbox,
-.bbp-forum-info .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-edit,
-.bbp-topic-title .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-checkbox,
-.bbp-topic-title .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-edit {
+  .bbp-forum-info .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-edit,
+  .bbp-topic-title .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-checkbox,
+  .bbp-topic-title .gdfar-ctrl-wrapper.is-always-on .gdfar-ctrl-edit {
     visibility: visible;
   }
   .gdfar-modal__content dl {
@@ -215,18 +215,18 @@
     padding: 15px 15px 0;
   }
   .gdfar-modal__content dl:first-of-type > dt,
-.gdfar-modal__content dl:first-of-type > dd {
+  .gdfar-modal__content dl:first-of-type > dd {
     padding-top: 0;
   }
   .gdfar-modal__content dl:last-of-type {
     padding-bottom: 15px;
   }
   .gdfar-modal__content dl:last-of-type > dt,
-.gdfar-modal__content dl:last-of-type > dd {
+  .gdfar-modal__content dl:last-of-type > dd {
     padding-bottom: 0;
   }
   .gdfar-modal__content dl > dt,
-.gdfar-modal__content dl > dd {
+  .gdfar-modal__content dl > dd {
     display: block;
     width: 100%;
   }

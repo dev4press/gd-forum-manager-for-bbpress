@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
-use Dev4Press\v48\Core\Plugins\Information as BaseInformation;
+use Dev4Press\v49\Core\Plugins\Information as BaseInformation;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Information extends BaseInformation {
 	public $code = 'gd-forum-manager-for-bbpress';
 
-	public $version = '2.7';
-	public $build = 140;
+	public $version = '2.8';
+	public $build = 150;
 	public $edition = 'free';
 	public $status = 'stable';
-	public $updated = '2024.04.28';
+	public $updated = '2024.05.15';
 	public $released = '2020.06.22';
 
 	public $is_bbpress_plugin = true;

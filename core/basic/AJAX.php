@@ -3,8 +3,8 @@
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
 use Dev4Press\Plugin\GDFAR\Manager\Process;
-use Dev4Press\v48\Core\Quick\Sanitize;
-use Dev4Press\v48\Core\Quick\WPR;
+use Dev4Press\v49\Core\Quick\Sanitize;
+use Dev4Press\v49\Core\Quick\WPR;
 
 class AJAX {
 	private $nonce = 'gdfar-manager-request';
