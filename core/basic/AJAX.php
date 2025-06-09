@@ -3,11 +3,15 @@
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
 use Dev4Press\Plugin\GDFAR\Manager\Process;
-use Dev4Press\v49\Core\Quick\Sanitize;
-use Dev4Press\v49\Core\Quick\WPR;
+use Dev4Press\v54\Core\Quick\Sanitize;
+use Dev4Press\v54\Core\Quick\WPR;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 class AJAX {
-	private $nonce = 'gdfar-manager-request';
+	private string $nonce = 'gdfar-manager-request';
 
 	public function __construct() {
 		add_action( 'wp_ajax_gdfar_toggle_option', array( $this, 'toggle_option' ) );

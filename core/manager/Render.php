@@ -2,9 +2,13 @@
 
 namespace Dev4Press\Plugin\GDFAR\Manager;
 
-use Dev4Press\v49\Core\Quick\Arr;
-use Dev4Press\v49\Core\Quick\Sanitize;
+use Dev4Press\v54\Core\Quick\Arr;
+use Dev4Press\v54\Core\Quick\Sanitize;
 use WP_Error;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 class Render {
 	public function __construct() {

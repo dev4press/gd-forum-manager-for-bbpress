@@ -4,6 +4,10 @@ namespace Dev4Press\Plugin\GDFAR\Manager;
 
 use WP_Error;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Defaults {
 	private $_defaults = array(
 		'forum' => array(

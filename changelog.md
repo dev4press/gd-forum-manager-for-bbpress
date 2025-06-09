@@ -2,6 +2,15 @@
 
 ## Changelog
 
+### Version: 3.0 / June 13 2025
+
+* **new** tested with WordPress 6.8
+* **new** tested and compatible with `PHP` 8.4
+* **new** tested with bbPress up to 2.6.13
+* **new** loading of `Dev4Press Library` via Composer
+* **new** refactoring namespaces and plugin structure
+* **edit** Dev4Press Library 5.4
+
 ### Version: 2.8 / June 15 2024
 
 * **edit** library `Micromodal` loaded from the shared Library

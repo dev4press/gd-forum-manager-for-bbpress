@@ -31,19 +31,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>
  */
 
-use Dev4Press\v49\WordPress;
+use Dev4Press\v54\WordPress;
 
-const GDFAR_FILE = __FILE__;
+define( 'GDFAR_FILE', __FILE__ );
+define( 'GDFAR_PATH', __DIR__ . '/' );
+define( 'GDFAR_URL', plugins_url( '/', __FILE__ ) );
 
-$gdfar_dirname_basic = dirname( GDFAR_FILE ) . '/';
-$gdfar_urlname_basic = plugins_url( '/', GDFAR_FILE );
+require_once GDFAR_PATH . 'vendor/autoload.php';
 
-define( 'GDFAR_PATH', $gdfar_dirname_basic );
-define( 'GDFAR_URL', $gdfar_urlname_basic );
-define( 'GDFAR_D4PLIB_PATH', $gdfar_dirname_basic . 'd4plib/' );
-define( 'GDFAR_D4PLIB_URL', $gdfar_urlname_basic . 'd4plib/' );
-
-require_once GDFAR_D4PLIB_PATH . 'core.php';
+require_once GDFAR_PATH . 'vendor/dev4press/library/core.php';
 
 require_once GDFAR_PATH . 'core/autoload.php';
 require_once GDFAR_PATH . 'core/bridge.php';
