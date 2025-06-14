@@ -2,16 +2,16 @@
 
 namespace Dev4Press\Plugin\GDFAR\bbPress;
 
-use Dev4Press\v49\Core\Quick\Sanitize;
+use Dev4Press\v54\Core\Quick\Sanitize;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 class Integration {
-	public $_always_on = false;
-	public $_queued = false;
-	public $_key = 1;
+	public bool $_always_on = false;
+	public bool $_queued = false;
+	public int $_key = 1;
 
 	public function __construct() {
 		add_action( 'gdfar_plugin_init', array( $this, 'init' ), 20 );

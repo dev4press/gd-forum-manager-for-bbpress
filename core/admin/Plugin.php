@@ -3,20 +3,20 @@
 namespace Dev4Press\Plugin\GDFAR\Admin;
 
 use Dev4Press\Plugin\GDFAR\Basic\Settings;
-use Dev4Press\v49\Core\Admin\Submenu\Plugin as BasePlugin;
+use Dev4Press\v54\Core\Admin\Submenu\Plugin as BasePlugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 class Plugin extends BasePlugin {
-	public $plugin = 'gd-forum-manager-for-bbpress';
-	public $plugin_prefix = 'gdfar';
-	public $plugin_menu = 'GD Forum Manager';
-	public $plugin_title = 'GD Forum Manager for bbPress';
+	public string $plugin = 'gd-forum-manager-for-bbpress';
+	public string $plugin_prefix = 'gdfar';
+	public string $plugin_menu = 'forumManager';
+	public string $plugin_title = 'forumManager for bbPress';
 
-	public $buy_me_a_coffee = true;
-	public $auto_mod_interface_colors = true;
+	public bool $buy_me_a_coffee = true;
+	public bool $auto_mod_interface_colors = true;
 
 	public function constructor() {
 		$this->url  = GDFAR_URL;

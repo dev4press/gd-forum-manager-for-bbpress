@@ -1,21 +1,21 @@
 <?php
 /**
- * Plugin Name:       GD Forum Manager: plugin for WordPress and bbPress
- * Plugin URI:        https://plugins.dev4press.com/gd-forum-manager-for-bbpress/
+ * Plugin Name:       forumManager for bbPress
+ * Plugin URI:        https://www.dev4press.com/plugins/gd-forum-manager-for-bbpress/
  * Description:       Expand how the moderators can manage forum and topics content from the frontend, from any page showing the list of topics or forums.
  * Author:            Milan Petrovic
  * Author URI:        https://www.dev4press.com/
  * Text Domain:       gd-forum-manager-for-bbpress
- * Version:           2.8
- * Requires at least: 5.8
- * Tested up to:      6.6
+ * Version:           3.0
+ * Requires at least: 6.0
+ * Tested up to:      6.8
  * Requires PHP:      7.4
  * Requires Plugins:  bbpress
  * License:           GPLv3 or later
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
  *
  * == Copyright ==
- * Copyright 2008 - 2024 Milan Petrovic (email: support@dev4press.com)
+ * Copyright 2008 - 2025 Milan Petrovic (email: support@dev4press.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,19 +31,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>
  */
 
-use Dev4Press\v49\WordPress;
+use Dev4Press\v54\WordPress;
 
-const GDFAR_FILE = __FILE__;
+define( 'GDFAR_FILE', __FILE__ );
+define( 'GDFAR_PATH', __DIR__ . '/' );
+define( 'GDFAR_URL', plugins_url( '/', __FILE__ ) );
 
-$gdfar_dirname_basic = dirname( GDFAR_FILE ) . '/';
-$gdfar_urlname_basic = plugins_url( '/', GDFAR_FILE );
+require_once GDFAR_PATH . 'vendor/autoload.php';
 
-define( 'GDFAR_PATH', $gdfar_dirname_basic );
-define( 'GDFAR_URL', $gdfar_urlname_basic );
-define( 'GDFAR_D4PLIB_PATH', $gdfar_dirname_basic . 'd4plib/' );
-define( 'GDFAR_D4PLIB_URL', $gdfar_urlname_basic . 'd4plib/' );
-
-require_once GDFAR_D4PLIB_PATH . 'core.php';
+require_once GDFAR_PATH . 'vendor/dev4press/library/core.php';
 
 require_once GDFAR_PATH . 'core/autoload.php';
 require_once GDFAR_PATH . 'core/bridge.php';

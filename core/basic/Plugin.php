@@ -5,16 +5,16 @@ namespace Dev4Press\Plugin\GDFAR\Basic;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 use Dev4Press\Plugin\GDFAR\Manager\Actions;
 use Dev4Press\Plugin\GDFAR\Manager\Defaults;
-use Dev4Press\v49\Core\Plugins\Core;
-use Dev4Press\v49\Core\Quick\WPR;
-use Dev4Press\v49\Core\Shared\Enqueue;
+use Dev4Press\v54\Core\Plugins\Core;
+use Dev4Press\v54\Core\Quick\WPR;
+use Dev4Press\v54\Core\Shared\Enqueue;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 class Plugin extends Core {
-	public $plugin = 'gd-forum-manager-for-bbpress';
+	public string $plugin = 'gd-forum-manager-for-bbpress';
 
 	private $_active = false;
 	private $_bbpress = null;

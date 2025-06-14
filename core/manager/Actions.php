@@ -2,8 +2,12 @@
 
 namespace Dev4Press\Plugin\GDFAR\Manager;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Actions {
-	private $_actions = array();
+	private array $_actions = array();
 
 	public function __construct() {
 		add_action( 'gdfar_plugin_init', array( $this, 'init' ) );

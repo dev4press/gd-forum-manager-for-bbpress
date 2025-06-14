@@ -2,16 +2,16 @@
 
 namespace Dev4Press\Plugin\GDFAR\Basic;
 
-use Dev4Press\v49\Core\Plugins\Settings as BaseSettings;
+use Dev4Press\v54\Core\Plugins\Settings as BaseSettings;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 class Settings extends BaseSettings {
-	public $base = 'gdfar';
+	public string $base = 'gdfar';
 
-	public $settings = array(
+	public array $settings = array(
 		'core'     => array(
 			'activated' => 0,
 		),

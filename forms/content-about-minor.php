@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="d4p-about-minor">
     <h3><?php esc_html_e( 'Maintenance and Security Releases', 'gd-forum-manager-for-bbpress' ); ?></h3>
     <p>
-        <strong><?php esc_html_e( 'Version', 'gd-forum-manager-for-bbpress' ); ?> <span>2.1 / 2.1.1 / 2.2 / 2.3 / 2.4 / 2.5 / 2.6 / 2.7 / 2.8</span></strong> &minus;
+        <strong><?php esc_html_e( 'Version', 'gd-forum-manager-for-bbpress' ); ?> <span>2.1 / 2.1.1 / 2.2 / 2.3 / 2.4 / 2.5 / 2.6 / 2.7 / 2.8 / 3.0</span></strong> &minus;
         Many updates and improvements.
     </p>
     <p>

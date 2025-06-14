@@ -1,6 +1,16 @@
-# GD Forum Manager for bbPress
+# forumManager for bbPress
 
 ## Changelog
+
+### Version: 2.5 / November 15 2023
+
+* **new** tested with WordPress 6.4
+* **new** log each change during the edit or bulk processing
+* **new** additional actions fired during the AJAX handling
+* **edit** if author name is empty, it will not be changed
+* **edit** plugin admin dashboard styling improvements
+* **edit** Dev4Press Library 4.3
+* **fix** author username issue if the post is anonymous
 
 ### Version: 2.4 / July 15 2023
 

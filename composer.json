@@ -1,0 +1,5 @@
+{
+    "require": {
+        "dev4press/library": "~5.4"
+    }
+}

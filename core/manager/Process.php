@@ -4,6 +4,10 @@ namespace Dev4Press\Plugin\GDFAR\Manager;
 
 use WP_Error;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Process {
 	private $data;
 	private $modd;
