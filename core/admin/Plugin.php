@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Plugin extends BasePlugin {
 	public string $plugin = 'gd-forum-manager-for-bbpress';
 	public string $plugin_prefix = 'gdfar';
-	public string $plugin_menu = 'GD Forum Manager';
-	public string $plugin_title = 'GD Forum Manager for bbPress';
+	public string $plugin_menu = 'forumManager';
+	public string $plugin_title = 'forumManager for bbPress';
 
 	public bool $buy_me_a_coffee = true;
 	public bool $auto_mod_interface_colors = true;

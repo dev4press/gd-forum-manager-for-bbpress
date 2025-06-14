@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Information extends BaseInformation {
 	public string $code = 'gd-forum-manager-for-bbpress';
 
-	public string $version = '2.8';
-	public int $build = 150;
+	public string $version = '3.0';
+	public int $build = 200;
 	public string $edition = 'free';
 	public string $status = 'stable';
-	public string $updated = '2024.05.15';
+	public string $updated = '2025.06.14';
 	public string $released = '2020.06.22';
 
 	public bool $is_bbpress_plugin = true;
