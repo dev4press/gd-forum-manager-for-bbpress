@@ -1,2 +1,3 @@
-# Vendor
+build/
 vendor/
+node_modules/

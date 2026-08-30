@@ -5,9 +5,10 @@ namespace Dev4Press\Plugin\GDFAR\Basic;
 use Dev4Press\Plugin\GDFAR\bbPress\Integration;
 use Dev4Press\Plugin\GDFAR\Manager\Actions;
 use Dev4Press\Plugin\GDFAR\Manager\Defaults;
-use Dev4Press\v54\Core\Plugins\Core;
-use Dev4Press\v54\Core\Quick\WPR;
-use Dev4Press\v54\Core\Shared\Enqueue;
+use Dev4Press\v56\Core\Plugins\Core;
+use Dev4Press\v56\Core\Quick\WPR;
+use Dev4Press\v56\Core\Shared\Enqueue;
+use Dev4Press\v56\WordPress;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -15,13 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Plugin extends Core {
 	public string $plugin = 'gd-forum-manager-for-bbpress';
+	public string $theme_package = 'default';
 
-	private $_active = false;
+	private bool $_active = false;
+	private array $_roles = array();
+
 	private $_bbpress = null;
 	private $_actions = null;
-	private $_roles = array();
-
-	public $theme_package = 'default';
 
 	public function __construct() {
 		$this->url  = GDFAR_URL;
@@ -76,56 +77,67 @@ class Plugin extends Core {
 		}
 	}
 
-	public function register_css_and_js() {
+	public function register_css_and_js() : void {
+		$folder = WordPress::i()->is_script_debug() ? 'src' : 'build';
+
 		Enqueue::i()->add_css( 'gdfar-micromodal', array(
 			'lib'  => false,
-			'url'  => GDFAR_URL . 'css/',
+			'url'  => GDFAR_URL . 'build/css/',
 			'file' => 'micromodal',
 			'ver'  => gdfar_settings()->file_version(),
 			'ext'  => 'css',
-			'min'  => true,
-			'int'  => array(),
+			'min'  => false,
 		) );
 
 		Enqueue::i()->add_css( 'gdfar-manager', array(
 			'lib'  => false,
-			'url'  => GDFAR_URL . 'css/',
+			'url'  => GDFAR_URL . 'build/css/',
 			'file' => 'manager',
 			'ver'  => gdfar_settings()->file_version(),
 			'ext'  => 'css',
-			'min'  => true,
+			'min'  => false,
 			'int'  => array( 'gdfar-micromodal' ),
 		) );
 
 		Enqueue::i()->add_css( 'gdfar-manager-rtl', array(
 			'lib'  => false,
-			'url'  => GDFAR_URL . 'css/',
+			'url'  => GDFAR_URL . 'build/css/',
 			'file' => 'manager-rtl',
 			'ver'  => gdfar_settings()->file_version(),
 			'ext'  => 'css',
-			'min'  => true,
+			'min'  => false,
 			'int'  => array( 'gdfar-manager' ),
+		) );
+
+		Enqueue::i()->add_js( 'gdfar-micromodal', array(
+			'lib'    => false,
+			'url'    => GDFAR_URL . 'build/js/',
+			'file'   => 'micromodal',
+			'ver'    => '0.7.0',
+			'ext'    => 'js',
+			'min'    => false,
+			'footer' => true,
 		) );
 
 		Enqueue::i()->add_js( 'gdfar-manager', array(
 			'lib'      => false,
-			'url'      => GDFAR_URL . 'js/',
+			'url'      => GDFAR_URL . $folder . '/js/',
 			'file'     => 'manager',
 			'ver'      => gdfar_settings()->file_version(),
 			'ext'      => 'js',
-			'min'      => true,
+			'min'      => false,
 			'footer'   => true,
 			'localize' => true,
 			'req'      => array( 'jquery', 'jquery-form' ),
-			'int'      => array( 'micromodal' ),
+			'int'      => array( 'gdfar-micromodal' ),
 		) );
 	}
 
-	public function after_setup_theme() {
+	public function after_setup_theme() : void {
 		do_action( 'gdfar_after_setup_theme' );
 	}
 
-	public function plugin_init() {
+	public function plugin_init() : void {
 		if ( ! is_admin() && is_user_logged_in() ) {
 			$this->_active = true;
 		}
@@ -135,7 +147,7 @@ class Plugin extends Core {
 		do_action( 'gdfar_plugin_init' );
 	}
 
-	public function plugin_wp() {
+	public function plugin_wp() : void {
 		do_action( 'gdfar_plugin_wp' );
 	}
 

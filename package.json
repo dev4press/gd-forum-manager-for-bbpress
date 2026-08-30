@@ -1,0 +1,19 @@
+{
+  "name": "gd-forum-manager-for-bbpress",
+  "version": "3.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build --mode js && vite build --mode css",
+    "build:js": "vite build --mode js",
+    "build:css": "vite build --mode css"
+  },
+  "devDependencies": {
+    "sass": "^1.103.1",
+    "terser": "^5.51.2",
+    "vite": "^8.2.2"
+  },
+  "dependencies": {
+    "micromodal": "^0.7.0"
+  }
+}
