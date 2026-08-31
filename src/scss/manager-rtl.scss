@@ -1,0 +1,58 @@
+.bbp-forum-info,
+.bbp-topic-title {
+    .gdfar-ctrl-wrapper {
+        float: left;
+        margin: 0 5px 0 0;
+    }
+}
+
+.gdfar-modal__content {
+    dl {
+        > dt {
+            border-left: 1px solid #DDD;
+            border-right: none;
+            text-align: left;
+        }
+
+        &.gdfar-is-error {
+            > dt {
+                border-left-color: #D6B3B3;
+            }
+        }
+    }
+
+    form {
+        select {
+            padding: 0 8px 0 24px;
+        }
+    }
+}
+
+.gdfar-bulk-control {
+    > div {
+        &.__status {
+            padding: 0 0 0 10px;
+            margin: 0 0 0 10px;
+            border-left: 1px solid #999;
+            border-right: none;
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        &.__editor {
+            float: left;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .gdfar-modal__content {
+        dl {
+            > dt {
+                text-align: right;
+            }
+        }
+    }
+}

@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\bbPress;
 
-use Dev4Press\v54\Core\Quick\Sanitize;
+use Dev4Press\v56\Core\Quick\Sanitize;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -18,13 +18,13 @@ class Integration {
 		add_action( 'gdfar_plugin_wp', array( $this, 'wp' ), 20 );
 	}
 
-	public function init() {
+	public function init() : void {
 		if ( gdfar_settings()->get( 'small_screen_always_show' ) ) {
 			$this->_always_on = true;
 		}
 	}
 
-	public function wp() {
+	public function wp() : void {
 		if ( gdfar_settings()->get( 'forum' ) && gdfar()->is_allowed_for_forums() ) {
 			add_action( 'bbp_theme_before_forum_title', array( $this, 'forum_controls' ), 1 );
 			add_action( 'bbp_template_after_forums_loop', array( $this, 'forum_bulk' ) );
@@ -37,7 +37,7 @@ class Integration {
 		}
 	}
 
-	public function enqueue() {
+	public function enqueue() : void {
 		$this->_queued = true;
 
 		if ( is_rtl() ) {
@@ -93,7 +93,7 @@ class Integration {
 		do_action( 'gdfar_plugin_enqueue_scripts' );
 	}
 
-	public function forum_controls() {
+	public function forum_controls() : void {
 		$forum_id = absint( bbp_get_forum_id() );
 
 		$classes = array( 'gdfar-ctrl-wrapper', 'gdfar-ctrl-forum' );
@@ -102,13 +102,13 @@ class Integration {
 			$classes[] = 'is-always-on';
 		}
 
-		$_link_edit = apply_filters( 'gdfar_control_forum_edit', esc_html__( 'edit', 'gd-forum-manager-for-bbpress' ) );
-		$_link_aria = apply_filters( 'gdfar_control_forum_edit_aria_label', sprintf( esc_html__( 'Open popup to edit \'%s\' forum', 'gd-forum-manager-for-bbpress' ), bbp_get_forum_title() ) );
-		$_bulk_aria = apply_filters( 'gdfar_control_forum_edit_bulk_aria_label', sprintf( esc_html__( 'Enable bulk edit for \'%s\' forum', 'gd-forum-manager-for-bbpress' ), bbp_get_forum_title() ) );
+		$_link_edit = apply_filters( 'gdfar_control_forum_edit', __( 'edit', 'gd-forum-manager-for-bbpress' ) );
+		$_link_aria = apply_filters( 'gdfar_control_forum_edit_aria_label', sprintf( __( 'Open popup to edit \'%s\' forum', 'gd-forum-manager-for-bbpress' ), bbp_get_forum_title() ) );
+		$_bulk_aria = apply_filters( 'gdfar_control_forum_edit_bulk_aria_label', sprintf( __( 'Enable bulk edit for \'%s\' forum', 'gd-forum-manager-for-bbpress' ), bbp_get_forum_title() ) );
 
 		echo '<div class="' . Sanitize::html_classes( $classes ) . '" data-key="' . $this->_key . '" data-type="forum" data-id="' . $forum_id . '">';
-		echo '<input aria-label="' . $_bulk_aria . '" type="checkbox" class="gdfar-ctrl-checkbox" />';
-		echo '<a aria-label="' . $_link_aria . '" href="#" class="gdfar-ctrl-edit">' . $_link_edit . '</a>';
+		echo '<input aria-label="' . esc_attr( $_bulk_aria ) . '" type="checkbox" class="gdfar-ctrl-checkbox" />';
+		echo '<a aria-label="' . esc_attr( $_link_aria ) . '" href="#" class="gdfar-ctrl-edit">' . esc_html( $_link_edit ) . '</a>';
 		echo '</div>';
 
 		if ( ! $this->_queued ) {
@@ -118,7 +118,7 @@ class Integration {
 		}
 	}
 
-	public function topic_controls() {
+	public function topic_controls() : void {
 		$topic_id = absint( bbp_get_topic_id() );
 
 		if ( gdfar()->is_allowed_for_topic( $topic_id ) ) {
@@ -128,13 +128,13 @@ class Integration {
 				$classes[] = 'is-always-on';
 			}
 
-			$_link_edit = apply_filters( 'gdfar_control_topic_edit', esc_html__( 'edit', 'gd-forum-manager-for-bbpress' ) );
-			$_link_aria = apply_filters( 'gdfar_control_topic_edit_aria_label', sprintf( esc_html__( 'Open popup to edit \'%s\' topic', 'gd-forum-manager-for-bbpress' ), bbp_get_topic_title() ) );
-			$_bulk_aria = apply_filters( 'gdfar_control_topic_edit_bulk_aria_label', sprintf( esc_html__( 'Enable bulk edit for \'%s\' topic', 'gd-forum-manager-for-bbpress' ), bbp_get_topic_title() ) );
+			$_link_edit = apply_filters( 'gdfar_control_topic_edit', __( 'edit', 'gd-forum-manager-for-bbpress' ) );
+			$_link_aria = apply_filters( 'gdfar_control_topic_edit_aria_label', sprintf( __( 'Open popup to edit \'%s\' topic', 'gd-forum-manager-for-bbpress' ), bbp_get_topic_title() ) );
+			$_bulk_aria = apply_filters( 'gdfar_control_topic_edit_bulk_aria_label', sprintf( __( 'Enable bulk edit for \'%s\' topic', 'gd-forum-manager-for-bbpress' ), bbp_get_topic_title() ) );
 
-			echo '<div class="' . Sanitize::html_classes( $classes ) . '" data-key="' . $this->_key . '" data-type="topic" data-id="' . $topic_id . '">';
-			echo '<input aria-label="' . $_bulk_aria . '" type="checkbox" class="gdfar-ctrl-checkbox" />';
-			echo '<a aria-label="' . $_link_aria . '" href="#" class="gdfar-ctrl-edit">' . $_link_edit . '</a>';
+			echo '<div class="' . Sanitize::html_classes( $classes ) . '" data-key="' . $this->_key . '" data-type="topic" data-id="' . esc_attr( $topic_id ) . '">';
+			echo '<input aria-label="' . esc_attr( $_bulk_aria ) . '" type="checkbox" class="gdfar-ctrl-checkbox" />';
+			echo '<a aria-label="' . esc_attr( $_link_aria ) . '" href="#" class="gdfar-ctrl-edit">' . esc_html( $_link_edit ) . '</a>';
 			echo '</div>';
 
 			if ( ! $this->_queued ) {
@@ -147,9 +147,9 @@ class Integration {
 
 	public function topic_admin_links( $links, $topic_id ) : array {
 		if ( gdfar()->is_allowed_for_topic( $topic_id ) ) {
-			$_edit = apply_filters( 'gdfar_control_topic_quick_edit', esc_html__( 'Quick Edit', 'gd-forum-manager-for-bbpress' ) );
+			$_edit = apply_filters( 'gdfar_control_topic_quick_edit', __( 'Quick Edit', 'gd-forum-manager-for-bbpress' ) );
 
-			$links = array( 'quick-edit' => '<a class="bbp-topic-quick-edit-link" href="#" data-id="' . $topic_id . '">' . $_edit . '</a>' ) + $links;
+			$links = array( 'quick-edit' => '<a class="bbp-topic-quick-edit-link" href="#" data-id="' . esc_attr( $topic_id ) . '">' . esc_html( $_edit ) . '</a>' ) + $links;
 
 			if ( ! $this->_queued ) {
 				$this->enqueue();
@@ -161,16 +161,16 @@ class Integration {
 		return $links;
 	}
 
-	public function modals() {
+	public function modals() : void {
 		require_once( GDFAR_PATH . 'forms/manager/dialog-edit.php' );
 		require_once( GDFAR_PATH . 'forms/manager/dialog-bulk.php' );
 	}
 
-	public function modal_quick() {
+	public function modal_quick() : void {
 		require_once( GDFAR_PATH . 'forms/manager/dialog-edit.php' );
 	}
 
-	public function forum_bulk() {
+	public function forum_bulk() : void {
 		echo '<div class="gdfar-bulk-control gdfar-bulk-forum-' . $this->_key . '" aria-hidden="true" data-type="forum" data-key="' . $this->_key . '">';
 		echo '<div class="__status">' . esc_html__( 'Selected Forums', 'gd-forum-manager-for-bbpress' ) . ': <span class="__selected">0</span>/<span class="__total">0</span></div>';
 		echo '<div class="__select"><a class="__all" href="#all">' . esc_html__( 'select all', 'gd-forum-manager-for-bbpress' ) . '</a> &middot; <a class="__none" href="#none">' . esc_html__( 'select none', 'gd-forum-manager-for-bbpress' ) . '</a></div>';
@@ -180,7 +180,7 @@ class Integration {
 		$this->_key ++;
 	}
 
-	public function topic_bulk() {
+	public function topic_bulk() : void {
 		echo '<div class="gdfar-bulk-control gdfar-bulk-topic-' . $this->_key . '" aria-hidden="true" data-type="topic" data-key="' . $this->_key . '">';
 		echo '<div class="__status">' . esc_html__( 'Selected Topics', 'gd-forum-manager-for-bbpress' ) . ': <span class="__selected">0</span>/<span class="__total">0</span></div>';
 		echo '<div class="__select"><a class="__all" href="#all">' . esc_html__( 'select all', 'gd-forum-manager-for-bbpress' ) . '</a> &middot; <a class="__none" href="#none">' . esc_html__( 'select none', 'gd-forum-manager-for-bbpress' ) . '</a></div>';

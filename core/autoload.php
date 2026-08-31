@@ -4,11 +4,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function dev4press_plugin_gdfar_autoload( $class ) {
+function dev4press_plugin_gdfar_autoload( $class ) : void {
 	$path = dirname( __FILE__ ) . '/';
 	$base = 'Dev4Press\\Plugin\\GDFAR\\';
 
-	dev4press_v54_autoload_for_plugin( $class, $base, $path );
+	dev4press_v56_autoload_for_plugin( $class, $base, $path );
 }
 
 spl_autoload_register( 'dev4press_plugin_gdfar_autoload' );

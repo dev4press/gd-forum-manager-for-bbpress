@@ -2,8 +2,8 @@
 
 namespace Dev4Press\Plugin\GDFAR\Manager;
 
-use Dev4Press\v54\Core\Quick\Arr;
-use Dev4Press\v54\Core\Quick\Sanitize;
+use Dev4Press\v56\Core\Quick\Arr;
+use Dev4Press\v56\Core\Quick\Sanitize;
 use WP_Error;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -119,11 +119,11 @@ class Render {
 					$notice = '';
 
 					if ( ! empty( $action['notice'] ) && gdfar_settings()->get( 'notices_under_fields' ) ) {
-						$notice = '<div class="gdfar-content-notice">' . $action['notice'] . '</div>';
+						$notice = '<div class="gdfar-content-notice">' . esc_html( $action['notice'] ) . '</div>';
 					}
 
 					$elements[] = '<dl class="' . Sanitize::html_classes( $classes ) . '"><dt>' .
-					              '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . $label . '</label></div>' .
+					              '<div class="gdfar-label-wrapper"><label for="' . esc_attr( $element ) . '">' . esc_html( $label ) . '</label></div>' .
 					              '</dt><dd>' .
 					              '<div class="gdfar-content-wrapper">' . $render . $notice . '</div>' .
 					              '</dd></dl>';
@@ -174,11 +174,11 @@ class Render {
 					$notice = '';
 
 					if ( ! empty( $action['notice'] ) && gdfar_settings()->get( 'notices_under_fields' ) ) {
-						$notice = '<div class="gdfar-content-notice">' . $action['notice'] . '</div>';
+						$notice = '<div class="gdfar-content-notice">' . esc_html( $action['notice'] ) . '</div>';
 					}
 
 					$elements[] = '<dl class="' . Sanitize::html_classes( $classes ) . '"><dt>' .
-					              '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . $label . '</label></div>' .
+					              '<div class="gdfar-label-wrapper"><label for="' . esc_attr( $element ) . '">' . esc_html( $label ) . '</label></div>' .
 					              '</dt><dd>' .
 					              '<div class="gdfar-content-wrapper">' . $render . $notice . '</div>' .
 					              '</dd></dl>';
@@ -201,13 +201,13 @@ class Render {
 			);
 
 			return '<div class="gdfar-manager-edit-log"><dl class="' . Sanitize::html_classes( $classes ) . '"><dt>' .
-			       '<div class="gdfar-label-wrapper"><label for="' . $element . '">' . __( 'Edit Log', 'gd-forum-manager-for-bbpress' ) . '</label></div>' .
+			       '<div class="gdfar-label-wrapper"><label for="' . esc_attr( $element ) . '">' . esc_html__( 'Edit Log', 'gd-forum-manager-for-bbpress' ) . '</label></div>' .
 			       '</dt><dd>' .
 			       '<div class="gdfar-content-wrapper">' .
 			       '<input type="checkbox" checked="checked" name="gdfar[edit-log][keep]" />' .
-			       '<span>' . __( 'Keep a log of this edit', 'gd-forum-manager-for-bbpress' ) . '</span>' .
+			       '<span>' . esc_html__( 'Keep a log of this edit', 'gd-forum-manager-for-bbpress' ) . '</span>' .
 			       '</div>' .
-			       '<input type="text" name="gdfar[edit-log][reason]" value="" placeholder="' . __( 'Optional reason for editing', 'gd-forum-manager-for-bbpress' ) . '" />' .
+			       '<input type="text" name="gdfar[edit-log][reason]" value="" placeholder="' . esc_attr__( 'Optional reason for editing', 'gd-forum-manager-for-bbpress' ) . '" />' .
 			       '</dd></dl></div>';
 		}
 

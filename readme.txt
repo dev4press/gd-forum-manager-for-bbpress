@@ -2,10 +2,10 @@
 Contributors: GDragoN
 Donate link: https://buymeacoffee.com/millan
 Tags: dev4press, bbpress, bulk edit, quick edit, moderation
-Stable tag: 3.0
-Requires at least: 6.0
-Tested up to: 6.8
-Requires PHP: 7.4
+Stable tag: 3.1
+Requires at least: 6.4
+Tested up to: 7.1
+Requires PHP: 8.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -17,7 +17,7 @@ Editing topics and forums in the bbPress powered forums can be a slow process be
 = Quick Introduction Video =
 https://www.youtube.com/watch?v=-zS7cZaZ11A
 
-Now, with forumManager for bbPress, you can do it quick and accessible from any topics or forums list on the frontend in two ways: single forum or topic editing and bulk editing of one or more selected forums or topics. Every forum or topic list (single forum, forums or topics index, topic views, user profile) now has controls to edit a single item or select items for bulk editing. And editing is done using popup modal dialog. You can even do something that bbPress doesn't allow you to do: change the author of the topic.
+Now, with forumManager for bbPress, you can do it quick and accessible from any topics or forums list on the frontend in two ways: single forum or topic editing and bulk editing of one or more selected forums or topics. Every forum or topic list (single forum, forums or topics index, topic views, user profile) now has controls to edit a single item or select items for bulk editing. And editing is done using a popup modal dialog. You can even do something that bbPress doesn't allow you to do: change the author of the topic.
 
 = Feature Overview =
 * Using AJAX to retrieve actions and values
@@ -30,7 +30,7 @@ Now, with forumManager for bbPress, you can do it quick and accessible from any 
 * Enable moderators to use the plugin
 * Enable use of a plugin for forums
 * Enable use of a plugin for topics
-* Various display related settings
+* Various display-related settings
 * Option to enable saving of edit log
 
 = Forums Editing =
@@ -39,8 +39,8 @@ Now, with forumManager for bbPress, you can do it quick and accessible from any 
 
 = Topic Editing =
 * Quick Edit: title, author, topic tags, sticky, status, and forum
-* Bulk Edit: author, clear tags, sticky, status and forum
-* Quick Edit also available from the single topic pages
+* Bulk Edit: author, clear tags, sticky, status, and forum
+* Quick Edit is also available from the single topic pages
 
 = Developers Friendly =
 * The ability to register new actions for edit and bulk edit
@@ -65,21 +65,21 @@ To get help with the plugin, you can use WordPress.org support forums, or you ca
 * Support Forum: [Dev4Press Support](https://support.dev4press.com/forums/forum/plugins/gd-forum-manager-for-bbpress/)
 
 = More Free Dev4Press plugins for bbPress =
-* [membersDirectory for bbPress](https://wordpress.org/plugins/gd-members-directory-for-bbpress/) - add page with list of forum users
+* [membersDirectory for bbPress](https://wordpress.org/plugins/gd-members-directory-for-bbpress/) - add a page with a list of forum users
 * [powerSearch for bbPress](https://wordpress.org/plugins/gd-power-search-for-bbpress/) - add advanced search to the bbPress topics
 * [topicPolls for bbPress](https://wordpress.org/plugins/gd-topic-polls/) - add polls to the bbPress topics
 * [GD bbPress Attachments](https://wordpress.org/plugins/gd-bbpress-attachments/) - attachments for topics and replies
 * [GD bbPress Tools](https://wordpress.org/plugins/gd-bbpress-tools/) - various expansion tools for forums
 
 = Dev4Press Pro plugins for bbPress =
-Get Premium plugins for bbPress to enhance bbPress powered forums. More information is available here: [bbPress Plugins Club](https://bbpress.dev4press.com/?utm_source=wporg&utm_medium=link&utm_campaign=gd-forum-manager-for-bbpress).
+Get Premium plugins for bbPress to enhance bbPress powered forums. More information is available here: [bbPress Plugins Club](https://www.dev4press.com/bbpress-club/?utm_source=wporg&utm_medium=link&utm_campaign=gd-forum-manager-for-bbpress).
 
 == Installation ==
 = General Requirements =
-* PHP: 7.4 or newer
+* PHP: 8.0 or newer
 
 = WordPress Requirements =
-* WordPress: 5.8 or newer
+* WordPress: 6.4 or newer
 
 = bbPress Requirements =
 * bbPress Plugin: 2.6.2 or newer
@@ -91,12 +91,15 @@ Get Premium plugins for bbPress to enhance bbPress powered forums. More informat
 
 == Frequently Asked Questions ==
 = Where can I configure the plugin? =
-The plugin adds a menu item in the WordPress Settings menu. There you have only a few toggle based options to configure.
+The plugin adds a menu item in the WordPress Settings menu. There you have only a few toggle-based options to configure.
 
 = Can I translate the plugin to my language? =
-Yes. The POT file is provided as a base for translation. Translation files should go into languages directory.
+Yes. The POT file is provided as a base for translation. Translation files should go into the languages directory.
 
 == Upgrade Notice ==
+= 3.1 =
+Various updates and improvements.
+
 = 3.0 =
 Various updates and improvements.
 
@@ -106,10 +109,16 @@ Various updates and improvements.
 = 2.7 =
 Various updates and improvements.
 
-= 2.6 =
-Various updates and improvements.
-
 == Changelog ==
+= Version: 3.1 / august 31 2026 =
+* New: tested with WordPress 7.1
+* New: tested and compatible with `PHP` 8.5
+* New: build process for the JS and CSS files
+* Edit: improved escaping when rendering
+* Edit: Dev4Press Library 5.6.2
+* Edit: Micromodal 0.7.0
+* Fix: a small potential XSS vulnerability
+
 = Version: 3.0 / june 14 2025 =
 * New: tested with WordPress 6.8
 * New: tested and compatible with `PHP` 8.4

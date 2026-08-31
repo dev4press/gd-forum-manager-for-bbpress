@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Defaults {
-	private $_defaults = array(
+	private array $_defaults = array(
 		'forum' => array(
 			'edit' => array( 'rename', 'status', 'visibility' ),
 			'bulk' => array( 'status', 'visibility' ),
@@ -35,7 +35,7 @@ class Defaults {
 		}
 	}
 
-	public function modded( $type, $id, $element = null, $new = null, $old = null ) {
+	public function modded( $type, $id, $element = null, $new = null, $old = null ) : void {
 		Process::instance()->modded( $type, $id, $element, $new, $old );
 	}
 
@@ -58,7 +58,7 @@ class Defaults {
 			bbp_is_topic_sticky( $topic_id ) ? 'sticky' : 'no' );
 	}
 
-	private function _update_forum_status( $status, $forum_id ) {
+	private function _update_forum_status( $status, $forum_id ) : void {
 		switch ( $status ) {
 			case 'open':
 				do_action( 'bbp_opened_forum', $forum_id );
@@ -69,7 +69,7 @@ class Defaults {
 		}
 	}
 
-	private function _before_update_topic_status( $status, $old_status, $topic_id ) {
+	private function _before_update_topic_status( $status, $old_status, $topic_id ) : void {
 		switch ( $status ) {
 			case 'publish':
 				if ( $old_status == 'pending' ) {
@@ -97,7 +97,7 @@ class Defaults {
 		}
 	}
 
-	private function _after_update_topic_status( $status, $old_status, $topic_id ) {
+	private function _after_update_topic_status( $status, $old_status, $topic_id ) : void {
 		switch ( $status ) {
 			case 'publish':
 				if ( $old_status == 'pending' ) {

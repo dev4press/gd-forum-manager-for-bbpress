@@ -13,7 +13,7 @@ class Actions {
 		add_action( 'gdfar_plugin_init', array( $this, 'init' ) );
 	}
 
-	public function init() {
+	public function init() : void {
 		$this->_default_actions_forum_edit();
 		$this->_default_actions_forum_bulk();
 		$this->_default_actions_topic_edit();
@@ -67,7 +67,7 @@ class Actions {
 		return true;
 	}
 
-	public function unregister( $name, $scope, $action ) {
+	public function unregister( $name, $scope, $action ) : void {
 		if ( isset( $this->_actions[ $scope ][ $action ][ $name ] ) ) {
 			unset( $this->_actions[ $scope ][ $action ][ $name ] );
 		}
@@ -81,7 +81,7 @@ class Actions {
 		return isset( $this->_actions[ $scope ][ $action ] ) ? count( $this->_actions[ $scope ][ $action ] ) : 0;
 	}
 
-	private function _default_actions_forum_edit() {
+	private function _default_actions_forum_edit() : void {
 		$this->register( 'rename', array(
 			'scope'       => 'forum',
 			'action'      => 'edit',
@@ -104,7 +104,7 @@ class Actions {
 		) );
 	}
 
-	private function _default_actions_forum_bulk() {
+	private function _default_actions_forum_bulk() : void {
 		$this->register( 'status', array(
 			'scope'       => 'forum',
 			'action'      => 'bulk',
@@ -168,7 +168,7 @@ class Actions {
 		) );
 	}
 
-	private function _default_actions_topic_bulk() {
+	private function _default_actions_topic_bulk() : void {
 		$this->register( 'forum', array(
 			'scope'       => 'topic',
 			'action'      => 'bulk',

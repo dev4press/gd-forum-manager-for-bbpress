@@ -2,7 +2,7 @@
 
 namespace Dev4Press\Plugin\GDFAR\Admin;
 
-use Dev4Press\v54\Core\Admin\PostBack as BasePostBack;
+use Dev4Press\v56\Core\Admin\PostBack as BasePostBack;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

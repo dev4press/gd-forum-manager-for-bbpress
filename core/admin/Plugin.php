@@ -3,7 +3,8 @@
 namespace Dev4Press\Plugin\GDFAR\Admin;
 
 use Dev4Press\Plugin\GDFAR\Basic\Settings;
-use Dev4Press\v54\Core\Admin\Submenu\Plugin as BasePlugin;
+use Dev4Press\v56\Core\Admin\Submenu\Plugin as BasePlugin;
+use Dev4Press\v56\WordPress;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -18,32 +19,34 @@ class Plugin extends BasePlugin {
 	public bool $buy_me_a_coffee = true;
 	public bool $auto_mod_interface_colors = true;
 
-	public function constructor() {
+	public function constructor() : void {
 		$this->url  = GDFAR_URL;
 		$this->path = GDFAR_PATH;
 	}
 
-	public function register_scripts_and_styles() {
+	public function register_scripts_and_styles() : void {
+		$folder = WordPress::i()->is_script_debug() ? 'src' : 'build';
+
 		$this->enqueue->register( 'js', 'gdfar-admin',
 			array(
-				'path' => 'js/',
+				'path' => $folder . '/js/',
 				'file' => 'admin',
 				'ext'  => 'js',
-				'min'  => true,
+				'min'  => false,
 				'ver'  => gdfar_settings()->file_version(),
 				'src'  => 'plugin',
 			) )->register( 'css', 'gdfar-admin',
 			array(
-				'path' => 'css/',
+				'path' => 'build/css/',
 				'file' => 'admin',
 				'ext'  => 'css',
-				'min'  => true,
+				'min'  => false,
 				'ver'  => gdfar_settings()->file_version(),
 				'src'  => 'plugin',
-			) );;
+			) );
 	}
 
-	public function admin_menu_items() {
+	public function admin_menu_items() : void {
 		$this->setup_items = array(
 			'install' => array(
 				'title' => __( 'Install', 'gd-forum-manager-for-bbpress' ),
@@ -79,11 +82,11 @@ class Plugin extends BasePlugin {
 		return gdfon()->svg_icon;
 	}
 
-	public function run_getback() {
+	public function run_getback() : void {
 		new GetBack( $this );
 	}
 
-	public function run_postback() {
+	public function run_postback() : void {
 		new PostBack( $this );
 	}
 
@@ -107,7 +110,7 @@ class Plugin extends BasePlugin {
 		return null;
 	}
 
-	protected function extra_enqueue_scripts_plugin() {
+	protected function extra_enqueue_scripts_plugin() : void {
 		$this->enqueue->js( 'gdfar-admin' );
 		$this->enqueue->css( 'gdfar-admin' );
 	}

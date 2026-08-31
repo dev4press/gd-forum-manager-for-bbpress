@@ -6,16 +6,16 @@
  * Author:            Milan Petrovic
  * Author URI:        https://www.dev4press.com/
  * Text Domain:       gd-forum-manager-for-bbpress
- * Version:           3.0
- * Requires at least: 6.0
- * Tested up to:      6.8
- * Requires PHP:      7.4
+ * Version:           3.1
+ * Requires at least: 6.4
+ * Tested up to:      7.1
+ * Requires PHP:      8.0
  * Requires Plugins:  bbpress
  * License:           GPLv3 or later
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
  *
  * == Copyright ==
- * Copyright 2008 - 2025 Milan Petrovic (email: support@dev4press.com)
+ * Copyright 2008 - 2026 Milan Petrovic (email: support@dev4press.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,10 +28,10 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>
+ * along with this program. If not, see <https://www.gnu.org/licenses/>
  */
 
-use Dev4Press\v54\WordPress;
+use Dev4Press\v56\WordPress;
 
 define( 'GDFAR_FILE', __FILE__ );
 define( 'GDFAR_PATH', __DIR__ . '/' );
