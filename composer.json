@@ -3,5 +3,22 @@
     "dev4press/library": "~5.6.2",
     "ext-json": "*",
     "php": ">=8.0"
+  },
+  "scripts": {
+    "post-cleanup": [
+      "rm -rf vendor/bin",
+      "rm -rf vendor/erusev/parsedown/.github",
+      "rm -rf vendor/erusev/parsedown-extra/.github",
+      "rm -rf vendor/erusev/parsedown-extra/.gitignore",
+      "rm -rf vendor/erusev/parsedown-extra/test",
+      "rm -rf vendor/erusev/parsedown-extra/.travis.yml",
+      "rm -rf vendor/erusev/parsedown-extra/phpunit.xml.dist"
+    ],
+    "post-install-cmd": [
+      "@post-cleanup"
+    ],
+    "post-update-cmd": [
+      "@post-cleanup"
+    ]
   }
 }
