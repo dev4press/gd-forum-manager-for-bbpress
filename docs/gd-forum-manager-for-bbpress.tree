@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="gd-forum-manager-for-bbpress" name="forumManager for bbPress" start-page="getting-started.md">
+    <toc-element topic="getting-started.md">
+        <toc-element topic="system-requirements.md"/>
+        <toc-element topic="ultimate-guide-to-forum-manager.md"/>
+        <toc-element topic="editor-integration-guide.md"/>
+    </toc-element>
+    <toc-element topic="plugin-setup.md">
+        <toc-element topic="install-and-update.md"/>
+        <toc-element topic="plugin-panels-organization.md"/>
+    </toc-element>
+    <toc-element topic="plugin-panels.md">
+        <toc-element topic="panel-dashboard.md"/>
+    </toc-element>
+    <toc-element topic="features.md">
+        <toc-element topic="quick-and-bulk-editing.md"/>
+        <toc-element topic="editing-forums.md"/>
+        <toc-element topic="editing-topics.md"/>
+        <toc-element topic="plugins-that-add-editor-options.md"/>
+        <toc-element topic="topic-edit-log.md"/>
+    </toc-element>
+    <toc-element topic="troubleshooting.md"/>
+    <toc-element topic="faq.md">
+        <toc-element topic="faq-configure-plugin.md"/>
+        <toc-element topic="faq-who-can-edit.md"/>
+    </toc-element>
+</instance-profile>

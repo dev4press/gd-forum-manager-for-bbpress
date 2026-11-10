@@ -50,7 +50,8 @@ export default defineConfig(({mode}) => {
     return {
         build: {
             emptyOutDir: !isCssBuild,
-            minify: isCssBuild ? 'esbuild' : 'terser',
+            minify: isCssBuild ? false : 'terser',
+            cssMinify: true,
             outDir: buildDirectory,
             rollupOptions: {
                 input: isCssBuild ? cssEntries : jsEntries,

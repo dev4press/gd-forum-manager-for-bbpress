@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### Version: 3.1.1 / November 11 2026
+* **edit** updates to the build scripts
+* **edit** Dev4Press Library 5.6.5.
+
 ### Version: 3.1 / August 31 2026
 * **new** tested with WordPress 7.1
 * **new** tested and compatible with `PHP` 8.5
