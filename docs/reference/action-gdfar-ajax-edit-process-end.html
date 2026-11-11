@@ -1,0 +1,19 @@
+<!-- post-title: gdfar_ajax_edit_process_end -->
+
+<!-- wp:gdkob/source {"type":"action","show_code_line":false,"hide_default":true,"returns_show":false} -->
+<div class="wp-block-gdkob-source gdkob-source gdkob-source-action"><div class="gdkob-source-inner"><div class="_definition"><h5 class="_title">Definition</h5><div class="_format"><span class="_prefix">do_action( </span><span class="_wrapper">&quot;</span><span class="_name">gdfar_ajax_edit_process_end</span><span class="_wrapper">&quot;</span><span class="_divider">, </span><span class="_attributes">$data, $result, $changes</span><span class="_suffix"> );</span></div></div><div class="_arguments"><h5 class="_title">Arguments</h5><div class="_header"><div class="_inner"><div class="_element _el-argument">Name</div><div class="_element _el-type">Type</div><div class="_element _el-description">Description</div></div></div><div class="_the-list">
+<!-- wp:gdkob/argument {"hide_default":true} -->
+<div class="wp-block-gdkob-argument gdkob-source-argument"><div class="_inner"><div class="_element _el-argument">$data</div><div class="_element _el-type">array</div><div class="_element _el-description">Request data for the edit operation.</div></div></div>
+<!-- /wp:gdkob/argument -->
+<!-- wp:gdkob/argument {"hide_default":true} -->
+<div class="wp-block-gdkob-argument gdkob-source-argument"><div class="_inner"><div class="_element _el-argument">$result</div><div class="_element _el-type">array|WP_Error</div><div class="_element _el-description">Field error messages keyed by action name, or a WP_Error for an operation-level error.</div></div></div>
+<!-- /wp:gdkob/argument -->
+<!-- wp:gdkob/argument {"hide_default":true} -->
+<div class="wp-block-gdkob-argument gdkob-source-argument"><div class="_inner"><div class="_element _el-argument">$changes</div><div class="_element _el-type">array</div><div class="_element _el-description">Recorded changes for the edited object, keyed by field.</div></div></div>
+<!-- /wp:gdkob/argument -->
+</div></div></div></div>
+<!-- /wp:gdkob/source -->
+
+<!-- wp:paragraph -->
+<p>Runs after processing and collecting recorded changes, before the AJAX response for an individual forum or topic edit. The hook also fires when processing reports errors; other changes may have succeeded. Type-specific variants also fire with forum or topic inserted after edit.</p>
+<!-- /wp:paragraph -->

@@ -1,0 +1,13 @@
+<!-- post-title: gdfar_ajax_edit_process_start -->
+
+<!-- wp:gdkob/source {"type":"action","show_code_line":false,"hide_default":true,"returns_show":false} -->
+<div class="wp-block-gdkob-source gdkob-source gdkob-source-action"><div class="gdkob-source-inner"><div class="_definition"><h5 class="_title">Definition</h5><div class="_format"><span class="_prefix">do_action( </span><span class="_wrapper">&quot;</span><span class="_name">gdfar_ajax_edit_process_start</span><span class="_wrapper">&quot;</span><span class="_divider">, </span><span class="_attributes">$data</span><span class="_suffix"> );</span></div></div><div class="_arguments"><h5 class="_title">Arguments</h5><div class="_header"><div class="_inner"><div class="_element _el-argument">Name</div><div class="_element _el-type">Type</div><div class="_element _el-description">Description</div></div></div><div class="_the-list">
+<!-- wp:gdkob/argument {"hide_default":true} -->
+<div class="wp-block-gdkob-argument gdkob-source-argument"><div class="_inner"><div class="_element _el-argument">$data</div><div class="_element _el-type">array</div><div class="_element _el-description">Request data for the edit operation, including sanitized field values.</div></div></div>
+<!-- /wp:gdkob/argument -->
+</div></div></div></div>
+<!-- /wp:gdkob/source -->
+
+<!-- wp:paragraph -->
+<p>Runs after nonce and moderation checks, immediately before processing for an individual forum or topic edit. The hook does not run for requests rejected by those checks. Type-specific variants also fire with forum or topic inserted after edit.</p>
+<!-- /wp:paragraph -->

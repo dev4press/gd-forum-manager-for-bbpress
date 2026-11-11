@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function gdfar() : Plugin {
-	return Plugin::instance();
+	return Plugin::i();
 }
 
 function gdfar_settings() : Settings {
@@ -19,7 +19,7 @@ function gdfar_settings() : Settings {
 }
 
 function gdfar_admin() : AdminPlugin {
-	return AdminPlugin::instance();
+	return AdminPlugin::i();
 }
 
 function gdfar_ajax() : AJAX {
